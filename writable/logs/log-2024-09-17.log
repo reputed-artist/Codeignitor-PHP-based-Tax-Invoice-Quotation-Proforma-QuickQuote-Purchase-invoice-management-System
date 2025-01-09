@@ -1,0 +1,38 @@
+CRITICAL - 2024-09-17 04:25:34 --> include(footer.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout2.php(923): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(footer....', 'C:\\xampp\\htdocs...', 923, Array)
+#1 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout2.php(923): include()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(28): view('layout/dashboar...')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->datatb()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-17 04:26:12 --> Invalid file: footer.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('footer.php')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('footer.php', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout2.php(923): CodeIgniter\View\View->include('footer.php')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Client.php(28): view('layout/dashboar...')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->datatb()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-09-17 04:26:13 --> Invalid file: footer.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('footer.php')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('footer.php', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout2.php(923): CodeIgniter\View\View->include('footer.php')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Client.php(28): view('layout/dashboar...')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->datatb()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}

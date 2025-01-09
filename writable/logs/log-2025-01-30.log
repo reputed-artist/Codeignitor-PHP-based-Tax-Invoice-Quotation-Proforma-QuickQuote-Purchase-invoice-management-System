@@ -1,0 +1,1240 @@
+INFO - 2025-01-30 03:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:24:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:31:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:41:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 03:41:01 --> Undefined variable: crudModel2
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(81): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 81, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 03:41:01 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 03:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:46:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 03:46:30 --> Undefined variable: filename
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 03:46:30 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 03:47:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 03:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 03:47:28 --> Undefined variable: filename
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 03:47:28 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 06:54:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:54:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 06:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 06:56:51 --> Undefined variable: filename
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 06:56:51 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:02:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:02:52 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:02:52 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:03:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:16:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:16:21 --> Declaration of App\Models\Admin_model::update($id, $data) must be compatible with CodeIgniter\Model::update($id = NULL, $data = NULL): bool
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:21:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:21:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:21:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:21:50 --> Declaration of App\Models\Admin_model::update($id, $data) must be compatible with CodeIgniter\Model::update($id = NULL, $data = NULL): bool
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:25:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:26:07 --> Declaration of App\Models\Admin_model::update($id, $data) must be compatible with CodeIgniter\Model::update($id = NULL, $data = NULL): bool
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:28:13 --> Declaration of App\Models\Admin_model::update($id, $data) must be compatible with CodeIgniter\Model::update($id = NULL, $data = NULL): bool
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:43:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 07:43:54 --> mysqli_sql_exception: Unknown column 'image' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `admin` ...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `admin` ...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `admin` ...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `admin` ...', Array, false)
+#4 C:\xampp\htdocs\C4\app\Models\Admin_model.php(87): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updatez(1, Array)
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-01-30 07:43:54 --> Unknown column 'image' in 'field list'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `admin` ...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `admin` ...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `admin` ...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `admin` ...', Array, false)
+#4 C:\xampp\htdocs\C4\app\Models\Admin_model.php(87): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updatez(1, Array)
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-01-30 07:43:54 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(mysqli_sql_exception), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(mysqli_sql_exception))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 07:44:27 --> mysqli_sql_exception: Unknown column 'image' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `admin` ...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `admin` ...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `admin` ...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `admin` ...', Array, false)
+#4 C:\xampp\htdocs\C4\app\Models\Admin_model.php(87): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updatez(1, Array)
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-01-30 07:44:27 --> Unknown column 'image' in 'field list'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('UPDATE `admin` ...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `admin` ...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `admin` ...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2468): CodeIgniter\Database\BaseConnection->query('UPDATE `admin` ...', Array, false)
+#4 C:\xampp\htdocs\C4\app\Models\Admin_model.php(87): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updatez(1, Array)
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-01-30 07:44:27 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(mysqli_sql_exception), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(mysqli_sql_exception))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:44:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:44:35 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:45:05 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1738244696.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1738244696, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2025-01-30 07:45:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:45:11 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:45:11 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:46:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:46:34 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:46:34 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:47:24 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:47:24 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:47:34 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:47:34 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:47:55 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:47:55 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:52:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:52:55 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:52:55 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 07:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 07:56:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:56:31 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1738245381.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1738245381, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2025-01-30 07:56:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 07:56:40 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 07:56:40 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:01:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:01:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:01:37 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1738245690.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1738245690, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2025-01-30 08:01:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:01:43 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:03:50 --> Argument 2 passed to App\Models\Admin_model::updaterecord() must be of the type string, array given, called in C:\xampp\htdocs\C4\app\Controllers\Profile.php on line 88
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(88): App\Models\Admin_model->updaterecord(1, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 08:03:50 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(TypeError), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(TypeError))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:07:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:07:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:07:46 --> Call to a member function isValid() on null
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2025-01-30 08:07:46 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:08:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:08:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:08:48 --> Undefined property: App\Controllers\Profile::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(123): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 123, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 08:08:48 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:10:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 08:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:11:08 --> Undefined property: App\Controllers\Profile::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 08:11:08 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:11:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:11:28 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 08:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 08:11:35 --> Undefined property: App\Controllers\Profile::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 08:11:35 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 09:42:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:42:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:43:51 --> Call to a member function isValid() on null
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2025-01-30 09:43:51 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 09:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:43:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:44:09 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1738251840.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1738251840, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2025-01-30 09:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:44:12 --> Call to a member function isValid() on null
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2025-01-30 09:44:12 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 09:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:44:41 --> Undefined property: App\Controllers\Profile::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(123): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 123, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 09:44:41 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 09:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:45:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:45:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:45:20 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1738251914.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1738251913, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2025-01-30 09:45:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 09:45:23 --> Undefined property: App\Controllers\Profile::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Profile.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Profile->uploadProductImage()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Profile))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-01-30 09:45:23 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 09:53:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:53:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:53:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:55:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 09:57:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:08:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:13:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:17:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:17:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:45 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:45 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:47 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:47 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:47 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:47 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:48 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:48 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:48 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:48 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:48 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:48 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:48 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:48 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-30 10:20:48 --> mysqli_sql_exception: Duplicate entry 'T/24-25/0009' for key 'PRIMARY' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-01-30 10:20:48 --> Duplicate entry 'T/24-25/0009' for key 'PRIMARY'
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pa...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pa...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pa...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pa...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Transaction_model.php(55): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Transaction.php(256): App\Models\Transaction_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Transaction->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaction))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+INFO - 2025-01-30 10:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 10:21:40 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2025-01-30 10:21:57 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 10:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:22:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 10:22:46 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 10:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:23:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:23:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:24:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:24:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:39:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:45:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 10:45:20 --> Undefined variable: financial_years
+#0 C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php(159): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 159, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Dashboard.php(59): view('layout/dashboar...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Dashboard->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-01-30 10:45:20 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 10:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 10:46:44 --> Undefined index: fy
+#0 C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php(160): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 160, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Dashboard.php(59): view('layout/dashboar...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Dashboard->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-01-30 10:46:44 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 10:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:55:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:55:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:55:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:56:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:56:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 10:56:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:01:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:01:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:09:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:14:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:14:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:16:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:19:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:20:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:30:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:30:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:31:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:37:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:38:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:38:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:38:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:40:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 11:46:02 --> Undefined variable: startyear
+#0 C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php(147): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 147, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Dashboard.php(59): view('layout/dashboar...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Dashboard->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-01-30 11:46:02 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 11:46:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-30 11:46:13 --> Undefined variable: startyear
+#0 C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php(165): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 165, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Dashboard.php(59): view('layout/dashboar...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Dashboard->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-01-30 11:46:13 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2025-01-30 11:46:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:46:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:47:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:48:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:51:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:54:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 11:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:11:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:11:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:11:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:13:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:17:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:20:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:22:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:23:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:23:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:23:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:29:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:30:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:37:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:41:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:41:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-30 12:45:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

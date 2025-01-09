@@ -1,0 +1,12 @@
+CRITICAL - 2024-09-20 23:56:21 --> Call to a member function findAll() on null
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-20 23:56:23 --> Call to a member function findAll() on null
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}

@@ -1,0 +1,25 @@
+SELECT * FROM ( SELECT invtest2.invid AS 'invoice details', NULL AS 'purpose', invtest2.totalamount AS 'credit', NULL AS 'debit', invtest2.created, 'Sales' AS 'voucher_type' FROM invtest2 WHERE invtest2.cid = 814 AND invtest2.created BETWEEN '2024-04-01' AND '2025-03-31' UNION SELECT NULL AS 'invoice details', paidhistory.purpose AS 'purpose', NULL AS 'credit', paidhistory.amount AS 'debit', paidhistory.dateofpayment AS 'created', 'Receipt' AS 'voucher_type' FROM paidhistory WHERE paidhistory.p_m = 814 AND paidhistory.type_cs = 2 AND paidhistory.dateofpayment BETWEEN '2024-04-01' AND '2025-03-31' ) AS X ORDER BY created ASC;
+
+
+
+
+
+SELECT invtest2.invid, client.c_name,substring_index(client.c_add, ',', -1) as location,invtest.item_name 'Item', invtest2.totalamount 'totalamount', invtest2.created from invtest2 INNER JOIN invtest on invtest.orderid = invtest2.orderid INNER JOIN client on invtest2.cid = client.cid GROUP by invtest.orderid;
+
+
+tree chart
+
+
+SELECT 
+    SUBSTRING_INDEX(client.c_add, ",", -1) AS location, 
+    COUNT(*) AS count 
+FROM 
+    invtest 
+INNER JOIN 
+    invtest2 ON invtest.orderid = invtest2.orderid 
+INNER JOIN 
+    client ON invtest2.cid = client.cid 
+GROUP BY 
+    location
+ORDER BY 
+    count DESC;

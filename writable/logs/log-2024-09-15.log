@@ -1,0 +1,277 @@
+CRITICAL - 2024-09-15 00:49:09 --> include(dbconnection.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\manage-clients.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(dbconne...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(3): include()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 00:49:58 --> include(dbconnection.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\manage-clients.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(dbconne...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(3): include()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 00:50:30 --> Call to undefined function getState()
+#0 C:\xampp\htdocs\C4\system\View\View.php(220): include()
+#1 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#3 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-15 00:51:19 --> include_once(dbConfig2.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\header.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(db...', 'C:\\xampp\\htdocs...', 2, Array)
+#1 C:\xampp\htdocs\C4\app\Views\header.php(2): include_once()
+#2 C:\xampp\htdocs\C4\app\Views\manage-clients.php(38): include_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-09-15 00:51:59 --> Undefined variable: userPictureURL
+#0 C:\xampp\htdocs\C4\app\Views\navbar.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 8, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(40): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 00:52:46 --> mysqli::__construct(): (HY000/1049): Unknown database 'loginsystem'
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::__const...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\C4\app\Views\dbConfig2.php(9): mysqli->__construct('localhost', 'root', '', 'loginsystem')
+#2 C:\xampp\htdocs\C4\app\Views\header.php(2): include_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\app\Views\manage-clients.php(38): include_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-09-15 02:24:07 --> include_once(links.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\manage-clients.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(li...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(19): include_once()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 02:30:01 --> include_once(links.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\manage-clients.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(li...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(19): include_once()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 02:31:04 --> include_once(header.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\manage-clients.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(he...', 'C:\\xampp\\htdocs...', 38, Array)
+#1 C:\xampp\htdocs\C4\app\Views\manage-clients.php(38): include_once()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-09-15 02:31:35 --> include_once(dbConfig2.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\Includes\header.php(2): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(db...', 'C:\\xampp\\htdocs...', 2, Array)
+#1 C:\xampp\htdocs\C4\app\Views\Includes\header.php(2): include_once()
+#2 C:\xampp\htdocs\C4\app\Views\manage-clients.php(38): include_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('manage-clients', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): view('manage-clients')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-09-15 02:36:12 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:36:15 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:41:23 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:41:29 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:43:38 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:45:22 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:51:04 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:51:11 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:52:32 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:52:49 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:54:26 --> Undefined property: App\Controllers\Client::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:55:30 --> Undefined property: App\Controllers\Client::$builder
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:55:39 --> Undefined property: App\Controllers\Client::$builder
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:56:48 --> Undefined property: App\Controllers\Client::$builder
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(24): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 02:59:16 --> Call to undefined function App\Controllers\load_header()
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-15 03:01:45 --> Undefined property: App\Controllers\Client::$load
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 19, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 03:01:59 --> Undefined property: App\Controllers\Client::$load
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 20, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 03:02:18 --> Undefined property: App\Controllers\Client::$load
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 21, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-15 03:02:24 --> Call to undefined method App\Controllers\Client::loadHeader()
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-15 03:50:17 --> Class 'MY_Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Client')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Client')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-15 03:51:36 --> Class 'CodeIgniter\MY_Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Client')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Client')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-15 04:29:59 --> Class 'CodeIgniter\MY_Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Client')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Client')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}

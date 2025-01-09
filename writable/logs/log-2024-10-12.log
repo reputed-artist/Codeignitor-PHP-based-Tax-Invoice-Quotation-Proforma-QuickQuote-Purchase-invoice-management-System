@@ -1,0 +1,592 @@
+CRITICAL - 2024-10-12 01:04:27 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:04:32 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:05:12 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:05:18 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:08:22 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:09:10 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:09:55 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:13:32 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:14:23 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:16:11 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-10-12 01:17:13 --> mysqli_sql_exception: Column 'c_name' cannot be null in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `cl...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cl...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cl...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cl...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Client_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Client.php(163): App\Models\Client_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-10-12 01:17:13 --> Column 'c_name' cannot be null
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `cl...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cl...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cl...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cl...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Client_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Client.php(163): App\Models\Client_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-10-12 01:18:52 --> Undefined variable: lastQuery
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(170): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-10-12 01:28:59 --> mysqli_sql_exception: Column 'hsn' cannot be null in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Product_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Product.php(160): App\Models\Product_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-10-12 01:28:59 --> Column 'hsn' cannot be null
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Product_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Product.php(160): App\Models\Product_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2024-10-12 01:29:15 --> mysqli_sql_exception: Column 'hsn' cannot be null in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Product_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Product.php(160): App\Models\Product_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-10-12 01:29:15 --> Column 'hsn' cannot be null
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Models\Product_model.php(56): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\app\Controllers\Product.php(160): App\Models\Product_model->saverecords(Array)
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-10-12 01:46:14 --> Undefined variable: productModel
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 150, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:47:34 --> Undefined variable: productModel
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 150, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:48:16 --> Undefined variable: crudModel
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 150, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 01:48:40 --> Undefined variable: crudModel
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 150, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-10-12 01:50:10 --> mysqli_sql_exception: Column 'name' cannot be null in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-12 01:50:10 --> Column 'name' cannot be null
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+ERROR - 2024-10-12 01:52:35 --> mysqli_sql_exception: Column 'name' cannot be null in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-12 01:52:35 --> Column 'name' cannot be null
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('INSERT INTO `pr...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(2263): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(758): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\C4\system\Model.php(705): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Product.php(150): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-10-12 01:53:58 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 01:55:36 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 01:55:43 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 01:57:06 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 01:57:46 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:00:59 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:02:09 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:04:49 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:07:21 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:07:57 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:13:52 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:14:26 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:15:42 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:19:05 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:19:06 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:19:37 --> log() expects parameter 1 to be float, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'log() expects p...', 'C:\\xampp\\htdocs...', 152, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Product.php(152): log(Array)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-12 02:24:37 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('product/managep...')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('product/managep...')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 02:28:13 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('product/managep...')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('product/managep...')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 02:28:59 --> Undefined property: App\Controllers\Product::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(154): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 154, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 02:32:35 --> Undefined property: App\Controllers\Product::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(155): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 155, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 02:34:01 --> Undefined property: App\Controllers\Product::$db
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(155): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 155, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 06:12:07 --> mkdir(): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No suc...', 'C:\\xampp\\htdocs...', 182, Array)
+#1 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(182): mkdir('C:\\xampp\\htdocs...', 511, true)
+#2 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(134): CodeIgniter\HTTP\Files\UploadedFile->setPath('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\app\Controllers\Product.php(433): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\xampp\\htdocs...', '1728731527_93c9...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->uploadProductImage()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-10-12 06:12:23 --> mkdir(): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No suc...', 'C:\\xampp\\htdocs...', 182, Array)
+#1 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(182): mkdir('C:\\xampp\\htdocs...', 511, true)
+#2 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(134): CodeIgniter\HTTP\Files\UploadedFile->setPath('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\app\Controllers\Product.php(433): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\xampp\\htdocs...', '1728731543_fa6d...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->uploadProductImage()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-10-12 06:18:48 --> mkdir(): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No suc...', 'C:\\xampp\\htdocs...', 182, Array)
+#1 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(182): mkdir('C:\\xampp\\htdocs...', 511, true)
+#2 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(134): CodeIgniter\HTTP\Files\UploadedFile->setPath('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\app\Controllers\Product.php(433): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\xampp\\htdocs...', '1728731928_5552...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->uploadProductImage()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-10-12 06:18:55 --> mkdir(): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No suc...', 'C:\\xampp\\htdocs...', 182, Array)
+#1 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(182): mkdir('C:\\xampp\\htdocs...', 511, true)
+#2 C:\xampp\htdocs\C4\system\HTTP\Files\UploadedFile.php(134): CodeIgniter\HTTP\Files\UploadedFile->setPath('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\app\Controllers\Product.php(433): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\xampp\\htdocs...', '1728731935_5d41...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->uploadProductImage()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-10-12 06:36:50 --> Argument 1 passed to App\Models\Client_model::deleterecord() must be of the type int, string given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 217
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(217): App\Models\Client_model->deleterecord('NaN')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete('NaN')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:31:12 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 364
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(364): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:35:44 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 364
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(364): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:35:45 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 364
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(364): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:36:01 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 364
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(364): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:37:30 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:38:34 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:39:24 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:40:58 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 09:44:31 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:04:31 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:05:42 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:05:45 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:08:51 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:12:46 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:19:04 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:19:53 --> Argument 1 passed to App\Models\Product_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Product.php on line 361
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): App\Models\Product_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:22:33 --> Undefined variable: cid
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(341): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 341, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-12 10:22:50 --> Undefined variable: cid
+#0 C:\xampp\htdocs\C4\app\Controllers\Product.php(361): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 361, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Product->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

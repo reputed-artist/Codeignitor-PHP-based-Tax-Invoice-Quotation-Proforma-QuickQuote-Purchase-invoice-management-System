@@ -1,0 +1,84 @@
+CRITICAL - 2024-09-24 06:18:31 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 118, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete('1')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 06:23:07 --> A non well formed numeric value encountered
+#0 C:\xampp\htdocs\C4\app\Models\Client_model.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'A non well form...', 'C:\\xampp\\htdocs...', 62, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Client.php(105): App\Models\Client_model->deleterecord('956"')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete('956"')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-24 06:24:06 --> Too few arguments to function App\Controllers\Client::delete(), 0 passed in C:\xampp\htdocs\C4\system\CodeIgniter.php on line 936 and exactly 1 expected
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-24 12:33:04 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:33:23 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:33:44 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:33:49 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:34:15 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:34:41 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:35:04 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:36:29 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-24 12:36:57 --> Undefined property: App\Controllers\Client::$model
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 124, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->delete()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

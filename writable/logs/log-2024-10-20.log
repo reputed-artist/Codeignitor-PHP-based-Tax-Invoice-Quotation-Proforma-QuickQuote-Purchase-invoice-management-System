@@ -1,0 +1,321 @@
+CRITICAL - 2024-10-20 01:13:14 --> Invalid file: list layout/purlist.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('list layout/pur...')
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 01:13:54 --> include_once(purinv-filter.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(pu...', 'C:\\xampp\\htdocs...', 61, Array)
+#1 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(61): include_once()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#5 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-10-20 01:14:50 --> Undefined variable: con
+#0 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(241): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 241, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-10-20 01:17:45 --> syntax error, unexpected '}', expecting end of file
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 01:18:38 --> syntax error, unexpected '}', expecting end of file
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 01:19:10 --> syntax error, unexpected '}', expecting end of file
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 01:21:25 --> syntax error, unexpected '}', expecting end of file
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 01:21:44 --> Undefined variable: row
+#0 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(82): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 82, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-10-20 01:22:08 --> Undefined variable: row
+#0 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(87): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 87, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-10-20 01:22:32 --> Undefined variable: row
+#0 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 93, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-10-20 01:23:03 --> Invalid file: include/setting.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('include/setting...')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('include/setting...', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\List layout\purinvlist.php(219): CodeIgniter\View\View->include('include/setting...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list layout/pur...', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(148): view('list layout/pur...')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-10-20 01:40:58 --> Class 'App\Controllers\Purchaseinv2Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 01:41:32 --> Class 'App\Controllers\Purchaseinv2Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 01:42:13 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 01:43:00 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:03:26 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:05:27 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:07:50 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:10:01 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:10:56 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 02:12:21 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 03:47:16 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 03:48:44 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::result()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 05:44:58 --> Undefined variable: limit
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model2.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 43, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 05:46:08 --> Undefined variable: limit
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model2.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 43, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(161): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 05:49:09 --> Undefined variable: limit
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model2.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 43, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(161): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 05:51:38 --> Invalid file: list_layout/purinvlist.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('list_layout/pur...')
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list_layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(177): view('list_layout/pur...', Array)
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 05:54:00 --> Invalid file: list_layout/purinvlist.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('list_layout/pur...')
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('list_layout/pur...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(177): view('list_layout/pur...', Array)
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-10-20 07:41:12 --> Too few arguments to function App\Controllers\Purchaseinv::delete(), 0 passed in C:\xampp\htdocs\C4\system\CodeIgniter.php on line 936 and exactly 1 expected
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 07:46:08 --> Too few arguments to function App\Controllers\Purchaseinv::delete(), 0 passed in C:\xampp\htdocs\C4\system\CodeIgniter.php on line 936 and exactly 1 expected
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 07:48:02 --> Too few arguments to function App\Controllers\Purchaseinv::delete(), 0 passed in C:\xampp\htdocs\C4\system\CodeIgniter.php on line 936 and exactly 1 expected
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 07:50:41 --> Too few arguments to function App\Controllers\Purchaseinv::delete(), 0 passed in C:\xampp\htdocs\C4\system\CodeIgniter.php on line 936 and exactly 1 expected
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-10-20 07:54:20 --> A non well formed numeric value encountered
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'A non well form...', 'C:\\xampp\\htdocs...', 95, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(326): App\Models\Purchaseinv_model->deleterecord('67149998a9f17')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete('67149998a9f17')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 07:58:04 --> A non well formed numeric value encountered
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'A non well form...', 'C:\\xampp\\htdocs...', 95, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(326): App\Models\Purchaseinv_model->deleterecord('67149998a9f17')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete('67149998a9f17')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 08:18:16 --> Undefined variable: table
+#0 C:\xampp\htdocs\C4\app\Models\Purchaseinv_model.php(67): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 67, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(326): App\Models\Purchaseinv_model->deleterecord('67149998a9f17')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete('67149998a9f17')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-10-20 08:18:49 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::delete()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(326): App\Models\Purchaseinv_model->deleterecord('67149998a9f17')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->delete('67149998a9f17')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 09:10:33 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 09:12:18 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::order_by()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 09:13:26 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::order_by()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-20 09:14:56 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::and()
+#0 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(160): App\Models\Purchaseinv_model2->getPurchaseInvoices('2024', '2025', 20, 0)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

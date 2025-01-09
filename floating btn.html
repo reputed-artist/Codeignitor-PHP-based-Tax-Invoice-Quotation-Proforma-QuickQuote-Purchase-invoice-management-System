@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Plus Button</title>
+<!--     <link rel="stylesheet" href="style.css"> -->
+<style type="text/css">
+	body {
+    font-family: Arial, sans-serif;
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;   /* Distance from the bottom of the screen */
+    right: 20px;    /* Distance from the right of the screen */
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;  /* Green background */
+    color: white;
+    font-size: 30px;
+    border: none;
+    border-radius: 50%;   /* Circular shape */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.floating-btn:hover {
+    background-color: #218838;  /* Darker green on hover */
+}
+
+/* Responsive styling for mobile and smaller screens */
+@media (max-width: 768px) {
+    .floating-btn {
+        width: 50px;       /* Smaller button for tablets */
+        height: 50px;
+        font-size: 25px;    /* Smaller icon for tablets */
+        bottom: 15px;       /* Adjust position */
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-btn {
+        width: 40px;       /* Even smaller button for mobile */
+        height: 40px;
+        font-size: 20px;    /* Smaller icon for mobile */
+        bottom: 10px;       /* Adjust position further */
+        right: 10px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+    <!-- Floating Plus Button -->
+    <button class="floating-btn" onclick="location.href='#'">+</button>
+
+</body>
+</html>
