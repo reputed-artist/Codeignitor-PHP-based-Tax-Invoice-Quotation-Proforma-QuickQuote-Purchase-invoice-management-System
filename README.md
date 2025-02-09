@@ -1,99 +1,107 @@
-# CodeIgniter 4 Development
+# CodeIgniter-PHP Tax Invoice, Quotation, Quick-Quotation and Purchase Invoice Management System
 
-[![Build Status](https://github.com/codeigniter4/CodeIgniter4/workflows/PHPUnit/badge.svg)](https://github.com/codeigniter4/CodeIgniter4/actions?query=workflow%3A%22PHPUnit%22)
-[![Coverage Status](https://coveralls.io/repos/github/codeigniter4/CodeIgniter4/badge.svg?branch=develop)](https://coveralls.io/github/codeigniter4/CodeIgniter4?branch=develop)
-[![Downloads](https://poser.pugx.org/codeigniter4/framework/downloads)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub stars](https://img.shields.io/github/stars/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub license](https://img.shields.io/github/license/codeigniter4/CodeIgniter4)](https://github.com/codeigniter4/CodeIgniter4/blob/develop/LICENSE)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/codeigniter4/CodeIgniter4/pulls)
-<br>
+![License](https://img.shields.io/badge/license-MIT-green)
+![PHP](https://img.shields.io/badge/PHP-CodeIgniter%204-blue)
+![Database](https://img.shields.io/badge/Database-MySQL-orange)
 
-## What is CodeIgniter?
+## 📌 Overview
+This project is a comprehensive **Tax Invoice, Quotation, Proforma, and Purchase Invoice Management System** built using **CodeIgniter (PHP)**. It streamlines business processes related to sales, purchases, invoices, and client management while providing an insightful dashboard for turnover-based marketing analysis.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+## 🚀 Features
+### 🎯 Dashboard
+- Marketing and sales turnover-based analytics
+- Overview of key business metrics
 
-This repository holds the source code for CodeIgniter 4 only.
-Version 4 is a complete rewrite to bring the quality and the code into a more modern version,
-while still keeping as many of the things intact that has made people love the framework over the years.
+### 👥 Client Management
+- Add, update, and manage client details
+- Categorize clients based on type
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+### 📦 Product Management
+- Maintain product details and pricing
+- Efficiently manage stock and product catalog
 
-### Documentation
+### 🏭 Supplier Management
+- Store and manage supplier information
+- Dual entity support (Client/Supplier)
 
-The [User Guide](https://codeigniter4.github.io/userguide/) is the primary documentation for CodeIgniter 4.
+### 📑 Invoice Management
+- **Purchase Invoice Management**
+  - Record and track supplier purchases
+  - Manage Purchase Invoice
+- **Sales Invoice Management**
+  - Generate GST-compliant sales invoices
+  - Maintain invoice history
+- **Proforma Invoice Management**
+  - Generate quotations and estimates
 
-The current **in-progress** User Guide can be found [here](https://codeigniter4.github.io/CodeIgniter4/).
-As with the rest of the framework, it is a work in progress, and will see changes over time to structure, explanations, etc.
+### 📦 Quotation Management
+- **Client/Supplier Quotation Management**
+  - Record and track quotations
+  - Manage quotation data
+  - Quick Quotation Also supported - POS Based Quick Quotation
 
-You might also be interested in the [API documentation](https://codeigniter4.github.io/api/) for the framework components.
+### 📊 Reports & Analysis
+- Generate various reports on sales, purchases, and client transactions
+- Export data for further analysis
 
-## Important Change with index.php
+### ⚙️ Settings & Customization
+- Update user profile
+- Update company profile (name, details, bank information, etc.)
+- Update bank details
+- Change password for security
+- Customize UI to match business branding
 
-index.php is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### 💰 Billing System
+- **IGST**: Applied for out-of-state transactions
+- **Loc (CGST & SGST)**: Applied for within-state transactions
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 🏷️ User Management
+- **Client**: Can place orders and receive tax invoices
+- **Supplier**: Provides goods/services and gives purchase invoices
+- **Dual (Customer/Supplier)**: Acts as both client and supplier
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## 🛠️ Installation
+### Prerequisites
+- PHP 7.4+
+- MySQL 5.7+
+- Composer
+- Xampp v3.3.0
 
-## Repository Management
+### Steps
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/your-repository-url.git
+   cd your-repository-folder
+   ```
+2. **Install dependencies**:
+   ```sh
+   composer install
+   ```
+3. **Configure database** in `.env` or `config/database.php`.
+4. **Run migrations** (if applicable):
+   ```sh
+   php spark migrate
+   ```
+5. **Start the development server**:
+   ```sh
+   php spark serve
+   ```
 
-CodeIgniter is developed completely on a volunteer basis. As such, please give up to 7 days
-for your issues to be reviewed. If you haven't heard from one of the team in that time period,
-feel free to leave a comment on the issue so that it gets brought back to our attention.
+## 🏗️ Tech Stack
+- **Backend**: CodeIgniter 4 (PHP)
+- **Frontend**: HTML, CSS, JavaScript, jQuery, AJAX
+- **Database**: MySQL
+- **Libraries**: Select2, DataTables, intl-tel-input, daterangepicker, morris, apexcharts, ultimate-export, sweetalert
 
-We use Github issues to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## 📜 License
+This project is licensed under the [MIT License](LICENSE).
 
-If you raise an issue here that pertains to support or a feature request, it will
-be closed! If you are not sure if you have found a bug, raise a thread on the forum first -
-someone else may have encountered the same thing.
+## 🤝 Contributing
+Feel free to **fork** the repository and submit **pull requests** to enhance functionality or fix issues.
 
-Before raising a new Github issue, please check that your bug hasn't already
-been reported or fixed.
+## 📞 Contact
+For support or inquiries, reach out via **GitHub Issues** or email **[tejaschavda2020@gmail.com]**.
 
-We use pull requests (PRs) for CONTRIBUTIONS to the repository.
-We are looking for contributions that address one of the reported bugs or
-approved work packages.
+---
+_Developed with ❤️ using CodeIgniter._
 
-Do not use a PR as a form of feature request.
-Unsolicited contributions will only be considered if they fit nicely
-into the framework roadmap.
-Remember that some components that were part of CodeIgniter 3 are being moved
-to optional packages, with their own repository.
-
-## Contributing
-
-We **are** accepting contributions from the community!
-
-We will try to manage the process somewhat, by adding a ["help wanted" label](https://github.com/codeigniter4/CodeIgniter4/labels/help%20wanted) to those that we are
-specifically interested in at any point in time. Join the discussion for those issues and let us know
-if you want to take the lead on one of them.
-
-At this time, we are not looking for out-of-scope contributions, only those that would be considered part of our controlled evolution!
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the user guide.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- xml (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-
-## Running CodeIgniter Tests
-
-Information on running the CodeIgniter test suite can be found in the [README.md](tests/README.md) file in the tests directory.
