@@ -1,0 +1,20 @@
+CRITICAL - 2024-09-12 08:11:02 --> Argument 2 passed to view() must be of the type array, string given, called in C:\xampp\htdocs\C4\app\Controllers\Crud.php on line 113
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(113): view('show_data', '{"sEcho":1,"iTo...')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-12 08:12:08 --> Cannot use [] for reading
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-12 08:41:17 --> Undefined variable: resultset
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(85): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 85, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

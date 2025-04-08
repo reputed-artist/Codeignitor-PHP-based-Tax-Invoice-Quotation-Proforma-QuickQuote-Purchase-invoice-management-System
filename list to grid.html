@@ -1,0 +1,52 @@
+<html>
+<style>
+	/* Default Grid View */
+.grid-view .item {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: #f3f3f3;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* List View */
+.list-view .item {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 5px 0;
+    background-color: #e3e3e3;
+    padding: 10px;
+    text-align: left;
+}
+
+</style>
+<body>
+<div class="view-toggle">
+    <button onclick="toggleView('grid')">Grid View</button>
+    <button onclick="toggleView('list')">List View</button>
+</div>
+
+<div id="container" class="grid-view">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <!-- Add more items as needed -->
+</div>
+<script type="text/javascript">
+	function toggleView(view) {
+    const container = document.getElementById('container');
+    if (view === 'grid') {
+        container.classList.add('grid-view');
+        container.classList.remove('list-view');
+    } else if (view === 'list') {
+        container.classList.add('list-view');
+        container.classList.remove('grid-view');
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+CRITICAL - 2024-09-16 04:54:16 --> syntax error, unexpected ')', expecting '{'
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2024-09-16 04:54:21 --> syntax error, unexpected ')', expecting '{'
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2024-09-16 04:54:39 --> syntax error, unexpected ')', expecting '{'
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(NULL)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2024-09-16 04:55:37 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-16 06:55:50 --> include(../include/header): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(../incl...', 'C:\\xampp\\htdocs...', 47, Array)
+#1 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(47): include()
+#2 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\C4\system\View\View.php(236): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#5 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('dashboard/home', Array, true)
+#6 C:\xampp\htdocs\C4\app\Controllers\Client.php(22): view('dashboard/home')
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->home()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-09-16 06:56:55 --> Invalid file: ../include/header.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('../include/head...')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('../include/head...', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(47): CodeIgniter\View\View->include('../include/head...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\View\View.php(236): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#6 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('dashboard/home', Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Client.php(22): view('dashboard/home')
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->home()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-09-16 06:58:32 --> Invalid file: ../include/header.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('../include/head...')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('../include/head...', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(47): CodeIgniter\View\View->include('../include/head...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\View\View.php(236): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#6 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('dashboard/home', Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Client.php(22): view('dashboard/home')
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->home()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-09-16 06:58:35 --> Invalid file: ../include/header.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('../include/head...')
+#1 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('../include/head...', NULL, true)
+#2 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(47): CodeIgniter\View\View->include('../include/head...')
+#3 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\C4\system\View\View.php(236): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#6 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('dashboard/home', Array, true)
+#7 C:\xampp\htdocs\C4\app\Controllers\Client.php(22): view('dashboard/home')
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->home()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-09-16 08:41:43 --> Call to undefined function baseurl()
+#0 C:\xampp\htdocs\C4\system\View\View.php(220): include()
+#1 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\C4\system\View\View.php(468): CodeIgniter\View\View->render('include/sidebar...', NULL, true)
+#3 C:\xampp\htdocs\C4\app\Views\Layout\Dashboard-layout.php(20): CodeIgniter\View\View->include('include/sidebar...')
+#4 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#6 C:\xampp\htdocs\C4\system\View\View.php(236): CodeIgniter\View\View->render('layout/dashboar...', Array, true)
+#7 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('dashboard/home', Array, true)
+#8 C:\xampp\htdocs\C4\app\Controllers\Client.php(22): view('dashboard/home')
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->home()
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#11 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}

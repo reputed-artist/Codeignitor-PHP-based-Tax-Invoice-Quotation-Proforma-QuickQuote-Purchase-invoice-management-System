@@ -1,0 +1,19 @@
+# step up codeignitor
+
+1) open htaccess in public folder 
+2) copy paste below code 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /C4/
+
+    # Remove public folder from URL
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+3)Move public/htaccess to root folder - main folder name
+4)  goto env file and enable development
+5) put database details
+6) configure mysql db
+7) goto php.ini enable extension=intl 

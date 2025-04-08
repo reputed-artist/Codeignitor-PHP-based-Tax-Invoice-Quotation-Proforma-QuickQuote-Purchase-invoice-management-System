@@ -1,0 +1,161 @@
+CRITICAL - 2024-09-14 11:30:24 --> Class 'App\Controllers\DataTable' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-14 11:30:56 --> Call to a member function process() on array
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-14 11:41:03 --> Array to string conversion
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(80): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 80, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 11:41:16 --> Cannot use [] for reading
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-14 13:01:16 --> Call to undefined method App\Models\Crud_model::get_entries
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): CodeIgniter\Model->__call('get_entries', Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:03:39 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::get()
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): App\Models\Crud_model->get_entries()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:05:06 --> Object of class App\Models\Crud_model could not be converted to string
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): App\Models\Crud_model->get_entries()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:05:43 --> Call to undefined method App\Models\Crud_model::get_entries
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): CodeIgniter\Model->__call('get_entries', Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:06:50 --> Call to undefined method App\Models\Crud_model::get_entries
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): CodeIgniter\Model->__call('get_entries', Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:07:48 --> Call to undefined method App\Models\Crud_model::get_entries
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(78): CodeIgniter\Model->__call('get_entries', Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:24:42 --> Argument 2 passed to view() must be of the type array, object given, called in C:\xampp\htdocs\C4\app\Controllers\Crud.php on line 82
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(82): view('show_data', Object(CodeIgniter\HTTP\Response))
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:25:32 --> Argument 2 passed to view() must be of the type array, object given, called in C:\xampp\htdocs\C4\app\Controllers\Crud.php on line 83
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(83): view('show_data', Object(CodeIgniter\HTTP\Response))
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:26:41 --> Argument 2 passed to view() must be of the type array, object given, called in C:\xampp\htdocs\C4\app\Controllers\Crud.php on line 83
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(83): view('show_data', Object(CodeIgniter\HTTP\Response))
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->showdata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-14 13:39:20 --> Undefined variable: record
+#0 C:\xampp\htdocs\C4\app\Views\show_data_view.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 54, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-14 13:39:58 --> Undefined variable: record
+#0 C:\xampp\htdocs\C4\app\Views\show_data_view.php(54): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 54, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-14 13:42:43 --> syntax error, unexpected ';', expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-14 13:43:47 --> syntax error, unexpected '"+ data + "' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-14 13:48:18 --> syntax error, unexpected ';', expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-14 13:48:20 --> syntax error, unexpected ';', expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-14 13:48:29 --> syntax error, unexpected ';', expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-14 13:50:20 --> syntax error, unexpected '" + cidValue + "' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('show_data_view', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(21): view('show_data_view')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}

@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Digital-7 Mono;
+    src: url(digital-7.ttf);
+}
+.timer{
+    /* height: 90vh; */
+    display: grid;
+    place-items: center;
+    /* font-family: Digital-7 Mono; */
+    font-family: 'Orbitron', sans-serif;
+    /* background-color: #000;*/
+border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    /* padding: 10px; */
+  
+padding: 5px 15px;
+/* padding-bottom: 15px;*/
+}
+.font-color{
+    background: linear-gradient(to bottom,#2980b9,#2c3e50);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+   margin-left: 9px; 
+   font-size: 1.2rem;
+
+}
+.timer div{
+ /*  padding-left: 8px;
+   padding-bottom:18px; */
+   padding-bottom: 5px;
+}
+.timeDiv{
+    position: relative;
+}
+#time{
+    text-shadow: 0 0 55px #2980b9;
+    font-size: 4.5rem;
+}
+#med{
+font-size: 1.5rem;	  
+  position:absolute;
+    top: 15px;
+   /*  right: 15px;*/
+}
+.dayDiv{
+    display: flex;
+   /* padding-left:8px;
+  padding-right:8px; */
+    /* justify-content: space-between; */
+}
+.dayDiv span{
+   text-align:center;
+    font-size: 1.8 rem;
+    opacity: 0.4;
+   padding: 2 px 2px 2px 2px;
+}

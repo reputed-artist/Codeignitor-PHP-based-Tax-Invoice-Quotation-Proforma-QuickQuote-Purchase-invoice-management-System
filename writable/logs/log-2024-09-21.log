@@ -1,0 +1,292 @@
+CRITICAL - 2024-09-21 00:14:43 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:14:44 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:14:52 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:14:57 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:17:05 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:18:16 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:18:21 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:18:37 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:18:40 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:23:02 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 00:23:29 --> Class 'App\Controllers\Crud_model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Client->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-21 08:37:13 --> Undefined index: msg
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(74): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 74, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 08:40:14 --> syntax error, unexpected '}', expecting end of file
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-21 09:34:22 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:35:56 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:36:59 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:37:15 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:37:55 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:38:08 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:39:38 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(26): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:40:07 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(26): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:40:12 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(48): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 09:40:55 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(48): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 09:40:59 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(26): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:43:45 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 09:44:04 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 10:13:53 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(49): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 10:14:11 --> Undefined variable: next_cid
+#0 C:\xampp\htdocs\C4\app\Views\Layout\manage-clients.php(193): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 193, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Client.php(29): view('layout/manage-c...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-21 10:15:34 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(49): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 10:16:35 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(49): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 10:19:34 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::select_max()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(49): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->get_data()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 12:23:04 --> syntax error, unexpected '?>'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Client.php(34): view('layout/manage-c...', Array)
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-21 12:23:22 --> syntax error, unexpected '?>'
+#0 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('layout/manage-c...', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Client.php(34): view('layout/manage-c...', Array)
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-21 12:47:25 --> Undefined property: App\Controllers\Client::$input
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 58, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->insert()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-21 12:54:47 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getLastQuery()
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(28): App\Models\Client_model->get_last_cid()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->index()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

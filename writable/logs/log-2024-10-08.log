@@ -1,0 +1,84 @@
+CRITICAL - 2024-10-08 08:22:13 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 269
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(269): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 09:01:07 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 270
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(270): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 09:13:21 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 09:15:32 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 09:19:54 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:11:27 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:11:39 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:12:02 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:13:55 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:14:01 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:14:32 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-10-08 10:14:51 --> Argument 1 passed to App\Models\Client_model::updaterecord() must be of the type int, null given, called in C:\xampp\htdocs\C4\app\Controllers\Client.php on line 273
+#0 C:\xampp\htdocs\C4\app\Controllers\Client.php(273): App\Models\Client_model->updaterecord(NULL, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Client->update()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}

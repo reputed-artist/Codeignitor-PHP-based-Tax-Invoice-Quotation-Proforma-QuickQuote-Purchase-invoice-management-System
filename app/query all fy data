@@ -1,0 +1,45 @@
+WITH yearly_data AS (
+    -- Step 1: Fetch total credit (invoices) and total debit (payments) per FY
+    SELECT 
+        fy,
+        SUM(total_credit) AS total_credit,
+        SUM(total_debit) AS total_debit
+    FROM (
+        -- Fetch invoices (credit amounts)
+        SELECT 
+            CONCAT(YEAR(i.created), '-', YEAR(DATE_ADD(i.created, INTERVAL 1 YEAR))) AS fy,
+            SUM(i.totalamount) AS total_credit,
+            0 AS total_debit
+        FROM invtest2 i
+        WHERE i.cid = 706
+        GROUP BY fy
+
+        UNION ALL
+
+        -- Fetch payments (debit amounts)
+        SELECT 
+            CONCAT(YEAR(p.dateofpayment), '-', YEAR(DATE_ADD(p.dateofpayment, INTERVAL 1 YEAR))) AS fy,
+            0 AS total_credit,
+            SUM(p.amount) AS total_debit
+        FROM paidhistory p
+        WHERE p.cid = 706
+        GROUP BY fy
+    ) AS transactions
+    GROUP BY fy
+)
+SELECT 
+    yd1.fy,
+    COALESCE((
+        SELECT SUM(yd2.total_credit - yd2.total_debit) 
+        FROM yearly_data yd2 
+        WHERE yd2.fy < yd1.fy
+    ), 0) AS opening_balance,
+    yd1.total_credit,
+    yd1.total_debit,
+    COALESCE((
+        SELECT SUM(yd2.total_credit - yd2.total_debit) 
+        FROM yearly_data yd2 
+        WHERE yd2.fy <= yd1.fy
+    ), 0) AS closing_balance
+FROM yearly_data yd1
+ORDER BY yd1.fy;

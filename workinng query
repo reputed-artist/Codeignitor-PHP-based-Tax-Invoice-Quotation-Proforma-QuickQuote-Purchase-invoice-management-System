@@ -1,0 +1,100 @@
+WITH FinancialYears AS (
+    SELECT DISTINCT 
+        CASE 
+            WHEN EXTRACT(MONTH FROM created) >= 4 
+            THEN CONCAT(YEAR(created), '-', YEAR(created) + 1)
+            ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created))
+        END AS fy
+    FROM invtest2
+    WHERE cid = 714
+    
+    UNION
+    
+    SELECT DISTINCT 
+        CASE 
+            WHEN EXTRACT(MONTH FROM invdate) >= 4 
+            THEN CONCAT(YEAR(invdate), '-', YEAR(invdate) + 1)
+            ELSE CONCAT(YEAR(invdate) - 1, '-', YEAR(invdate))
+        END AS fy
+    FROM purchaseinv2
+    WHERE cid = 714
+    
+    UNION
+    
+    SELECT DISTINCT 
+        CASE 
+            WHEN EXTRACT(MONTH FROM dateofpayment) >= 4 
+            THEN CONCAT(YEAR(dateofpayment), '-', YEAR(dateofpayment) + 1)
+            ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
+        END AS fy
+    FROM paidhistory
+    WHERE cid = 714
+),
+
+LedgerData AS (
+    SELECT 
+        f.fy, 
+        a.cid, 
+        a.opening_bal AS initial_opening_balance,
+
+        -- Total Credit (From invtest2 and paidhistory)
+        (SELECT COALESCE(SUM(it.totalamount), 0) 
+         FROM invtest2 it
+         WHERE it.cid = a.cid 
+         AND (CASE 
+                WHEN EXTRACT(MONTH FROM it.created) >= 4 
+                THEN CONCAT(YEAR(it.created), '-', YEAR(it.created) + 1)
+                ELSE CONCAT(YEAR(it.created) - 1, '-', YEAR(it.created))
+              END) = f.fy
+        ) +
+        (SELECT COALESCE(SUM(ph.amount), 0) 
+         FROM paidhistory ph
+         WHERE ph.cid = a.cid 
+         AND (CASE 
+                WHEN EXTRACT(MONTH FROM ph.dateofpayment) >= 4 
+                THEN CONCAT(YEAR(ph.dateofpayment), '-', YEAR(ph.dateofpayment) + 1)
+                ELSE CONCAT(YEAR(ph.dateofpayment) - 1, '-', YEAR(ph.dateofpayment))
+              END) = f.fy
+        ) AS total_credit,
+
+        -- Total Debit (From purchaseinv2)
+        (SELECT COALESCE(SUM(pinv.totalamount), 0) 
+         FROM purchaseinv2 pinv
+         WHERE pinv.cid = a.cid 
+         AND (CASE 
+                WHEN EXTRACT(MONTH FROM pinv.invdate) >= 4 
+                THEN CONCAT(YEAR(pinv.invdate), '-', YEAR(pinv.invdate) + 1)
+                ELSE CONCAT(YEAR(pinv.invdate) - 1, '-', YEAR(pinv.invdate))
+              END) = f.fy
+        ) AS total_debit
+
+    FROM FinancialYears f
+    CROSS JOIN account a
+    WHERE a.cid = 714
+),
+
+FinalLedger AS (
+    SELECT 
+        ld.cid, 
+        ld.fy, 
+
+        -- Opening Balance: Carry forward from previous year's closing balance
+        COALESCE(
+            LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
+            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
+            ld.initial_opening_balance
+        ) AS opening_balance,
+
+        ld.total_credit,
+        ld.total_debit,
+
+        -- Closing Balance Calculation
+        (COALESCE(
+            LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
+            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
+            ld.initial_opening_balance
+        ) + ld.total_credit - ld.total_debit) AS closing_balance
+    FROM LedgerData ld
+)
+
+SELECT * FROM FinalLedger ORDER BY fy;

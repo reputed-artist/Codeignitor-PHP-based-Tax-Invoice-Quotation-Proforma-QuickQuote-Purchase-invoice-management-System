@@ -1,0 +1,825 @@
+CRITICAL - 2024-09-10 07:24:06 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/save_data')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/save_data')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 07:24:28 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 07:25:27 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 07:25:28 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 07:25:58 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 07:27:36 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 10:56:21 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 10:56:27 --> Unclosed '{' on line 6
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 10:58:40 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 10:58:40 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:27 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:27 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:28 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:28 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:29 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:29 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:29 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:29 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:30 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:30 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:00:31 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:00:31 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:02 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:02 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:04 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:04 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:44 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:44 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:49 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:49 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:49 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:49 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:50 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:50 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:50 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:50 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:04:51 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:05:03 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:05:03 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:05:05 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:05:05 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:06:15 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:06:15 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:06:19 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:06:19 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:07:03 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:07:03 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:07:26 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:07:26 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 11:07:35 --> Constant FILTER_SANITIZE_STRING is deprecated
+#0 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(1359): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 1359)
+#1 C:\xampp\htdocs\C4\system\Router\RouteCollection.php(608): CodeIgniter\Router\RouteCollection->create('*', 'BaseController(...', Object(Closure), NULL)
+#2 C:\xampp\htdocs\C4\system\Config\Routes.php(27): CodeIgniter\Router\RouteCollection->add('BaseController(...', Object(Closure))
+#3 C:\xampp\htdocs\C4\app\Config\Routes.php(12): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(803): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 11:07:35 --> Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\C4\app\Config\Events.php:35) in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:137
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', 'C:\\xampp\\htdocs...', 137)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(137): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2024-09-10 18:37:32 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\C4\system\bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\C4\index.php(35): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2024-09-10 18:41:24 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\C4\system\bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\C4\index.php(35): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2024-09-10 18:41:26 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\C4\system\bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\C4\index.php(35): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2024-09-10 11:43:44 --> Class 'App\Controllers\CI_Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:43:46 --> Class 'App\Controllers\CI_Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:46:00 --> Class 'App\Controllers\Controller' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:46:19 --> Class 'App\Controllers\Controllers' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:47:28 --> Class 'App\Controllers\Controllers' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:47:51 --> Class 'CodeIgniter\Controllers' not found
+#0 C:\xampp\htdocs\C4\system\Router\Router.php(562): include_once()
+#1 C:\xampp\htdocs\C4\system\Router\Router.php(170): CodeIgniter\Router\Router->autoRoute('Crud/savedata')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(816): CodeIgniter\Router\Router->handle('Crud/savedata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(385): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-09-10 11:49:20 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:49:21 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:49:22 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:49:22 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:49:23 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:50:11 --> Undefined property: App\Controllers\Crud::$load
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 11, Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 11:50:25 --> Cannot call constructor
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:51:53 --> Class 'App\Models\CrudModel' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:52:18 --> Class 'App\Models\CrudModel' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:53:41 --> Class 'App\Controllers\CrudModel' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:54:29 --> Class 'Controllers' not found
+#0 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(294): include_once()
+#1 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Crud...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Crud...')
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(15): spl_autoload_call('App\\Models\\Crud...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 11:55:13 --> Class 'baseController' not found
+#0 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(294): include_once()
+#1 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Crud...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Crud...')
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(15): spl_autoload_call('App\\Models\\Crud...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 11:56:01 --> Class 'App\Models\Crud_Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 11:56:36 --> Class 'baseController' not found
+#0 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(294): include_once()
+#1 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Crud...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Crud...')
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(15): spl_autoload_call('App\\Models\\Crud...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 12:16:18 --> Undefined index: id
+#0 C:\xampp\htdocs\C4\app\Views\edit_form.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 10, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('edit_form', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(54): view('edit_form', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->edit()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 12:16:26 --> Call to undefined function set_value()
+#0 C:\xampp\htdocs\C4\system\View\View.php(220): include()
+#1 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('edit_form', Array, true)
+#3 C:\xampp\htdocs\C4\app\Controllers\Crud.php(54): view('edit_form', Array)
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->edit('1')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 12:16:30 --> Call to undefined function set_value()
+#0 C:\xampp\htdocs\C4\system\View\View.php(220): include()
+#1 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('edit_form', Array, true)
+#3 C:\xampp\htdocs\C4\app\Controllers\Crud.php(54): view('edit_form', Array)
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->edit('1')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2024-09-10 12:28:57 --> Call to undefined method App\Models\Crud_model::saverecords
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(32): CodeIgniter\Model->__call('saverecords', Array)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->savedata()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 12:32:07 --> Class 'baseController' not found
+#0 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(294): include_once()
+#1 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Crud...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Crud...')
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(15): spl_autoload_call('App\\Models\\Crud...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 12:32:10 --> Class 'baseController' not found
+#0 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(294): include_once()
+#1 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Crud...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Crud...')
+#4 C:\xampp\htdocs\C4\app\Controllers\Crud.php(15): spl_autoload_call('App\\Models\\Crud...')
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-09-10 12:33:11 --> Class 'App\Models\Crud_Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 12:33:14 --> Class 'App\Models\Crud_Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 12:34:06 --> Class 'App\Models\Crud_Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 12:36:55 --> Class 'App\Models\Crud_Model' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(908): App\Controllers\Crud->__construct()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(422): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-09-10 12:50:45 --> Too few arguments to function App\Models\Crud_model::deleterecord(), 1 passed in C:\xampp\htdocs\C4\app\Controllers\Crud.php on line 90 and exactly 2 expected
+#0 C:\xampp\htdocs\C4\app\Controllers\Crud.php(90): App\Models\Crud_model->deleterecord(3)
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->delete('3')
+#2 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-09-10 23:43:18 --> Invalid file: showdata.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('showdata.php')
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('showdata', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(38): view('showdata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->savedata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2024-09-10 23:44:28 --> Invalid file: showdata.php
+#0 C:\xampp\htdocs\C4\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('showdata.php')
+#1 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('showdata', Array, true)
+#2 C:\xampp\htdocs\C4\app\Controllers\Crud.php(38): view('showdata')
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Crud->savedata()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Crud))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
