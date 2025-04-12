@@ -38,10 +38,24 @@ $('#modal-default1').on('shown.bs.modal', function () {
 
 
 $('#modal-default').on('hidden.bs.modal', function () {
-    $('#phone').removeClass('is-invalid is-valid');
-    $('.iti').removeClass('is-invalid is-valid');
-    $('#error-msg').hide();
+    // Reset all input validations
+    $('#modal-default').find('input, select, textarea').removeClass('is-invalid is-valid');
+
+    // Reset Select2 styling
+    $('#modal-default').find('.select2').each(function() {
+        $(this).val(null).trigger('change'); // Clear selection
+        $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid is-valid');
+    });
+
+    // Reset form fields (assuming a form exists inside the modal)
+    $('#modal-default').find('form')[0].reset();
+
+    // Optionally hide custom error messages
+    // $('#modal-default').find('.error, .text-danger').text('').hide();
+    $('#modal-default').find('[id$="_error"]').text('').hide();
+
 });
+
 
 $('#modal-default1').on('hidden.bs.modal', function () {
     $('#phoneedit').removeClass('is-invalid is-valid');
@@ -170,7 +184,7 @@ $(document).on("click", "#btnplus.add", function() {
     $('#modal-default').modal('show');
     
     // Optionally reset the add modal form fields
-    $('#addRecordForm')[0].reset();
+    $('#form')[0].reset();
 });
 
 // If the add modal is opened, hide the edit modal

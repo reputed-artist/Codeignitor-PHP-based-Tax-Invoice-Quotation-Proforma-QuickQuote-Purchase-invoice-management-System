@@ -38,9 +38,22 @@ $('#modal-default1').on('shown.bs.modal', function () {
 
 
 $('#modal-default').on('hidden.bs.modal', function () {
-    $('#phone').removeClass('is-invalid is-valid');
-    $('.iti').removeClass('is-invalid is-valid');
-    $('#error-msg').hide();
+    // Reset all input validations
+    $('#modal-default').find('input, select, textarea').removeClass('is-invalid is-valid');
+
+    // Reset Select2 styling
+    $('#modal-default').find('.select2').each(function() {
+        $(this).val(null).trigger('change'); // Clear selection
+        $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid is-valid');
+    });
+
+    // Reset form fields (assuming a form exists inside the modal)
+    $('#modal-default').find('form')[0].reset();
+
+    // Optionally hide custom error messages
+    // $('#modal-default').find('.error, .text-danger').text('').hide();
+    $('#modal-default').find('[id$="_error"]').text('').hide();
+
 });
 
 $('#modal-default1').on('hidden.bs.modal', function () {
@@ -50,40 +63,6 @@ $('#modal-default1').on('hidden.bs.modal', function () {
 });
 
 
-$('#modal-default2').on('shown.bs.modal', function () {
-    validatePhoneField(); // Initial validation for phone field when modal is shown
-});
-
-
-function validatePhoneField() {
-    var phoneField = $('#phoneedit');
-    var fullNumber = iti2.getNumber(); // Get full international number from intl-tel-input
-
-    if (phoneField.val().trim()) {
-        // If phone field has valid data, set as valid
-        if (iti2.isValidNumber()) {
-            phoneField.removeClass('is-invalid').addClass('is-valid');
-            $('.iti2').removeClass('is-invalid').addClass('is-valid');
-            $('#error-msg2').hide();
-        } else {
-            // If data is invalid
-            phoneField.addClass('is-invalid');
-            $('.iti2').addClass('is-invalid');
-            var errorCode2 = iti2.getValidationError();
-            $('#error-msg2').text(errorMap2[errorCode2]).show();
-        }
-    } else {
-        // If phone field is empty, set to invalid
-        phoneField.addClass('is-invalid');
-        $('.iti2').addClass('is-invalid');
-        $('#error-msg2').text('Mobile number is required.').show();
-    }
-}
-
-// On input or change, validate the phone field again
-$('#phoneedit').on('keyup change', function() {
-    validatePhoneField();
-});
 
 // Reset validation state when modal is hidden
 $('#modal-default2').on('hidden.bs.modal', function () {
@@ -120,34 +99,12 @@ $('#modal-default1').on('show.bs.modal', function() {
 
 
 
-// /* ---------------------------- Add Records Modal --------------------------- */
-
-// $("#addRecords").on("hide.bs.modal", function(e) {
-//     // do something...
-//     $("#addRecordForm")[0].reset();
-//     $(".custom-file-label").html("Choose file");
-// });
-
-/* ---------------------------- Edit Record Modal --------------------------- */
-
-// $("#editRecords").on("hide.bs.modal", function(e) {
-//     // do something...
-//     $("#editForm")[0].reset();
-//     $(".custom-file-label").html("Choose file");
-// });
-
-/* --------------------------------- Baseurl -------------------------------- */
-//var base_url = $("#base_url").val();
-
-    //var base_url = "<?= base_url(); ?>";
-
-//var base_url; 
-
 /* -------------------------------------------------------------------------- */
 /*                                Fetch Records                               */
 /* -------------------------------------------------------------------------- */
-    var totalAmount=0;
+    
 function fetch() {
+ var totalAmount=0;
     console.log("fetch called from insert");
 
     $.ajax({
@@ -158,6 +115,9 @@ function fetch() {
         dataType:'json',
         success: function(response) {
             console.log(response);  
+
+
+
             //$('#example1').DataTable().clear().destroy();
              var table = $("#example").DataTable({
                 'paging': true,
@@ -223,23 +183,7 @@ function fetch() {
                 }
              },
             { 'data': 'created' },
-    //          {'data':'editaction',
-
-    //         render: function (data, type, row, meta) {
-    //           var cidValue = row.pay_id;
-
-
-    //   return '<a href="update-pay.php?payid=' + cidValue + '"><button class="btn btn-primary btn-xs" style="width:30px;height:25px"><i class="fa fa-pencil"></i></button></a>';
-    // }},
-    // {
-    //   'data':'deleteaction',
-    //   render: function (data, type, row, meta) {
-    //           var cidValue = row.pay_id;
-
-
-    //   return '<a class="btn btn-danger btn-xs" id="delete_product" style="width:30px;height:25px" data-id=' + cidValue + '"><i class="fa fa-trash-o "></i></a>';
-    // }},
-      
+         
                     {
                       'data': 'editaction',
                          render: function (data, type, row, meta) {
@@ -274,6 +218,9 @@ function fetch() {
       
         }); 
     
+
+                $('#totalamt').text(parseFloat(response.totalAmount).toFixed(2));
+
 
                    document.querySelectorAll('.toggle-vis').forEach((el) => {
                     el.addEventListener('click', function (e) {
@@ -333,15 +280,15 @@ $(document).on("click", "#submit", function(e) {
     $('#co, #purpose, #amount, #datepicker, #ctype').removeClass('is-invalid');
 
     // Validate Company Name
-    if ($('#co').val().trim() === '') {
-        $('#co_error').text('Company name is required.');
-        $('#co').addClass('is-invalid'); // Highlight the field
-        isValid = false;
-    }
+    // if ($('#co').val().trim() === '') {
+    //     $('#co_error').text('Company name is required.');
+    //     $('#co').addClass('is-invalid'); // Highlight the field
+    //     isValid = false;
+    // }
 
     // Validate Address
     if ($('#purpose').val().trim() === '') {
-        $('#purpose_error').text('purpose is required.');
+        $('#purpose_error').text('Purpose is required.');
         $('#purpose').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
@@ -358,7 +305,7 @@ $(document).on("click", "#submit", function(e) {
 
     // Validate GST
     if ($('#datepicker').val().trim() === '') {
-        $('#dtp_error').text('dateofpayment is required.');
+        $('#dtp_error').text('Date of payment is required.');
         $('#datepicker').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
@@ -371,16 +318,39 @@ $(document).on("click", "#submit", function(e) {
     // isValid = false;
     // }
 
-//     if ($('#ctype').val().trim() === '') {
-//     $('#ctype_error').text('Please select a Bill Type.');
-//     $('#ctype').addClass('is-invalid');  // Add to the hidden select
-//     $('#ctype').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add to Select2 container
+//    if ($('#ctype').val().trim() === '') {
+//     $('#ctype_error').text('Please select a Bank.');
+//     $('#ctype').addClass('is-invalid');  // For the original select (good for fallback)
+    
+//     // Add 'is-invalid' to the rendered Select2 container
+//     $('#ctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+
 //     isValid = false;
 // } else {
 //     $('#ctype').removeClass('is-invalid');
-//     $('#ctype').next('.select2').find('.select2-selection').removeClass('is-invalid'); // Remove red border
-//     $('#ctype_error').text('');  // Clear error message
+//     $('#ctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+//     $('#ctype_error').text('');
 // }
+
+//let isValid = true;
+
+// First Select2
+if ($('#ctype').val() === '' || $('#ctype').val() === null) {
+    $('#ctype_error').text('Bank name is required.');
+    $('#ctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#ctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
+
+// Second Select2
+if ($('#co').val() === '' || $('#co').val() === null) {
+    $('#co_error').text('Company name is required.');
+    $('#co').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#co').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
 
 
 
@@ -436,36 +406,7 @@ $(document).on("click", "#submit", function(e) {
                 'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
             },
             success: function(response) {
-                //console.log(response);
-                // if (response.res === "success") {
-                    
-                //     console.log(response);
-                //     console.log("Executed Query: ", response.query);
-
-                //     $("#modal-default").modal("hide");
-                //     $("#form")[0].reset();
-               
-                //     $("#example1").DataTable().clear().destroy();
-                //     fetch();
-
-                //      $.ajax({
-                //     url:  base_url +'/client/get_next_id', // URL to get the next ID
-                //     method: 'GET',
-                //     success: function(data) {
-                //         var result = JSON.parse(data);
-                //         $('#cid').val(result.next_id); // Set the new ID valu
-
-                //         $('#address_country').val('in'); // 
-                //     },
-                //     error: function() {
-                //         console.log('Error fetching the next ID.');
-                //     }
-                // });
                 
-                // } 
-                // else {
-                //       toastr.error(response.message);
-                // }
                         try {
             // Parse JSON response
             const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
@@ -606,6 +547,8 @@ console.log("Delete URL:", base_url+"/transaction/delete/" + encodeURIComponent(
 
 
                  $('#coedit').select2({
+                    placeholder: 'Select a Client',
+                    allowClear: true,
                 ajax: {
                     url: base_url + "/transaction/getclient",
                     type: 'get', // Adjust URL to get client data
@@ -633,6 +576,8 @@ console.log("Delete URL:", base_url+"/transaction/delete/" + encodeURIComponent(
 
                 // Now update #editctype select2 with Bank Details
                 $('#editctype').select2({
+                    placeholder: 'Select a Bank',
+                    allowClear: true,
                     ajax: {
                         url: base_url + "/transaction/getBankDetails",
                         type: 'get',
@@ -695,15 +640,15 @@ $(document).on("click", "#update", function(e) {
     $('#coedit, #editpurpose, #editamount, #editdatepicker, #editctype').removeClass('is-invalid');
 
     // Validate Company Name
-    if ($('#coedit').val().trim() === '') {
-        $('#coedit_error').text('Company name is required.');
-        $('#coedit').addClass('is-invalid'); // Highlight the field
-        isValid = false;
-    }
+    // if ($('#coedit').val().trim() === '') {
+    //     $('#coedit_error').text('Company name is required.');
+    //     $('#coedit').addClass('is-invalid'); // Highlight the field
+    //     isValid = false;
+    // }
 
     // Validate Address
     if ($('#editpurpose').val().trim() === '') {
-        $('#editpurpose_error').text('purpose is required.');
+        $('#editpurpose_error').text('Purpose is required.');
         $('#editpurpose').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
@@ -724,6 +669,28 @@ $(document).on("click", "#update", function(e) {
         $('#editdatepicker').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
+
+
+
+if ($('#editctype').val() === '' || $('#ctype').val() === null) {
+    $('#editctype_error').text('Bank name is required.');
+    $('#editctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#editctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
+
+// Second Select2
+if ($('#coedit').val() === '' || $('#co').val() === null) {
+    $('#coedit_error').text('Company name is required.');
+    $('#coedit').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#coedit').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
+
+
+
 
 
     // Prevent form submission if validation fails

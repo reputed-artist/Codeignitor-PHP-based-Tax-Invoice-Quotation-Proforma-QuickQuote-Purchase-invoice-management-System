@@ -173,7 +173,7 @@ input .error{
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>Sr. No.</th>
                   <th>name</th>
                   <th>Description</th>
                   <th>HSN</th>
@@ -191,7 +191,7 @@ input .error{
                 </tbody>
                 <tfoot>
                 <tr>
-                 <th>ID</th>
+                 <th>Sr. No.</th>
                   <th>name</th>
                   <th>Description</th>
                   <th>HSN</th>
@@ -208,12 +208,12 @@ input .error{
               </table>
 
                 <div  class="btn-group" data-toggle="buttons" role="group">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="ID">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Name">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Description">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="HSN">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Product Type">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="created">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Created">
                 
 
             </div>
@@ -269,7 +269,7 @@ input .error{
                 <div class="form-group">
                   <label id="c_add" class="col-sm-3 control-label">Description <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
-                    <textarea class="form-control" name="pdesc" id="pdesc" placeholder="Description" rows="5" cols="5"></textarea>
+                    <textarea class="form-control" name="pdesc" id="pdesc" placeholder="Description" rows="8" cols="5"></textarea>
                                   <div id="pdesc_error" style="color: red;"> </div>
                 </div>
               </div>
@@ -307,10 +307,11 @@ input .error{
 
 
               </div>
+              </form>
              </div>
 
 
-<div class="row" style="margin-top: 20px">                
+<div class="row" style="margin-top: 5px">                
 <div class="col-md-6">
     <form action="" method="post" id="imgform" enctype="multipart/form-data">
         <div class="form-group mb-3">
@@ -361,7 +362,7 @@ input .error{
                 <input type="submit" class="btn btn-primary" value="Save changes" id="submit">
               </div>
 
-             </form>
+
 
              </div> 
 
@@ -393,7 +394,7 @@ input .error{
                 <div class="col-md-6">
 
                       
-              <form class="form-horizontal style-form" name="form" id="form" method="post" action="<?=base_url()?>/product/insert">
+              <form class="form-horizontal style-form" name="form1" id="form1" method="post" action="<?=base_url()?>/product/update">
                 <p style="color:#F00"><?php //echo $_SESSION['msg'];?><?php //echo $_SESSION['msg']="";?></p>
                   
             <!-- /box-header -->
@@ -412,7 +413,7 @@ input .error{
                   <label id="c_name" class="col-sm-3 control-label">Product Name <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" class="form-control" id="pnameedit" name="pnameedit" placeholder="Product Name">
-                    <div id="pname_error" style="color: red;"> </div>
+                    <div id="pname_error1" style="color: red;"> </div>
                   </div>
                 </div>
 
@@ -420,7 +421,7 @@ input .error{
                   <label id="c_add" class="col-sm-3 control-label">Description <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                     <textarea class="form-control" name="pdescedit" id="pdescedit" placeholder="Description" rows="5" cols="5"></textarea>
-                                  <div id="pdesc_error" style="color: red;"> </div>
+                                  <div id="pdesc_error1" style="color: red;"> </div>
                 </div>
               </div>
 
@@ -428,7 +429,7 @@ input .error{
                   <label id="c_add" class="col-sm-3 control-label">HSN Code<span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                    <input type="text" class="form-control" name="hsnedit" id="hsnedit"  placeholder="HSN Code">
-                                  <div id="hsn_error" style="color: red;"> </div>
+                                  <div id="hsn_error1" style="color: red;"> </div>
                 </div>
               </div>
 
@@ -442,7 +443,7 @@ input .error{
                     
                     <option value="Freight">Freight</option>
                      </select>
-                                  <div id="ptype_error" style="color: red;">  </div>
+                                  <div id="ptype_error1" style="color: red;">  </div>
                 </div>
               </div>
 
@@ -457,7 +458,7 @@ input .error{
 
 
               </div>
-
+                     </form>
               </div>
 
 

@@ -112,6 +112,42 @@ font-size:15px;
     }
 }
 
+.has-error .select2-selection {
+    border-color: rgb(185, 74, 72) !important;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+input .error{
+ border: 1px solid #f00;
+}
+  
+.error{
+ border: 1px solid #f00;
+}
+
+.is-invalid {
+    border: 1px solid red;
+}
+
+.iti2.is-invalid input,
+.iti.is-invalid input {
+    border: 1px solid red !important;
+}
+
+
+.iti2.is-invalid input {
+    border: 1px solid red !important;
+}
+
+/*.iti2.is-valid input {
+    border: 1px solid green !important;
+}
+*/
+.select2-selection.is-invalid {
+    border: 1px solid red !important; /* Red border on Select2 dropdown */
+}
+
 </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -164,7 +200,7 @@ font-size:15px;
 
                <?php if (!empty($fy) && is_array($fy) && count($fy) > 0): ?>  
                 
-              <div class="col-md-3 col-sm-5">
+              <div class="col-md-3 col-sm-5 col-xl-3 col-lg-3 d-print-none">
                <div class="form-group">
                   <label>Select FY:</label>                    
                     
@@ -342,7 +378,7 @@ font-size:15px;
                     <?php } ?>
 
                         </select>
-                    <div id="c_name_error" style="color:red;"> </div>
+                    <div id="co_error" style="color:red;"> </div>
                   </div>
                 </div>
 
@@ -389,7 +425,7 @@ font-size:15px;
                     <option value="ICICI BANK">ICICI BANK</option>
 
                    </select>
-                    <div id="bank_error" style="color: red;">  </div>
+                    <div id="ctype_error" style="color: red;">  </div>
                 </div>
               </div>
 
@@ -1169,8 +1205,8 @@ let totalDebit = 0;
 
 
     $('.select2').select2({ placeholder: "Select a Client", allowClear: true });
-    $('.select23').select2({ placeholder: "Select Item", allowClear: true });
-    $('.select234').select2({ placeholder: "Select Type", allowClear: true });
+    $('#ctype').select2({ placeholder: "Select Bank", allowClear: true });
+    //$('.select234').select2({ placeholder: "Select Type", allowClear: true });
 
 </script>
 
@@ -1199,15 +1235,15 @@ let totalDebit = 0;
     $('#co, #purpose, #amount, #datepicker, #ctype').removeClass('is-invalid');
 
     // Validate Company Name
-    if ($('#co').val().trim() === '') {
-        $('#co_error').text('Company name is required.');
-        $('#co').addClass('is-invalid'); // Highlight the field
-        isValid = false;
-    }
+    // if ($('#co').val().trim() === '') {
+    //     $('#co_error').text('Company name is required.');
+    //     $('#co').addClass('is-invalid'); // Highlight the field
+    //     isValid = false;
+    // }
 
     // Validate Address
     if ($('#purpose').val().trim() === '') {
-        $('#purpose_error').text('purpose is required.');
+        $('#purpose_error').text('Purpose is required.');
         $('#purpose').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
@@ -1224,29 +1260,30 @@ let totalDebit = 0;
 
     // Validate GST
     if ($('#datepicker').val().trim() === '') {
-        $('#dtp_error').text('dateofpayment is required.');
+        $('#dtp_error').text('Date Of Payment is required.');
         $('#datepicker').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
 
-    // Validate Bill Type
-    // if ($('#ctype').val().trim() === '') {
-    //     $('#ctype_error').text('Please select a Bill Type.');
-    //  $('#ctype').addClass('is-invalid');  // Add to the hidden select (optional for form data)
-    // $('#ctype').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add class to Select2 container
-    // isValid = false;
-    // }
+   if ($('#ctype').val() === '' || $('#ctype').val() === null) {
+    $('#ctype_error').text('Bank name is required.');
 
-//     if ($('#ctype').val().trim() === '') {
-//     $('#ctype_error').text('Please select a Bill Type.');
-//     $('#ctype').addClass('is-invalid');  // Add to the hidden select
-//     $('#ctype').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add to Select2 container
-//     isValid = false;
-// } else {
-//     $('#ctype').removeClass('is-invalid');
-//     $('#ctype').next('.select2').find('.select2-selection').removeClass('is-invalid'); // Remove red border
-//     $('#ctype_error').text('');  // Clear error message
-// }
+    $('#ctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#ctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
+
+// Second Select2
+if ($('#co').val() === '' || $('#co').val() === null) {
+  $('#co_error').text('Company name is required.');
+
+    $('#co').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+    isValid = false;
+} else {
+    $('#co').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+}
+
 
 
 

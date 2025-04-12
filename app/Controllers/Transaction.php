@@ -483,13 +483,13 @@ public function loadTransactions()
     //$customer = $this->request->getGet('client');
      $customer = is_numeric($this->request->getGet('client')) ? $this->request->getGet('client') : null;
 
-     //$ctype-$this->request->getGet('ctype');   
+     $ctype=is_numeric($this->request->getGet('clienttype')) ? $this->request->getGet('clienttype') : null;  
         //$ctype = $this->request->getPost('ctype') ?? 'null';
 
     // Call the model function
     $this->crudModel = new Transaction_model();
 
-    $invoices = $this->crudModel->getTransactions($startDate, $endDate,$customer);
+    $invoices = $this->crudModel->getTransactions($startDate, $endDate,$customer, $ctype);
 
     
     $totalAmount = 0;
@@ -506,7 +506,6 @@ public function loadTransactions()
         "iTotalRecords" => count($invoices),
         "iTotalDisplayRecords" => count($invoices),
         "aaData" => $invoices,
-        
         "totalAmount" => $totalAmount
     ];
 
@@ -521,11 +520,15 @@ public function loadTransactions()
             'data' => $results,
         ];
     } else {
-        $response = [
-            'success' => false,
-            'message' => 'No invoices found for the selected filters.',
-        ];
+           return $this->response->setJSON([
+        "sEcho" => 1,
+        "iTotalRecords" => 0,
+        "iTotalDisplayRecords" => 0,
+        "aaData" => [],
+        "totalAmount" => 0
+    ]);
     }
+
 
     // Return the response as JSON
     return $this->response->setJSON($results);

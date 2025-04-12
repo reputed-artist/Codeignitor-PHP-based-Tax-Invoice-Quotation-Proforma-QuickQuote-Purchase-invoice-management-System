@@ -117,7 +117,7 @@ public function single_entry($edit_id)
 }
 
 
-public function getTransactions($startDate = null, $endDate = null, $customer = null)
+public function getTransactions($startDate = null, $endDate = null, $customer = null, $clienttype=null)
 {
     $db = \Config\Database::connect();
     // $builder = $db->table('paidhistory ph')
@@ -133,22 +133,34 @@ public function getTransactions($startDate = null, $endDate = null, $customer = 
         ->select("c.cid, c.c_name, c.c_add, ph.pay_id, 
                   COALESCE(SUBSTRING_INDEX(c.c_add, ',', -1), 'Unknown') AS location,
                   ph.amount, ph.dateofpayment, c.u_type, ph.purpose, ph.bank, ph.created")
-        ->join('paidhistory ph', 'ph.cid = c.cid');
+        ->join('paidhistory ph', 'ph.cid = c.cid','right');
               
 
     // // Apply filters if provided
+    // if ($startDate && $endDate) {
+    //     $builder->where("ph.dateofpayment BETWEEN '$startDate' AND '$endDate'");
+    // }
     if ($startDate && $endDate) {
-        $builder->where("ph.dateofpayment BETWEEN '$startDate' AND '$endDate'");
-    }
+    $builder->where("ph.dateofpayment >=", $startDate)
+            ->where("ph.dateofpayment <=", $endDate);
+}
+    
     if ($customer) {
         $builder->where("c.cid", $customer);
     }
-    // if ($supplier) {
-    //     $builder->where("s.pcname", $supplier);
-    // }
+    if (is_numeric($clienttype)) {
+    $builder->where("c.u_type", $clienttype);
+}
+
 
     $query = $builder->get();
+
     //print_r($query);
+        //$query = $builder->get();
+
+    // 👇 Print the actual executed query
+    //echo $db->getLastQuery();
+
     return $query->getResultArray();
 }
 

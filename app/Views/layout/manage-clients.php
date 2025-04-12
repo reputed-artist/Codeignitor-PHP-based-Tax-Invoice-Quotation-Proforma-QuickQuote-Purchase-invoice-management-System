@@ -164,7 +164,7 @@ input .error{
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>Sr. No.</th>
                   <th>Company name</th>
                   <th>Address</th>
                   <th>Mobile</th>
@@ -183,7 +183,7 @@ input .error{
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
+                  <th>Sr. No.</th>
                   <th>Company name</th>
                   <th>Address</th>
                   <th>Mobile</th>

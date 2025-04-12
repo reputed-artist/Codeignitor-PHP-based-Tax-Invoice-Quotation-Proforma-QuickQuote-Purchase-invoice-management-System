@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 
-               <div class="col-md-3">
+            <!--    <div class="col-md-3">
                   <div class="form-group">
                       <label>Select Type:</label>                    
                       <select name="ctype" id="ctype" class="form-control select234" style="height: 35px !important;width:100% !important;" >
@@ -101,7 +101,7 @@
                         </select>       
                   </div>
                </div> 
-                
+ -->                
              <div class="col-md-3">
                <div class="form-group">
                   <label>Date range:</label>                    
@@ -204,8 +204,8 @@
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Item Name">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Subtotal">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="9" value="Tax %">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="10" value="Tax amt">
-                                 <input type="button" class="toggle-vis btn btn-primary" data-column="11" value="Total amt">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="10" value="Tax Amt">
+                                 <input type="button" class="toggle-vis btn btn-primary" data-column="11" value="Total Amt">
                                   </br>
 
                                 </div>  

@@ -87,6 +87,21 @@
         content: none !important;
     }
 }
+/* Handle error state on Select2 */
+.has-error .select2-selection,
+.select2-selection.is-invalid {
+    border-color: red !important;
+    width: 100% !important;
+}
+
+/* Standard error styles */
+.error,
+input.error,
+.is-invalid,
+.iti.is-invalid input,
+.iti2.is-invalid input {
+    border: 1px solid red !important;
+}
 
 </style>
 </head>
@@ -151,8 +166,8 @@
                       <label>Select Type:</label>                    
                       <select name="ctype1" id="ctype1" class="form-control select234" style="height: 35px !important;width:100% !important;" >
                           <option value=""></option>
-                          <option value="1"> Suppliers </option>
-                          <option value="2"> Customers</option>
+                          <option value="0"> Clients  </option>
+                          <option value="1"> Suppliers</option>
                           <option value="2"> Dual (Cust / Sup)</option>                             
                         </select>       
                   </div>
@@ -256,12 +271,12 @@
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Per/Com">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Location">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="dateofpayment">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Date of payment">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="User-Type">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="purpose">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="modeofpayment">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="amount">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="created">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Purpose">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Mode of payment">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Amount">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Created">
                                   
                                   </br>
 
@@ -551,20 +566,24 @@
  <script>
 
   var globalSubtotalTotal=0;
-    function loadTransactions(date = null, client = null) {
+    function loadTransactions(date = null, client = null, clienttype=null) {
 
-        console.log("Loading invoices for page: " + date + client); // Add this line
+        console.log("Loading invoices for page: " + date + client + clienttype); // Add this line
+       
         $.ajax({
             url: base_url + '/transaction/loadTransactions',
             type: 'GET',
             data: { 
                     date: date,
                     client: client,
+                    clienttype:clienttype
+
                   }, // Send the current page number to the server
             dataType: 'json',
             success: function(response) {
 
                 console.log("res"+response);
+
                 $('#example').DataTable().destroy();
         
         var table = $('#example').DataTable({
@@ -578,237 +597,7 @@
         'footer': true,
         'data': response.aaData,
         dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-           buttons: [
-             {
-                extend:    'copyHtml5',
-                text:      '<i class="fa fa-files-o">&nbsp; Copy </i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'Copy',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11 ]
-                }
-      
-            },
-            {
-                text: '{ } &nbsp; JSON',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'JSON',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11 ]
-                },
-                action: function ( e, dt, button, config ) {
-                    var data = dt.buttons.exportData();
- 
-                    $.fn.dataTable.fileSave(
-                        new Blob( [ JSON.stringify( data ) ] ),
-                        'Export.json'
-                    );
-                }
-            },
-            {
-                extend:    'excelHtml5',
-                text:      '<i class="fa fa-file-excel-o">&nbsp; Excel</i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'Excel',
-                                title: 'AdminLT || Clients Data',
-                                    messageTop: 'This is a custom header added to the Excel export.', 
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11 ]
-                },
-                customize: function (xlsx) {
-        var sheet = xlsx.xl.worksheets['sheet1.xml'];
-
-        // Add a custom header row at the top of the Excel sheet
-        $('row:first', sheet).before(`
-            <row>
-                <c t="inlineStr" r="A1"><is><t>Company Name</t></is></c>
-            </row>
-            <row>
-                <c t="inlineStr" r="A2"><is><t>Company Address, City, State, ZIP</t></is></c>
-            </row>
-            <row>
-                <c t="inlineStr" r="A3"><is><t>Phone: (123) 456-7890 | Email: info@company.com</t></is></c>
-            </row>
-        `);
-    }
-                
-            },
-            {
-                extend:    'csvHtml5',
-                text:      '<i class="fa fa-file-text-o">&nbsp; CSV</i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'CSV',
-                                title: 'AdminLT || Clients Data',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11 ]
-                }
-            },
-            {
-                extend:    'pdfHtml5',
-                text:      '<i class="fa fa-file-pdf-o">&nbsp; PDF</i>',
-                className: "btn-sm btn btn-danger",  
-                orientation: 'landscape',
-                pageSize: 'A3',          
-                titleAttr: 'PDF',
-                title: 'AdminLT || Clients Data',
-                customize: function(doc) {  
-                doc.pageMargins = [10,10,10,10];
-                doc.defaultStyle.fontSize = 7;
-                doc.styles.tableHeader.fontSize = 7;
-
-               
-                doc.styles.tableFooter.fontSize=15;
-                doc.styles.title.fontSize = 15;
-        // Remove spaces around page title
-        doc.content[0].text = doc.content[0].text.trim();
-        // Create a footer
-        doc['footer']=(function(page, pages) {
-            return {
-                columns: [
-                {
-                        // This is the right column
-                        alignment: 'center',
-                        text: ['Clients Data from CodeTech Engineers'],
-                        
-                    },
-                    {
-                        // This is the right column
-                        alignment: 'right',
-                        text: ['page ', { text: page.toString() },  ' of ', { text: pages.toString() }],
-                        //fontSize:10
-                    }
-                ],
-                margin: [10, 0]
-            }
-        });
-
-
-        // doc['header'] = (function (page, pages) {
-        //         return {
-        //           columns: [
-        //             {
-        //               // 'This is your left footer column',
-        //               alignment: 'left',
-        //               //fontSize: 8,
-        //               text: ['test'],
-        //              // margin: [0, 10]
-        //             },
-        //             {
-        //               // This is the right column
-        //               alignment: 'right',
-        //               text: ['ama'],
-        //               //margin: [0, 10]
-        //             }
-        //           ],
-        //           margin: [30, 0]
-        //         }
-        //       });
-
-        // Styling the table: create style object
-        var objLayout = {};
-        // Horizontal line thickness
-        objLayout['hLineWidth'] = function(i) { return .5; };
-        // Vertikal line thickness
-        objLayout['vLineWidth'] = function(i) { return .5; };
-        // Horizontal line color
-        objLayout['hLineColor'] = function(i) { return '#aaa'; };
-        // Vertical line color
-        objLayout['vLineColor'] = function(i) { return '#aaa'; };
-        // Left padding of the cell
-        objLayout['paddingLeft'] = function(i) { return 4; };
-        // Right padding of the cell
-        objLayout['paddingRight'] = function(i) { return 4; };
-        // Inject the object in the document
-        doc.content[1].layout = objLayout;
-    
-                doc.content[1].table.widths =Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-                doc.defaultStyle.alignment = 'center';
-                doc.styles.tableHeader.alignment = 'center';
-                },
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11 ]
-                }
-            },
-
-            {
-                extend:    'print',
-                text:      '<i class="fa fa-print">&nbsp; Print</i>',
-                className: "btn btn-sm  btn-danger",  
-                titleAttr: 'Print',
-                                                title: 'AdminLT || Clients Data',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5,6,7,8,9,10,11]
-                }
-            },
-            {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'TXT',
-             text: '<i class="fa fa-fw fa-file-text-o">&nbsp; TXT</i>',
-             action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-             doExport('#example', { type: 'txt' });
-           },
-  
-          },
-          
-          {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'sql',
-             text: '<i class="fa fa-fw fa-database">&nbsp; SQL</i>',
-             action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-             doExport('#example', { type: 'sql' });
-           },
-              exportOptions: {
-                    modifier: {
-                        page: 'all'
-                    }
-                }
-              },
-          
-          {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'doc',
-             text: '<i class="fa fa-fw fa-file-word-o">&nbsp; Docx</i>',
-              action: function (e, dt, node, config) {
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-             doExport('#example', { type: 'doc',mso: {pageOrientation: 'landscape'} });
-              },
-            exportOptions: {
-                  modifier: {
-                      page: 'all'
-                  }
-              }
-            },
-  
-
-          {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'PNG',
-             text:'<i class="fa fa-fw fa-image">&nbsp; PNG</i>',
-             action: function (e, dt, node, config) {
-
-                // Trigger the Ultimate Export plugin to export data from the textarea
-                doExport('#example', { type: 'png'});
-            },
-          exportOptions: {
-                modifier: {
-                    page: 'all'
-                }
-            }
-          }
-
-        ],
-
+        buttons: getExportButtons('#example',[0,1,2,3,4,5,6,7,8,9,10,11]),  
         columns: [
             { 'data': 'id',
                         render: function (data, type, row, meta) {
@@ -844,14 +633,8 @@
             
             { 'data': 'purpose' },
             { 'data': 'bank' },
-           { 'data': 'amount',
-           render: function(data, type, row, meta) {
-                    totalAmount += parseFloat(data); // Increment totalAmount
-                    $('#totalamt').text(totalAmount + ".00");
-                    return data+".00";
-                }
-             },
-            { 'data': 'created' },
+           { 'data': 'amount'},
+             { 'data': 'created' },
                      {
                       'data': 'editaction',
                          render: function (data, type, row, meta) {
@@ -886,7 +669,8 @@
                                 ]
                             });
 
-                         
+                          
+
                          document.querySelectorAll('.toggle-vis').forEach((el) => {
                             el.addEventListener('click', function (e) {
                                 e.preventDefault();
@@ -902,7 +686,8 @@
 
                           //$('#subtotal').text(response.totalSubtotal + ".00");
                           //$('#taxamt').text(response.totalTaxAmount + ".00");
-                          //$('#totalamt').text(response.totalAmount + ".00");
+                          $('#totalamt').text(response.totalAmount + ".00");
+                          console.log(response);
 
 
                 }
@@ -1001,6 +786,11 @@ $('#daterange-btn').on('apply.daterangepicker', function(ev, picker) {
   $('#client').on('select2:select', function() {
         selectedClient = $(this).val();
         loadTransactions(selectedYear, selectedClient);
+    });
+
+  $('#ctype1').on('select2:select', function() {
+        selectedClientType = $(this).val();
+        loadTransactions(selectedYear, selectedClient,selectedClientType);
     });
 
 });

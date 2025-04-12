@@ -202,8 +202,8 @@
                                     
                                     <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Subtotal">
                                     <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Tax %">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Tax amt">
-                                   <input type="button" class="toggle-vis btn btn-primary" data-column="9" value="Total amt">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Tax Amt">
+                                   <input type="button" class="toggle-vis btn btn-primary" data-column="9" value="Total Amt">
                                     </br> 
                                   </div>  
                          </div>

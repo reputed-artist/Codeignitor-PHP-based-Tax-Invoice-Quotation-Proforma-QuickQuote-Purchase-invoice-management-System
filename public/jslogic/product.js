@@ -36,68 +36,49 @@ $(document).on("click", "#viewproduct", function(e) {
 });
 
 
-$('#modal-default1').on('shown.bs.modal', function () {
-    // Reset phone input state for the second modal
-    $('#phoneedit').removeClass('is-invalid is-valid');
-    $('.iti2').removeClass('is-invalid is-valid');
-    $('#error-msg2').hide(); // Hide any error message
-});
 
 
 $('#modal-default').on('hidden.bs.modal', function () {
-    $('#phone').removeClass('is-invalid is-valid');
-    $('.iti').removeClass('is-invalid is-valid');
-    $('#error-msg').hide();
+    // Reset all input validations
+    $('#modal-default').find('input, select, textarea').removeClass('is-invalid is-valid');
+
+    // Reset Select2 styling
+    $('#modal-default').find('.select2').each(function() {
+        $(this).val(null).trigger('change'); // Clear selection
+        $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid is-valid');
+    });
+
+    // Reset form fields (assuming a form exists inside the modal)
+    $('#modal-default').find('form')[0].reset();
+
+    // Optionally hide custom error messages
+    // $('#modal-default').find('.error, .text-danger').text('').hide();
+    $('#modal-default').find('[id$="_error"]').text('').hide();
+
 });
 
-$('#modal-default1').on('hidden.bs.modal', function () {
-    $('#phoneedit').removeClass('is-invalid is-valid');
-    $('.iti2').removeClass('is-invalid is-valid');
-    $('#error-msg2').hide();
-});
+
+// $('#modal-default1').on('hidden.bs.modal', function () {
+//     // Reset all input validations
+//     $('#modal-default1').find('input, select, textarea').removeClass('is-invalid is-valid');
+
+//     // Reset Select2 styling
+//     $('#modal-default1').find('.select2').each(function() {
+//         $(this).val(null).trigger('change'); // Clear selection
+//         $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid is-valid');
+//     });
+
+//     // Reset form fields (assuming a form exists inside the modal)
+//     $('#modal-default1').find('form')[0].reset();
+
+//     // Optionally hide custom error messages
+//     // $('#modal-default').find('.error, .text-danger').text('').hide();
+//     $('#modal-default1').find('[id$="_error"]').text('').hide();
+
+// });
 
 
-$('#modal-default2').on('shown.bs.modal', function () {
-    validatePhoneField(); // Initial validation for phone field when modal is shown
-});
 
-
-function validatePhoneField() {
-    var phoneField = $('#phoneedit');
-    var fullNumber = iti2.getNumber(); // Get full international number from intl-tel-input
-
-    if (phoneField.val().trim()) {
-        // If phone field has valid data, set as valid
-        if (iti2.isValidNumber()) {
-            phoneField.removeClass('is-invalid').addClass('is-valid');
-            $('.iti2').removeClass('is-invalid').addClass('is-valid');
-            $('#error-msg2').hide();
-        } else {
-            // If data is invalid
-            phoneField.addClass('is-invalid');
-            $('.iti2').addClass('is-invalid');
-            var errorCode2 = iti2.getValidationError();
-            $('#error-msg2').text(errorMap2[errorCode2]).show();
-        }
-    } else {
-        // If phone field is empty, set to invalid
-        phoneField.addClass('is-invalid');
-        $('.iti2').addClass('is-invalid');
-        $('#error-msg2').text('Mobile number is required.').show();
-    }
-}
-
-// On input or change, validate the phone field again
-$('#phoneedit').on('keyup change', function() {
-    validatePhoneField();
-});
-
-// Reset validation state when modal is hidden
-$('#modal-default2').on('hidden.bs.modal', function () {
-    $('#phoneedit').removeClass('is-invalid is-valid');
-    $('.iti2').removeClass('is-invalid is-valid');
-    $('#error-msg2').hide();
-});
 // When the "Edit" button is clicked
 $(document).on("click", "#edit_product", function() {
 
@@ -163,7 +144,7 @@ $(document).on("click", "#btnplus.add", function() {
     $('#modal-default').modal('show');
     
     // Optionally reset the add modal form fields
-    $('#addRecordForm')[0].reset();
+    $('#form')[0].reset();
 });
 
 // If the add modal is opened, hide the edit modal
@@ -269,18 +250,6 @@ function fetch() {
                         },
 
                     { 'data': 'created',defaultContent: '' },
-                    // { 'data': 'c_type',render: function (data, type, row, meta) {
-                    //             if(data == "IGST")
-                    //             {
-                    //               return '<span class="label label-success">' + data + '</span>';
-                    //             }else {
-                    //               return  '<span class="label label-warning">' + data + '</span>'; 
-                    //             }
-                    //         }
-                    //     },
-
-                     
-
 
                     {
                       'data': 'editaction',
@@ -443,21 +412,21 @@ $(document).on("click", "#submit", function(e) {
 
     // Validate Company Name
     if ($('#pname').val().trim() === '') {
-        $('#pname_error').text('Product name is required.');
+        $('#pname_error').text('Product name is required.').show();
         $('#pname').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
 
     // Validate Address
     if ($('#pdesc').val().trim() === '') {
-        $('#pdesc_error').text('Description is required.');
+        $('#pdesc_error').text('Description is required.').show();
         $('#pdesc').addClass('is-invalid'); // Highlight the field
         isValid = false;
     }
 
     // Validate Mobile Number
     if ($('#hsn').val().trim() === '') {
-        $('#hsn_error').text('HSN is required.');
+        $('#hsn_error').text('HSN is required.').show();
         $('#hsn').addClass('is-invalid'); // Highlight the field
 
     isValid = false;
@@ -467,7 +436,7 @@ $(document).on("click", "#submit", function(e) {
     
 
     if ($('#ptype').val().trim() === '') {
-        $('#ptype_error').text('Select a Product Type.');
+        $('#ptype_error').text('Product Type is required.').show();
         $('#ptype').addClass('is-invalid');  // Add to the hidden select
         $('#ptype').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add to Select2 container
         isValid = false;
@@ -478,23 +447,6 @@ $(document).on("click", "#submit", function(e) {
     }
 
 
-
-    // Optional fields
-    // If these fields are filled, perform validation (optional)
-
-    // File input field (if you want to validate the file type)
-    // let fileInput = $('#file_input')[0].files[0];
-    // if (fileInput && fileInput.size > 5242880) { // optional check for file size (5MB)
-    //     $('#file_input_error').text('File is too large.');
-    //     isValid = false;
-    // }
-
-    // // Technical description (optional)
-    // let techDesc = $('#techs').val().trim();
-    // if (techDesc !== '' && techDesc.length < 10) {
-    //     $('#techs_error').text('Technical Description is too short.');
-    //     isValid = false;
-    // }
 
 
     // Prevent form submission if validation fails
@@ -770,7 +722,7 @@ $(document).on("click", "#Update", function(e) {
     $('#pdesc_error1').text('');
     $('#hsn_error1').text('');
     $('#ptype_error1').text('');
-    //$('#ctype_error1').text('');
+    $('#ctype_error1').text('');
 
     // // Validate Company Name
     // if ($('#c_nameedit').val().trim() === '') {
@@ -781,10 +733,7 @@ $(document).on("click", "#Update", function(e) {
     //$('#c_nameedit, #c_addedit, #phoneedit, #gstedit, #ctypeedit').addClass('is-valid');
 
     $('#pnameedit, #pdescedit,#hsnedit, #ptypeedit').removeClass('is-invalid');
-    //$('.iti2').addClass('is-valid');
 
-
-    //$('.iti2').removeClass('is-invalid');
 
     // Validate Company Name
     if ($('#pnameedit').val().trim() === '') {
@@ -817,7 +766,7 @@ $(document).on("click", "#Update", function(e) {
     // }
 
     if ($('#ptypeedit').val().trim() === '') {
-    $('#ptype_error1').text('Select a Product Type.');
+    $('#ptype_error1').text('Product Type is required.');
     $('#ptypeedit').addClass('is-invalid');  // Add to the hidden select
     $('#ptypeedit').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add to Select2 container
     isValid = false;
