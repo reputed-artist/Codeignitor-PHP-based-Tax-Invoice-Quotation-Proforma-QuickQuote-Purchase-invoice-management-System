@@ -218,15 +218,16 @@
                                             <td><h3>Total </h3></td>
                                             <td></td>
                                             <td>&nbsp;</td>
-                                                                              
+                                            <td></td>                                  
                                             <td><h3 id="baseamt">0</h3></td>
                                            
                                             <td><h3 id="quantity">0</h3></td>
                                             <td><h3 id="subtotal">0</h3></td>
                                             <td></td>
+                                            
                                             <td><h3 id="taxamt">0</h3><h3></h3></td>
                                             <td><h3 id="totalamt">0</h3></td>
-                                    
+                                            
                                     </tr>
                                         </tfoot>
                                  </table> 
