@@ -1,15 +1,3 @@
-<?php
-// session_start();
-// include'dbconnection.php';
-// include("checklogin.php");
-//  check_login();
-
-//  include 'inc/getState.php';
-
-// $current_page="purchase report";
-
-// $current_page1="purchase item report";
-?>
 
 <!DOCTYPE html>
 <html>
@@ -74,56 +62,7 @@
     </section>
 
 
-    <!-- Main content -->
-   <!--  <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          
-          <div class="box box-info" style="overflow: auto;">
-            <div class="box-header">
-          
 
-
-    <form name="form" id="form" method="GET" action="">
-            <div class="col-md-1">
-                    <h3 class="box-title">
-                        <i class="fa fa-fw fa-filter fa-3x"></i>
-                    </h3>
-                </div>
-           
-            <div class="col-md-3">
-              <div class="form-group">
-                  <label>Select Item:</label>                    
-                    
-                      <select name="inv_items" id="inv_items" class="form-control select23" style="height: 35px !important;width:100% !important;" >
-                          <option value=""></option>
-                                                     
-                        </select>
-    
-               </div>
-            </div>            
-             <div class="col-md-3">
-               <div class="form-group">
-                  <label>Date range:</label>                    
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-            <input type="text" class="form-control pull-left" id="daterange-btn" name="date_range" 
-            value="<?php ?>">
-                    </div>                 
-               </div>
-             </div>
-             <div class="col-md-2">
-              <div class="form-group">
-                <label>&nbsp;</label>
-              <input type="submit" name="dat_range" id="searchBtn" value="Search" class="btn btn-primary" style="margin-top:25px;" >
-                </div>
-             </div>
-           </div>
-     </div> 
-     </form>
-   </div>  -->
               <!-- Main content -->
     <section class="content">
       <div class="row">

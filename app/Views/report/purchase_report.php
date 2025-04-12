@@ -1,14 +1,3 @@
-<?php
-// session_start();
-// include'dbconnection.php';
-// include("checklogin.php");
-//  check_login();
-
-// include 'inc/getState.php';
-
-// $current_page="sale report";
-// $current_page1="sale report";
-?>
 
 <!DOCTYPE html>
 <html>
@@ -972,55 +961,7 @@ $('#daterange-btn').on('apply.daterangepicker', function(ev, picker) {
     return [lastFyStart, lastFyEnd];
 }
  
-  //   $('#form').on('submit', function(event) {
-  //       event.preventDefault();
 
-  //       var startDate = $('#daterange-btn').data('daterangepicker').startDate.format('YYYY-MM-DD');
-        
-  //       var endDate = $('#daterange-btn').data('daterangepicker').endDate.format('YYYY-MM-DD');
-  //       //$('#date').text(startDate+ " to " +endDate );
-
-  //       var item_name=$('#inv_items').val();
-  //       $('#item').text("Supply Of : "+item_name);
-  //       var customer=$('#customer').val();
-
-  //       $('#company').text(customer);
-
-  //       $.ajax({
-  //           url: 'ajax/salereportdata.php',
-  //           method: 'GET',
-  //           data: { startDate: startDate, endDate: endDate, item_name: item_name, customer: customer},
-  //           dataType: 'json',
-  //           contentType: false,
-  //           success: function(response) {
-  //               console.log(response.subtotal);
-  //               console.log(response.taxamt);
-  //               console.log(response.totalamount);
-
-  //               table.clear();
-
-  //               $('#date').text("Date Range: "+startDate +" To "+endDate);
-  //               if (response && response.aaData && Array.isArray(response.aaData)) {
-  //                   response.aaData.forEach(function(row) {
-  //                       table.row.add(row);
-  //                   });
-  //               } else {
-  //                   console.error("Invalid response format:", response);
-  //               }
-  //               table.draw();
-
-  //               $('#subtotal').text(response.subtotal + ".00");
-  //               $('#taxamt').text(response.taxamt + ".00");
-  //               $('#totalamt').text(response.totalamount + ".00");
-  //           },
-  //           error: function(xhr, status, error) {
-  //               console.error(error);
-  //           }
-  //       });
-  //   });
-
-  // //  $('.select2').select2({ placeholder: "Select a Client", allowClear: true });
-  //   //$('.select23').select2({ placeholder: "Select a Item", allowClear: true });
 });
 
 </script>

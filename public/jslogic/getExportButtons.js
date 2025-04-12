@@ -1,4 +1,4 @@
-function getExportButtons(tableId) {
+function getExportButtons(tableId, exportColumns) {
     return [
         {
             extend: 'copyHtml5',
@@ -6,7 +6,7 @@ function getExportButtons(tableId) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'Copy',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             }
         },
         {
@@ -14,7 +14,7 @@ function getExportButtons(tableId) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'JSON',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             },
             action: function (e, dt, button, config) {
                 var data = dt.buttons.exportData();
@@ -31,7 +31,7 @@ function getExportButtons(tableId) {
             titleAttr: 'Excel',
             title: 'AdminLT || Clients Data',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             }
         },
         {
@@ -41,7 +41,7 @@ function getExportButtons(tableId) {
             titleAttr: 'CSV',
             title: 'AdminLT || Clients Data',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             }
         },
         {
@@ -58,9 +58,8 @@ function getExportButtons(tableId) {
                 doc.styles.tableHeader.fontSize = 7;
                 doc.styles.tableFooter.fontSize = 15;
                 doc.styles.title.fontSize = 15;
-                
-                // Footer customization
-                doc['footer'] = (function (page, pages) {
+
+                doc['footer'] = function (page, pages) {
                     return {
                         columns: [
                             {
@@ -74,22 +73,22 @@ function getExportButtons(tableId) {
                         ],
                         margin: [10, 0]
                     };
-                });
+                };
 
                 var objLayout = {};
-                objLayout['hLineWidth'] = function (i) { return .5; };
-                objLayout['vLineWidth'] = function (i) { return .5; };
-                objLayout['hLineColor'] = function (i) { return '#aaa'; };
-                objLayout['vLineColor'] = function (i) { return '#aaa'; };
-                objLayout['paddingLeft'] = function (i) { return 4; };
-                objLayout['paddingRight'] = function (i) { return 4; };
+                objLayout['hLineWidth'] = function () { return .5; };
+                objLayout['vLineWidth'] = function () { return .5; };
+                objLayout['hLineColor'] = function () { return '#aaa'; };
+                objLayout['vLineColor'] = function () { return '#aaa'; };
+                objLayout['paddingLeft'] = function () { return 4; };
+                objLayout['paddingRight'] = function () { return 4; };
                 doc.content[1].layout = objLayout;
                 doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
                 doc.defaultStyle.alignment = 'center';
                 doc.styles.tableHeader.alignment = 'center';
             },
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             }
         },
         {
@@ -99,7 +98,7 @@ function getExportButtons(tableId) {
             titleAttr: 'Print',
             title: 'AdminLT || Clients Data',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: exportColumns
             }
         },
         {
@@ -120,7 +119,8 @@ function getExportButtons(tableId) {
             exportOptions: {
                 modifier: {
                     page: 'all'
-                }
+                },
+                columns: exportColumns
             }
         },
         {
@@ -133,7 +133,8 @@ function getExportButtons(tableId) {
             exportOptions: {
                 modifier: {
                     page: 'all'
-                }
+                },
+                columns: exportColumns
             }
         },
         {
@@ -146,9 +147,9 @@ function getExportButtons(tableId) {
             exportOptions: {
                 modifier: {
                     page: 'all'
-                }
+                },
+                columns: exportColumns
             }
         }
-    ]
-
+    ];
 }

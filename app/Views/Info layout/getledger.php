@@ -245,110 +245,7 @@ font-size:15px;
                         
 
     <?php if (!empty($ledgerDetails) && is_array($ledgerDetails) && count($ledgerDetails) > 0) : ?>
-                                                                 <!--    <?php 
 
-                                      // Default setup for opening balance
-                                      $subtotal=0;
-                                      $subtotal = $dops ?? 0; // Starting with the opening balance
-                                      $credittotal = 0;
-                                      $debittotal = 0;
-                                      $c = 1; // Counter for ledger
-
-                                      foreach ($ledgerDetails as $row) {
-                                          // Define voucher type and handle accordingly
-                                          if ($u_type == 0) { // Client (Sales -> Credit, Receipt -> Debit)
-                                              // Sales: Credit
-                                              if ($row->voucher_type == "Sales") {
-                                                  $credit = $row->credit ?? 0;
-                                                  $subtotal += $credit;
-                                                  $credittotal += $credit;
-                                              }
-                                              // Receipt: Debit
-                                              elseif ($row->voucher_type == "Receipt") {
-                                                  $debit = $row->debit ?? 0;
-                                                  $subtotal -= $debit;
-                                                  $debittotal += $debit;
-                                              }
-                                          }
-                                          elseif ($u_type == 1) { // Supplier (Receipt -> Credit, Purchase -> Debit)
-                                              // Receipt (Payment): Credit (Increase the balance)
-                                              if ($row->voucher_type == "Receipt") {
-                                                  $credit = $row->credit ?? 0;
-                                                  $subtotal -= $credit;  // Increase the balance for the supplier
-                                                  $credittotal += $credit;
-                                              }
-                                              // Purchase: Debit (Increase the amount owed)
-                                              elseif ($row->voucher_type == "Purchase") {
-                                                  $debit = $row->debit ?? 0;
-                                                  $subtotal += $debit;  // Decrease the balance for the supplier (increase amount owed)
-                                                  $debittotal += $debit;
-                                              }
-                                          }
-                                          elseif ($u_type == 2) { // Dual (Payment and Sales -> Credit, Purchase -> Debit)
-                                              // Payment: Credit (Increase the balance)
-                                              if ($row->voucher_type == "Receipt") {
-                                                  $credit = $row->credit ?? 0;
-                                                  $subtotal -= $credit;
-                                                  $credittotal += $credit;
-                                              }
-                                              // Sales: Credit (Increase the balance)
-                                              elseif ($row->voucher_type == "Sales") {
-                                                  $credit = $row->credit ?? 0;
-                                                  $subtotal -= $credit;
-                                                  $credittotal += $credit;
-                                              }
-                                              // Purchase: Debit (Increase the amount owed)
-                                              elseif ($row->voucher_type == "Purchase") {
-                                                  $debit = $row->debit ?? 0;
-                                                  $subtotal += $debit;
-                                                  $debittotal += $debit;
-                                              }
-                                          }
-
-                                          // Display the transaction details in the table (client, supplier, or dual)
-                                          ?>
-                                          <tr>
-                                              <td><?= $c++; ?></td>
-                                              <td><?= $row->created; ?></td>
-                                              <td><?= $row->voucher_type; ?></td>
-                                              <td>
-                                                  <?php 
-                                                      $invoice_details = $row->invoice_details;
-                                                      $orderid = '';
-                                                      $invoice_id = '';
-                                                      
-                                                      // Check if invoice details contain a '+' symbol and split them
-                                                      if (strpos($invoice_details, '+') !== false) {
-                                                          $parts = explode('+', $invoice_details);
-                                                          $invoice_id = $parts[0]; // Invoice part
-                                                          $orderid = $parts[1];    // Order ID part
-                                                      } else {
-                                                          $invoice_id = $invoice_details;
-                                                      }
-
-                                                      // Generate the appropriate anchor tag based on the voucher type
-                                                      if ($row->voucher_type == "Sales") {
-                                                          echo '<a href="' . base_url() . '/taxinv/printtaxinv?orderid=' . urlencode($orderid) . '" target="_blank">-----' . $invoice_id . '</a>';
-                                                      } elseif ($row->voucher_type == "Purchase") {
-                                                          echo '<a href="' . base_url() . '/purchaseinv/printpurchaseinv?orderid=' . urlencode($orderid) . '" target="_blank">-----' . $invoice_id . '</a>';
-                                                      } else {
-                                                          echo $invoice_details;
-                                                      }
-                                                  ?>
-                                              </td>
-                                              <td>
-                                                  <?= $row->formatted_credit ?? 0; ?>
-                                              </td>
-                                              <td>
-                                                  <?= $row->formatted_debit ?? 0; ?>
-                                              </td>
-                                              <td>
-                                                  <?= number_format($subtotal).".00"; ?>
-                                              </td>
-                                          </tr>
-                                      <?php } ?>
-
- -->        
                                      </tbody>
                                     
                                      <tfoot>
@@ -575,7 +472,7 @@ let totalDebit = 0;
                 'autoWidth': false,
                 'footer':true,
                 dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-                buttons: getExportButtons('#examplez'),
+                buttons: getExportButtons('#examplez',[0,1,2,3,4,5,6]),
     //                 "ajax": {
     //     url: base_url + "/account/getLedgerByFY/" + cid,
     //     type: "GET",
@@ -708,27 +605,27 @@ let totalDebit = 0;
       
 
 });
-  // document.querySelectorAll('.toggle-vis').forEach((el) => {
-  //                   el.addEventListener('click', function (e) {
-  //                       e.preventDefault();
+  document.querySelectorAll('.toggle-vis').forEach((el) => {
+                    el.addEventListener('click', function (e) {
+                        e.preventDefault();
 
-  //                       let columnIdx = e.target.getAttribute('data-column');
-  //                       let column = table.column(columnIdx);
+                        let columnIdx = e.target.getAttribute('data-column');
+                        let column = table.column(columnIdx);
 
-  //                       // Toggle the visibility
-  //                       const isVisible = column.visible();
-  //                       column.visible(!isVisible);
+                        // Toggle the visibility
+                        const isVisible = column.visible();
+                        column.visible(!isVisible);
 
-  //                       // Highlight the clicked button
-  //                       if (!isVisible) {
-  //                           // If the column is now visible, highlight the button
-  //                           e.target.style.backgroundColor = ''; // Set background color to red
-  //                       } else {
-  //                           // If the column is now hidden, reset the button color
-  //                           e.target.style.backgroundColor = '#d9534f'; // Reset background color
-  //                       }
-  //                   });
-  //               });
+                        // Highlight the clicked button
+                        if (!isVisible) {
+                            // If the column is now visible, highlight the button
+                            e.target.style.backgroundColor = ''; // Set background color to red
+                        } else {
+                            // If the column is now hidden, reset the button color
+                            e.target.style.backgroundColor = '#d9534f'; // Reset background color
+                        }
+                    });
+                });
 
 });
     
@@ -1235,7 +1132,11 @@ let totalDebit = 0;
                     
                 },
                 error: function (xhr, status, error) {
-                    console.log("AJAX Error:", error);
+                            console.error("Detailed Error:", {
+            status: xhr.status,
+            statusText: xhr.statusText,
+            responseText: xhr.responseText
+        });
                 }
             });
         }

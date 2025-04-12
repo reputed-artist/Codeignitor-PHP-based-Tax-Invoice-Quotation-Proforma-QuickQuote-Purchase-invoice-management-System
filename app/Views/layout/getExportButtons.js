@@ -6,7 +6,7 @@ function getExportButtons(tableId) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'Copy',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2, 3, 4, 5,6,7]
             }
         },
         {
@@ -14,7 +14,7 @@ function getExportButtons(tableId) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'JSON',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2, 3, 4, 5,6,7]
             },
             action: function (e, dt, button, config) {
                 var data = dt.buttons.exportData();
@@ -41,7 +41,7 @@ function getExportButtons(tableId) {
             titleAttr: 'CSV',
             title: 'AdminLT || Clients Data',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2, 3, 4, 5,6,7]
             }
         },
         {
@@ -89,7 +89,7 @@ function getExportButtons(tableId) {
                 doc.styles.tableHeader.alignment = 'center';
             },
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2, 3, 4, 5,6,7]
             }
         },
         {
@@ -99,7 +99,7 @@ function getExportButtons(tableId) {
             titleAttr: 'Print',
             title: 'AdminLT || Clients Data',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5]
+                columns: [0, 1, 2, 3, 4, 5,6,7]
             }
         },
         {

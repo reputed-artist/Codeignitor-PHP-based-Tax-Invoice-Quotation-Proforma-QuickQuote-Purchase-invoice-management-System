@@ -52,68 +52,146 @@ if($u_type == 0)
 {
 
 
- $sql2="WITH Ledger AS (
+//  $sql2="WITH Ledger AS (
+//     SELECT 
+//         a.cid, 
+//         COALESCE(a.opening_bal, 0) AS opening_balance, 
+        
+//         -- Total Credit from invest2
+//         COALESCE(SUM(i.totalamount), 0) AS total_credit, 
+        
+//         -- Total Debit from paidhistory
+//         COALESCE(SUM(p.amount), 0) AS total_debit, 
+        
+//         -- Financial Year Calculation
+//         CASE 
+//             WHEN EXTRACT(MONTH FROM COALESCE(i.created, p.dateofpayment)) >= 4 
+//             THEN CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)), '-', YEAR(COALESCE(i.created, p.dateofpayment)) + 1)
+//             ELSE CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)) - 1, '-', YEAR(COALESCE(i.created, p.dateofpayment)))
+//         END AS fy,
+
+//         COALESCE(i.created, p.dateofpayment) AS transaction_date
+
+//     FROM account a
+//     LEFT JOIN invtest2 i ON a.cid = i.cid
+//     LEFT JOIN paidhistory p ON a.cid = p.cid
+//     WHERE a.cid = ? -- Change based on client ID
+//     GROUP BY a.cid, a.opening_bal, fy, transaction_date
+// )
+
+// SELECT 
+//     l1.cid, 
+//     COALESCE(l2.closing_balance, l1.opening_balance) AS opening_balance, 
+//     (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit) AS total_credit, 
+//     l1.total_debit,
+//     (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit - l1.total_debit) AS closing_balance,
+//     l1.fy
+// FROM Ledger l1
+// LEFT JOIN (
+//     SELECT 
+//         cid, 
+//         fy, 
+//         (opening_balance + total_credit - total_debit) AS closing_balance 
+//     FROM Ledger
+// ) l2 
+// ON l1.cid = l2.cid 
+// AND l1.fy = (
+//     SELECT MIN(fy) FROM Ledger WHERE cid = l1.cid AND fy > l2.fy
+// )
+// WHERE l1.transaction_date BETWEEN ? AND ? -- 🔥 Date filter here
+// ORDER BY l1.fy";   
+
+ $cid=(int)$cid;   
+
+$sql2="-- Set up the financial year-wise credit data
+WITH credit_data AS (
     SELECT 
-        a.cid, 
-        COALESCE(a.opening_bal, 0) AS opening_balance, 
-        
-        -- Total Credit from invest2
-        COALESCE(SUM(i.totalamount), 0) AS total_credit, 
-        
-        -- Total Debit from paidhistory
-        COALESCE(SUM(p.amount), 0) AS total_debit, 
-        
-        -- Financial Year Calculation
+        cid,
         CASE 
-            WHEN EXTRACT(MONTH FROM COALESCE(i.created, p.dateofpayment)) >= 4 
-            THEN CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)), '-', YEAR(COALESCE(i.created, p.dateofpayment)) + 1)
-            ELSE CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)) - 1, '-', YEAR(COALESCE(i.created, p.dateofpayment)))
+            WHEN MONTH(created) >= 4 
+                THEN CONCAT(YEAR(created), '-', YEAR(created) + 1)
+            ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created))
         END AS fy,
+        SUM(totalamount) AS total_credit
+    FROM invtest2
+    WHERE cid = {$cid}
+    GROUP BY cid, fy
+),
 
-        COALESCE(i.created, p.dateofpayment) AS transaction_date
-
-    FROM account a
-    LEFT JOIN invtest2 i ON a.cid = i.cid
-    LEFT JOIN paidhistory p ON a.cid = p.cid
-    WHERE a.cid = ? -- Change based on client ID
-    GROUP BY a.cid, a.opening_bal, fy, transaction_date
-)
-
-SELECT 
-    l1.cid, 
-    COALESCE(l2.closing_balance, l1.opening_balance) AS opening_balance, 
-    (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit) AS total_credit, 
-    l1.total_debit,
-    (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit - l1.total_debit) AS closing_balance,
-    l1.fy
-FROM Ledger l1
-LEFT JOIN (
+-- Set up the financial year-wise debit data
+debit_data AS (
     SELECT 
-        cid, 
-        fy, 
-        (opening_balance + total_credit - total_debit) AS closing_balance 
-    FROM Ledger
-) l2 
-ON l1.cid = l2.cid 
-AND l1.fy = (
-    SELECT MIN(fy) FROM Ledger WHERE cid = l1.cid AND fy > l2.fy
+        cid,
+        CASE 
+            WHEN MONTH(dateofpayment) >= 4 
+                THEN CONCAT(YEAR(dateofpayment), '-', YEAR(dateofpayment) + 1)
+            ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
+        END AS fy,
+        SUM(amount) AS total_debit
+    FROM paidhistory
+    WHERE cid = {$cid}
+    GROUP BY cid, fy
+),
+
+-- Combine both credit and debit with financial year
+fy_combined AS (
+    SELECT 
+        COALESCE(c.cid, d.cid) AS cid,
+        COALESCE(c.fy, d.fy) AS fy,
+        COALESCE(c.total_credit, 0) AS total_credit,
+        COALESCE(d.total_debit, 0) AS total_debit
+    FROM credit_data c
+    LEFT JOIN debit_data d ON c.cid = d.cid AND c.fy = d.fy
+    UNION
+    SELECT 
+        COALESCE(c.cid, d.cid) AS cid,
+        COALESCE(c.fy, d.fy) AS fy,
+        COALESCE(c.total_credit, 0) AS total_credit,
+        COALESCE(d.total_debit, 0) AS total_debit
+    FROM debit_data d
+    LEFT JOIN credit_data c ON d.cid = c.cid AND d.fy = c.fy
+),
+
+-- Add opening balance from account
+all_data AS (
+    SELECT 
+        a.cid,
+        a.opening_bal,
+        f.fy,
+        f.total_credit,
+        f.total_debit
+    FROM account a
+    JOIN fy_combined f ON a.cid = f.cid
+    WHERE a.cid = {$cid}
 )
-WHERE l1.transaction_date BETWEEN ? AND ? -- 🔥 Date filter here
-ORDER BY l1.fy";   
 
-$query2 = $this->db->query($sql2, [
-    $cid,
-    $startYear . '-04-01', $endYear . '-03-31',  // For invtest2 date range
-    //$startYear . '-04-01', $endYear . '-03-31',  // For paidhistory date range
+-- Final query to calculate running balance year-wise
+SELECT 
+    cid,
+    fy,
+    CAST(@opening_balance := IF(@opening_balance IS NULL, opening_bal, @opening_balance) AS DECIMAL(15,2)) AS opening_balance,
+    total_credit,
+    total_debit,
+    CAST(@opening_balance := @opening_balance + total_credit - total_debit AS DECIMAL(15,2)) AS closing_balance
+FROM all_data, (SELECT @opening_balance := NULL) AS vars
+ORDER BY fy";
+// $query2 = $this->db->query($sql2, [
+//     $cid,
+//     $startYear . '-04-01', $endYear . '-03-31',  // For invtest2 date range
+//     //$startYear . '-04-01', $endYear . '-03-31',  // For paidhistory date range
     
-]);
+// ]);
 
+$query2=$this->db->query($sql2);
 $result2 = $query2->getResultArray();
 
 
 
 }
 elseif ($u_type == 1) {
+
+
+$cid=(int)$cid;
 
 
    $sql2="WITH FinancialYears AS (
@@ -124,7 +202,7 @@ elseif ($u_type == 1) {
             ELSE CONCAT(YEAR(invdate) - 1, '-', YEAR(invdate))
         END AS fy
     FROM purchaseinv2
-    WHERE cid = ?
+    WHERE cid = {$cid}
     
     UNION
     
@@ -135,7 +213,7 @@ elseif ($u_type == 1) {
             ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
         END AS fy
     FROM paidhistory
-    WHERE cid = ?
+    WHERE cid = {$cid}
 ),
 
 LedgerData AS (
@@ -168,8 +246,8 @@ LedgerData AS (
 
     FROM FinancialYears f
     CROSS JOIN account a
-    WHERE a.cid = ?
-),
+    WHERE a.cid = {$cid} 
+    ),
 
 FinalLedger AS (
     SELECT 
@@ -197,7 +275,9 @@ FinalLedger AS (
 
 SELECT * FROM FinalLedger ORDER BY fy";
 
-    $query2 = $this->db->query($sql2, [$cid,$cid,$cid]);
+    //$query2 = $this->db->query($sql2, [$cid,$cid,$cid]);
+
+    $query2 = $this->db->query($sql2);
 
 $result2 = $query2->getResultArray();
 

@@ -1,0 +1,48 @@
+SELECT  
+    CASE 
+        WHEN X.voucher_type = 'Receipt' THEN (@receipt_serial := @receipt_serial + 1)
+        ELSE CONCAT((X.invoice_number), '+', X.orderid)
+    END AS invoice_details,
+    
+    X.debit,
+    X.credit,
+    
+    -- Formatted amounts with proper NULL handling
+    IFNULL(FORMAT(X.debit, 2), '0.00') AS formatted_debit,
+    IFNULL(FORMAT(X.credit, 2), '0.00') AS formatted_credit,
+    
+    X.created,
+    X.voucher_type,
+    X.reference_id  -- Added for better traceability
+FROM (
+    -- Purchase Invoices (Debit entries - increases liability)
+    SELECT 
+        p.orderid,
+        p.invid AS invoice_number,
+        p.totalamount AS debit,
+        NULL AS credit,
+        p.invdate AS created,
+        'Purchase' AS voucher_type,
+        p.invid AS reference_id
+    FROM purchaseinv2 p
+    WHERE p.cid = 1014
+    AND p.invdate BETWEEN '2024-04-01' AND '2025-03-31'
+    AND p.totalamount > 0  -- Only include invoices with positive amounts
+    
+    UNION ALL
+    
+    -- Payment Receipts (Credit entries - reduces liability)
+    SELECT 
+        NULL AS orderid,
+        NULL AS invoice_number,
+        NULL AS debit,
+        ph.amount AS credit,
+        ph.dateofpayment AS created,
+        'Receipt' AS voucher_type,
+        pay_id AS reference_id
+    FROM paidhistory ph
+    WHERE ph.cid = 1014
+    AND ph.dateofpayment BETWEEN '2024-04-01' AND '2025-03-31'
+    AND ph.amount > 0  -- Only include payments with positive amounts
+) AS X, (SELECT @receipt_serial := 0) AS init
+ORDER BY X.created ASC, X.voucher_type DESC;

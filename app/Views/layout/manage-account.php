@@ -244,57 +244,7 @@ input .error{
                 
 
 
-               <!--  <div class="form-group">
-                  <label id="caddlbl" class="col-sm-3 control-label">Address <span style="color: red;">*</span></label>
-                  <div class="col-sm-8">
-                    <textarea class="form-control" name="c_add" id="c_add" rows="4" 
-                      placeholder="Address"><?php //if(isset($_POST['c_add'])){ echo $_POST['c_add'];} ?></textarea>
-                                  <div id="c_add_error" style="color: red;"> </div>
-                </div>
-              </div>
-
-              
-              <div class="form-group">
-                  <label id="emaillbl" class="col-sm-3 control-label">Email</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" name="email"  value="<?php //if(isset($_POST['c_name'])){ echo $_POST['c_name'];} ?>" id="email" placeholder="Email">
-                    <div id="email_error" style="color:red;"> </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-                <div class="form-group has-danger">
-                  <label id="mob" class="col-sm-3 control-label">Mobile <span style="color: red;">*</span></label>
-                    <div class="col-sm-8">
-                      <input id="phone" class="phone" type="tel" name="phone" value="<?php //if(isset($_POST['fullno'])){ echo $_POST['fullno'];} ?>" style="{min-width: 100%; max-width: 100%;}" />
-
-                      <input id="fullno" class="phone" type="hidden" name="fullno" style="{min-width: 100%;
-                      max-width: 100%;}" value="<?php //if(isset($_POST['fullno']))
-                                                        //{ echo $_POST['fullno'];   } ?>" />
-                      <br>
-                      <span id="error-msg" class="hide"></span>
-                      <div id="mob_error" style="color: red;"> </div>
-
-                      <p id="result" name="result"></p> 
-                    </div>       
-                </div>
-
-
-                <div class="form-group">
-                  <label for="" class="col-sm-3 control-label">Select Country</label>
-                    <div class="col-sm-8 col">
-                      <select  id="address_country" name="address_country" class="form-control">
-                  
-                    </select>
-                  
-                   <input id="fulldetails" class="phone" type="hidden" name="fulldetails" style="{min-width: 100%;max-width: 100%;}" />
-                  </div>
-                </div>
- --> 
+         
 
             <div class="form-group">
                   <label id="type" class="col-sm-3 control-label">Select Company<span style="color: red;">*</span></label>
@@ -375,35 +325,7 @@ input .error{
                   </div>
                 </div>
 
-               <!--  <div class="form-group">
-                  <label id="cnamelbl" class="col-sm-3 control-label">Company Name <span style="color: red;">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" name="c_nameedit"  value="<?php //if(isset($_POST['c_name'])){ echo $_POST['c_name'];} ?>" id="c_nameedit" placeholder="Company Name">
-                    <div id="c_name_error1" style="color:red;"> </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label id="caddlbl" class="col-sm-3 control-label">Address <span style="color: red;">*</span></label>
-                  <div class="col-sm-8">
-                    <textarea class="form-control" name="c_addedit" id="c_addedit" rows="4" 
-                      placeholder="Address"><?php //if(isset($_POST['c_add'])){ echo $_POST['c_add'];} ?></textarea>
-                                  <div id="c_add_error1" style="color: red;"> </div>
-                </div>
-              </div>
-
-
-               <div class="form-group">
-                  <label id="emaillbl1" class="col-sm-3 control-label">Email</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" name="email1" id="email1" placeholder="Email">
-                    <div id="email_error1" style="color:red;"> </div>
-                  </div>
-                </div> -->
-
-
-
-
+         
              <div class="form-group">
                   <label id="type" class="col-sm-3 control-label">Select Company<span style="color: red;">*</span></label>
                   <div class="col-sm-8">
@@ -474,88 +396,7 @@ input .error{
   
   <script>
      
-//    var input = document.querySelector("#phone"),
-//     errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"],
-//     result = document.querySelector("#result");
 
-//     var iti;      
-//     window.addEventListener("load", function ($form, event) {
-//     var countryData = window.intlTelInputGlobals.getCountryData(),
-//         addressDropdown = document.querySelector("#address_country"),
-//         errorMsg = document.querySelector("#error-msg");
-
-//     iti = window.intlTelInput(input, {
-//         hiddenInput: "full_number",
-//         nationalMode: false,
-//         formatOnDisplay: true,
-//         separateDialCode: true,
-//         autoHideDialCode: true,
-//         autoPlaceholder: "aggressive",
-//         initialCountry: "in",
-//         placeholderNumberType: "MOBILE",
-//         preferredCountries: ['in', 'np'],
-//         utilsScript: "<?=base_url()?>/public/bower_components/intl-tel-input/build/js/utils.js",
-//     });
-
-//     input.addEventListener('keyup', function() {
-//         validatePhoneNumber();
-//     });
-    
-//     input.addEventListener('change', resetValidationState);
-//     input.addEventListener('countrychange', function() {
-//         addressDropdown.value = iti.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-//         $('#fulldetails').val(iti.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-//     });
-
-//     // Populate country dropdown
-//     for (var i = 0; i < countryData.length; i++) {
-//         var country = countryData[i];
-//         var optionNode = document.createElement("option");
-//         optionNode.setAttribute("data-city", country.name.replace(/(\(.+\))/g, ''));
-//         optionNode.value = country.iso2.replace(/(\(.+\))/g, '');
-//         var textNode = document.createTextNode(country.name.replace(/(\(.+\))/g, ''));
-//         optionNode.appendChild(textNode);
-//         addressDropdown.appendChild(optionNode);
-//     }
-
-//     addressDropdown.value = iti.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-//     $('#fulldetails').val(iti.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-
-//     function validatePhoneNumber() {
-//         resetValidationState();
-//         if (input.value.trim()) {
-//             if (iti.isValidNumber()) {
-//                 $(input).removeClass('form-control is-invalid').addClass('form-control is-valid');
-//                 $('.iti').removeClass('is-invalid').addClass('is-valid'); // Change wrapper state
-//                 $("#submitbtn").attr('disabled', false);
-//             } else {
-//                 $(input).addClass('form-control is-invalid');
-//                 $('.iti').addClass('is-invalid'); // Highlight the wrapper
-//                 var errorCode = iti.getValidationError();
-//                 errorMsg.innerHTML = errorMap[errorCode];
-//                 $(errorMsg).show();
-//                 $("#submitbtn").attr('disabled', true);
-//             }
-//         }
-//     }
-
-//     function resetValidationState() {
-//         $(input).removeClass('form-control is-invalid').removeClass('form-control is-valid'); 
-//         $('.iti').removeClass('is-invalid').removeClass('is-valid'); // Reset wrapper state
-//         errorMsg.innerHTML = ""; // Clear error message
-//         $(errorMsg).hide(); // Hide error message
-//     }
-    
-//     input.addEventListener('focus', function() {
-//         result.textContent = "";
-//     }, false);
-
-//     $(input).on("focusout", function() {
-//         var intlNumber = iti.getNumber();
-//         $("#fullno").val(intlNumber);
-//         console.log(intlNumber);
-//     });
-// });
 
   $('#ctype').select2({
         placeholder: "Select a Person or Company",
@@ -584,93 +425,6 @@ input .error{
   </script>
 
  <script>
-//    var input2 = document.querySelector("#phoneedit"),
-//     errorMap2 = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"],
-//     result2 = document.querySelector("#result2");
-
-// var iti2;
-// window.addEventListener("load", function ($form, event) {
-//     var countryData2 = window.intlTelInputGlobals.getCountryData(),
-//         addressDropdown2 = document.querySelector("#address_countryedit"),
-//         errorMsg2 = document.querySelector("#error-msg2");
-
-//     iti2 = window.intlTelInput(input2, {
-//         hiddenInput: "full_number",
-//         nationalMode: false,
-//         formatOnDisplay: true,
-//         separateDialCode: true,
-//         autoHideDialCode: true,
-//         autoPlaceholder: "aggressive",
-//         initialCountry: "in",
-//         placeholderNumberType: "MOBILE",
-//         preferredCountries: ['in', 'np'],
-//         utilsScript: "<?=base_url()?>/public/bower_components/intl-tel-input/build/js/utils.js",
-//     });
-
-//     input2.addEventListener('keyup', function() {
-//         validatePhoneNumber2();
-//     });
-
-//     input2.addEventListener('change', resetValidationState2);
-//     input2.addEventListener('countrychange', function() {
-//         addressDropdown2.value = iti2.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-//         $('#fulldetails2').val(iti2.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-//     });
-
-//     // Populate country dropdown
-//     for (var i = 0; i < countryData2.length; i++) {
-//         var country2 = countryData2[i];
-//         var optionNode = document.createElement("option");
-//         optionNode.setAttribute("data-city", country2.name.replace(/(\(.+\))/g, ''));
-//         optionNode.value = country2.iso2.replace(/(\(.+\))/g, '');
-//         var textNode = document.createTextNode(country2.name.replace(/(\(.+\))/g, ''));
-//         optionNode.appendChild(textNode);
-//         addressDropdown2.appendChild(optionNode);
-//     }
-
-//     addressDropdown2.value = iti2.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-//     $('#fulldetails2').val(iti2.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-
-//     function validatePhoneNumber2() {
-//         resetValidationState2();
-//         if (input2.value.trim()) {
-//             if (iti2.isValidNumber()) {
-//                 $(input2).removeClass('form-control is-invalid').addClass('form-control is-valid');
-//                 $('.iti2').removeClass('is-invalid').addClass('is-valid'); // Change wrapper state
-//                 $("#submitbtn").attr('disabled', false);
-//             } else {
-//                 $(input2).addClass('form-control is-invalid');
-//                 $('.iti2').addClass('is-invalid'); // Highlight the wrapper
-//                 var errorCode2 = iti2.getValidationError();
-//                 errorMsg2.innerHTML = errorMap2[errorCode2];
-//                 $(errorMsg2).show();
-//                 $("#submitbtn").attr('disabled', true);
-//             }
-//         }
-//     }
-
-//     function resetValidationState2() {
-//         $(input2).removeClass('form-control is-invalid').removeClass('form-control is-valid');
-//         $('.iti2').removeClass('is-invalid').removeClass('is-valid'); // Reset wrapper state
-//         errorMsg2.innerHTML = ""; // Clear error message
-//         $(errorMsg2).hide(); // Hide error message
-//     }
-
-//     input2.addEventListener('focus', function() {
-//         result2.textContent = "";
-//     }, false);
-
-//     $(input2).on("focusout", function() {
-//         var intlNumber2 = iti2.getNumber();
-//         $("#fullno2").val(intlNumber2);
-//         console.log(intlNumber2);
-//     });
-// });
-
-// $('.select2').select2({
-//     placeholder: "Select Bill Type",
-//     allowClear: true
-// });
 
  </script>
   <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>

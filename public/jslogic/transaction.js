@@ -170,7 +170,7 @@ function fetch() {
                 'footer':true,
                 'data': response.aaData,
                 dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-                buttons: getExportButtons('#example1'),  
+                buttons: getExportButtons('#example1',[0,1,2,3,4,5,6,7,8]),  
         
 
          "dataType": 'json',

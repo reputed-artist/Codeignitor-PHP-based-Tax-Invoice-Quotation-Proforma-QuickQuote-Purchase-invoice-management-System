@@ -228,7 +228,7 @@ function fetch() {
                 'footer':true,
                 'data': response.aaData,
                 dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-                buttons: getExportButtons('#example1'),  
+                buttons: getExportButtons('#example1',[0,1,2,3,4,5,6,7]),   
         //      columnDefs: [
         //     { width: '5%', targets: 0 },  // Set 20% width to the first column (index 0)
         //     { width: '20%', targets: 1 },  // Set 30% width to the second column (index 1)
