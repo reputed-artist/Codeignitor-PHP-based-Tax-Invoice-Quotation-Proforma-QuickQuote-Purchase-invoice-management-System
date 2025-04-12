@@ -213,7 +213,7 @@ input .error{
                 <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Description">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="HSN">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Product Type">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Created">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Creation Date">
                 
 
             </div>
