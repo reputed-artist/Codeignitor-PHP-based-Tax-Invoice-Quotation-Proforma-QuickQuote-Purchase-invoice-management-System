@@ -36,7 +36,23 @@ $(document).on("click", "#viewproduct", function(e) {
 });
 
 
+$('#ptype').on('change', function() {
+    var selectedType = $(this).val();
+    if (selectedType === 'Freight') {
+      $('#cattype').prop('disabled', true).val('').trigger('change'); // reset & disable
+    } else {
+      $('#cattype').prop('disabled', false); // enable if not Freight
+    }
+  });
 
+$('#ptypeedit').on('change', function() {
+    var selectedType = $(this).val();
+    if (selectedType === 'Freight') {
+      $('#cattypeedit').prop('disabled', true).val('').trigger('change'); // reset & disable
+    } else {
+      $('#cattypeedit').prop('disabled', false); // enable if not Freight
+    }
+  });
 
 $('#modal-default').on('hidden.bs.modal', function () {
     // Reset all input validations
@@ -115,7 +131,7 @@ $(document).on("click", "#edit_product", function() {
             //$('#ptypeedit').val(response.post.ptype);
                        
             $('#ptypeedit').val(response.post.p_type).trigger('change'); // for Select2
-
+            $('#cattypeedit').val(response.post.cattype).trigger('change'); // for Select2
            
                var imageUrl = base_url + "/public/dist/img/" + encodeURIComponent(response.post.img_loc || "default.jpg");
               $('#uploadimg1').attr('src', imageUrl);
@@ -462,6 +478,7 @@ $(document).on("click", "#submit", function(e) {
     var pdesc = $("#pdesc").val();
     var hsn = $("#hsn").val();
     var ptype = $("#ptype").val();
+    var cattype=$("#cattype").val();
     var imgname=$("#imgname").val();
     
     console.log(pid);
@@ -469,6 +486,7 @@ $(document).on("click", "#submit", function(e) {
     console.log(pdesc);
     console.log(hsn);
     console.log(ptype);
+    console.log(cattype);
     
     var fd = new FormData();
     fd.append("p_id", pid);
@@ -476,6 +494,7 @@ $(document).on("click", "#submit", function(e) {
     fd.append("description", pdesc);
     fd.append("hsn", hsn);
     fd.append("ptype", ptype);
+    fd.append("cattype",cattype);
 
    //fd.append('imgname', $('#file_name').val());  
     if (imgname) {
@@ -790,13 +809,14 @@ var pidedit = $("#pidedit").val();
     var pdescedit = $("#pdescedit").val();
     var hsnedit = $("#hsnedit").val();
     var ptypeedit = $("#ptypeedit").val();
-
+    var cattypeedit = $("#cattypeedit").val();
     
     console.log(pidedit);
     console.log(pnameedit);
     console.log(pdescedit);
     console.log(hsnedit);
     console.log(ptypeedit);
+    console.log(cattypeedit);
     
     var fd = new FormData();
     fd.append("p_id", pidedit);
@@ -804,6 +824,7 @@ var pidedit = $("#pidedit").val();
     fd.append("description", pdescedit);
     fd.append("hsn", hsnedit);
     fd.append("ptype", ptypeedit);
+    fd.append("cattype",cattypeedit);
 
     //fd.append('imgname', $('#file_name').val());  
 

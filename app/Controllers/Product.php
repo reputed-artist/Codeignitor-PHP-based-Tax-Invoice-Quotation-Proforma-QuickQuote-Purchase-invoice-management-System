@@ -158,6 +158,7 @@ public function insert() {
             'description' => $this->request->getPost('description'),
             'hsn' => $this->request->getPost('hsn'),
             'p_type' => $this->request->getPost('ptype'),
+            'cattype'=> $this->request->getPost('cattype'),
             'img_loc' => $file, // Store the relative file path
             'techs'=> $this->request->getPost('techs'),
             'created' => date('Y-m-d'), // Assuming created is the current date
@@ -281,6 +282,7 @@ if (!$fileName) {
             'description' => $this->request->getPost('description'),
             'hsn'   => $this->request->getPost('hsn'),
             'p_type' => $this->request->getPost('ptype'),
+            'cattype'=> $this->request->getPost('cattype'),
             'img_loc'=> $fileName,
             'techs' =>  $this->request->getPost('techs1'),
             'created' => date('Y-m-d'), // Assuming created is the current date

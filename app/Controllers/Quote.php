@@ -793,6 +793,8 @@ public function printquote()
 
     $itemDetails = $this->crudModel->fetchitemdata($orderid);
 
+    $cattype = $itemDetails[0]['cattype'];
+
     $bankDetails = $this->crudModel3->findAll();
 
 
@@ -809,7 +811,8 @@ public function printquote()
 
     return view('print/print quote', [     'invDetails' => $invDetails,
                                            'itemDetails' =>$itemDetails,
-                                            'bankDetails'=> $bankDetails]);
+                                            'bankDetails'=> $bankDetails,
+                                             'cattype'=> $cattype]);
 
 }
 

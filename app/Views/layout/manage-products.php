@@ -174,9 +174,9 @@ input .error{
                 <thead>
                 <tr>
                   <th>Sr. No.</th>
-                  <th>name</th>
+                  <th>Name</th>
                   <th>Description</th>
-                  <th>HSN</th>
+                  <th>Hsn</th>
 
                   <th>Product Type</th>
                   <th>Creation Date </th>
@@ -192,9 +192,9 @@ input .error{
                 <tfoot>
                 <tr>
                  <th>Sr. No.</th>
-                  <th>name</th>
+                  <th>Name</th>
                   <th>Description</th>
-                  <th>HSN</th>
+                  <th>Hsn</th>
 
                   <th>Product Type</th>
                   <th>Creation Date </th>
@@ -295,6 +295,23 @@ input .error{
                                   <div id="ptype_error" style="color: red;">  </div>
                 </div>
               </div>
+
+
+                <div class="form-group">
+                  <label id="type" class="col-sm-3 control-label">Category</label>
+                  <div class="col-sm-8">
+                   <select name="cattype" class="form-control select2" style=" height: 34px;width:100%" id="cattype">
+                    <option value=""></option>
+                    <option value="Manual">Manual</option>
+                    <option value="Semi-Automatic">Semi-Automatic</option>
+                    
+                    <option value="Automatic">Automatic</option>
+                     </select>
+                                  <div id="cattype_error" style="color: red;">  </div>
+                </div>
+              </div>
+
+
 
 
               <div class="form-group">
@@ -447,6 +464,20 @@ input .error{
                 </div>
               </div>
 
+
+              <div class="form-group">
+                  <label id="type" class="col-sm-3 control-label">Category</label>
+                  <div class="col-sm-8">
+                   <select name="cattypeedit" class="form-control select2" style=" height: 34px;width:100%" id="cattypeedit">
+                    <option value=""></option>
+                    <option value="Manual">Manual</option>
+                    <option value="Semi-Automatic">Semi-Automatic</option>
+                    
+                    <option value="Automatic">Automatic</option>
+                     </select>
+                                  <div id="cattype_error1" style="color: red;">  </div>
+                </div>
+              </div>
 
                <div class="form-group">
                   <label id="c_add" class="col-sm-3 control-label">Creation Date</label>

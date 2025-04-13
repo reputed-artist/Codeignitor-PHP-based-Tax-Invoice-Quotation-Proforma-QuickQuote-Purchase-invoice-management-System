@@ -11,7 +11,7 @@ class Product_model extends Model
 
     
 
-    protected $allowedFields = ['p_id','name', 'hsn','description','p_type','img_loc','techs','created']; // Specify allowed fields
+    protected $allowedFields = ['p_id','name', 'hsn','description','p_type','cattype','img_loc','techs','created']; // Specify allowed fields
 
 
     // public function __construct() {

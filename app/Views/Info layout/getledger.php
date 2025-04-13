@@ -509,125 +509,7 @@ let totalDebit = 0;
                 'footer':true,
                 dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
                 buttons: getExportButtons('#examplez',[0,1,2,3,4,5,6]),
-    //                 "ajax": {
-    //     url: base_url + "/account/getLedgerByFY/" + cid,
-    //     type: "GET",
-    //     dataType: "json",
-    //     data: function (d) {
-    //         d.fy = fy;
-    //         d.u_type = u_type;
-    //     },
-    //       dataSrc: function (json) {
-    //         let totalcredit = 0;
-    //         let totaldebit = 0;
-    //         let rowIndex = 1, receiptIndex = 1;
-
-    //         json.data.forEach((item, index) => {
-    //             let u_type = parseInt(item.u_type); // Ensure u_type is numeric
-    //             let credit = parseFloat(item.credit) || 0;
-    //             let debit = parseFloat(item.debit) || 0;
-
-    //             switch (u_type) {
-    //                 case 0: // Normal Calculation
-    //                     totalcredit += credit;
-    //                     totaldebit += debit;
-    //                     item.subtotal = totalcredit - totaldebit;
-    //                     break;
-    //                 case 1: // Reverse Subtotal Calculation
-    //                     totalcredit += credit;
-    //                     totaldebit += debit;
-    //                     item.subtotal = totaldebit - totalcredit;
-    //                     break;
-    //                 case 2: // Supplier Logic
-    //                     if (item.voucher_type === "Purchase") {
-    //                         totaldebit += debit;
-    //                     } else if (item.voucher_type === "Sales" || item.voucher_type === "Receipt") {
-    //                         totalcredit += credit;
-    //                     }
-    //                     item.subtotal = totaldebit - totalcredit;
-    //                     break;
-    //             }
-
-    //             console.log(`Row ${index + 1} | Subtotal:`, item.subtotal);
-    //         });
-
-    //         return json.data; // Return modified data with updated subtotals
-    //     },
-    //     success: function(response) {
-    //         console.log("Raw Response:", response);
-
-    //         // ✅ Update Opening Balance
-    //         if (response.balances && Array.isArray(response.balances) && response.balances.length > 0) {
-    //             let lastBalance = response.balances[response.balances.length - 1];
-    //             $("#opening_bal").text(lastBalance.opening_balance || "0");
-    //         } else {
-    //             console.error("No balance data found.");
-    //             $("#opening_bal").text("0");
-    //         }
-
-    //         // ✅ Ensure DataTables Receives Only `ledger` Array
-    //         if (response.ledger && Array.isArray(response.ledger)) {
-    //             let table = $('#examplez').DataTable();
-    //             table.clear().rows.add(response.ledger).draw();
-    //         } else {
-    //             console.error("Invalid ledger data:", response.ledger);
-    //         }
-                 
-    //       },
-    //     },  
-    //   "columns": [
-    //   {
-
-    // //custom functions for particular column
-    // "data": "Sno.",
-    // render: function (data, type, row, meta) {
-    //     return meta.row + meta.settings._iDisplayStart + 1;
-    //      }
-    //   },
-    //   { mData: 'created'},
-    //   { mData: 'voucher_type' },
-    //   { mData: 'invoice_details',
-    //             render: function(data, type, row) {
-    //             if (!data) return ''; // Handle empty cases
-
-    //             let invoiceParts = data.split('+'); // Assuming '+' separates invoiceID and orderID
-    //             let invoiceID = invoiceParts[0] || '';  
-    //             let orderID = invoiceParts[1] || ''; 
-    //                 let isReceipt = row.voucher_type === "Receipt"; // Adjust condition as needed
-                
-    //             // If it's a sales voucher, wrap orderID in an anchor tag
-    //             if (row.voucher_type === 'Sales' && orderID) {
-    //                 return `${invoiceID} <a href="${base_url}/taxinv/printtaxinv?orderid=${orderID}" target="_blank"></a>`;
-    //             }
-    //              if (row.voucher_type === 'Purchase' && orderID) {
-    //                 return `${invoiceID[1] ?  
-    //                     `<a href="${base_url}/purchaseinv/printpurchaseinv?orderid=${orderID}" target="_blank">
-    //                         ------${isReceipt ? displayIndex : invoiceID}
-    //                     </a>` : (isReceipt ? displayIndex : meta.row + 1)}`;
-    //             }
-
-    //             return data; // Otherwise, return as is
-    //         }
-
-
-    //    },
-    //   { mData: 'formatted_credit',
-    //   defaultContent: '0.00'
-    // },
-    //   { mData: 'formatted_debit',
-    //   defaultContent: '0.00'
-    // },
-     
-    //   {mData:'subtotal'}
-    //   ], 
-    //       columnDefs: [
-    //     {
-    //         targets: 4,  // Index of subtotal column
-    //         render: function (data, type, row) {
-    //             return data ? data.toFixed(2) : "0.00";  // ✅ Format subtotal
-    //         }
-    //     }
-    // ],
+    
      
         initComplete: function () {
                     var btns = $('.dt-button');
@@ -690,7 +572,7 @@ let totalDebit = 0;
                     //let runningBalance =<?= $dops; ?>
 
                     var tableBody = $("#examplez tbody");
-                    $("#example1").DataTable().clear().destroy();
+                    $("#examplez").DataTable().clear();
                     tableBody.empty();
 
                     var totalcredit = 0;
@@ -944,7 +826,7 @@ let totalDebit = 0;
                     //let runningBalance =<?= $dops; ?>
 
                     var tableBody = $("#examplez tbody");
-                    $("#example1").DataTable().clear().destroy();
+                    $("#examplez").DataTable().clear();
                     tableBody.empty();
 
                     var totalcredit = 0;

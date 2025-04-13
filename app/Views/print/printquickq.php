@@ -105,7 +105,7 @@ if (!empty($dv)) {
 <div class="col-md-12">
 </br>
 <p class="text-left" style="margin-left:65px;text-decoration: underline;font-size: 15px;" contenteditable><b>Quotation for
- <?php //echo $dd1[1]; ?>  </b></p>
+ <?= esc($cattype)." Batch Coding Machines"; ?> </b></p>
 </div>
 
 <table class="col-md-10" style="margin-left:65px"  border="5" >
@@ -125,7 +125,7 @@ if (!empty($dv)) {
     <td height="195" class="text-center"><?php echo "1"; ?></td>
     
     <td class="text-left" style="padding-left: 8px; padding-top: 10px; padding-right: 8px;" contenteditable>
-        <?php
+       <!--  <?php
         // Ensure $dv is available and not empty
         if (!empty($dv)) {
             $name = htmlspecialchars($dv[0]['name']);
@@ -145,17 +145,49 @@ if (!empty($dv)) {
             }
             echo "</ul>";
         }
-        ?>
+        ?> -->
+          <?php
+
+    $dy=array();
+
+    array_push($dy,$dv[0]['name']);
+
+     printf ("<b><u>".$dv[0]['name']."</b></u> </br>");
+
+
+echo "</br>";
+     //$var=$item['techs'];
+   
+
+  $data2=$dv[0]['techs'];
+
+    //echo $data2;
+    
+
+    $data = str_replace("\r",' ', $data2);
+   $data = str_replace(" ",'', $data2);
+
+$data=explode(';', $data2);
+
+   //var_dump( $data);
+   echo "<ul>";
+   
+   for ($i = 0; $i < count($data); $i++) {
+  print "<li>".stripcslashes($data[$i])."</br>"."</li>";
+} 
+echo "</br>";
+
+      ?>
     </td>
 
     <td class="text-center"><b><?= htmlspecialchars($dv[0]['quantity']) . " No."; ?></b></td>
-    <td class="text-center"><b><?=htmlspecialchars(number_format($dv[0]['subtotal'], 2)). "=00"; ?></b></td>
+    <td class="text-center"><b><?=htmlspecialchars(number_format($dv[0]['subtotal'])). "=00"; ?></b></td>
 </tr>
 
 
  <tr>
       <td  height="35" colspan="3" class="text-right" style="padding-right: 20px;"><b> GST 18% </b></td>
-    <td height="35" class="text-center"><b><?= htmlspecialchars(number_format($dv[0]['gst'], 2))."=00"; ?></b></td>
+    <td height="35" class="text-center"><b><?= htmlspecialchars(number_format($dv[0]['gst']))."=00"; ?></b></td>
 
     
   </tr>
@@ -163,7 +195,7 @@ if (!empty($dv)) {
     
 
 <td height="35" colspan="3" class="text-right" style="padding-right: 20px;"> <b>Total </b></td>
-    <td  height="35" class="text-center"><b><?= htmlspecialchars(number_format($dv[0]['total'], 2))."=00"; ?></b></td>
+    <td  height="35" class="text-center"><b><?= htmlspecialchars(number_format($dv[0]['total']))."=00"; ?></b></td>
 
 
   </tr>
@@ -262,10 +294,44 @@ Invoice before dispatch after inspection.          </p>
 <p><strong>F. Warranty: </strong> 1 Year from the date of delivery against any manufacturing defects. The warranty covers free replacement of defective part if any.                           </p> 
 <p><strong>G.</strong>   Order once placed cannot be cancelled under any circumstances. In case of order being
        cancelled , then the entire amount of Advance payment will stand as forfeited.  </p>
+<p><strong>H. Bank Details</strong></p>
+              
+<?php
+$bankCount = count($bankDetails);
+
+for ($i = 0; $i < $bankCount; $i += 2) {
+    ?>  
+    <tr height="20">
+        <td colspan="4" height="20" style="border-left: 1px solid black; padding-left: 5px;"><?php echo "<b>"."Bank Name: "."</b>".$bankDetails[$i]['bname'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="20" style="border-right: 1px solid black; padding-left: 5px;"><?php echo "<b>"."Bank Name: " ."</b>".$bankDetails[$i + 1]['bname'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right:1px solid black;"></td>
+        <?php } ?>
+    </tr>
+    <tr height="19">
+        <td colspan="4" height="19" style="border-left: 1px solid black;padding-left: 5px;"><?php echo "<b>"."A/C No: " ."</b>".$bankDetails[$i]['ac'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="19" style="border-right: 1px solid black;padding-left: 5px;"><?php echo "<b>"."A/C No: " ."</b>".$bankDetails[$i + 1]['ac'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right: 1px solid black;"></td>
+        <?php } ?>
+    </tr>
+    <tr height="20">
+        <td colspan="4" height="20" style="border-left: 1px solid black;padding-left: 5px;"><?php echo "<b>"."IFSC Code: " ."</b>". $bankDetails[$i]['ifsc']; ?> &amp; <?php echo "<b>"."Branch: " ."</b>".$bankDetails[$i]['branch'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="20" style="border-right: 1px solid black;padding-left: 5px;"><?php echo "<b>"."IFSC Code: " ."</b>".$bankDetails[$i + 1]['ifsc']; ?> &amp; <?php echo "<b>"."Branch: " ."</b>".$bankDetails[$i + 1]['branch'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right: 1px solid black;"></td>
+        <?php } ?>
+    </tr>
+<?php } ?>
 
 </div>
 
 <div style="margin-left: 70px; font-family: system-ui;" class="col-md-10">
+<p></p>
+<p></p>
 <p>We hope that the offer is technically in line with your requirement. </p>
 
 <p>Thanking you and looking for your valuable Purchase Order. </p>

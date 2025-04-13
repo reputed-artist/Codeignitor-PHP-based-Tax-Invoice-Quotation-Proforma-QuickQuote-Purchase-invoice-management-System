@@ -60,7 +60,8 @@ page[size="A4"] {
 
   <div class="col-md-12 ">
 <p  style="margin-left:52px;font-size: 15px;"><b> Ref.: <?= $invDetails[0]['invid']; ?> </b> 
-<b style="float: right; margin-right: 167px;font-size: 15px;">Date: <?= $invDetails[0]['created']; ?>
+<b style="float: right; margin-right: 167px;font-size: 15px;">Date: <?= date('d-m-Y', strtotime($invDetails[0]['created'])); ?>
+
  </b> </p>
   </div>
 </br>
@@ -128,7 +129,7 @@ if(isset($data[3]) != null)
 <div class="col-md-12">
 </br>
 <p class="text-left" style="margin-left:65px;text-decoration: underline;font-size: 15px;" contenteditable><b>Quotation for
- <?php //echo $dd1[1]; ?>  </b></p>
+ <?= esc($cattype)." Batch Coding Machines"; ?> </b></p>
 </div>
 
 <table class="col-md-10" style="margin-left:65px"  border="5" >
@@ -154,6 +155,8 @@ foreach ($itemDetails as $item) {
       $extracol=$item["item_name"];
 
       $extracol2=$item["total"];
+
+      //$title=$item["cattype"];
     }
    
 ?>
@@ -337,10 +340,44 @@ Invoice before dispatch after inspection.          </p>
 <p><strong>F. Warranty: </strong> 1 Year from the date of delivery against any manufacturing defects. The warranty covers free replacement of defective part if any.                           </p> 
 <p><strong>G.</strong>   Order once placed cannot be cancelled under any circumstances. In case of order being
        cancelled , then the entire amount of Advance payment will stand as forfeited.  </p>
+<p><strong>H. Bank Details</strong></p>
+              
+<?php
+$bankCount = count($bankDetails);
+
+for ($i = 0; $i < $bankCount; $i += 2) {
+    ?>  
+    <tr height="20">
+        <td colspan="4" height="20" style="border-left: 1px solid black; padding-left: 5px;"><?php echo "<b>"."Bank Name: "."</b>".$bankDetails[$i]['bname'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="20" style="border-right: 1px solid black; padding-left: 5px;"><?php echo "<b>"."Bank Name: " ."</b>".$bankDetails[$i + 1]['bname'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right:1px solid black;"></td>
+        <?php } ?>
+    </tr>
+    <tr height="19">
+        <td colspan="4" height="19" style="border-left: 1px solid black;padding-left: 5px;"><?php echo "<b>"."A/C No: " ."</b>".$bankDetails[$i]['ac'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="19" style="border-right: 1px solid black;padding-left: 5px;"><?php echo "<b>"."A/C No: " ."</b>".$bankDetails[$i + 1]['ac'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right: 1px solid black;"></td>
+        <?php } ?>
+    </tr>
+    <tr height="20">
+        <td colspan="4" height="20" style="border-left: 1px solid black;padding-left: 5px;"><?php echo "<b>"."IFSC Code: " ."</b>". $bankDetails[$i]['ifsc']; ?> &amp; <?php echo "<b>"."Branch: " ."</b>".$bankDetails[$i]['branch'] . "<br>"; ?></td>
+        <?php if (isset($bankDetails[$i + 1])) { ?>
+            <td colspan="4" height="20" style="border-right: 1px solid black;padding-left: 5px;"><?php echo "<b>"."IFSC Code: " ."</b>".$bankDetails[$i + 1]['ifsc']; ?> &amp; <?php echo "<b>"."Branch: " ."</b>".$bankDetails[$i + 1]['branch'] . "<br>"; ?></td>
+        <?php } else { ?>
+            <td colspan="4" style="border-right: 1px solid black;"></td>
+        <?php } ?>
+    </tr>
+<?php } ?>
 
 </div>
 
 <div style="margin-left: 70px; font-family: system-ui;" class="col-md-10">
+<p></p>
+<p></p>
 <p>We hope that the offer is technically in line with your requirement. </p>
 
 <p>Thanking you and looking for your valuable Purchase Order. </p>

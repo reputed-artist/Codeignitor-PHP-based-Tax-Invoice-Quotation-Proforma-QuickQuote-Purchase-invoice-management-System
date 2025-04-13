@@ -8,7 +8,7 @@ use CodeIgniter\Controller;
 
 use App\Models\Product_model;
 use App\Models\Quickquote_model;
-
+use App\Models\Bank_model;
 
 
 class Quickquote extends Controller
@@ -108,7 +108,7 @@ public function insertquickquote()
         if ($crudModel->saverecords($data)) {
             return $this->response->setJSON([
                 "success" => true,
-                "message" => 'quote saved',
+                "message" => 'quote saved ',
                 "q_id"=>$q_id
             ]);
         } else {
@@ -131,6 +131,16 @@ public function printquickquote(){
     $cdx = new Quickquote_model();
     $dv = $cdx->fulldata($q_id); // Fetch data for q_id
 
+    $this->crudModel3 = new Bank_model();
+    $bankDetails = $this->crudModel3->findAll();
+
+    //print_r($bankDetails);
+
+   // $crudModel2= new Product_model();
+    //$itemDetails = $this->crudModel2->cattype();
+
+    $cattype = $dv[0]['cattype'];
+
     // Debugging output
     if (empty($dv)) {
         return $this->response->setJSON(['error' => 'No data found for Q_ID: ' . $q_id]);
@@ -141,7 +151,13 @@ public function printquickquote(){
                           ->setJSON($dv);
 }
  else {
-        return view('print/printquickq', ['dv' => json_encode($dv)]);
+        //return view('print/printquickq', ['dv' => json_encode($dv)]);
+    return view('print/printquickq', [
+    'dv' => json_encode($dv),
+    'bankDetails' => $bankDetails,
+    'cattype'=> $cattype
+]);
+
     }
 }
 

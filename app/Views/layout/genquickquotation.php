@@ -458,7 +458,7 @@ Swal.fire({
                                   success: function(response) {
                                       console.log("Server Response:", response);
                                       if (response.success) {
-                                          Swal.fire('Success', response.message + response.q_id, 'success');
+                                          Swal.fire('Success', response.message+ " " + response.q_id, 'success');
                                           //window.location(base_url+encodeURIComponent(response.q_id));
                                         window.open(base_url + "/quickquote/printquickquote?qid=" + encodeURIComponent(response.q_id), "_blank");
 

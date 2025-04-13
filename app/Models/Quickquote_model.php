@@ -49,7 +49,7 @@ class Quickquote_model extends Model
 
   public function fulldata($id)
 {
-    $query = "SELECT quickquote.q_id, products.name, products.img_loc, products.techs, 
+    $query = "SELECT quickquote.q_id, products.name, products.cattype,products.img_loc, products.techs, 
                      products.hsn, quickquote.mob, quickquote.quantity, quickquote.subtotal, 
                      quickquote.gst, quickquote.total, quickquote.created 
               FROM quickquote 
