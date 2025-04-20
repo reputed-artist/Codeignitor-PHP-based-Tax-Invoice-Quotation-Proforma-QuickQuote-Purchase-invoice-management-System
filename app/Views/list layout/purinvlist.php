@@ -1,9 +1,3 @@
-<?php
-
-
-$current_page="manage-purlist";
-//$current_page1="manage-invlist";
-?>
 
 <!DOCTYPE html>
 <html>
@@ -155,88 +149,22 @@ $current_page="manage-purlist";
 </script>
 
 <script>
-    //var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
-
-function updatePagination(totalRecords, resultsPerPage, currentPage) {
-    var totalPages = Math.ceil(totalRecords / resultsPerPage);
-    var maxVisiblePages = 5; // Limit the number of visible page links
-    $('#pagination').empty(); // Clear pagination
-
-    // Calculate start and end page numbers
-    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-    // Adjust if near the beginning or end of the range
-    if (currentPage <= Math.floor(maxVisiblePages / 2)) {
-        endPage = Math.min(totalPages, maxVisiblePages);
-    }
-    if (totalPages - currentPage < Math.floor(maxVisiblePages / 2)) {
-        startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
-
-    // Previous button
-    var prevButton = `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} > 1) loadInvoices(${currentPage - 1});"
-                           ${currentPage === 1 ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Previous
-                        </a>
-                      </li>`;
-    $('#pagination').append(prevButton);
-
-    // First page button if current view doesn't start with the first page
-    if (startPage > 1) {
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(1);">1</a></li>`);
-        if (startPage > 2) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-    }
-
-    // Page number buttons within the visible range
-    for (var i = startPage; i <= endPage; i++) {
-        var activeClass = (i === currentPage) ? 'active' : '';
-        var pageButton = `<li class="page-item ${activeClass}">
-                            <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
-                          </li>`;
-        $('#pagination').append(pageButton);
-    }
-
-    // Last page button if the current view doesn’t end with the last page
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${totalPages});">${totalPages}</a></li>`);
-    }
-
-    // Next button
-    var nextButton = `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} < ${totalPages}) loadInvoices(${currentPage + 1});"
-                           ${currentPage === totalPages ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Next
-                        </a>
-                      </li>`;
-    $('#pagination').append(nextButton);
-}
-
-    var selectedYear = null;
-    var selectedClient = null;
-    var selectedProduct=null;
+  let selectedYear = '';
+let selectedClient = '';
+let selectedProduct = '';
 
 
     // Function to load invoices based on the page number
-    function loadInvoices(page, year = null, client = null,product=null) {
+    function loadInvoices(page=1) {
         console.log("Loading invoices for page: " + page); // Add this line
         $.ajax({
             url: base_url + '/purchaseinv/showdata',
             type: 'GET',
-            data: { page: page,
-                    year: year,
-                    client: client,
-                    product:product,
+            data: {
+                     page: page,
+              year: selectedYear,
+              client: selectedClient,
+              product: selectedProduct
                   }, // Send the current page number to the server
             dataType: 'json',
             success: function(response) {
@@ -278,23 +206,73 @@ function updatePagination(totalRecords, resultsPerPage, currentPage) {
 
                     // Update pagination controls
                     updatePagination(response.total_records, response.results_per_page, response.current_page);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error:', error);
-                console.log(xhr.responseText);
+                 } else {
+                $('#pinvoices').html('<p>No data found.</p>');
+                $('#pagination').empty();
             }
-        });
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+            console.log(xhr.responseText);
+        } 
+    });
+}
+
+
+
+    function updatePagination(totalRecords, resultsPerPage, currentPage) {
+    const totalPages = Math.max(1, Math.ceil(totalRecords / resultsPerPage)); // Ensure at least 1 page
+    const pagination = $('#pagination');
+    pagination.empty();
+
+    // Always show Prev (disabled if on first page)
+    if (currentPage > 1) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage - 1});">Prev</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Prev</span>
+            </li>
+        `);
     }
+
+    // Show page numbers (at least one page)
+    for (let i = 1; i <= totalPages; i++) {
+        let active = (i === currentPage) ? 'active' : '';
+        pagination.append(`
+            <li class="page-item ${active}">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
+            </li>
+        `);
+    }
+
+    // Always show Next (disabled if on last page)
+    if (currentPage < totalPages) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage + 1});">Next</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        `);
+    }
+}
+
 
 
     $(document).ready(function() {
     // Call this function when the page is loaded to load the first page
     loadInvoices(1);
 
-    var selectedYear = null;
-    var selectedClient = null;
-    var selectedProduct = null;
+
 
     // Initialize Select2 for each dropdown
     $('#client').select2({
@@ -376,110 +354,8 @@ function updatePagination(totalRecords, resultsPerPage, currentPage) {
     }
 });
 
-//          $('#client').select2({
-//        placeholder: "Select a Person or Company",
-//     allowClear: true,
-//             ajax: {
-//             url: "<?= base_url();?>/purchaseinv/getsupplier", // Controller method
-//             type: "GET",
-//             dataType: "json",
-//             delay: 250, // Add a delay to limit requests for better performance
-//         data: function(params) {
-//             // Send the current input value to the server as 'category_name'
-//             return {
-//                 category_name: params.term || '' // params.term is the search term
-//             };
-//         },
-//         processResults: function(data) {
-//             console.log(data); // For debugging, remove this after testing
-//             return {
-//                 results: data
-//             };
-//         },
-//         cache: true
-//     }
-// });
 
-
-
-//  $('#product').select2({
-//        placeholder: "Select product",
-//     allowClear: true,
-//             ajax: {
-//             url: "<?= base_url();?>/purchaseinv/getproducts", // Controller method
-//             type: "GET",
-//              dataType: "json",
-//             processResults: function(data) {
-//             return {
-//                 results: data.map(function(item) {
-//                     return {
-//                         id: item.name, // This will be used as the value of the option
-//                         text: item.name // This will be displayed in the dropdown
-//                     };
-//                 })
-//             };
-//         }
-//     }
-// });
-
-//  $('#product').select2({
-//     placeholder: "Select product",
-//     allowClear: true,
-//     ajax: {
-//         url: "<?= base_url();?>/purchaseinv/getproducts", // Controller method
-//         type: "GET",
-//         dataType: "json",
-//         delay: 250, // Add a delay to limit requests for better performance
-//         data: function(params) {
-//             // Send the current input value to the server as 'category_name'
-//             return {
-//                 category_name: params.term || '' // params.term is the search term
-//             };
-//         },
-//         processResults: function(data) {
-//             console.log(data); // For debugging, remove this after testing
-//             // Process the returned data array and map it to Select2 format
-//             return {
-//                 results: data.map(function(item) {
-//                     return {
-//                         id: item.name, // This will be used as the value of the option
-//                         text: item.name // This will be displayed in the dropdown
-//                     };
-//                 })
-//             };
-//         },
-//         cache: true
-//     }
-// });
-
-
-//    $('#year').select2({
-//     placeholder: "Select Year",
-//     allowClear: true,
-//     ajax: {
-//         url: "<?= base_url();?>/purchaseinv/getyear", // Controller method
-//         type: "GET",
-//         dataType: "json",
-//         delay: 250, // Add a delay to limit requests for better performance
-//         processResults: function(data) {
-//             // Format the response data for Select2
-//             return {
-//                 results: $.map(data, function(item) {
-//                     return {
-//                         id: item.id, // Use the financial year as the id
-//                         text: item.text // Display the financial year as the text
-//                     };
-//                 })
-//             };
-//         }
-//     }
-// });
-
-
-
-
-
-      $('#client').on('select2:select', function() {
+        $('#client').on('select2:select', function() {
     selectedClient = $(this).val();
     loadInvoices(1, selectedYear, selectedClient, selectedProduct);
 });
@@ -495,24 +371,7 @@ $('#year').on('select2:select', function() {
 });
 
 
-    // // Handle clearing of the Select2 dropdowns
-    // $('#client').on('select2:clearing', function() {
-    //     // Clear the selected client and reload data
-    //     selectedClient = null; // Set to null
-    //     loadInvoices(1, selectedYear, selectedClient, selectedProduct);
-    // });
 
-    // $('#product').on('select2:clearing', function() {
-    //     // Clear the selected product and reload data
-    //     selectedProduct = null; // Set to null
-    //     loadInvoices(1, selectedYear, selectedClient, selectedProduct);
-    // });
-
-    // $('#year').on('select2:clearing', function() {
-    //     // Clear the selected year and reload data
-    //     selectedYear = null; // Set to null
-    //     loadInvoices(1, selectedYear, selectedClient, selectedProduct);
-    // });
 
 
     $(document).on('click', '#delete_product', function(e) {

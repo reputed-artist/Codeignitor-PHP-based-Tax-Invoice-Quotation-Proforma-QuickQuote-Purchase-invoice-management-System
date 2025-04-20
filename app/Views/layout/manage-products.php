@@ -593,7 +593,19 @@ input .error{
 
   
 <script>
-$('.select2').select2({
+$('#ptype').select2({
+    placeholder: "Select Product Type",
+    allowClear: true
+});
+$('#cattype').select2({
+    placeholder: "Select Product Category",
+    allowClear: true
+});
+$('#cattypeedit').select2({
+    placeholder: "Select Product Category",
+    allowClear: true
+});
+$('#ptypeedit').select2({
     placeholder: "Select Product Type",
     allowClear: true
 });

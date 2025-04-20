@@ -208,13 +208,36 @@ input .error{
                         <i class="fa fa-calendar"></i>
                       </div> -->
 
-
+<!-- 
                           <select id="selectFY" class="form-control">
                           <?php foreach ($fy as $year): ?>
                           <option><?= esc($year['financial_year']) ?></option>
                           <?php endforeach; ?>
 
-                          </select>
+                          </select> -->
+                     <?php
+// Extract all the financial year strings from the array
+$years = array_column($fy, 'financial_year');
+
+// Sort the years just to be safe (optional but useful)
+sort($years); // Ensures chronological order
+
+// Now get the first and last parts
+$fromYear = explode('-', $years[0])[0];                         // e.g., "2020"
+$toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
+?>
+
+<select id="selectFY" class="form-control">
+    <!-- Append All option -->
+    <option value="<?= $fromYear ?>-<?= $toYear ?>">All (<?= $fromYear ?>-<?= $toYear ?>)</option>
+
+    <!-- Regular year options -->
+    <?php foreach ($fy as $year): ?>
+        <option><?= esc($year['financial_year']) ?></option>
+    <?php endforeach; ?>
+</select>
+
+
                                   
                </div><!-- /.form group -->
              </div>

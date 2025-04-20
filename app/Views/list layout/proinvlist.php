@@ -1,9 +1,3 @@
-<?php
-
-
-$current_page="manage-purlist";
-//$current_page1="manage-invlist";
-?>
 
 <!DOCTYPE html>
 <html>
@@ -148,7 +142,7 @@ $current_page="manage-purlist";
 <?= $this->include('include/settings.php');?>
 
 
-<script>
+<!-- <script>
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2({
@@ -159,7 +153,7 @@ $current_page="manage-purlist";
   });
 
   
-</script>
+</script> -->
 
 <script>
    
@@ -167,89 +161,27 @@ $current_page="manage-purlist";
 </script>
 
 <script>
-    function updatePagination(totalRecords, resultsPerPage, currentPage) {
-    var totalPages = Math.ceil(totalRecords / resultsPerPage);
-    var maxVisiblePages = 5; // Limit the number of visible page links
-    $('#pagination').empty(); // Clear pagination
+  
 
-    // Calculate start and end page numbers
-    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+  // Global variables to store current filter selections
+let selectedYear = '';
+let selectedClient = '';
+let selectedProduct = '';
 
-    // Adjust if near the beginning or end of the range
-    if (currentPage <= Math.floor(maxVisiblePages / 2)) {
-        endPage = Math.min(totalPages, maxVisiblePages);
-    }
-    if (totalPages - currentPage < Math.floor(maxVisiblePages / 2)) {
-        startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
+// Function to load invoices based on current filters and page
+function loadInvoices(page = 1) {
 
-    // Previous button
-    var prevButton = `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} > 1) loadInvoices(${currentPage - 1});"
-                           ${currentPage === 1 ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Previous
-                        </a>
-                      </li>`;
-    $('#pagination').append(prevButton);
-
-    // First page button if current view doesn't start with the first page
-    if (startPage > 1) {
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(1);">1</a></li>`);
-        if (startPage > 2) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-    }
-
-    // Page number buttons within the visible range
-    for (var i = startPage; i <= endPage; i++) {
-        var activeClass = (i === currentPage) ? 'active' : '';
-        var pageButton = `<li class="page-item ${activeClass}">
-                            <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
-                          </li>`;
-        $('#pagination').append(pageButton);
-    }
-
-    // Last page button if the current view doesn’t end with the last page
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${totalPages});">${totalPages}</a></li>`);
-    }
-
-    // Next button
-    var nextButton = `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} < ${totalPages}) loadInvoices(${currentPage + 1});"
-                           ${currentPage === totalPages ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Next
-                        </a>
-                      </li>`;
-    $('#pagination').append(nextButton);
-}
-
-
-
-    var selectedYear = null;
-    var selectedClient = null;
-    var selectedProduct=null;
-
-
-    // Function to load invoices based on the page number
-    function loadInvoices(page, year = null, client = null,product=null) {
         console.log("Loading invoices for page: " + page); // Add this line
         $.ajax({
             url: base_url + '/proinv/showprodata',
             type: 'GET',
-            data: { page: page,
-                    year: year,
-                    client: client,
-                    product:product,
-                  }, // Send the current page number to the server
+            data: { 
+              page: page,
+              year: selectedYear,
+              client: selectedClient,
+              product: selectedProduct
+            },
+
             dataType: 'json',
             success: function(response) {
                 console.log("res"+response);
@@ -287,17 +219,65 @@ $current_page="manage-purlist";
                             </a>`;
                         $('#tinvoices').append(html);
                     });
-
-                    // Update pagination controls
-                    updatePagination(response.total_records, response.results_per_page, response.current_page);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error:', error);
-                console.log(xhr.responseText);
+  // Update pagination controls
+                updatePagination(response.total_records, response.results_per_page, response.current_page);
+            } else {
+                $('#tinvoices').html('<p>No data found.</p>');
+                $('#pagination').empty();
             }
-        });
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+            console.log(xhr.responseText);
+        } 
+    });
+}
+function updatePagination(totalRecords, resultsPerPage, currentPage) {
+    const totalPages = Math.max(1, Math.ceil(totalRecords / resultsPerPage)); // Ensure at least 1 page
+    const pagination = $('#pagination');
+    pagination.empty();
+
+    // Always show Prev (disabled if on first page)
+    if (currentPage > 1) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage - 1});">Prev</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Prev</span>
+            </li>
+        `);
     }
+
+    // Show page numbers (at least one page)
+    for (let i = 1; i <= totalPages; i++) {
+        let active = (i === currentPage) ? 'active' : '';
+        pagination.append(`
+            <li class="page-item ${active}">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
+            </li>
+        `);
+    }
+
+    // Always show Next (disabled if on last page)
+    if (currentPage < totalPages) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage + 1});">Next</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        `);
+    }
+}
+
 
 
     $(document).ready(function() {

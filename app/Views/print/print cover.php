@@ -114,7 +114,7 @@ body {-webkit-print-color-adjust: exact;}
       <td height="123" colspan="2" valign="top">&nbsp;</td>
       <td width="454" valign="top" style="padding-top: 20px"><p  style="margin-left:50px; font-size: 18px;"> To, </br>
 <b style="font-size: 18px;" contenteditable>M/s. <?= esc($row['name']) ?> </b></br> 
-<b style="font-size: 18px;" contenteditable>  <?= 
+<b style="font-size: 18px;" contenteditable>  <?php
        $x = 30;
 $longString =esc($row['address']);
 $lines = explode("\n", wordwrap($longString, $x));

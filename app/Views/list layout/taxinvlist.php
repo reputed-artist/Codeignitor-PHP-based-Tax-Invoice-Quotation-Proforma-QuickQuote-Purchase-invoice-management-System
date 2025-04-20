@@ -1,9 +1,4 @@
-<?php
 
-
-$current_page="manage-purlist";
-//$current_page1="manage-invlist";
-?>
 
 <!DOCTYPE html>
 <html>
@@ -167,138 +162,117 @@ $current_page="manage-purlist";
 </script>
 
 <script>
-    //var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
 
-function updatePagination(totalRecords, resultsPerPage, currentPage) {
-    var totalPages = Math.ceil(totalRecords / resultsPerPage);
-    var maxVisiblePages = 5; // Limit the number of visible page links
-    $('#pagination').empty(); // Clear pagination
+// Global variables to store current filter selections
+let selectedYear = '';
+let selectedClient = '';
+let selectedProduct = '';
 
-    // Calculate start and end page numbers
-    var startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-    var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+// Function to load invoices based on current filters and page
+function loadInvoices(page = 1) {
+    $.ajax({
+        url: base_url + '/taxinv/showtaxdata',
+        type: 'GET',
+        data: {
+            page: page,
+            year: selectedYear,
+            client: selectedClient,
+            product: selectedProduct
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('#tinvoices').empty(); // Clear previous data
 
-    // Adjust if near the beginning or end of the range
-    if (currentPage <= Math.floor(maxVisiblePages / 2)) {
-        endPage = Math.min(totalPages, maxVisiblePages);
-    }
-    if (totalPages - currentPage < Math.floor(maxVisiblePages / 2)) {
-        startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
-
-    // Previous button
-    var prevButton = `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} > 1) loadInvoices(${currentPage - 1});"
-                           ${currentPage === 1 ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Previous
-                        </a>
-                      </li>`;
-    $('#pagination').append(prevButton);
-
-    // First page button if current view doesn't start with the first page
-    if (startPage > 1) {
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(1);">1</a></li>`);
-        if (startPage > 2) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-    }
-
-    // Page number buttons within the visible range
-    for (var i = startPage; i <= endPage; i++) {
-        var activeClass = (i === currentPage) ? 'active' : '';
-        var pageButton = `<li class="page-item ${activeClass}">
-                            <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
-                          </li>`;
-        $('#pagination').append(pageButton);
-    }
-
-    // Last page button if the current view doesn’t end with the last page
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            $('#pagination').append(`<li class="page-item disabled"><span class="page-link">...</span></li>`);
-        }
-        $('#pagination').append(`<li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${totalPages});">${totalPages}</a></li>`);
-    }
-
-    // Next button
-    var nextButton = `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" 
-                           onclick="event.preventDefault(); 
-                                    if(${currentPage} < ${totalPages}) loadInvoices(${currentPage + 1});"
-                           ${currentPage === totalPages ? 'tabindex="-1" aria-disabled="true"' : ''}>
-                           Next
-                        </a>
-                      </li>`;
-    $('#pagination').append(nextButton);
-}
-
-
-    var selectedYear = null;
-    var selectedClient = null;
-    var selectedProduct=null;
-
-
-    // Function to load invoices based on the page number
-    function loadInvoices(page, year = null, client = null,product=null) {
-        console.log("Loading invoices for page: " + page); // Add this line
-        $.ajax({
-            url: base_url + '/taxinv/showtaxdata',
-            type: 'GET',
-            data: { page: page,
-                    year: year,
-                    client: client,
-                    product:product,
-                  }, // Send the current page number to the server
-            dataType: 'json',
-            success: function(response) {
-                console.log("res"+response);
-                //console.log(response.debug); // Inspect the response structure
-
-                if (response.invoices && Array.isArray(response.invoices)) {
-                    $('#tinvoices').empty(); // Clear previous data
-
-                    response.invoices.forEach(function(invoice) {
-                        var html = `
-                            <a href="printtaxinv?orderid=${invoice.orderid}" target="_blank">
-                                <div class="col-md-4" id="example1">
-                                    <div class="box box-info">
-                                        <div class="box-header">
-                                            <h3 class="box-title">${invoice.invid}</h3>
-                                        </div>
-                                        <div class="box-body">
-                                            <div class="form-group">
-                                                <strong><p align="center" style="color:black;">${invoice.c_name}</p></strong>
-                                                <p align="center"><strong>Location:</strong> ${invoice.location}</p>
-                                                <p align="center"><strong>Item name:</strong> ${invoice.item_name}</p>
-                                                <p align="center"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
-                                                <p align="center"><strong>Invoice Dated:</strong> ${invoice.created}</p>
-                                                <br/>
-                                                <a href="edittaxinv?orderid=${invoice.orderid}">
-                                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                                </a>
-                                                <a class="btn btn-danger btn-xs pull-right" id="delete_product" data-id="${invoice.orderid}">
-                                                    <i class="fa fa-trash-o"></i>
-                                                </a>
-                                            </div> 
-                                        </div>
+            if (response.invoices && Array.isArray(response.invoices)) {
+                response.invoices.forEach(function(invoice) {
+                    var html = `
+                        <a href="printtaxinv?orderid=${invoice.orderid}" target="_blank">
+                            <div class="col-md-4" id="example1">
+                                <div class="box box-info">
+                                    <div class="box-header">
+                                        <h3 class="box-title">${invoice.invid}</h3>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <strong><p align="center" style="color:black;">${invoice.c_name}</p></strong>
+                                            <p align="center"><strong>Location:</strong> ${invoice.location}</p>
+                                            <p align="center"><strong>Item name:</strong> ${invoice.item_name}</p>
+                                            <p align="center"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
+                                            <p align="center"><strong>Invoice Dated:</strong> ${invoice.created}</p>
+                                            <br/>
+                                            <a href="edittaxinv?orderid=${invoice.orderid}">
+                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                            </a>
+                                            <a class="btn btn-danger btn-xs pull-right" id="delete_product" data-id="${invoice.orderid}">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </div> 
                                     </div>
                                 </div>
-                            </a>`;
-                        $('#tinvoices').append(html);
-                    });
+                            </div>
+                        </a>`;
+                    $('#tinvoices').append(html);
+                });
 
-                    // Update pagination controls
-                    updatePagination(response.total_records, response.results_per_page, response.current_page);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error:', error);
-                console.log(xhr.responseText);
+               // Update pagination controls
+                updatePagination(response.total_records, response.results_per_page, response.current_page);
+            } else {
+                $('#tinvoices').html('<p>No data found.</p>');
+                $('#pagination').empty();
             }
-        });
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+            console.log(xhr.responseText);
+        } 
+    });
+}
+function updatePagination(totalRecords, resultsPerPage, currentPage) {
+    const totalPages = Math.ceil(totalRecords / resultsPerPage);
+    const pagination = $('#pagination');
+    pagination.empty();
+
+    // Always show Prev
+    if (currentPage > 1) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage - 1});">Prev</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Prev</span>
+            </li>
+        `);
     }
+
+    // Page number buttons
+    for (let i = 1; i <= totalPages; i++) {
+        let active = (i === currentPage) ? 'active' : '';
+        pagination.append(`
+            <li class="page-item ${active}">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${i});">${i}</a>
+            </li>
+        `);
+    }
+
+    // Always show Next
+    if (currentPage < totalPages) {
+        pagination.append(`
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="event.preventDefault(); loadInvoices(${currentPage + 1});">Next</a>
+            </li>
+        `);
+    } else {
+        pagination.append(`
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        `);
+    }
+}
+
 
 
     $(document).ready(function() {
@@ -398,6 +372,7 @@ $('#year').on('select2:select', function() {
     selectedYear = $(this).val();
     loadInvoices(1, selectedYear, selectedClient, selectedProduct);
 });
+
 
 
     $(document).on('click', '#delete_product', function(e) {
