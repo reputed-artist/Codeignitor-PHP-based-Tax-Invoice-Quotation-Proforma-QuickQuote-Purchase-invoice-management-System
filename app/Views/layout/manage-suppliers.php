@@ -305,7 +305,7 @@ input .error{
                  <div class="form-group">
                   <label id="cgstlbl" class="col-sm-3 control-label">GST <span style="color: red;">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gst" name="gst"  placeholder="GST / PAN or Adhaar">
+                      <input type="text" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gst" name="gst"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error" style="color: red;">  </div>
                     </div>
                   </div>
@@ -458,7 +458,7 @@ input .error{
                  <div class="form-group">
                   <label id="cgstlbl" class="col-sm-3 control-label">GST <span style="color: red;">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gstedit" name="gstedit"  placeholder="GST / PAN or Adhaar">
+                      <input type="text" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gstedit" name="gstedit"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error1" style="color: red;">  </div>
                     </div>
                   </div>

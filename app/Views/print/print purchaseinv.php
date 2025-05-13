@@ -1,7 +1,3 @@
-<?php 
-
-
-?>
 
 
 <html>
@@ -80,20 +76,7 @@ img {
 </style>
 
 </head>
-<?php
 
-// $admin=mysqli_query($con,"select * from admin");
-// while($adata=mysqli_fetch_array($admin))
-// {
-//   $pname=$adata['c_name'];
-//   $padd=$adata['c_add'];
-//   $pmob=$adata['mob'];
-//   $pgst=$adata['gst'];
-//   $ppan=$adata['pan'];
-//   $pmail=$adata['email'];
-
-// }
- ?>
 <body>
 <div id="loader"></div>
 <page size="A4">
@@ -207,7 +190,7 @@ if($data[0] != null)
        {
        if(strlen($gst)==10)
       {
-        echo "Pan : ".$new=strtoupper($gst);
+        echo "Pan 1: ".$new=strtoupper($gst);
       }
       if (strlen($gst)==12) {
           echo "Adhaar : ".$new=strtoupper($gst);
@@ -310,8 +293,8 @@ if($data2[1] != null)
     <td colspan="3" height="23" id="lr" contenteditable><strong>&nbsp;
       <?php
      
-      //$country = $companyDetails['country'];
-      $gst=$companyDetails['gst'];
+      $country = $invDetails[0]['country'];
+      $gst=$invDetails[0]['gst'];
 
        if($country =="India")
        {

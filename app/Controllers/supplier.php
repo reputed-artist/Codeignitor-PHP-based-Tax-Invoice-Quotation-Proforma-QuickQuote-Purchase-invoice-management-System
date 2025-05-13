@@ -159,7 +159,7 @@ public function insert() {
                     'c_add'    => $this->request->getPost('c_add'),
                     'mob'      => $this->request->getPost('fullno'),
                     'country'  => $this->request->getPost('fulldetails'),
-                    'gst'      => $this->request->getPost('gst'),
+                    'gst'      => strtoupper($this->request->getPost('gst')),
                     'email'    => $this->request->getPost('email'), // Ensure this is included
                     'c_type'   => $this->request->getPost('ctype'),
                     'u_type'   => $this->request->getPost('u_type'), // Ensure this is included
@@ -310,19 +310,19 @@ public function update() {
                 'c_add'    => $this->request->getPost('c_addedit'),
                 'mob'      => $this->request->getPost('fullno'),
                 'country' => $this->request->getPost('fulldetails2'),    
-                'gst'      => $this->request->getPost('gstedit'),
+                'gst'      => strtoupper($this->request->getPost('gstedit')),
                 'email'      => $this->request->getPost('email1'),
                 'c_type'   => $this->request->getPost('ctypeedit'),
                 'u_type'   => $u_type,
                 //'created'  => $formattedDate,
             ];
 
-            print_r($data);
+            //print_r($data);
             
             $response = $this->crudModel->updaterecord($cid, $data);
              $lastQuery = $this->crudModel->getLastQuery();
 
-             //print_r($response);
+             print_r($response);
 
             if ($response) {
                 

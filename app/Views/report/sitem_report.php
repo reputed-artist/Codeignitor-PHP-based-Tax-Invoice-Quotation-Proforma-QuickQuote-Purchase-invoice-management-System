@@ -315,21 +315,40 @@
             { 'data': 'description'},
             { 'data': 'hsn' },
             { 'data': 'price'},
-            { 'data': 'quantity'},
+            { 'data': 'quantity',
+               render: function(data, type, row, meta) {
+               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              }
+            },
+
             
-            { 'data': 'subtotal'},
+            { 'data': 'subtotal',
+               render: function(data, type, row, meta) {
+               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              }
+            },
             { 'data': 'taxrate',
             render: function(data, type, row, meta) {
                     // Check if c_type is IGST
                     if (row.c_type == "IGST") {
-                        return '9-9 %'; // Set taxrate to 9-9 %
+                       return (data / 2) + ' - ' + (data / 2) + ' %';
+                        //return '9-9 %'; // Set taxrate to 9-9 %
                     } else {
-                        return '18 %'; // Set taxrate to 18 %
+                        return data+'%'; // Set taxrate to 18 %
                     }
                 }
             },
-            { 'data': 'taxamount' },
-            { 'data': 'totalamount' }
+            { 'data': 'taxamount' ,
+               render: function(data, type, row, meta) {
+               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              }
+            },
+
+            { 'data': 'totalamount' ,
+               render: function(data, type, row, meta) {
+               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              }
+            },
         ],
         initComplete: function() {
             var btns = $('.dt-button');

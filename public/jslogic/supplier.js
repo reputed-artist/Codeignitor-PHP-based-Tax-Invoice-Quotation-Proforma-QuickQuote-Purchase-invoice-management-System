@@ -271,7 +271,7 @@ function fetch() {
                     { 'data': 'c_name',defaultContent: ''},
                     { 'data': 'c_add',defaultContent: ''  },
                     { 'data': 'mob',defaultContent: ''  },
-                    { 'data': 'gst' ,defaultContent: ''},
+                    { 'data': 'gst',defaultContent: ''},
                     { 'data': 'email',defaultContent: '' },
                     { 'data': 'c_type',render: function (data, type, row, meta) {
                                 if(data == "IGST")
@@ -470,14 +470,14 @@ if ($('#utype').val().trim() === '') {
 
 
     var cid = $("#cid").val();   
-    var c_name = $("#c_name").val();
+    var c_name = $("#c_name").val().trim();
     var c_add = $("#c_add").val();
     var fullno = $("#fullno").val();
     var country = $("#fulldetails").val().trim();
             console.log(country);
     var gst = $("#gst").val();
 
-    var ctype = $("#ctype").val();
+    var ctype = $("#ctype").val().trim();
     var email = $("#email").val();
     var u_type = $("#utype").val();
     
@@ -729,16 +729,16 @@ if ($('#utype1').val().trim() === '') {
 
 
     var cid = $("#cidedit").val();   
-    var c_name = $("#c_nameedit").val();
+    var c_name = $("#c_nameedit").val().trim();
     var c_add = $("#c_addedit").val();
     
     var fullno2 = $("#fullno2").val();
     console.log(fullno);
 
-    var country = $("#fulldetails2").val();
+    var country = $("#fulldetails2").val().trim();
     var gst = $("#gstedit").val();
     var email1 = $("#email1").val();
-    var ctype = $("#ctypeedit").val();
+    var ctype = $("#ctypeedit").val().trim();
     
     var u_type = $("#utype1").val();
 
