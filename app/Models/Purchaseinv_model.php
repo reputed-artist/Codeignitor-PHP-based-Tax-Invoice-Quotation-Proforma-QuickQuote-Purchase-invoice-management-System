@@ -64,7 +64,7 @@ public function set_auto_increment() {
 
     public function deleterecord(string $id)
     {
-         $this->db->table('purchaseinv')->delete(['orderid' => $id]); 
+        return $this->db->table('purchaseinv')->delete(['orderid' => $id]); 
         //return $this->delete(['orderid' => $id]); // Update data in the table
     }
 

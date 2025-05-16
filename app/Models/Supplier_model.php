@@ -164,7 +164,7 @@ public function single_entry($edit_id)
     }
 
     public function getsupplierinv($vn){
-    $sql="SELECT purchaseinv.item_name 'Item', purchaseinv2.invid,purchaseinv2.created, client.c_name,substring_index(client.c_add, ',', -1) as location,purchaseinv2.totalamount 'totalamount' from purchaseinv INNER JOIN purchaseinv2 on purchaseinv.orderid = purchaseinv2.orderid INNER JOIN client on purchaseinv2.cid = client.cid and client.cid = ? GROUP by purchaseinv.orderid";
+    $sql="SELECT purchaseinv2.orderid, purchaseinv.item_name 'Item', purchaseinv2.invid,purchaseinv2.created, client.c_name,substring_index(client.c_add, ',', -1) as location,purchaseinv2.totalamount 'totalamount' from purchaseinv INNER JOIN purchaseinv2 on purchaseinv.orderid = purchaseinv2.orderid INNER JOIN client on purchaseinv2.cid = client.cid and client.cid = ? GROUP by purchaseinv.orderid";
 
 
     log_message('debug', 'Executing SQL: ' . $this->db->getLastQuery());

@@ -49,7 +49,7 @@ public function viewsupplierinfo($infoid) {
     // Fetch product details
    $supplierDetails = $supplierModel->getSupplierDetails($infoid);
 
-$financialYears = $supplierModel->getFinancialYearTotals($infoid);
+  $financialYears = $supplierModel->getFinancialYearTotals($infoid);
 
 
     // Fetch tax invoices (assuming it's a list of invoices related to this product)
@@ -80,6 +80,7 @@ $financialYears = $supplierModel->getFinancialYearTotals($infoid);
     return view('info layout/getsupplierinfo', ['supplierDetails' => $supplierDetails, 
         'financialYears' => $financialYears, 
         'taxInvoices'=> json_encode($results),
+        'infoid'=> $infoid,
         
         ]);
 

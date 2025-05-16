@@ -394,21 +394,33 @@ $('#year').on('select2:select', function() {
                 $.ajax({
                     url: base_url + '/purchaseinv/delete/' + productId, // Include productId in the URL
                     type: 'POST', // Use POST for delete action
-                    dataType: 'json'
+                    dataType: 'json',
+                      headers: {
+                      'X-Requested-With': 'XMLHttpRequest' // This is crucial
+                    },
+  
                 })
-                .done(function(response) {
-                    // Display success message using Swal.fire
-                    Swal.fire({
-                        title: 'Deleted!',
-                        text: response.message,
-                        icon: 'success', // Assuming success status
-                        showConfirmButton: true,
-                        timer: 2000 // Auto close the alert after 2 seconds
-                    });
+               .done(function(response) {
+    if (response.res === 'success') {
+        Swal.fire({
+            title: 'Deleted!',
+            text: response.message,
+            icon: 'success',
+            showConfirmButton: true,
+            timer: 2000
+        });
 
-                    // Refresh the product list or perform other actions as needed
-                    loadInvoices(1);
-                })
+        loadInvoices(1);
+    } else {
+        Swal.fire({
+            title: 'Failed!',
+            text: response.message,
+            icon: 'error', // Show proper error icon
+            showConfirmButton: true
+        });
+    }
+})
+
                 .fail(function() {
                     // Display error message using Swal.fire
                     Swal.fire('Oops...', 'Something went wrong with ajax!', 'error');

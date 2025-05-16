@@ -1,8 +1,4 @@
-<?php
 
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -320,7 +316,10 @@
 </div>
 <!-- ./wrapper -->
 
-
+<script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
+<script >
+  var base_url = "<?= base_url(); ?>";
+</script>
 <!-- page script -->
 <script>
   $(function () {
@@ -341,220 +340,7 @@
    //   "<'row'<'col-sm-5'i><'col-sm-7'p>>",
  dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
     
-       buttons: [
-             {
-                extend:    'copyHtml5',
-                text:      '<i class="fa fa-files-o">&nbsp; Copy </i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'Copy',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5 ]
-                }
-      
-            },
-            {
-                text: '{ } &nbsp; JSON',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'JSON',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5 ]
-                },
-                action: function ( e, dt, button, config ) {
-                    var data = dt.buttons.exportData();
- 
-                    $.fn.dataTable.fileSave(
-                        new Blob( [ JSON.stringify( data ) ] ),
-                        'Export.json'
-                    );
-                }
-            },
-            {
-                extend:    'excelHtml5',
-                text:      '<i class="fa fa-file-excel-o">&nbsp; Excel</i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'Excel',
-                                title: 'AdminLT || Clients Data',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-            {
-                extend:    'csvHtml5',
-                text:      '<i class="fa fa-file-text-o">&nbsp; CSV</i>',
-                className: "btn-sm btn btn-danger",
-                titleAttr: 'CSV',
-                                title: 'AdminLT || Clients Data',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-            {
-                extend:    'pdfHtml5',
-                text:      '<i class="fa fa-file-pdf-o">&nbsp; PDF</i>',
-                className: "btn-sm btn btn-danger",  
-                orientation: 'landscape',
-                pageSize: 'A3',          
-                titleAttr: 'PDF',
-                title: 'AdminLT || Clients Data',
-                customize: function(doc) {  
-                doc.pageMargins = [10,10,10,10];
-                doc.defaultStyle.fontSize = 7;
-                doc.styles.tableHeader.fontSize = 7;
-
-               
-                doc.styles.tableFooter.fontSize=15;
-                doc.styles.title.fontSize = 15;
-        // Remove spaces around page title
-        doc.content[0].text = doc.content[0].text.trim();
-        // Create a footer
-        doc['footer']=(function(page, pages) {
-            return {
-                columns: [
-                {
-                        // This is the right column
-                        alignment: 'center',
-                        text: ['Clients Data from CodeTech Engineers'],
-                        
-                    },
-                    {
-                        // This is the right column
-                        alignment: 'right',
-                        text: ['page ', { text: page.toString() },  ' of ', { text: pages.toString() }],
-                        //fontSize:10
-                    }
-                ],
-                margin: [10, 0]
-            }
-        });
-
-
-        // doc['header'] = (function (page, pages) {
-        //         return {
-        //           columns: [
-        //             {
-        //               // 'This is your left footer column',
-        //               alignment: 'left',
-        //               //fontSize: 8,
-        //               text: ['test'],
-        //              // margin: [0, 10]
-        //             },
-        //             {
-        //               // This is the right column
-        //               alignment: 'right',
-        //               text: ['ama'],
-        //               //margin: [0, 10]
-        //             }
-        //           ],
-        //           margin: [30, 0]
-        //         }
-        //       });
-
-        // Styling the table: create style object
-        var objLayout = {};
-        // Horizontal line thickness
-        objLayout['hLineWidth'] = function(i) { return .5; };
-        // Vertikal line thickness
-        objLayout['vLineWidth'] = function(i) { return .5; };
-        // Horizontal line color
-        objLayout['hLineColor'] = function(i) { return '#aaa'; };
-        // Vertical line color
-        objLayout['vLineColor'] = function(i) { return '#aaa'; };
-        // Left padding of the cell
-        objLayout['paddingLeft'] = function(i) { return 4; };
-        // Right padding of the cell
-        objLayout['paddingRight'] = function(i) { return 4; };
-        // Inject the object in the document
-        doc.content[1].layout = objLayout;
-    
-                doc.content[1].table.widths =Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-                doc.defaultStyle.alignment = 'center';
-                doc.styles.tableHeader.alignment = 'center';
-                },
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-
-            {
-                extend:    'print',
-                text:      '<i class="fa fa-print">&nbsp; Print</i>',
-                className: "btn btn-sm  btn-danger",  
-                titleAttr: 'Print',
-                                                title: 'AdminLT || Clients Data',
-                exportOptions: {
-                    columns: [ 0, 1, 2, 3,4,5]
-                }
-            },
-            {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'TXT',
-       text: '<i class="fa fa-fw fa-file-text-o">&nbsp; TXT</i>',
-  action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-        doExport('#example2', { type: 'txt' });
-    },
-  exportOptions: {
-          columns: [ 0, 1, 2, 3,4,5],
-    }
-  },
-              {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'sql',
-       text: '<i class="fa fa-fw fa-database">&nbsp; SQL</i>',
-  action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-        doExport('#example2', { type: 'sql' });
-    },
-  exportOptions: {
-        modifier: {
-            page: 'all'
-        }
-    }
-  },
-              {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'doc',
-       text: '<i class="fa fa-fw fa-file-word-o">&nbsp; Docx</i>',
-  action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-        doExport('#example2', { type: 'doc',mso: {pageOrientation: 'landscape'} });
-    },
-  exportOptions: {
-        modifier: {
-            page: 'all'
-        }
-    }
-  },
-  {
-                              
-             className: "btn btn-sm  btn-danger",  
-             titleAttr: 'PNG',
-       text:'<i class="fa fa-fw fa-image">&nbsp; PNG</i>',
-  action: function (e, dt, node, config) {
-
-
-        // Trigger the Ultimate Export plugin to export data from the textarea
-        doExport('#example2', { type: 'png'});
-    },
-  exportOptions: {
-        modifier: {
-            page: 'all'
-        }
-    }
-  }
-
-
-
-        ],
+       buttons:  getExportButtons('#example2', [0, 1, 2, 3, 4, 5]),
         columns: [
            {
                             //custom functions for particular column
@@ -593,7 +379,7 @@
                     {
                       'data': 'deleteaction',
                          render: function (data, type, row, meta) {
-                                return '<a class="btn btn-danger btn-xs" id="delete_product" data-id="' + row.aid + '" ><i class="fa fa-trash-o"  style="width:15px;height:10px"></i></a>';
+                                return '<a class="btn btn-danger btn-xs" id="delete_product" data-id="' + row.orderid + '" ><i class="fa fa-trash-o"  style="width:15px;height:10px"></i></a>';
                          }
                       },
      ],
@@ -621,9 +407,7 @@
     })
   
 </script>
-<script >
-  var base_url = "<?= base_url(); ?>";
-</script>
+
 <script>
 $(document).ready(function() {
     // Get infoid from URL parameters or from the URL path
@@ -647,6 +431,58 @@ $(document).ready(function() {
             alert('Failed to fetch product information. Please try again.');
         }
     });
+
+
+     $(document).on('click', '#delete_product', function(e){
+      
+      var productId = $(this).data('id');
+      SwalDelete(productId);
+      e.preventDefault();
+      console.log(productId);
+    });
+    
+  });
+  
+  function SwalDelete(productId) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "It will be deleted permanently!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+    showLoaderOnConfirm: true,
+    allowOutsideClick: false,
+
+    preConfirm: () => {
+      return $.ajax({
+        url: base_url + '/taxinv/delete/' + productId,
+        type: 'POST',
+        dataType: 'json',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }).then(response => {
+        if (response.res === 'success') {
+          return response.message;
+        } else {
+          throw new Error(response.message || 'Deletion failed');
+        }
+      }).catch(error => {
+        Swal.showValidationMessage(`Request failed: ${error}`);
+      });
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+       Swal.fire('Deleted!', result.value, 'success').then(() => {
+    location.reload();
+});
+      //readProducts(); // Refresh or reload
+    }
+  });
+}
+
 
     // Get the product name from PHP and log it for verification
     var p_name = '<?= $productDetails['name']; ?>';  // Getting the product name from PHP
@@ -687,7 +523,7 @@ $(document).ready(function() {
         `;
         legendContainer.innerHTML += legendItem;
     });
-});
+//});
 </script>
 
 </body>

@@ -580,16 +580,25 @@ public function delete($id)
         // Delete the record from both models
         $deleteFromFirstModel = $this->crudModel->deleterecord($id);
 
-        // $lastQuery = $this->crudModel->getLastQuery(); // Ensure this retrieves the last executed query
-        //     echo $lastQuery;
+        $lastQuery = $this->crudModel->getLastQuery(); // Ensure this retrieves the last executed query
+       //echo $lastQuery;
 
 
 
 
         $deleteFromSecondModel = $this->crudModel4->deleterecord($id);
 
-        // $lastQuery2 = $this->crudModel4->getLastQuery(); // Ensure this retrieves the last executed query
-        //                     echo $lastQuery2;
+        $lastQuery2 = $this->crudModel4->getLastQuery(); // Ensure this retrieves the last executed query
+         //echo $lastQuery2;
+
+
+            if (!$deleteFromFirstModel) {
+    log_message('error', 'Failed to delete from purchaseinv model for ID: ' . $id);
+}
+
+if (!$deleteFromSecondModel) {
+    log_message('error', 'Failed to delete from purchaseinv2 model for ID: ' . $id);
+}
 
 
 

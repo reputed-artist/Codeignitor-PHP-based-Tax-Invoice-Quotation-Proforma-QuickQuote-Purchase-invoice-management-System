@@ -101,7 +101,7 @@ $routes->group('purchaseinv', function($routes) {
     $routes->post('purchaseinv/insert', 'purchaseinv::insert');  // Use POST for form submission
                                                      // Insert data route
     $routes->get('purchaseinv/edit/(:num)', 'purchaseinv::edit/$1');
-    $routes->get('purchaseinv/delete/(:num)', 'purchaseinv::delete/$1');   //represents get method url has num para so
+    $routes->post('purchaseinv/delete/(:num)', 'purchaseinv::delete/$1');   //represents get method url has num para so
     $routes->post('purchaseinv/update', 'purchaseinv::update');                   // represents post method
 });
 
