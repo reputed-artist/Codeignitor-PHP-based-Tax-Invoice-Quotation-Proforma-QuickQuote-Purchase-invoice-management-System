@@ -484,7 +484,7 @@ $('#supplier').on('select2:select', function (e) {
         </select>
     </td>
     <td><input type="text" name="item_desc[]" id="descName_${count}" 
-               class="form-control item_desc" />
+               class="form-control item_desc" value="${record.item_desc || ''}" />
     </td>
     <td><input type="text" name="hsn[]" id="hsn_${count}" 
                value="8443" class="form-control item_hsn" />
@@ -710,7 +710,8 @@ var hasError = false;
 
 // Validate each row inside the table
 $(".datarow").each(function() {
-    var itemName = $(this).find(".item_name"); // Select2 dropdown for items
+    var itemName = $(this).find(".item_name");
+    var itemDesc=$(this).find(".item_desc");
     var hsnCode = $(this).find(".item_hsn");
     var quantity = $(this).find(".item_quantity");
     var price = $(this).find(".price");

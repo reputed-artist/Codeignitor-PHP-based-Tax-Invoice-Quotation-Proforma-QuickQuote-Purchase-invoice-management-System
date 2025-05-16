@@ -513,7 +513,7 @@ $('#supplier').on('select2:select', function (e) {
                             <option value="">Loading...</option>
                         </select>
                     </td>
-                    <td><input type="text" name="item_desc[]" id="descName_${count}" class="form-control item_desc" /></td>
+                    <td><input type="text" name="item_desc[]" id="descName_${count}" value="${record.item_desc || ''}" class="form-control item_desc" /></td>
 
                      <td><input type="text" name="hsn[]" id="hsn_${count}" value="8443" class="form-control item_hsn" /></td>
 
