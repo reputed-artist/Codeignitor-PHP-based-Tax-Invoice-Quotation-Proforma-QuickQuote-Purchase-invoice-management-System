@@ -198,5 +198,13 @@ ORDER BY
     
     return $this->db->query($sql, [$vn])->getResultArray();
   }
+
+  public function getproductproinv($vns){
+    $sql="SELECT protest.item_name 'Item', protest2.invid, protest2.orderid,protest2.created, client.c_name,substring_index(client.c_add, ',', -1) as location,protest2.totalamount 'totalamount' from protest2 inner join protest on protest.orderid = protest2.orderid and protest.item_name= ? inner join client on protest2.cid = client.cid  GROUP by protest.orderid";
+
+    log_message('debug', 'Executing SQL: ' . $this->db->getLastQuery());
+    
+    return $this->db->query($sql, [$vns])->getResultArray();
+  }
 }
 ?>

@@ -249,7 +249,7 @@
           
           <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title" style="padding-top: 10px;">Invoice Details</h3>
+              <h3 class="box-title" style="padding-top: 10px;">Sales Tax Invoice Details</h3>
             </div>
             <!-- /.box-header -->
             <!--  <button type="button" id="btnplus"class="btn btn-success btn-sm pull-right" style="margin: 2px 20px 2px 2px;" onclick="window.location.href = 'add-client.php'";><span class="glyphicon glyphicon-plus"></span></button><br> -->
@@ -302,6 +302,75 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+
+
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          
+          <div class="box box-info">
+            <div class="box-header">
+              <h3 class="box-title" style="padding-top: 10px;">Proforma Invoice Details</h3>
+            </div>
+            <!-- /.box-header -->
+            <!--  <button type="button" id="btnplus"class="btn btn-success btn-sm pull-right" style="margin: 2px 20px 2px 2px;" onclick="window.location.href = 'add-client.php'";><span class="glyphicon glyphicon-plus"></span></button><br> -->
+
+            <div class="box-body">
+              <table id="example3" class="table table-bordered table-striped">
+                            
+                            <hr>
+                              <thead>
+                              <tr>
+                                  <th>Sno.</th>
+                                  <th class="hidden-phone">Invoice Id</th>
+                                  <th> Company Name</th>
+                                  <th> Location</th>
+                                  <th> Item Name </th>
+                                  <th> Amount</th>
+                                  <th> Created </th>
+                                   <!-- <th>Reg. Date</th> -->
+                                      <th>Edit</th>
+                                      <th>View</th>
+                                      <th>Delete</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                             
+                              
+                              </tbody>
+                <tfoot>
+                <tr>
+                  <th>Sr. no.</th>
+                  <th>Invoice Id</th>
+                  <th>Company Name</th>
+                  <th>Location</th>
+                  <th> Item Name </th>
+                  <th>Amount </th> 
+                  <th>Created</th>
+                  <th>Edit</th>
+                  <th>View</th>
+                  <th>Delete</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+
+
+
+
+
 
 
 
@@ -409,6 +478,96 @@
 </script>
 
 <script>
+
+const proInvoices = <?= $proInvoices; ?>;
+  $(function () {
+    
+    $('#example3').DataTable({
+           'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false,
+     'data': proInvoices.aaData,
+  
+  // 'dom':"<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
+   //   "<'row'<'col-sm-12'tr>>" +
+   //   "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+ dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
+    
+       buttons:  getExportButtons('#example3', [0, 1, 2, 3, 4, 5]),
+         columns: [
+           {
+                            //custom functions for particular column
+                   "data": "id",
+                    render: function (data, type, row, meta) {
+                     return meta.row + meta.settings._iDisplayStart + 1;
+                    }
+                },
+                    { 'data': "invid" },
+                    { 'data': "c_name" },
+                    { 'data': "location" },
+                    { 'data': "Item" },
+                    { 'data': "totalamount" },
+                    { 'data': "created" },
+                    {
+                      'data': 'editaction',
+                         render: function (data, type, row, meta) {
+                             // return '<a class="btn btn-primary btn-xs" id="edit_product" data-id="' + row.aid + '"><i class="fa fa-pencil" style="width:15px;height:10px"></i></a>';
+                             return `<a href="<?= base_url();?>/proinv/editproinv?orderid=${row.orderid}" class="btn btn-primary btn-xs" id="edit_inv" data-id="${row.orderid}" target="_blank">
+                    <i class="fa fa-pencil" style="width:15px;height:10px"></i>
+                </a>`;
+
+                         }
+                      },
+
+                    {
+                      'data': 'viewaction',
+                         render: function (data, type, row, meta) {
+                               
+                //                 return `<a href="getledger/${row.cid}" class="btn btn-warning btn-xs" id="viewledger" data-id="${row.cid}">
+                //     <i class="fa fa-fw fa-eye" style="width:15px;height:10px"></i>
+                // </a>`;
+                return `<a href="<?= base_url();?>/proinv/printproinv?orderid=${row.orderid}" class="btn btn-warning btn-xs" id="view_inv" data-id="${row.orderid}" target="_blank">
+                    <i class="fa fa-fw fa-eye" style="width:15px;height:10px"></i>
+                </a>`;
+                         }
+                      },
+                       
+                    {
+                      'data': 'deleteaction',
+                         render: function (data, type, row, meta) {
+                                return '<a class="btn btn-danger btn-xs" id="delete_product2" data-id="' + row.orderid + '" ><i class="fa fa-trash-o"  style="width:15px;height:10px"></i></a>';
+                         }
+                      },
+     ],
+      initComplete: function () {
+            var btns = $('.dt-button');
+            btns.addClass('btn btn-primary btn-sm btn-group');
+            btns.removeClass('dt-button');
+
+        },        "lengthMenu": [[10, 50, 150, -1], [10, 50, 150, "All"]]
+      });
+ document.querySelectorAll('.toggle-vis').forEach((el) => {
+    el.addEventListener('click', function (e) {
+        e.preventDefault();
+ 
+        let columnIdx = e.target.getAttribute('data-column');
+        let column = table.column(columnIdx);
+        
+        // Toggle the visibility
+        column.visible(!column.visible());
+    });
+});
+
+
+
+
+    })
+
+</script>
+<script>
 $(document).ready(function() {
     // Get infoid from URL parameters or from the URL path
     const urlParams = new URLSearchParams(window.location.search);
@@ -483,6 +642,58 @@ $(document).ready(function() {
   });
 }
 
+
+
+
+$(document).on('click', '#delete_product2', function(e){
+      
+      var productId2 = $(this).data('id');
+      SwalDelete2(productId2);
+      e.preventDefault();
+      console.log(productId2);
+    });
+    
+
+  
+  function SwalDelete2(productId2) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "It will be deleted permanently!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+    showLoaderOnConfirm: true,
+    allowOutsideClick: false,
+
+    preConfirm: () => {
+      return $.ajax({
+        url: base_url + '/proinv/delete/' + productId2,
+        type: 'POST',
+        dataType: 'json',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }).then(response => {
+        if (response.res === 'success') {
+          return response.message;
+        } else {
+          throw new Error(response.message || 'Deletion failed');
+        }
+      }).catch(error => {
+        Swal.showValidationMessage(`Request failed: ${error}`);
+      });
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+       Swal.fire('Deleted!', result.value, 'success').then(() => {
+    location.reload();
+});
+      //readProducts(); // Refresh or reload
+    }
+  });
+}
 
     // Get the product name from PHP and log it for verification
     var p_name = '<?= $productDetails['name']; ?>';  // Getting the product name from PHP

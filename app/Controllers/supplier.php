@@ -49,13 +49,21 @@ public function viewsupplierinfo($infoid) {
     // Fetch product details
    $supplierDetails = $supplierModel->getSupplierDetails($infoid);
 
-  $financialYears = $supplierModel->getFinancialYearTotals($infoid);
+   $financialYears = $supplierModel->getFinancialYearTotals($infoid);
 
 
     // Fetch tax invoices (assuming it's a list of invoices related to this product)
     $taxinvoice = $supplierModel->getsupplierinv($infoid);
 
-    //$proinvoice = $supplierModel-> getsupplierproinv($infoid);
+
+    $saleinvoice= $supplierModel->getsuppliersalesinv($infoid);
+
+    // if($supplierModel['u_type']==2)
+    // {
+    //     $saleinvoice== $supplierModel->getsupplierinv($infoid);
+    // }
+    
+   $proinvoice = $supplierModel-> getsupplierproinv($infoid);
 
 
     // Format the data for the DataTable
@@ -66,20 +74,37 @@ public function viewsupplierinfo($infoid) {
         "aaData" => $taxinvoice
     ];
 
-  
+      $results2 = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($proinvoice),
+        "iTotalDisplayRecords" => count($proinvoice),
+        "aaData" => $proinvoice
+    ];
+
+    
+      $results3 = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($saleinvoice),
+        "iTotalDisplayRecords" => count($saleinvoice),
+        "aaData" => $saleinvoice
+    ];
+
 
     // Prepare the data array for passing to the view
     $data = [
         'financialYears' => $financialYears,
         'supplierDetails' => $supplierDetails,
         'taxInvoices' => json_encode($results), 
-        //'proInvoices' => json_encode($results2)// Pass JSON-encoded results
+        'proInvoices' => json_encode($results2),
+        'saleInvoice'=> json_encode($results3)// Pass JSON-encoded results
     ];
 
 
     return view('info layout/getsupplierinfo', ['supplierDetails' => $supplierDetails, 
         'financialYears' => $financialYears, 
         'taxInvoices'=> json_encode($results),
+        'proInvoices'=> json_encode($results2),
+        'saleInvoices'=> json_encode($results3),
         'infoid'=> $infoid,
         
         ]);

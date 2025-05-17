@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Product_model;
+use App\Models\Supplier_model;
 use App\Models\Client_model;
 use App\Models\Techsps_model; // Ensure you have the correct namespace for your model
 use CodeIgniter\Controller;
@@ -51,17 +52,22 @@ public function viewproductinfo($infoid) {
     
     $productModel = new Product_model();
     $clientModel = new Client_model();
+    //$supplierModel = new Supplier_model();
 
     // Fetch product details
    $productDetails = $productModel->getProductDetails($infoid);
 
 
 // Proceed with accessing product name if $productDetails is valid
-$donut = $productModel->getProductPie($productDetails['name']);
+    $donut = $productModel->getProductPie($productDetails['name']);
 
 
     // Fetch tax invoices (assuming it's a list of invoices related to this product)
     $taxinvoice = $productModel->getproductinv($productDetails['name']);
+
+
+    $proinvoice = $productModel->getproductproinv($productDetails['name']);
+    
 
     // Format the data for the DataTable
     $results = [
@@ -71,11 +77,20 @@ $donut = $productModel->getProductPie($productDetails['name']);
         "aaData" => $taxinvoice
     ];
 
+
+       $results2 = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($proinvoice),
+        "iTotalDisplayRecords" => count($proinvoice),
+        "aaData" => $proinvoice
+    ];
+
     // Prepare the data array for passing to the view
     $data = [
         'donut' => $donut,
         'productDetails' => $productDetails,
-        'taxInvoices' => json_encode($results), // Pass JSON-encoded results
+        'taxInvoices' => json_encode($results),
+        'proInvoices'=> json_encode($results2) // Pass JSON-encoded results
     ];
 
     // Optionally log or remove print_r in production
@@ -83,7 +98,8 @@ $donut = $productModel->getProductPie($productDetails['name']);
 
     // Return the view with the data
     //return view('info layout/getproductinfo', compact('productDetails', 'donut', 'taxInvoices'));
-    return view('info layout/getproductinfo', ['productDetails' => $productDetails, 'donut' => $donut, 'taxInvoices' => json_encode($results)]);
+    return view('info layout/getproductinfo', ['productDetails' => $productDetails, 'donut' => $donut, 'taxInvoices' => json_encode($results),
+        'proInvoices'=> json_encode($results2)]);
 
 }
 

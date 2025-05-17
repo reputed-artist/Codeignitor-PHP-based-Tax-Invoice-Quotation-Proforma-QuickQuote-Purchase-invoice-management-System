@@ -171,4 +171,25 @@ public function single_entry($edit_id)
     
     return $this->db->query($sql, [$vn])->getResultArray();
   }
+
+
+   public function getsupplierproinv($vns){
+    $sql="SELECT protest2.orderid, protest.item_name 'Item', protest2.invid,protest2.created, client.c_name,substring_index(client.c_add, ',', -1) as location,protest2.totalamount 'totalamount' from protest INNER JOIN protest2 on protest.orderid = protest2.orderid INNER JOIN client on protest2.cid = client.cid and client.cid = ? GROUP by protest.orderid";
+
+
+    log_message('debug', 'Executing SQL: ' . $this->db->getLastQuery());
+    
+    return $this->db->query($sql, [$vns])->getResultArray();
+  }
+
+
+
+  public function getsuppliersalesinv($vnss){
+    $sql="SELECT invtest2.orderid, invtest.item_name 'Item', invtest2.invid,invtest2.created, client.c_name,substring_index(client.c_add, ',', -1) as location,invtest2.totalamount 'totalamount' from invtest INNER JOIN invtest2 on invtest.orderid = invtest2.orderid INNER JOIN client on invtest2.cid = client.cid and client.cid = ? GROUP by invtest.orderid";
+
+
+    log_message('debug', 'Executing SQL: ' . $this->db->getLastQuery());
+    
+    return $this->db->query($sql, [$vnss])->getResultArray();
+  }
 }

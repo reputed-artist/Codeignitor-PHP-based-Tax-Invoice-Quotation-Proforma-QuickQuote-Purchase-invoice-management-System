@@ -482,7 +482,7 @@ input .error{
                   <label id="type" class="col-sm-3 control-label">User Type <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                    <select name="utype1" class="form-control select2" style=" height: 34px;width:100%" id="utype1">
-                    <option value=""></option>
+                    
                     <option value="0">Client</option>
                     <option value="1">Supplier</option>
                     <option value="2">Dual(Cust/Sup)</option>
@@ -529,12 +529,7 @@ input .error{
 
 
 <!-- page script -->
-<!-- <script>
-  $(document).ready(function(){
-      fetch();
-  })
 
-</script> -->
 <script>
     var tableData = <?= $results; ?>  // JSON object for DataTables
     console.log(tableData);  // Check if the data is correctly passed
@@ -673,121 +668,7 @@ $('#utype').select2({
 });
 
   </script>
-<!-- <script>
-     
-    var input2 = document.querySelector("#phoneedit"),
-        errorMap2 = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"],
-        result2 = document.querySelector("#result2");
 
-
-    var iti2;      
-        window.addEventListener("load", function ($form, event) {
-        var countryData2 = window.intlTelInputGlobals.getCountryData(),
-            addressDropdown2 = document.querySelector("#address_countryedit"),
-            errorMsg2 = document.querySelector("#error-msg2");
-
-
-
-         iti2= window.intlTelInput(input2, {
-            hiddenInput: "full_number",
-            nationalMode: false,
-            formatOnDisplay: true,
-            separateDialCode: true,
-            autoHideDialCode: true,
-            autoPlaceholder: "aggressive",
-            initialCountry: "in",
-            placeholderNumberType: "MOBILE",
-            preferredCountries: ['in', 'np'],
-            utilsScript: "<?=base_url()?>/public/bower_components/intl-tel-input/build/js/utils.js",
-        });
-
-
-
-        input2.addEventListener('keyup', formatIntlTelInput2);
-        input2.addEventListener('change', formatIntlTelInput2);
-
-        for (var i = 0; i < countryData2.length; i++) {
-            var country2 = countryData2[i];
-            var optionNode = document.createElement("option");
-            optionNode.setAttribute("data-city", country2.name.replace(/(\(.+\))/g, ''));
-            optionNode.value = country2.iso2.replace(/(\(.+\))/g, '');
-            var textNode = document.createTextNode(country2.name.replace(/(\(.+\))/g, ''));
-            optionNode.appendChild(textNode);
-            addressDropdown2.appendChild(optionNode);
-        }
-
-        addressDropdown2.value = iti2.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-        $('#fulldetails2').val(iti2.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-
-        input2.addEventListener('countrychange', function(e) {
-            addressDropdown2.value = iti2.getSelectedCountryData().iso2.replace(/(\(.+\))/g, '');
-            $('#fulldetails2').val(iti2.getSelectedCountryData().name.replace(/(\(.+\))/g, ''));
-        });
-
-        addressDropdown2.addEventListener('change', function() {
-            iti2.setCountry(this.value);
-        });
-
-        function formatIntlTelInput2() {
-            if (typeof intlTelInputUtils !== 'undefined') {
-                var currentText2 = iti2.getNumber(intlTelInputUtils.numberFormat.E164);
-                if (typeof currentText2 === 'string') {
-                    iti2.setNumber(currentText2);
-                }
-            }
-        }
-
-       input2.addEventListener('keyup', function() {
-    reset2();  // Clear any previous states
-    
-    if (input2.value.trim()) {
-        if (iti2.isValidNumber()) {
-            // If valid, apply the valid classes
-            $(input2).removeClass('form-control is-invalid').addClass('form-control is-valid');
-            $('.iti2').removeClass('is-invalid').addClass('is-valid'); // Change wrapper state
-            $("#submitbtn").attr('disabled', false);
-        } else {
-            // If invalid, apply the invalid classes
-            $(input2).addClass('form-control is-invalid');
-            $('.iti2').addClass('is-invalid'); // Highlight the wrapper
-            var errorCode2 = iti2.getValidationError();
-            errorMsg2.innerHTML = errorMap2[errorCode2]; // Ensure correct error code index
-            $(errorMsg2).show();  // Show the error message
-        }
-    }
-});
-
-        input2.addEventListener('change', reset2);
-        input2.addEventListener('keyup', reset2);
-
-        var reset2 = function() {
-          $(input2).removeClass('form-control is-invalid').removeClass('form-control is-valid'); 
-          $('.iti2').removeClass('is-invalid').removeClass('is-valid'); // Reset wrapper state
-          errorMsg2.innerHTML = ""; // Clear error message
-          $(errorMsg2).hide(); // Hide error message
-      };
-
-
-
-
-        input2.addEventListener('focus', function() {
-        result2.textContent = "";
-          }, false);
-
-            $(input2).on("focusout", function() {
-                var intlNumber2 = iti2.getNumber();
-                $("#fullno2").val(intlNumber2);
-                console.log(intlNumber2);
-            });
-        });
-
-
-          $('.select2').select2({
-       placeholder: "Select Bill Type",
-    allowClear: true
-    });
-  </script>
- -->  
  <script>
    var input2 = document.querySelector("#phoneedit"),
     errorMap2 = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"],
@@ -854,7 +735,7 @@ window.addEventListener("load", function ($form, event) {
         }
     }
 
-    function resetValidationState2() {
+   function resetValidationState2() {
         $(input2).removeClass('form-control is-invalid').removeClass('form-control is-valid');
         $('.iti2').removeClass('is-invalid').removeClass('is-valid'); // Reset wrapper state
         errorMsg2.innerHTML = ""; // Clear error message
@@ -874,6 +755,12 @@ window.addEventListener("load", function ($form, event) {
 
 $('#ctypeedit').select2({
     placeholder: "Select Bill Type",
+    allowClear: true
+});
+
+
+$('#utype1').select2({
+    placeholder: "Select User Type",
     allowClear: true
 });
 

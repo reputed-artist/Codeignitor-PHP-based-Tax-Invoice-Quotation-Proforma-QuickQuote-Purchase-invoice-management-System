@@ -623,7 +623,7 @@ public function delete($id)
     log_message('debug', 'Deleting record with ID: ' . $id);
 
     // Ensure the request is AJAX
-    if ($this->request->isAJAX()) {
+    if ($this->request->isAJAX() || $this->request->getMethod() === 'post') {
         // Load both models
         $this->crudModel = new Protest_model();   // Assuming you have a model for purchaseinv
         $this->crudModel4 = new Protest_model2(); // Model for purchaseinv2
