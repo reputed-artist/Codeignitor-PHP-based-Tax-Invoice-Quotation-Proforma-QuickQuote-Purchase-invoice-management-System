@@ -229,5 +229,127 @@ public function printquotedata($orderid)
     return $query->getResultArray(); // Return the fetched data as an array
 }
 
+public function getInvoices($startDate = null, $endDate = null, $item = null, $customer = null, $ctype=null)
+{
+
+    $sql = "SELECT 
+                ROW_NUMBER() OVER () AS id, 
+                quote.item_name AS item, 
+                quote2.invid AS `inv no`, 
+                quote2.created AS `inv date`, 
+                client.c_name AS client, 
+                SUBSTRING_INDEX(client.c_add, ',', -1) AS location, 
+                client.gst AS GST, 
+                client.c_type AS c_type,
+                quote2.subtotal AS subtotal, 
+                quote2.taxrate AS taxrate, 
+                quote2.taxamount AS taxamount, 
+                quote2.totalamount AS totalamount 
+
+            FROM quote2 
+            INNER JOIN quote ON quote.orderid = quote2.orderid 
+            INNER JOIN client ON quote2.cid = client.cid";
+
+    // Add conditions dynamically
+    $conditions = [];
+    $params = [];
+
+
+
+  if (!empty($customer)) {
+        $conditions[] = "client.cid = ?";
+        $params[] = $customer;
+    }
+
+
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "quote2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+  
+    //  if (!empty($ctype)) {
+    //     $conditions[] = "client.u_type = ?";
+    //     $params[] = $ctype;
+    // }
+
+    // Append conditions to SQL query
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    // Add GROUP BY clause
+    $sql .= "GROUP BY quote.orderid";
+
+//    echo $sql;
+
+    // Execute the query
+    $query = $this->db->query($sql, $params);
+
+    //print_r($query);
+
+    // Return the results
+    return $query->getResult();
+}
+
+
+public function getItemreport($startDate = null, $endDate = null, $item = null)
+{
+    $sql = "
+        SELECT 
+            ROW_NUMBER() OVER () AS id,
+            quote2.created, 
+            quote.item_name AS item, 
+            -- quote.item_desc AS description, 
+            -- quote.hsn, 
+            quote.price,
+            quote.quantity, 
+            quote.total AS subtotal, 
+            quote2.taxrate, 
+            quote2.taxamount,
+            quote2.totalamount
+ 
+        FROM 
+            quote2 
+        INNER JOIN 
+            quote ON quote.orderid = quote2.orderid 
+        INNER JOIN 
+            products ON quote.item_name = products.name
+    ";
+
+    // Initialize conditions and parameters
+    $conditions = [];
+    $params = [];
+
+    // Add date range condition
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "quote2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+    // Add item condition
+    if (!empty($item)) {
+        $conditions[] = "quote.item_name = ?";
+        $params[] = $item;
+    }
+
+    // Ensure at least one condition is applied
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    } else {
+        // No conditions provided; return an empty result
+        return [];
+    }
+
+    //echo $sql;
+
+    // Execute the query
+    $query = $this->db->query($sql, $params);
+
+    // Return the results
+    return $query->getResult();
+}
 
 }

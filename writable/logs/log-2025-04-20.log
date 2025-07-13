@@ -322,6 +322,7 @@ INFO - 2025-04-20 10:19:17 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2025-04-20 10:19:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 10:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 10:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 INFO - 2025-04-20 10:38:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 10:38:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 10:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -364,3 +365,8 @@ INFO - 2025-04-20 19:07:14 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2025-04-20 19:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 19:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-04-20 19:07:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+INFO - 2025-04-20 11:06:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-20 11:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-20 11:06:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> 1f9f4cb (giving updates with reports)

@@ -219,7 +219,7 @@ input.error,
                              
                           <table id="example" class="table table-bordered table-striped">
 
-                            <button type="button" id="btnplus" class="btn btn-success btn-sm pull-right" style="margin: 20px 70px 2px 2px;" data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-plus"></span></button></br></br>
+                            <button type="button" id="btnplus" class="btn btn-success btn-sm pull-right" style="margin: 20px 70px 2px 2px;" data-toggle="modal" data-target="#modal-default"><span class="glyphicon glyphicon-plus"></span> &nbsp; Add Transaction</button></br></br>
                                       <hr>
 
                                 <thead>
@@ -565,8 +565,17 @@ input.error,
 
  <script>
 
-  var globalSubtotalTotal=0;
+  //var globalSubtotalTotal=0;
+ 
+ let totalAmount = 0;
+
     function loadTransactions(date = null, client = null, clienttype=null) {
+
+//        
+
+
+// // Set total after loop
+//        $('#totalamt').text(totalAmount.toFixed(2));
 
         console.log("Loading invoices for page: " + date + client + clienttype); // Add this line
        
@@ -584,7 +593,9 @@ input.error,
 
                 console.log("res"+response);
 
-                $('#example').DataTable().destroy();
+        
+
+        $('#example').DataTable().destroy();
         
         var table = $('#example').DataTable({
         'paging': true,
@@ -633,7 +644,11 @@ input.error,
             
             { 'data': 'purpose' },
             { 'data': 'bank' },
-           { 'data': 'amount'},
+           { 'data': 'amount',
+              render: function(data, type, row, meta) {
+                 return parseFloat(data).toFixed(2);
+                }
+           },
              { 'data': 'created' },
                      {
                       'data': 'editaction',

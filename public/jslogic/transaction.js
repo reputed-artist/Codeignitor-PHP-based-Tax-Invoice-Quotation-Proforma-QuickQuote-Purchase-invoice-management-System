@@ -104,7 +104,14 @@ $('#modal-default1').on('show.bs.modal', function() {
 /* -------------------------------------------------------------------------- */
     
 function fetch() {
- var totalAmount=0;
+ 
+   // var totalAmount = 0;
+   let totalAmount = 0;
+
+
+// Set total after loop
+$('#totalamt').text(totalAmount.toFixed(2));
+
     console.log("fetch called from insert");
 
     $.ajax({
@@ -116,7 +123,10 @@ function fetch() {
         success: function(response) {
             console.log(response);  
 
-
+            response.aaData.forEach(function(row) {
+            totalAmount += parseFloat(row.amount || 0);
+           });
+            console.log(totalAmount);
 
             //$('#example1').DataTable().clear().destroy();
              var table = $("#example").DataTable({
@@ -177,9 +187,7 @@ function fetch() {
             { 'data': 'bank' },
            { 'data': 'amount',
            render: function(data, type, row, meta) {
-                    totalAmount += parseFloat(data); // Increment totalAmount
-                    $('#totalamt').text(totalAmount + ".00");
-                    return data+".00";
+                   return parseFloat(data).toFixed(2);
                 }
              },
             { 'data': 'created' },
@@ -219,7 +227,7 @@ function fetch() {
         }); 
     
 
-                $('#totalamt').text(parseFloat(response.totalAmount).toFixed(2));
+                $('#totalamt').text(parseFloat(totalAmount).toFixed(2));
 
 
                    document.querySelectorAll('.toggle-vis').forEach((el) => {

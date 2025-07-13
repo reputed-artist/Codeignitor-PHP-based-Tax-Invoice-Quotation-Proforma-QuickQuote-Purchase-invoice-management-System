@@ -223,4 +223,126 @@ public function printprodata($orderid)
     return $query->getResultArray(); // Return the fetched data as an array
 }
 
+public function getInvoices($startDate = null, $endDate = null, $item = null, $customer = null, $ctype=null)
+{
+
+    $sql = "SELECT 
+                ROW_NUMBER() OVER () AS id, 
+                protest.item_name AS item, 
+                protest2.invid AS `inv no`, 
+                protest2.created AS `inv date`, 
+                client.c_name AS client, 
+                SUBSTRING_INDEX(client.c_add, ',', -1) AS location, 
+                client.gst AS GST, 
+                client.c_type AS c_type,
+                protest2.subtotal AS subtotal, 
+                protest2.taxrate AS taxrate, 
+                protest2.taxamount AS taxamount, 
+                protest2.totalamount AS totalamount 
+
+            FROM protest2 
+            INNER JOIN protest ON protest.orderid = protest2.orderid 
+            INNER JOIN client ON protest2.cid = client.cid";
+
+    // Add conditions dynamically
+    $conditions = [];
+    $params = [];
+
+
+
+  if (!empty($customer)) {
+        $conditions[] = "client.cid = ?";
+        $params[] = $customer;
+    }
+
+
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "protest2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+  
+    //  if (!empty($ctype)) {
+    //     $conditions[] = "client.u_type = ?";
+    //     $params[] = $ctype;
+    // }
+
+    // Append conditions to SQL query
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    // Add GROUP BY clause
+    $sql .= "GROUP BY protest.orderid";
+
+//    echo $sql;
+
+    // Execute the query
+    $query = $this->db->query($sql, $params);
+
+    //print_r($query);
+
+    // Return the results
+    return $query->getResult();
+}
+
+public function getItemreport($startDate = null, $endDate = null, $item = null)
+{
+    $sql = "
+        SELECT 
+            ROW_NUMBER() OVER () AS id,
+            protest2.created, 
+            protest.item_name AS item, 
+            protest.item_desc AS description, 
+            protest.hsn, 
+            protest.price,
+            protest.quantity, 
+            protest.total AS subtotal, 
+            protest2.taxrate, 
+            protest2.taxamount,
+            protest2.totalamount
+ 
+        FROM 
+            protest2 
+        INNER JOIN 
+            protest ON protest.orderid = protest2.orderid 
+        INNER JOIN 
+            products ON protest.item_name = products.name
+    ";
+
+    // Initialize conditions and parameters
+    $conditions = [];
+    $params = [];
+
+    // Add date range condition
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "protest2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+    // Add item condition
+    if (!empty($item)) {
+        $conditions[] = "protest.item_name = ?";
+        $params[] = $item;
+    }
+
+    // Ensure at least one condition is applied
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    } else {
+        // No conditions provided; return an empty result
+        return [];
+    }
+
+    //echo $sql;
+
+    // Execute the query
+    $query = $this->db->query($sql, $params);
+
+    // Return the results
+    return $query->getResult();
+}
+
 }

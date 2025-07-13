@@ -67,19 +67,47 @@ class Quickquote_model extends Model
 }
 
 
-    /**
-     * Update a specific record by primary key
-     *
-     * @param int $id - Primary key of the record to be updated
-     * @param array $data - Data to be updated
-     * @return boolean - Success or failure of the update operation
-     */
-    // public function updaterecord(int $id, array $data)
-    // {
-    //     return $this->update($id, $data); // Update data in the table
-    // }
-    // public function deleterecord(int $id)
-    // {
-    //     return $this->delete($id); // Update data in the table
-    // }
+    
+//     public function Quickquotedata(){
+//     $query = "SELECT quickquote.q_id, products.name, quickquote.mob, quickquote.quantity, quickquote.subtotal, quickquote.gst, quickquote.total, quickquote.created 
+//               FROM quickquote 
+//               INNER JOIN products ON products.p_id = quickquote.p_id 
+//               ORDER BY quickquote.q_id";
+
+//     return $this->db->query($query)->getResultArray();
+// }
+
+public function getInvoices($startDate = null, $endDate = null, $item = null, $customer = null, $ctype = null)
+{
+    $sql = "SELECT 
+                ROW_NUMBER() OVER () AS id, 
+                quickquote.q_id AS `inv no`, 
+                products.name AS client, 
+                quickquote.mob AS mob, 
+                quickquote.quantity AS quantity, 
+                quickquote.subtotal AS subtotal, 
+                quickquote.gst AS gst, 
+                quickquote.total AS total, 
+                quickquote.created AS `inv date`
+            FROM quickquote
+            INNER JOIN products ON products.p_id = quickquote.p_id";
+
+    $conditions = [];
+    $params = [];
+
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "quickquote.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
+    }
+
+    $sql .= " ORDER BY quickquote.q_id";
+
+    $query = $this->db->query($sql, $params);
+    return $query->getResult();
+}
 }

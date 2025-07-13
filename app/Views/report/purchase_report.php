@@ -469,9 +469,9 @@ $('#daterange-btn').on('apply.daterangepicker', function(ev, picker) {
              render: function(data, type, row, meta) {
         // Check if c_type is IGST
         if (row.c_type == "IGST") {
-            return '9-9 %'; // Set taxrate to 9-9 %
+            return '18 %'; // Set taxrate to 9-9 %
         } else {
-            return '18 %'; // Set taxrate to 18 %
+            return '9-9 %'; // Set taxrate to 18 %
         }
     }
              },

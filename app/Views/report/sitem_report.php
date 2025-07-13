@@ -310,11 +310,26 @@
        buttons: getExportButtons('#example',[0,1,2,3,4,5,6,7,8,9,10]), 
         columns: [
             { 'data': 'id' }, 
-            {'data':'created'},
+            {'data':'created',
+              render: function(data, type, row, meta) {
+                    var parts = data.split('-');
+                    var formattedDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+                    return formattedDate;
+                }
+
+            },
             { 'data': 'item' },
             { 'data': 'description'},
             { 'data': 'hsn' },
+
             { 'data': 'price'},
+
+            { 'data': 'price',
+                render: function(data, type, row, meta) {
+               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              }
+            },
+
             { 'data': 'quantity',
                render: function(data, type, row, meta) {
                return parseFloat(data).toFixed(2); // returns e.g. "123.00"

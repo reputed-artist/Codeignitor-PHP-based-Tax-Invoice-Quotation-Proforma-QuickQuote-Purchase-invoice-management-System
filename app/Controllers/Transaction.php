@@ -113,7 +113,7 @@ public function managetransaction()
             $value2 = substr($value2, 6, 4);
 
             // Concatenate incremented value
-            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2);
+            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2+1);
             $value = $value2;
         } else {
             // No records found, start from 0001
@@ -256,7 +256,7 @@ public function insert() {
             $value2 = substr($value2, 6, 4);
 
             // Concatenate incremented value
-            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2);
+            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2+1);
             $value = $value2;
         } else {
             // No records found, start from 0001

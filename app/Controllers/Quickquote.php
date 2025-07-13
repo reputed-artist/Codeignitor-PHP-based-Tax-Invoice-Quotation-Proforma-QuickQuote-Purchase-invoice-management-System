@@ -162,4 +162,83 @@ public function printquickquote(){
 }
 
 
+public function loadInvoices()
+  {
+    // Retrieve GET parameters
+
+    $daterange= $this->request->getGet('date')?? '';
+
+             // Split the date range using the '-' separator
+    $dates = explode(' - ', $daterange);
+
+    // Check if two dates are present
+    if (count($dates) == 2) {
+        $startDate = date('Y-m-d', strtotime(trim($dates[0]))); // Convert to Y-m-d format
+        $endDate = date('Y-m-d', strtotime(trim($dates[1])));   // Convert to Y-m-d format
+    } else {
+        $startDate = $endDate = null; // If date range is invalid, set both to null
+    }
+      
+
+    //$item = $this->request->getGet('item_name');
+    //$customer = $this->request->getGet('client');
+     $customer = is_numeric($this->request->getGet('client')) ? $this->request->getGet('client') : null;
+
+     //$ctype-$this->request->getGet('ctype');   
+        $ctype = $this->request->getPost('ctype') ?? 'null';
+
+    // Call the model function
+    $this->crudModel = new Quickquote_model();
+
+    $invoices = $this->crudModel->getInvoices($startDate, $endDate,null, $customer,$ctype);
+
+    $totalSubtotal = 0;
+    $totalTaxAmount = 0;
+    $totalAmount = 0;
+
+    // // Loop through each invoice and calculate totals
+    foreach ($invoices as $invoice) {
+        $totalSubtotal += $invoice->subtotal;
+        $totalTaxAmount += $invoice->gst;
+        $totalAmount += $invoice->total;
+    }
+
+    // Create the result array with totals
+    $results = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($invoices),
+        "iTotalDisplayRecords" => count($invoices),
+        "aaData" => $invoices,
+        "totalSubtotal" => $totalSubtotal,
+        "totalTaxAmount" => $totalTaxAmount,
+        "totalAmount" => $totalAmount
+    ];
+
+
+
+    //print_r($invoices);
+
+    // Check if data exists
+    if (!empty($invoices)) {
+        $response = [
+            'success' => true,
+            'data' => $results,
+        ];
+    } else {
+        $response = [
+            'success' => false,
+            'message' => 'No invoices found for the selected filters.',
+        ];
+    }
+
+    // Return the response as JSON
+    return $this->response->setJSON($results);
+}
+
+public function quickquotereport(){
+
+        return view('report/quickquote_report');
+    }
+
+
 }

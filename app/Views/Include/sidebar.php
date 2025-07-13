@@ -254,31 +254,8 @@
         
 
 
-        <!-- <li>
-          <a href="<?=base_url()?>/Account/reportdrcr">
-            <i class="fa fa-fw fa-calculator"></i> <span> Dr/Cr Report</span>
-            
-          </a>
-        </li> -->
-        
-
-<!-- <li class="treeview <?= set_active('purchaseinv/purchaseitemreport') || set_active('purchaseinv/purchasereport') ? 'active' : '' ?>">
-          <a href="#">
-              <i class="fa fa-fw fa-download"></i>
-              <span> Proforma Report</span>
-              <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu" style="display: block;">
-              <li class="<?= set_active('purchaseinv/purchaseitemreport') ?>"><a href="<?= base_url('/purchaseinv/purchaseitemreport') ?>"><i class="fa fa-fw fa-gears"></i> Proforma Item Report</a></li>
-              <li class="<?= set_active('purchaseinv/purchasereport') ?>"><a href="<?= base_url('/purchaseinv/purchasereport') ?>"><i class="fa fa-fw fa-opencart"></i> Proforma Report</a></li>
-          </ul>
-      </li>
-
-
-
-      <li class="treeview <?= set_active('purchaseinv/purchaseitemreport') || set_active('purchaseinv/purchasereport') ? 'active' : '' ?>">
+       <!-- Sales Report Section -->
+      <li class="treeview <?= set_active('quickquote/quickquotereport')|| set_active('quote/quoteitemreport') || set_active('quote/quotereport') ? 'active' : '' ?>">
           <a href="#">
               <i class="fa fa-fw fa-download"></i>
               <span> Quotation Report</span>
@@ -287,14 +264,30 @@
               </span>
           </a>
           <ul class="treeview-menu" style="display: block;">
-              <li class="<?= set_active('purchaseinv/purchaseitemreport') ?>"><a href="<?= base_url('/purchaseinv/purchaseitemreport') ?>"><i class="fa fa-fw fa-gears"></i>  Quotation Item Report</a></li>
-              <li class="<?= set_active('purchaseinv/purchasereport') ?>"><a href="<?= base_url('/purchaseinv/purchasereport') ?>"><i class="fa fa-fw fa-opencart"></i>  Quotation Report</a></li>
+          <li class="<?= set_active('quickquote/quickquotereport') ?>"><a href="<?= base_url('/quickquote/quickquotereport') ?>"><i class="fa fa-fw fa-line-chart"></i>Quick Quotation Report</a></li>
+
+              <li class="<?= set_active('quote/quoteitemreport') ?>"><a href="<?= base_url('/quote/quoteitemreport') ?>"><i class="fa fa-fw fa-gears"></i> Quotation Item Report</a></li>
+              <li class="<?= set_active('quote/quotereport') ?>"><a href="<?= base_url('/quote/quotereport') ?>"><i class="fa fa-fw fa-line-chart"></i> Quotation Report</a></li>
+
+
           </ul>
       </li>
+   
 
- -->
-
-
+       <li class="treeview <?= set_active('proinv/proitemreport') || set_active('proinv/proreport') ? 'active' : '' ?>">
+          <a href="#">
+              <i class="fa fa-fw fa-download"></i>
+              <span> Proforma Report</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu" style="display: block;">
+              <li class="<?= set_active('proinv/proitemreport') ?>"><a href="<?= base_url('/proinv/proitemreport') ?>"><i class="fa fa-fw fa-gears"></i> Proforma Item Report</a></li>
+              <li class="<?= set_active('proinv/proreport') ?>"><a href="<?= base_url('/proinv/proreport') ?>"><i class="fa fa-fw fa-line-chart"></i> Proforma Report</a></li>
+          </ul>
+      </li>
+   
 
 
       <!-- Purchase Report Section -->

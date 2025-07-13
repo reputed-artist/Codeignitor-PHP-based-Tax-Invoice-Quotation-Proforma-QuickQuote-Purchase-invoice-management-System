@@ -267,7 +267,14 @@ var globalSubtotalTotal=0;
         buttons: getExportButtons('#example',[0,1,2,3,4,5,6,7,8,9,10]), 
         columns: [
             { 'data': 'id' }, 
-            {'data':'invdate'},
+            {'data':'invdate',
+              render: function(data, type, row, meta) {
+                    var parts = data.split('-');
+                    var formattedDate = parts[2] + '-' + parts[1] + '-' + parts[0];
+                    return formattedDate;
+                }
+ 
+             },
             { 'data': 'item' },
             { 'data': 'description'},
             { 'data': 'hsn' },
