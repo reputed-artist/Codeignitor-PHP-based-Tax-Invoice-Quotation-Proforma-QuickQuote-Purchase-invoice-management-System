@@ -321,9 +321,6 @@
             { 'data': 'item' },
             { 'data': 'description'},
             { 'data': 'hsn' },
-
-            { 'data': 'price'},
-
             { 'data': 'price',
                 render: function(data, type, row, meta) {
                return parseFloat(data).toFixed(2); // returns e.g. "123.00"
