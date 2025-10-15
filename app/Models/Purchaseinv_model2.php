@@ -489,5 +489,48 @@ public function getItemreport($startDate = null, $endDate = null, $item = null)
 }
 
 
+public function getHsnreport($startDate = null, $endDate = null)
+{
+    $sql = "
+        SELECT 
+            c.c_type,
+            protest.hsn,
+            GROUP_CONCAT(DISTINCT products.name ORDER BY products.name SEPARATOR ' + ') AS product_names,
+            SUM(protest.quantity) AS total_quantity,
+            SUM(protest.total) AS subtotal,
+            ROUND(SUM(protest.total) * 0.18, 2) AS total_gst,
+            ROUND(SUM(protest.total) * 1.18, 2) AS total_amount
+        FROM protest2
+        INNER JOIN protest ON protest.orderid = protest2.orderid
+        INNER JOIN products ON protest.item_name = products.name
+        INNER JOIN client c ON protest2.cid = c.cid
+    ";
+
+    $conditions = [];
+    $params = [];
+
+    // Apply date filter if given
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "protest2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+    // Add WHERE clause if any condition exists
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    // Always group and order after WHERE
+    $sql .= " GROUP BY c.c_type, protest.hsn ORDER BY c.c_type, protest.hsn";
+
+    //echo $sql;
+
+    // Execute safely
+    $query = $this->db->query($sql, $params);
+    return $query->getResult();
+}
+
+
 }
 ?>

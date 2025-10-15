@@ -301,6 +301,9 @@
           </a>
           <ul class="treeview-menu" style="display: block;">
               <li class="<?= set_active('purchaseinv/purchaseitemreport') ?>"><a href="<?= base_url('/purchaseinv/purchaseitemreport') ?>"><i class="fa fa-fw fa-gears"></i> Purchase Item Report</a></li>
+
+              <li class="<?= set_active('purchaseinv/purHsnreport') ?>"><a href="<?= base_url('/purchaseinv/purHsnreport') ?>"><i class="fa fa-fw fa-gears"></i> Purchase Hsn Report</a></li>
+
               <li class="<?= set_active('purchaseinv/purchasereport') ?>"><a href="<?= base_url('/purchaseinv/purchasereport') ?>"><i class="fa fa-fw fa-opencart"></i> Purchase Report</a></li>
           </ul>
       </li>
@@ -315,7 +318,12 @@
               </span>
           </a>
           <ul class="treeview-menu" style="display: block;">
+              
+
               <li class="<?= set_active('taxinv/saleitemreport') ?>"><a href="<?= base_url('/taxinv/saleitemreport') ?>"><i class="fa fa-fw fa-gears"></i> Sale Item Report</a></li>
+
+              <li class="<?= set_active('taxinv/saleHsnreport') ?>"><a href="<?= base_url('/taxinv/saleHsnreport') ?>"><i class="fa fa-fw fa-gears"></i> Sale Hsn Report</a></li>
+
               <li class="<?= set_active('taxinv/salereport') ?>"><a href="<?= base_url('/taxinv/salereport') ?>"><i class="fa fa-fw fa-line-chart"></i> Sales Report</a></li>
           </ul>
       </li>

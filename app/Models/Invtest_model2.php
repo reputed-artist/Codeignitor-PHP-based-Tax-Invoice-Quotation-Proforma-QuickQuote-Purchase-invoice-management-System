@@ -132,49 +132,7 @@ public function getinvtest($startyear = null, $endyear = null, $client = null, $
 
 
 
-// public function countAllInvoices($startyear = null, $endyear = null, $client = null, $product = null)
-// {
-//     $builder = $this->db->table('invtest2')
-//                         ->join('client', 'invtest2.cid = client.cid')
-//                         ->join('invtest', 'invtest2.orderid = invtest.orderid', 'left')  // Join with invtest
-//                         ->where('client.u_type', 0);  // Always filter by u_type
 
-//      // Check if year parameters are provided, otherwise set default year
-//     if ($startyear && $endyear) {
-//         $builder->where('invtest2.created >=', "$startyear-04-01")
-//                 ->where('invtest2.created <=', "$endyear-03-31");
-//     } else {
-//         // Set default year (last financial year)
-//         $currentYear = date('Y');
-//         $currentMonth = date('m');
-
-//         if ($currentMonth > 3) {
-//             $defaultStartYear = $currentYear; // Current year
-//             $defaultEndYear = $currentYear + 1; // Next year
-//         } else {
-//             $defaultStartYear = $currentYear - 1; // Previous year
-//             $defaultEndYear = $currentYear; // Current year
-//         }
-
-//         $builder->where('invtest2.created >=', "$defaultStartYear-04-01")
-//                 ->where('invtest2.created <=', "$defaultEndYear-03-31");
-//     }
-
-//     // Apply client filter only if a client is selected
-//     if ($client) {
-//         $builder->where('client.cid', $client);
-//     }
-
-//     // Apply product filter only if a product (item_name) is selected
-//     if ($product) {
-//         $builder->where('invtest.item_name', $product);
-//     }
-
-//     // Group by orderid and cid to count unique records
-//     $builder->groupBy('invtest2.orderid, invtest2.cid');
-
-//     return $builder->countAllResults();
-// }
 public function countAllInvoices($startyear = null, $endyear = null, $client = null, $product = null)
 {
     $builder = $this->db->table('invtest2')
@@ -346,6 +304,7 @@ public function getItemreport($startDate = null, $endDate = null, $item = null)
             products ON invtest.item_name = products.name
     ";
 
+    
     // Initialize conditions and parameters
     $conditions = [];
     $params = [];
@@ -377,6 +336,49 @@ public function getItemreport($startDate = null, $endDate = null, $item = null)
     $query = $this->db->query($sql, $params);
 
     // Return the results
+    return $query->getResult();
+}
+
+
+public function getHsnreport($startDate = null, $endDate = null)
+{
+    $sql = "
+        SELECT 
+            c.c_type,
+            invtest.hsn,
+            GROUP_CONCAT(DISTINCT products.name ORDER BY products.name SEPARATOR ' + ') AS product_names,
+            SUM(invtest.quantity) AS total_quantity,
+            SUM(invtest.total) AS subtotal,
+            ROUND(SUM(invtest.total) * 0.18, 2) AS total_gst,
+            ROUND(SUM(invtest.total) * 1.18, 2) AS total_amount
+        FROM invtest2
+        INNER JOIN invtest ON invtest.orderid = invtest2.orderid
+        INNER JOIN products ON invtest.item_name = products.name
+        INNER JOIN client c ON invtest2.cid = c.cid
+    ";
+
+    $conditions = [];
+    $params = [];
+
+    // Apply date filter if given
+    if (!empty($startDate) && !empty($endDate)) {
+        $conditions[] = "invtest2.created BETWEEN ? AND ?";
+        $params[] = $startDate;
+        $params[] = $endDate;
+    }
+
+    // Add WHERE clause if any condition exists
+    if (!empty($conditions)) {
+        $sql .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    // Always group and order after WHERE
+    $sql .= " GROUP BY c.c_type, invtest.hsn ORDER BY c.c_type, invtest.hsn";
+
+    //echo $sql;
+
+    // Execute safely
+    $query = $this->db->query($sql, $params);
     return $query->getResult();
 }
 

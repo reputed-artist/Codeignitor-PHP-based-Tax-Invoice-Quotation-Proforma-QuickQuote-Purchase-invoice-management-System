@@ -874,5 +874,38 @@ public function loaditems()
 }
 
 
+public function loadhsn()
+{
+    $daterange = $this->request->getGet('date') ?? '';
+
+    $startDate = $endDate = null;
+
+    if (!empty($daterange)) {
+        $dates = explode(' - ', $daterange);
+        if (count($dates) == 2) {
+            $startDate = date('Y-m-d', strtotime(trim($dates[0])));
+            $endDate = date('Y-m-d', strtotime(trim($dates[1])));
+        }
+    }
+
+    $this->crudModel = new Invtest_model2();
+    $invoices = $this->crudModel->getHsnreport($startDate, $endDate);
+
+    $results = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($invoices),
+        "iTotalDisplayRecords" => count($invoices),
+        "aaData" => $invoices,
+    ];
+
+    return $this->response->setJSON($results);
+}
+
+
+     public function purHsnreport(){
+        return view('report/phsn_report');
+    }
+    
+
 }
 ?>

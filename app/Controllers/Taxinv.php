@@ -792,79 +792,6 @@ public function delete($id)
 }
 
 
-// public function update() {
-
-//     if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
-
-            
-//             log_message('debug', 'Request data: ' . print_r($this->request->getGet(), true)); 
-
-//             $created = $this->request->getPost('created');
-
-//             // Convert the input date to DateTime object
-//             $date = new \DateTime($created);
-
-//             // Format the date to Y-m-d (MySQL compatible format)
-//             $formattedDate = $date->format('Y-m-d');
-
-//             $cid=$this->request->getPost('cid');
-
-//             log_message('debug', 'CID: ' . $cid); // Log the cid value
-
-
-//             // Prepare data for insertion
-//             $data = [
-               
-//                 'c_name'   => $this->request->getPost('c_nameedit'),
-//                 'c_add'    => $this->request->getPost('c_addedit'),
-//                 'mob'      => $this->request->getPost('fullno2'),
-//                 'country' => $this->request->getPost('fulldetails2'),    
-//                 'gst'      => $this->request->getPost('gstedit'),
-//                 'email'      => $this->request->getPost('email1'),
-//                 'c_type'   => $this->request->getPost('ctypeedit'),
-//                 //'created'  => $formattedDate,
-//             ];
-
-//             //print_r($data);
-
-
-//         //log_message('debug', 'Update Data: ' . print_r($data, true)); 
-
-//              //print_r($data);   
-//             // Attempt to save the record
-//             $response = $this->crudModel->updaterecord($cid, $data);
-
-//              //print_r($response);
-
-//             if ($response) {
-//                 //print_r($response);
-//                 // Return success response in JSON format
-//                 return $this->response->setJSON([
-//                     'res' => 'success',
-//                     'message' => 'Records updated successfully.',
-//                 //'redirect' => base_url('/client/manageclients'), 
-//                 ]);
-                
-//             } else {
-//                 //print_r($response);
-//                 // Return error response if insertion fails
-//                 return $this->response->setJSON([
-//                     'res' => 'error',
-//                     'message' => 'Insert failed.'
-//                 ]);
-//             }
-       
-//     } else {
-
-//         // If not a valid request, return an error
-//         return $this->response->setJSON([
-//             'res' => 'error',
-//             'message' => 'Invalid Request'
-//         ]);
-//     }
-// }
-
-
 
 
 public function printtaxinv(){
@@ -1084,6 +1011,39 @@ public function printtaxinv(){
 
      public function saleitemreport(){
         return view('report/sitem_report');
+    }
+
+
+public function loadhsn()
+{
+    $daterange = $this->request->getGet('date') ?? '';
+
+    $startDate = $endDate = null;
+
+    if (!empty($daterange)) {
+        $dates = explode(' - ', $daterange);
+        if (count($dates) == 2) {
+            $startDate = date('Y-m-d', strtotime(trim($dates[0])));
+            $endDate = date('Y-m-d', strtotime(trim($dates[1])));
+        }
+    }
+
+    $this->crudModel = new Invtest_model2();
+    $invoices = $this->crudModel->getHsnreport($startDate, $endDate);
+
+    $results = [
+        "sEcho" => 1,
+        "iTotalRecords" => count($invoices),
+        "iTotalDisplayRecords" => count($invoices),
+        "aaData" => $invoices,
+    ];
+
+    return $this->response->setJSON($results);
+}
+
+
+     public function saleHsnreport(){
+        return view('report/shsn_report');
     }
     
 }
