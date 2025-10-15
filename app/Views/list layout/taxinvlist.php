@@ -14,6 +14,11 @@
   img {
     image-rendering: -webkit-optimize-contrast !important;
   }
+  .center-btn {
+    align: center;
+
+}
+
 </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -193,21 +198,35 @@ function loadInvoices(page = 1) {
                                         <h3 class="box-title">${invoice.invid}</h3>
                                     </div>
                                     <div class="box-body">
-                                        <div class="form-group">
-                                            <strong><p align="center" style="color:black;">${invoice.c_name}</p></strong>
-                                            <p align="center"><strong>Location:</strong> ${invoice.location}</p>
-                                            <p align="center"><strong>Item name:</strong> ${invoice.item_name}</p>
-                                            <p align="center"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
-                                            <p align="center"><strong>Invoice Dated:</strong> ${invoice.created}</p>
-                                            <br/>
-                                            <a href="edittaxinv?orderid=${invoice.orderid}">
-                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                            </a>
-                                            <a class="btn btn-danger btn-xs pull-right" id="delete_product" data-id="${invoice.orderid}">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
-                                        </div> 
+                                        <!-- Invoice details -->
+                                            <div class="form-group text-center">
+                                                <strong><p style="color:black; margin-bottom:5px;">${invoice.c_name}</p></strong>
+                                                <p style="margin-bottom:5px;"><strong>Location:</strong> ${invoice.location}</p>
+                                                <p style="margin-bottom:5px;"><strong>Item name:</strong> ${invoice.item_name}</p>
+                                                <p style="margin-bottom:5px;"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
+                                                <p style="margin-bottom:5px;"><strong>Invoice Dated:</strong> ${invoice.created}</p>
+                                            </div>
+
+                                            <div class="row text-center" style="margin-top:10px;">
+                                            <div class="col-xs-4 text-left">
+                                                <a href="edittaxinv?orderid=${invoice.orderid}" class="float-left">
+                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                            <a href="printcover?invid=${invoice.invid}" target="_blank" class="text-center">
+                                            <button class="btn btn-success btn-xs"><i class="fa fa-fw fa-print"></i></button>
+                                                                                                </a>
+                                            </div>
+                                            <div class="col-xs-4 text-right">
+                                                <a class="btn btn-danger btn-xs float-right" id="delete_product" data-id="${invoice.orderid}">
+                                                <i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            </div>
+
+ 
                                     </div>
+                                    
                                 </div>
                             </div>
                         </a>`;
