@@ -225,7 +225,7 @@ input.error,
                                 <thead>
                                         <tr>
                                             <th>Sr. no.</th>
-                                            <th class="hidden-phone">Per/Com</th>
+                                            <th class="hidden-phone">Company</th>
                                             <th> Location </th>
                                             <th> Date of Payment
                                             <th> User-Type </th> 
@@ -269,7 +269,7 @@ input.error,
                                 
                                  <div  class="btn-group" data-toggle="buttons" role="group">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Per/Com">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Company">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Location">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Date of payment">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="User-Type">
@@ -309,7 +309,7 @@ input.error,
                 <div class="form-group">
                   <label id="cidlbl" class="col-sm-3 control-label">Transaction ID</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="payid" id="payid" required="required" value="<?= isset($pay_id) ? $pay_id : ''; ?>"  readonly>
+                    <input type="text" class="form-control" name="payid" id="payid" required="required" value="<?= isset($pay_id) ? $pay_id : ''; ?>" readonly>
                   </div>
                 </div>
 
@@ -317,12 +317,24 @@ input.error,
                   <label id="cnamelbl" class="col-sm-3 control-label">Company Name <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                    <!--  <input type="text" class="form-control" name="c_name"  value="<?php //if(isset($_POST['c_name'])){ echo $_POST['c_name'];} ?>" id="c_name" placeholder="Company Name"> -->
-                   <select name="clientz" id="co" class="form-control select2" style="height: 35px !important;width:100% !important;">
+                   <select name="clientz" id="co" class="form-control select2"  style="height: 35px !important;width:100% !important;">
                             <option value=""></option>
                         </select>
                     <div id="co_error" style="color:red;"> </div>
                   </div>
                 </div>
+
+
+                <div class="form-group">
+                  <label id="caddlbl" class="col-sm-3 control-label">Location <span style="color: red;">*</span></label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" name="location" id="location" rows="1" 
+                      placeholder="Location" readonly><?php //if(isset($_POST['c_add'])){ echo $_POST['c_add']; ?></textarea>
+                                  <div id="location_error" style="color: red;"> </div>
+                </div>
+              </div>
+
+
 
                 <div class="form-group">
                   <label id="caddlbl" class="col-sm-3 control-label">Purpose <span style="color: red;">*</span></label>
@@ -358,7 +370,7 @@ input.error,
                   <div class="col-sm-8">
                    <select name="ctype" class="form-control select2" style=" height: 34px;width:100%" id="ctype">
                     <option value=""></option>
-                    <!-- <option value="YES BANK">YES BANK</option>
+<!--                     <option value="YES BANK">YES BANK</option>
                     <option value="ICICI BANK">ICICI BANK</option> -->
 
                    </select>
@@ -428,12 +440,24 @@ input.error,
                   <label id="cnamelbl" class="col-sm-3 control-label">Company Name <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                    <!--  <input type="text" class="form-control" name="c_name"  value="<?php //if(isset($_POST['c_name'])){ echo $_POST['c_name'];} ?>" id="c_name" placeholder="Company Name"> -->
-                   <select name="coedit" id="coedit" class="form-control select2" style="height: 35px !important;width:100% !important;">
+                   <select name="coedit" id="coedit" class="form-control select2"  style="height: 35px !important;width:100% !important;">
                             <option value=""></option>
                         </select>
                     <div id="coedit_error" style="color:red;"> </div>
                   </div>
                 </div>
+
+
+                <div class="form-group">
+                  <label id="caddlbll" class="col-sm-3 control-label">Location <span style="color: red;">*</span></label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" name="editlocation" id="editlocation" rows="1" 
+                      placeholder="Location" readonly><?php //if(isset($_POST['c_add'])){ echo $_POST['c_add']; ?></textarea>
+                                  <div id="editlocation_error" style="color: red;"> </div>
+                </div>
+              </div>
+
+
 
                 <div class="form-group">
                   <label id="caddlbl" class="col-sm-3 control-label">Purpose <span style="color: red;">*</span></label>
@@ -568,6 +592,60 @@ input.error,
   //var globalSubtotalTotal=0;
  
  let totalAmount = 0;
+function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
+  window.showCustomer = function showCustomer(str) {
+    if (str == "") {
+        $("#location").html("");
+        return;
+    }
+
+    $.ajax({
+        url: base_url+"/taxinv/getclient", // Update the controller and method
+        type: "GET",
+        data: { category_name: str }, // Pass data as an object
+        dataType: "json", // Expect JSON response from the server
+        success: function(response) {
+          console.log(response);
+            // If response is an HTML string, you can directly assign it
+            //$("#location").html(response); 
+           if (response.length > 0) {
+                let client = response[0];
+                $("#location").val(client.location);  // only last part (region-pincode)
+            } else {
+                $("#location").val("");
+            }
+
+        },
+        error: function(xhr, status, error) {
+            console.log("Error: " + error);
+        }
+    });
+  }
+
+  $('#co').on('select2:select', function(e) {
+        var supplierData = e.params.data;
+        $("#location").val(supplierData.location);
+        console.log(supplierData.location)
+    });
+
 
     function loadTransactions(date = null, client = null, clienttype=null) {
 
@@ -646,7 +724,10 @@ input.error,
             { 'data': 'bank' },
            { 'data': 'amount',
               render: function(data, type, row, meta) {
-                 return parseFloat(data).toFixed(2);
+let num = parseFloat(data).toFixed(2);
+return formatIndianNumber(num);
+
+
                 }
            },
              { 'data': 'created' },
@@ -701,7 +782,7 @@ input.error,
 
                           //$('#subtotal').text(response.totalSubtotal + ".00");
                           //$('#taxamt').text(response.totalTaxAmount + ".00");
-                          $('#totalamt').text(response.totalAmount + ".00");
+                          $('#totalamt').text(formatIndianNumber(response.totalAmount));
                           console.log(response);
 
 
@@ -740,29 +821,51 @@ let selectedClient = null;
         cache: true
     }
 });
-    $('#co').select2({
-        placeholder: "Select a Person or Company",
-        allowClear: true,
-        ajax: {
-            url: "<?= base_url();?>/transaction/getclient",
-            type: "GET",
-            dataType: "json",
-            delay: 250, // Add a delay to limit requests for better performance
-        data: function(params) {
-            // Send the current input value to the server as 'category_name'
+//     $('#co').select2({
+//         placeholder: "Select a Person or Company",
+//         allowClear: true,
+//         ajax: {
+//             url: "<?= base_url();?>/transaction/getclient",
+//             type: "GET",
+//             dataType: "json",
+//             delay: 250, // Add a delay to limit requests for better performance
+//         data: function(params) {
+//             // Send the current input value to the server as 'category_name'
+//             return {
+//                 category_name: params.term || '' // params.term is the search term
+//             };
+//         },
+//         processResults: function(data) {
+//             console.log(data); // For debugging, remove this after testing
+//             return {
+//                 results: data
+//             };
+//         },
+//         cache: true
+//     }
+// });
+$('#co').select2({
+  placeholder: "Select a Person or Company",
+  allowClear: true,
+    ajax: {
+        url: base_url + "/taxinv/getclient",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
             return {
-                category_name: params.term || '' // params.term is the search term
+                category_name: params.term   // ★ match controller parameter
             };
         },
         processResults: function(data) {
-            console.log(data); // For debugging, remove this after testing
             return {
-                results: data
+                results: data   // return full objects (id,text,c_add,location)
             };
-        },
-        cache: true
-    }
+        }
+    },
+    templateResult: function(data) { return data.text; },
+    templateSelection: function(data) { return data.text; }
 });
+
 
     // $('#ctype').select2({ placeholder: "Select Bank", allowClear: true });
 
@@ -807,6 +910,8 @@ $('#daterange-btn').on('apply.daterangepicker', function(ev, picker) {
         selectedClientType = $(this).val();
         loadTransactions(selectedYear, selectedClient,selectedClientType);
     });
+
+
 
 });
 

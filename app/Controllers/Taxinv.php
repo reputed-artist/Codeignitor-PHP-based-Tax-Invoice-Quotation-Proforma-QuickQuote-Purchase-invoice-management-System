@@ -316,15 +316,27 @@ public function getclient()
     }
 
     // Format the results for Select2
-    foreach ($clients as $client) {
-        $results[] = [
-            'id' => $client['cid'],
-            'text' => $client['c_name'],
-            'c_add' => $client['c_add']
-        ];
+   foreach ($clients as $client) {
+
+    $fullAdd = $client['c_add'];
+
+    if (strpos($fullAdd, ',') !== false) {
+        $parts = explode(',', $fullAdd);
+        $loc = trim(end($parts));
+    } else {
+        $loc = trim($fullAdd);
     }
 
-    return $this->response->setJSON($results);    
+    $results[] = [
+        'id'       => $client['cid'],
+        'text'     => $client['c_name'],
+        'c_add'    => $fullAdd,
+        'location' => $loc  // ★ IMPORTANT
+    ];
+}
+
+return $this->response->setJSON($results);
+
 }
 
 
@@ -1029,13 +1041,14 @@ public function loadhsn()
     }
 
     $this->crudModel = new Invtest_model2();
-    $invoices = $this->crudModel->getHsnreport($startDate, $endDate);
+    $data = $this->crudModel->getHsnreport($startDate, $endDate);
 
     $results = [
         "sEcho" => 1,
-        "iTotalRecords" => count($invoices),
-        "iTotalDisplayRecords" => count($invoices),
-        "aaData" => $invoices,
+        "iTotalRecords" => count($data["rows"]),
+        "iTotalDisplayRecords" => count($data["rows"]),
+        "aaData" => $data["rows"],
+        "totals" => $data["totals"]   // ⭐ ADD TOTALS HERE
     ];
 
     return $this->response->setJSON($results);

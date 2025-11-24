@@ -491,6 +491,7 @@ public function getItemreport($startDate = null, $endDate = null, $item = null)
 
 public function getHsnreport($startDate = null, $endDate = null)
 {
+    // ------------ GROUPED QUERY ------------
     $sql = "
         SELECT 
             c.c_type,
@@ -524,11 +525,33 @@ public function getHsnreport($startDate = null, $endDate = null)
     // Always group and order after WHERE
     $sql .= " GROUP BY c.c_type, protest.hsn ORDER BY c.c_type, protest.hsn";
 
-    //echo $sql;
-
-    // Execute safely
+    // Execute grouped query
     $query = $this->db->query($sql, $params);
-    return $query->getResult();
+    $rows = $query->getResult();
+
+    // ------------ TOTALS QUERY ------------
+    $sql_total = "
+        SELECT 
+            SUM(protest.quantity) AS total_quantity,
+            SUM(protest.total) AS subtotal,
+            ROUND(SUM(protest.total) * 0.18, 2) AS total_gst,
+            ROUND(SUM(protest.total) * 1.18, 2) AS total_amount
+        FROM protest2
+        INNER JOIN protest ON protest.orderid = protest2.orderid
+    ";
+
+    if (!empty($conditions)) {
+        $sql_total .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    $query_total = $this->db->query($sql_total, $params);
+    $totals = $query_total->getRow();
+
+    // Return grouped rows + totals
+    return [
+        "rows"   => $rows,
+        "totals" => $totals
+    ];
 }
 
 

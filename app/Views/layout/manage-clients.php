@@ -203,7 +203,7 @@ input .error{
                 <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Company Name">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Address">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Mob">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Mobile">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Gst No.">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Email">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Bill-Type">

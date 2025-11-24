@@ -152,7 +152,7 @@
                                             <th style="width: 100px;"> Sr no. </th>
                                             <th style="width: 800px;">Inv No</th>
                                             <th style="width: 400px;">Inv Date</th>
-                                            <th style="width: 800px;">Client</th>
+                                            <th style="width: 800px;">Client Name</th>
                                             
                                             
                                             <th style="width: 400px;">Location</th>
@@ -183,10 +183,10 @@
                                             <td><h3><?php //echo "total_bales";?></h3></td>
                                             <td><h3><?php //echo "total_weight";?></h3></td>
                                             <td>&nbsp;</td>
-                                            <td><h3 id="subtotal">0</h3></td>
+                                            <td><h3 id="subtotal">0.00</h3></td>
                                             <td><h3></h3></td>
-                                            <td><h3 id="taxamt">0</h3></td>
-                                            <td><h3 id="totalamt">0</h3></td>
+                                            <td><h3 id="taxamt">0.00</h3></td>
+                                            <td><h3 id="totalamt">0.00</h3></td>
                                     </tr>
                                         </tfoot>
                                  </table> 
@@ -243,6 +243,25 @@
 
 <script>
 var globalSubtotalTotal=0;
+function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
     function loadInvoices(date = null, client = null,ctype=null) {
 
         console.log("Loading invoices for page: " + date + client+ctype); // Add this line
@@ -300,7 +319,10 @@ var globalSubtotalTotal=0;
             { 'data': 'item' },
             { 'data': 'subtotal',
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },        
             { 'data': 'taxrate',
@@ -317,12 +339,18 @@ var globalSubtotalTotal=0;
              },
             { 'data': 'taxamount' ,
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             }, 
             { 'data': 'totalamount' ,
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
         ],
@@ -354,9 +382,9 @@ var globalSubtotalTotal=0;
 
 
 
- $('#subtotal').text(response.totalSubtotal + ".00");
- $('#taxamt').text(response.totalTaxAmount + ".00");
- $('#totalamt').text(response.totalAmount + ".00");
+ $('#subtotal').text(formatIndianNumber(response.totalSubtotal));
+ $('#taxamt').text(formatIndianNumber(response.totalTaxAmount));
+ $('#totalamt').text(formatIndianNumber(response.totalAmount));
               
     }
   })

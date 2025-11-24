@@ -216,26 +216,26 @@ input .error{
 
                           </select> -->
                      <?php
-// Extract all the financial year strings from the array
-$years = array_column($fy, 'financial_year');
+                  // Extract all the financial year strings from the array
+                  $years = array_column($fy, 'financial_year');
 
-// Sort the years just to be safe (optional but useful)
-sort($years); // Ensures chronological order
+                  // Sort the years just to be safe (optional but useful)
+                  sort($years); // Ensures chronological order
 
-// Now get the first and last parts
-$fromYear = explode('-', $years[0])[0];                         // e.g., "2020"
-$toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
-?>
+                  // Now get the first and last parts
+                  $fromYear = explode('-', $years[0])[0];                         // e.g., "2020"
+                  $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
+                  ?>
 
-<select id="selectFY" class="form-control">
-    <!-- Append All option -->
-    <option value="<?= $fromYear ?>-<?= $toYear ?>">All (<?= $fromYear ?>-<?= $toYear ?>)</option>
+                  <select id="selectFY" class="form-control">
+                      <!-- Append All option -->
+                      <option value="<?= $fromYear ?>-<?= $toYear ?>">All (<?= $fromYear ?>-<?= $toYear ?>)</option>
 
-    <!-- Regular year options -->
-    <?php foreach ($fy as $year): ?>
-        <option><?= esc($year['financial_year']) ?></option>
-    <?php endforeach; ?>
-</select>
+                      <!-- Regular year options -->
+                      <?php foreach ($fy as $year): ?>
+                          <option><?= esc($year['financial_year']) ?></option>
+                      <?php endforeach; ?>
+                  </select>
 
 
                                   
@@ -243,8 +243,8 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
              </div>
 
              <?php else : ?>
-    <p>No FY found.</p>
-<?php endif; ?>
+                <p>No FY found.</p>
+            <?php endif; ?>
 
                 </form>
             </div>
@@ -345,11 +345,11 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
                                  <div  class="btn-group" data-toggle="buttons" role="group">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
                                   <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Date">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="voucher_type">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Voucher no">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="credit">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="debit">
-                                  <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="subtotal">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Voucher Type">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Voucher No">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Credit">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Debit">
+                                  <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Subtotal">
                                 
                               
                                   
@@ -375,7 +375,7 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
         
             <div class="modal-body">
                         
-              <form class="form-horizontal style-form" name="form" id="form" method="post" action="<?=base_url()?>/client/insert">
+              <form class="form-horizontal style-form" name="form" id="form" method="post" action="<?=base_url()?>/transaction/insert">
                 <p style="color:#F00"><?php //echo $_SESSION['msg'];?><?php //echo $_SESSION['msg']="";?></p>
                   
             <!-- /box-header -->
@@ -385,7 +385,7 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
                 <div class="form-group">
                   <label id="cidlbl" class="col-sm-3 control-label">Transaction ID</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" name="payid" id="payid" required="required" value="<?= isset($pay_id) ? $pay_id : ''; ?>"   readonly>
+                    <input type="text" class="form-control" name="payid" id="payid" required="required" value="<?= isset($pay_id) ? $pay_id : ''; ?>" readonly>
                   </div>
                 </div>
 
@@ -393,7 +393,7 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
                   <label id="cnamelbl" class="col-sm-3 control-label">Company Name <span style="color: red;">*</span></label>
                   <div class="col-sm-8">
                    <!--  <input type="text" class="form-control" name="c_name"  value="<?php //if(isset($_POST['c_name'])){ echo $_POST['c_name'];} ?>" id="c_name" placeholder="Company Name"> -->
-                   <select name="client2" id="co" class="form-control select2" style="height: 35px !important;width:100% !important;">
+                   <select name="client2" id="co" class="form-control select2"  style="height: 35px !important;width:100% !important;">
                     <?php if ($cid) { ?>
                         <option value="<?= $cid; ?>" selected="selected"><?= $accountInfo->c_name; ?></option>
                     <?php } else { ?>
@@ -404,6 +404,15 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
                     <div id="co_error" style="color:red;"> </div>
                   </div>
                 </div>
+
+                 <div class="form-group">
+                  <label id="caddlbl" class="col-sm-3 control-label">Location <span style="color: red;">*</span></label>
+                  <div class="col-sm-8">
+                    <textarea class="form-control" name="location" id="location" rows="1" 
+                      placeholder="Location" readonly><?= $accountInfo->location; ?></textarea>
+                                  <div id="location_error" style="color: red;"> </div>
+                </div>
+              </div>
 
                 <div class="form-group">
                   <label id="caddlbl" class="col-sm-3 control-label">Purpose <span style="color: red;">*</span></label>
@@ -520,8 +529,8 @@ $toYear = explode('-', $years[count($years) - 1])[1];           // e.g., "2023"
 
         let totalCredit = 0;
 let totalDebit = 0;
+var table = $('#examplez').DataTable({
 
-            $('#examplez').DataTable({
                 'paging': true,
                 'lengthChange': true,
                 'searching': true,
@@ -573,11 +582,34 @@ let totalDebit = 0;
 </script>
 
 <script>
+
+function formatIndianNumber(num) {
+    if (num === null || num === undefined || isNaN(num)) return "0.00";
+
+    num = Number(num).toFixed(2);
+
+    let [intPart, decPart] = num.split(".");
+
+    // If length > 3, separate last 3 digits then apply 2-2 grouping
+    if (intPart.length > 3) {
+        let last3 = intPart.slice(-3);
+        let rest = intPart.slice(0, -3);
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
  $(document).ready(function () {
     //$("#selectFY").change(function () {
         var fy = $("#selectFY").val();
         var cid = "<?= $cid ?>"; // Ensure this dynamically gets the correct client ID
         var u_type=parseInt("<?= $accountInfo->u_type; ?>");
+
+                   var totalcredit = 0;
+                    var totaldebit = 0;
+                    var subtotal = 0;
 
         console.log(cid);
         console.log(u_type);
@@ -629,10 +661,27 @@ let totalDebit = 0;
 
                               }
 
-                            $("#opening_bal").text("Opening Balance: " + matchingFY.opening_balance);
+                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));
                         } else {
-                            console.warn("FY not found in response. Selected FY:", fy);
-                            $("#opening_bal").text("No data available for selected FY");
+                              let opening = parseFloat("<?= $dops ?>") || 0;
+                              //totaldebit+=opening;
+
+                               if(u_type==0)
+                              {
+                                totalcredit+=parseFloat(opening);
+                              }
+                              else if(u_type==1){
+                                totaldebit+=parseFloat(opening);
+                              }
+                              else {
+                                
+                                totaldebit+=parseFloat(opening);
+
+                              }
+
+
+                            console.warn("FY not found in response. :", <?= $dops ?>);
+                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
                         }
                     } 
                     else {
@@ -685,7 +734,7 @@ let totalDebit = 0;
                                     </td>
                                     <td>${item.formatted_credit || '0.00'}</td>
                                     <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
+                                    <td>${formatIndianNumber(subtotal)}</td>
                                 </tr>
                             `);
 
@@ -738,7 +787,7 @@ let totalDebit = 0;
                                     </td>
                                     <td>${item.formatted_credit || '0.00'}</td>
                                     <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
+                                    <td>${formatIndianNumber(subtotal)}</td>
                                 </tr>
                             `);
 
@@ -808,9 +857,15 @@ let totalDebit = 0;
                       }
                     } 
 
-                        $("#totalcreditamt").text(totalcredit.toFixed(2));
-                        $("#totaldebitamt").text(totaldebit.toFixed(2));
-                        $("#totalclosingamt").text(subtotal.toFixed(2));
+
+                       $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
+
+
+                        // $("#totalcreditamt").text(totalcredit.toFixed(2));
+                        // $("#totaldebitamt").text(totaldebit.toFixed(2));
+                        // $("#totalclosingamt").text(subtotal.toFixed(2));
 
                     //    else {
                     //     tableBody.append('<tr><td colspan="6">No records found.</td></tr>');
@@ -825,7 +880,6 @@ let totalDebit = 0;
         }
     });
 //});
-
 
 
  $("#selectFY").change(function () {
@@ -883,10 +937,27 @@ let totalDebit = 0;
 
                               }
 
-                            $("#opening_bal").text("Opening Balance: " + matchingFY.opening_balance);
-                        } else {
-                            console.warn("FY not found in response. Selected FY:", fy);
-                            $("#opening_bal").text("No data available for selected FY");
+                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));     
+                          } else {
+                              let opening = parseFloat("<?= $dops ?>") || 0;
+                              //totaldebit+=opening;
+
+                               if(u_type==0)
+                              {
+                                totalcredit+=parseFloat(opening);
+                              }
+                              else if(u_type==1){
+                                totaldebit+=parseFloat(opening);
+                              }
+                              else {
+                                
+                                totaldebit+=parseFloat(opening);
+
+                              }
+
+
+                            console.warn("FY not found in response. :", <?= $dops ?>);
+                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
                         }
                     } 
                     else {
@@ -939,7 +1010,7 @@ let totalDebit = 0;
                                     </td>
                                     <td>${item.formatted_credit || '0.00'}</td>
                                     <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
+                                    <td>${formatIndianNumber(subtotal)}</td>
                                 </tr>
                             `);
 
@@ -992,7 +1063,7 @@ let totalDebit = 0;
                                     </td>
                                     <td>${item.formatted_credit || '0.00'}</td>
                                     <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
+                                    <td>${formatIndianNumber(subtotal)}</td>
                                 </tr>
                             `);
 
@@ -1062,9 +1133,9 @@ let totalDebit = 0;
                       }
                     } 
 
-                        $("#totalcreditamt").text(totalcredit.toFixed(2));
-                        $("#totaldebitamt").text(totaldebit.toFixed(2));
-                        $("#totalclosingamt").text(subtotal.toFixed(2));
+                        $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
 
                     //    else {
                     //     tableBody.append('<tr><td colspan="6">No records found.</td></tr>');

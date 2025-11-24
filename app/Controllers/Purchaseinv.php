@@ -888,14 +888,15 @@ public function loadhsn()
         }
     }
 
-    $this->crudModel = new Invtest_model2();
-    $invoices = $this->crudModel->getHsnreport($startDate, $endDate);
+    $this->crudModel = new purchaseinv_model2();
+    $data = $this->crudModel->getHsnreport($startDate, $endDate);
 
     $results = [
         "sEcho" => 1,
-        "iTotalRecords" => count($invoices),
-        "iTotalDisplayRecords" => count($invoices),
-        "aaData" => $invoices,
+        "iTotalRecords" => count($data["rows"]),
+        "iTotalDisplayRecords" => count($data["rows"]),
+        "aaData" => $data["rows"],
+        "totals" => $data["totals"]   // ⭐ ADD TOTALS HERE
     ];
 
     return $this->response->setJSON($results);

@@ -219,14 +219,14 @@
                                             <td></td>
                                             <td>&nbsp;</td>
                                             <td></td>                                  
-                                            <td><h3 id="baseamt">0</h3></td>
+                                            <td><h3 id="baseamt">0.00</h3></td>
                                            
-                                            <td><h3 id="quantity">0</h3></td>
-                                            <td><h3 id="subtotal">0</h3></td>
+                                            <td><h3 id="quantity">0.00</h3></td>
+                                            <td><h3 id="subtotal">0.00</h3></td>
                                             <td></td>
                                             
-                                            <td><h3 id="taxamt">0</h3><h3></h3></td>
-                                            <td><h3 id="totalamt">0</h3></td>
+                                            <td><h3 id="taxamt">0.00</h3><h3></h3></td>
+                                            <td><h3 id="totalamt">0.00</h3></td>
                                             
                                     </tr>
                                         </tfoot>
@@ -236,16 +236,17 @@
                          </div>
                           <div  class="btn-group" data-toggle="buttons" role="group">
                           <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
-                                     <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Item Name">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Description">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="HSN">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Base Amt">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Quantity">
+                          <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Inv Date">
+                                     <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Item Name">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Description">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="HSN">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Base Amt">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Quantity">
                                     
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Subtotal">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Tax %">
-                                    <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Tax Amt">
-                                   <input type="button" class="toggle-vis btn btn-primary" data-column="9" value="Total Amt">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Subtotal">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="8" value="Tax %">
+                                    <input type="button" class="toggle-vis btn btn-primary" data-column="9" value="Tax Amt">
+                                   <input type="button" class="toggle-vis btn btn-primary" data-column="10" value="Total Amt">
                                     </br> 
                                   </div>  
                          </div>
@@ -280,6 +281,25 @@
 
 <script>
  var globalSubtotalTotal=0;
+ function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
     function loadItems(date = null, item = null) {
 
         console.log("Loading items for page: " + date + item); // Add this line
@@ -323,19 +343,28 @@
             { 'data': 'hsn' },
             { 'data': 'price',
                 render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                  let num = parseFloat(data).toFixed(2);
+                  return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
             { 'data': 'quantity',
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
 
             
             { 'data': 'subtotal',
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
             { 'data': 'taxrate',
@@ -352,13 +381,19 @@
             },
             { 'data': 'taxamount' ,
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
 
             { 'data': 'totalamount' ,
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
         ],
@@ -387,12 +422,12 @@
 });
          
 
-   $('#baseamt').text(response.totalPrice+".00");             
+   $('#baseamt').text(formatIndianNumber(response.totalPrice));             
 
   $('#quantity').text(response.totalQuantity + ".00");
-  $('#subtotal').text(response.totalSubtotal + ".00");
-  $('#taxamt').text(response.totalTaxAmount + ".00");
-  $('#totalamt').text(response.totalAmount + ".00");
+  $('#subtotal').text(formatIndianNumber(response.totalSubtotal));
+  $('#taxamt').text(formatIndianNumber(response.totalTaxAmount));
+  $('#totalamt').text(formatIndianNumber(response.totalAmount));
 
 
                 }

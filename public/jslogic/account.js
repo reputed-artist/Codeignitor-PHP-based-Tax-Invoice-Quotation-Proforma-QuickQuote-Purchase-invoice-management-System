@@ -222,6 +222,25 @@ $('#modal-default1').on('show.bs.modal', function() {
     //var base_url = "<?= base_url(); ?>";
 
 //var base_url; 
+function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                Fetch Records                               */
@@ -286,7 +305,13 @@ function fetch() {
 
                               { mData: 'mob' },
                               { mData: 'location' },
-                              { mData: 'opening_bal' },
+                              { mData: 'opening_bal',
+                              render: function (data, type, row, meta) {
+                                let num = parseFloat(data).toFixed(2);
+                                return formatIndianNumber(num);
+
+                              }
+                               },
                               { mData: 'created',
                                   render: function (data, type, row, meta) {
                                     var parts = data.split('-');

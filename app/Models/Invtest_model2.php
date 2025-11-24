@@ -342,6 +342,7 @@ public function getItemreport($startDate = null, $endDate = null, $item = null)
 
 public function getHsnreport($startDate = null, $endDate = null)
 {
+    // ------------ GROUPED QUERY ------------
     $sql = "
         SELECT 
             c.c_type,
@@ -360,28 +361,44 @@ public function getHsnreport($startDate = null, $endDate = null)
     $conditions = [];
     $params = [];
 
-    // Apply date filter if given
     if (!empty($startDate) && !empty($endDate)) {
         $conditions[] = "invtest2.created BETWEEN ? AND ?";
         $params[] = $startDate;
         $params[] = $endDate;
     }
 
-    // Add WHERE clause if any condition exists
     if (!empty($conditions)) {
         $sql .= " WHERE " . implode(' AND ', $conditions);
     }
 
-    // Always group and order after WHERE
     $sql .= " GROUP BY c.c_type, invtest.hsn ORDER BY c.c_type, invtest.hsn";
 
-    //echo $sql;
-
-    // Execute safely
     $query = $this->db->query($sql, $params);
-    return $query->getResult();
-}
+    $rows = $query->getResult();
 
+    // ------------ TOTALS QUERY ------------
+    $sql_total = "
+        SELECT 
+            SUM(invtest.quantity) AS total_quantity,
+            SUM(invtest.total) AS subtotal,
+            ROUND(SUM(invtest.total) * 0.18, 2) AS total_gst,
+            ROUND(SUM(invtest.total) * 1.18, 2) AS total_amount
+        FROM invtest2
+        INNER JOIN invtest ON invtest.orderid = invtest2.orderid
+    ";
+
+    if (!empty($conditions)) {
+        $sql_total .= " WHERE " . implode(' AND ', $conditions);
+    }
+
+    $total_query = $this->db->query($sql_total, $params);
+    $totals = $total_query->getRow();
+
+    return [
+        "rows"   => $rows,
+        "totals" => $totals
+    ];
+}
 
 
 }

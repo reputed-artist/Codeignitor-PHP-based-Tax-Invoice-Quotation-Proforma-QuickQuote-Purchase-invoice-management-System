@@ -99,6 +99,29 @@ $('#modal-default1').on('show.bs.modal', function() {
 
 
 
+function formatIndianNumber(x) {
+    // Convert to float first
+    let num = parseFloat(x);
+
+    if (isNaN(num)) return "0.00";
+
+    // Fix to 2 decimals
+    num = num.toFixed(2);
+
+    let [intPart, decPart] = num.split('.');
+
+    // Indian comma logic
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                Fetch Records                               */
 /* -------------------------------------------------------------------------- */
@@ -187,7 +210,10 @@ $('#totalamt').text(totalAmount.toFixed(2));
             { 'data': 'bank' },
            { 'data': 'amount',
            render: function(data, type, row, meta) {
-                   return parseFloat(data).toFixed(2);
+let num = parseFloat(data).toFixed(2);
+return formatIndianNumber(num);
+
+                   //return parseFloat(data).toFixed(2);
                 }
              },
             { 'data': 'created' },
@@ -227,7 +253,9 @@ $('#totalamt').text(totalAmount.toFixed(2));
         }); 
     
 
-                $('#totalamt').text(parseFloat(totalAmount).toFixed(2));
+               // $('#totalamt').text(parseFloat(totalAmount).toFixed(2));
+               $('#totalamt').text(formatIndianNumber(Number(totalAmount)));
+
 
 
                    document.querySelectorAll('.toggle-vis').forEach((el) => {
@@ -534,6 +562,7 @@ console.log("Delete URL:", base_url+"/transaction/delete/" + encodeURIComponent(
                 $('#payidedit').val(response.post.pay_id);
                 $('#editamount').val(response.post.amount);
                 $('#editpurpose').val(response.post.purpose);
+                $('#editlocation').val(response.post.location);
 
                 // Handle DatePicker formatting
                 const rawDate = response.post.dateofpayment;

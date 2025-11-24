@@ -52,55 +52,6 @@ if($u_type == 0)
 {
 
 
-//  $sql2="WITH Ledger AS (
-//     SELECT 
-//         a.cid, 
-//         COALESCE(a.opening_bal, 0) AS opening_balance, 
-        
-//         -- Total Credit from invest2
-//         COALESCE(SUM(i.totalamount), 0) AS total_credit, 
-        
-//         -- Total Debit from paidhistory
-//         COALESCE(SUM(p.amount), 0) AS total_debit, 
-        
-//         -- Financial Year Calculation
-//         CASE 
-//             WHEN EXTRACT(MONTH FROM COALESCE(i.created, p.dateofpayment)) >= 4 
-//             THEN CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)), '-', YEAR(COALESCE(i.created, p.dateofpayment)) + 1)
-//             ELSE CONCAT(YEAR(COALESCE(i.created, p.dateofpayment)) - 1, '-', YEAR(COALESCE(i.created, p.dateofpayment)))
-//         END AS fy,
-
-//         COALESCE(i.created, p.dateofpayment) AS transaction_date
-
-//     FROM account a
-//     LEFT JOIN invtest2 i ON a.cid = i.cid
-//     LEFT JOIN paidhistory p ON a.cid = p.cid
-//     WHERE a.cid = ? -- Change based on client ID
-//     GROUP BY a.cid, a.opening_bal, fy, transaction_date
-// )
-
-// SELECT 
-//     l1.cid, 
-//     COALESCE(l2.closing_balance, l1.opening_balance) AS opening_balance, 
-//     (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit) AS total_credit, 
-//     l1.total_debit,
-//     (COALESCE(l2.closing_balance, l1.opening_balance) + l1.total_credit - l1.total_debit) AS closing_balance,
-//     l1.fy
-// FROM Ledger l1
-// LEFT JOIN (
-//     SELECT 
-//         cid, 
-//         fy, 
-//         (opening_balance + total_credit - total_debit) AS closing_balance 
-//     FROM Ledger
-// ) l2 
-// ON l1.cid = l2.cid 
-// AND l1.fy = (
-//     SELECT MIN(fy) FROM Ledger WHERE cid = l1.cid AND fy > l2.fy
-// )
-// WHERE l1.transaction_date BETWEEN ? AND ? -- 🔥 Date filter here
-// ORDER BY l1.fy";   
-
  $cid=(int)$cid;   
 
 $sql2="-- Set up the financial year-wise credit data
@@ -130,6 +81,7 @@ debit_data AS (
         SUM(amount) AS total_debit
     FROM paidhistory
     WHERE cid = {$cid}
+
     GROUP BY cid, fy
 ),
 
@@ -276,10 +228,13 @@ FinalLedger AS (
 SELECT * FROM FinalLedger ORDER BY fy";
 
     //$query2 = $this->db->query($sql2, [$cid,$cid,$cid]);
+//echo $sql2;
 
     $query2 = $this->db->query($sql2);
 
 $result2 = $query2->getResultArray();
+
+
 
 
 }
@@ -503,6 +458,8 @@ ORDER BY X.created ASC";
  $query = $this->db->query($sql, [$cid, $startDate, $endDate, $cid, $startDate, $endDate]);
         $result = $query->getResultArray();
 
+#echo $result;
+
 
     }   elseif ($u_type == 2) {
         // Complete Ledger (Purchases, Receipts, Sales)
@@ -649,16 +606,27 @@ public function getledger($cid)
     $accountModel = new Account_model();
 
     // Set the default financial year range
-    if (date('m') > 3) {
-        $defaultYear = date('Y') . "-" . (date('Y') + 1);
-    } else {
-        $defaultYear = (date('Y') - 1) . "-" . date('Y');
-    }
-    $startyear = substr($defaultYear, 0, 4);
-    //echo $startyear;
+    // if (date('m') > 3) {
+    //     $defaultYear = date('Y') . "-" . (date('Y') + 1);
+    // } else {
+    //     $defaultYear = (date('Y') - 1) . "-" . date('Y');
+    // }
+    // $startyear = substr($defaultYear, 0, 4);
+    // //echo $startyear;
 
-    $endyear = substr($defaultYear, 5, 8);
-    //echo $endyear;
+    // $endyear = substr($defaultYear, 5, 8);
+    // //echo $endyear;
+    $db = \Config\Database::connect(); 
+
+    $sqlFyDetect = " SELECT MAX( CASE WHEN MONTH(latest_date) >= 4 THEN CONCAT(YEAR(latest_date), '-', YEAR(latest_date) + 1) ELSE CONCAT(YEAR(latest_date) - 1, '-', YEAR(latest_date)) END ) AS latest_fy FROM ( SELECT MAX(created) AS latest_date FROM invtest2 WHERE cid = ? UNION ALL SELECT MAX(created) AS latest_date FROM purchaseinv2 WHERE cid = ? UNION ALL SELECT MAX(dateofpayment) AS latest_date FROM paidhistory WHERE cid = ? ) AS combined_dates "; 
+
+    $queryFy = $db->query($sqlFyDetect, [$cid, $cid, $cid]); 
+    $fyResult = $queryFy->getRow(); 
+    if ($fyResult && $fyResult->latest_fy) { // ✅ Data exists — use that FY 
+    $defaultYear = $fyResult->latest_fy; } else { // ⚠️ No records found — fallback to current FY 
+        if (date('m') > 3) { $defaultYear = date('Y') . "-" . (date('Y') + 1); }
+        else { $defaultYear = (date('Y') - 1) . "-" . date('Y'); } } 
+        list($startyear, $endyear) = explode('-', $defaultYear);
 
 
     // Fetch ledger details based on cid and the financial year range
@@ -683,7 +651,7 @@ public function getledger($cid)
 
 
 //     echo '<pre>';
-// print_r($ledgerDetails);
+//print_r($ledgerDetails);
 // echo '</pre>';
 // exit;
 
@@ -703,76 +671,102 @@ public function getledger($cid)
 
 
 
-    if (date('m') > 3) {
-            $year = date('y') . "-" . (date('y') + 1);
-        } else {
-            $year = (date('y') - 1) . "-" . date('y');
-        }
+$db = \Config\Database::connect();
 
-    $date = date('Y-m-d');
-    $db = \Config\Database::connect();
+     
+     $year = date('m') > 3
+    ? date('y') . "-" . (date('y') + 1)
+    : (date('y') - 1) . "-" . date('y');
 
+// Get last used transaction number
+$stmt = $db->query("
+    SELECT pay_id
+    FROM paidhistory
+    WHERE pay_id LIKE 'T/$year/%'
+    ORDER BY pay_id DESC
+    LIMIT 1
+");
 
-        // SQL query to get the next invoice ID
-        $datalogger = "
-            SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
-                CASE 
-                    WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
-                    THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
-                    ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
-                END + 1, 4, 0)
-            , LPAD(1, 4, 0))) AS pay_id 
-            FROM paidhistory";
+$row = $stmt->getRow();
 
-         //echo $datalogger;   
+if ($row) {
+    // Extract the last 4 digits
+    $parts = explode('/', $row->pay_id);
+    $lastNumber = intval(end($parts));
+    $nextNumber = $lastNumber + 1;
+} else {
+    $nextNumber = 1;
+}
 
-
-        // Execute the query
-        $stmt = $db->query($datalogger);
-        $row = $stmt->getRow();
-
-        // Determine the invoice number
-        if ($row) {
-            $value2 = $row->pay_id;
-
-            // Separate numeric part
-            $value2 = substr($value2, 6, 4);
-
-            // Concatenate incremented value
-            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2);
-            $value = $value2;
-        } else {
-            // No records found, start from 0001
-            $value = "T/" . $year . "/0001";
-        }
+// Final Pay ID
+$pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
 
 
  
 
+// $sql3 = "SELECT financial_year FROM (
+//             SELECT CASE 
+//                 WHEN MONTH(created) >= 4 
+//                 THEN CONCAT(YEAR(created), '-', YEAR(created) + 1) 
+//                 ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created)) 
+//             END AS financial_year 
+//             FROM invtest2 
+//             WHERE cid = ?
+
+//             UNION
+
+//             SELECT CASE 
+//                 WHEN MONTH(STR_TO_DATE(invdate, '%Y-%m-%d')) >= 4 
+//                 THEN CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')), '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) + 1) 
+//                 ELSE CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) - 1, '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d'))) 
+//             END AS financial_year 
+//             FROM purchaseinv2 
+//             WHERE cid = ?
+//         ) AS combined_years
+//         GROUP BY financial_year 
+//         ORDER BY financial_year DESC";
+
+// $query3 = $this->db->query($sql3, [$cid, $cid]);
 $sql3 = "SELECT financial_year FROM (
-            SELECT CASE 
-                WHEN MONTH(created) >= 4 
-                THEN CONCAT(YEAR(created), '-', YEAR(created) + 1) 
-                ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created)) 
-            END AS financial_year 
-            FROM invtest2 
-            WHERE cid = ?
+    -- From Sales
+    SELECT CASE 
+        WHEN MONTH(created) >= 4 
+        THEN CONCAT(YEAR(created), '-', YEAR(created) + 1) 
+        ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created)) 
+    END AS financial_year 
+    FROM invtest2 
+    WHERE cid = ?
 
-            UNION
+    UNION
 
-            SELECT CASE 
-                WHEN MONTH(STR_TO_DATE(invdate, '%Y-%m-%d')) >= 4 
-                THEN CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')), '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) + 1) 
-                ELSE CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) - 1, '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d'))) 
-            END AS financial_year 
-            FROM purchaseinv2 
-            WHERE cid = ?
-        ) AS combined_years
-        GROUP BY financial_year 
-        ORDER BY financial_year DESC";
+    -- From Purchase
+    SELECT CASE 
+        WHEN MONTH(STR_TO_DATE(invdate, '%Y-%m-%d')) >= 4 
+        THEN CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')), '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) + 1) 
+        ELSE CONCAT(YEAR(STR_TO_DATE(invdate, '%Y-%m-%d')) - 1, '-', YEAR(STR_TO_DATE(invdate, '%Y-%m-%d'))) 
+    END AS financial_year 
+    FROM purchaseinv2 
+    WHERE cid = ?
 
-$query3 = $this->db->query($sql3, [$cid, $cid]);
+    UNION
+
+    -- ✅ Include Payments
+    SELECT CASE 
+        WHEN MONTH(dateofpayment) >= 4 
+        THEN CONCAT(YEAR(dateofpayment), '-', YEAR(dateofpayment) + 1)
+        ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
+    END AS financial_year
+    FROM paidhistory
+    WHERE cid = ?
+) AS combined_years
+GROUP BY financial_year 
+ORDER BY financial_year DESC";
+
+
+$query3 = $this->db->query($sql3, [$cid, $cid,$cid]);
 $result3 = $query3->getResultArray();
+
+#$result3 = $query3->getResultArray();
 
 
 
@@ -855,13 +849,6 @@ ORDER BY fy";
 
     //$lastRow = end($result2);
 
-    // Access the 'opening_balance' of the last row
-   //$lastOpeningBalance = $lastRow['opening_balance'];
-
-   // if($lastOpeningBalance == null)
-   // {
-   //  $lastOpeningBalance=0;
-   // }
    if (!empty($result2)) {
     $lastRow = end($result2);
     $lastOpeningBalance = $lastRow['opening_balance'] ?? 0;
@@ -878,7 +865,7 @@ ORDER BY fy";
     'u_type' => $ledgerDetails['u_type'],
     'ledgerDetails' => $ledgerDetails['ledger']??[],  // Pass only the ledger array
     'accountInfo' => $accountInfo ?? [],
-    'pay_id'=> $value,
+    'pay_id'=> $pay_id,
     'fy'=> $result3 ?? [],
    'dops'=>$lastOpeningBalance ?? 0
 ]);

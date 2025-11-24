@@ -141,14 +141,14 @@
                                          </tbody>
                                          <tfoot>
                                       <tr>
-                                                <th>ID</th>
-                                                <th>Client Type</th>
-                                                <th>HSN</th>
-                                                <th>Product Name</th>
-                                                <th>Total Qty</th>
-                                                <th>Subtotal</th>
-                                                <th>Total GST</th>
-                                                <th>Total Amount</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th> <h3 id="totalQty">0.00</h3></th>
+                                                <th><h3 id="totalSub">0.00</h3></th>
+                                                <th><h3 id="totalGst">0.00</h3></th>
+                                                <th><h3 id="totalAmt">0.00</h3></th>
                                             
                                     </tr>
                                         </tfoot>
@@ -201,6 +201,25 @@
 
 <script>
  var globalSubtotalTotal=0;
+ function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
     function loadItems(date = null) {
 
         console.log("Loading hsn for page: " + date); // Add this line
@@ -245,20 +264,30 @@
             },
 
             { 'data': 'subtotal',
+
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
 
             
             { 'data': 'total_gst',
                render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+                let num = parseFloat(data).toFixed(2);
+                return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
             { 'data': 'total_amount',
             render: function(data, type, row, meta) {
-               return parseFloat(data).toFixed(2); // returns e.g. "123.00"
+              let num = parseFloat(data).toFixed(2);
+              return formatIndianNumber(num);
+
+               //return parseFloat(data).toFixed(2); // returns e.g. "123.00"
               }
             },
 
@@ -287,6 +316,23 @@
     });
 });
          
+
+
+    $("#totalQty").text(formatIndianNumber(response.totals.total_quantity));
+
+$("#totalSub").text(
+    formatIndianNumber(parseFloat(response.totals.subtotal).toFixed(2))
+);
+
+$("#totalGst").text(
+    formatIndianNumber(parseFloat(response.totals.total_gst).toFixed(2))
+);
+
+$("#totalAmt").text(
+    formatIndianNumber(parseFloat(response.totals.total_amount).toFixed(2))
+);
+
+
 
                 }
               })

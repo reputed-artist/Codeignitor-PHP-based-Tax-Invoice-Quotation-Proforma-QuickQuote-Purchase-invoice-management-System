@@ -25,6 +25,8 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 
+$routes->post('/transaction/checkDuplicate', 'TransactionController::checkDuplicate');
+
 $routes->get('/quickquote/printquickquote', 'Quickquote::printquickquote');
 
 $routes->post('backup', 'BackupController::dbbackup');

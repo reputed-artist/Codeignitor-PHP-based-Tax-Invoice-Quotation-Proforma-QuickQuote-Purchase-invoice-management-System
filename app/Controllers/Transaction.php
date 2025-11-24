@@ -76,54 +76,64 @@ public function managetransaction()
     // Fetch next client ID for the view
     //$next_cid = $transactionModel->getLastClientId() + 1;
 
+     // $db = \Config\Database::connect();
+
+     //         // Determine the financial year based on the current month
+     //    if (date('m') > 3) {
+     //        $year = date('y') . "-" . (date('y') + 1);
+     //    } else {
+     //        $year = (date('y') - 1) . "-" . date('y');
+     //    }
+
+     //    $date = date('Y-m-d');
+
+     //    // SQL query to get the next invoice ID
+     //    $datalogger = "
+     //        SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
+     //            CASE
+     //                WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01')
+     //                THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01'))
+     //                ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
+     //            END + 1, 4, 0)
+     //        , LPAD(1, 4, 0))) AS pay_id
+     //        FROM paidhistory";
+
+     //     //echo $datalogger;   
+
      $db = \Config\Database::connect();
 
-             // Determine the financial year based on the current month
-        if (date('m') > 3) {
-            $year = date('y') . "-" . (date('y') + 1);
-        } else {
-            $year = (date('y') - 1) . "-" . date('y');
-        }
+     
+     $year = date('m') > 3
+    ? date('y') . "-" . (date('y') + 1)
+    : (date('y') - 1) . "-" . date('y');
 
-        $date = date('Y-m-d');
+// Get last used transaction number
+$stmt = $db->query("
+    SELECT pay_id
+    FROM paidhistory
+    WHERE pay_id LIKE 'T/$year/%'
+    ORDER BY pay_id DESC
+    LIMIT 1
+");
 
-        // SQL query to get the next invoice ID
-        $datalogger = "
-            SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
-                CASE 
-                    WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
-                    THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
-                    ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
-                END + 1, 4, 0)
-            , LPAD(1, 4, 0))) AS pay_id 
-            FROM paidhistory";
+$row = $stmt->getRow();
 
-         //echo $datalogger;   
+if ($row) {
+    // Extract the last 4 digits
+    $parts = explode('/', $row->pay_id);
+    $lastNumber = intval(end($parts));
+    $nextNumber = $lastNumber + 1;
+} else {
+    $nextNumber = 1;
+}
+
+// Final Pay ID
+$pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
 
 
-        // Execute the query
-        $stmt = $db->query($datalogger);
-        $row = $stmt->getRow();
-
-        // Determine the invoice number
-        if ($row) {
-            $value2 = $row->pay_id;
-
-            // Separate numeric part
-            $value2 = substr($value2, 6, 4);
-
-            // Concatenate incremented value
-            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2+1);
-            $value = $value2;
-        } else {
-            // No records found, start from 0001
-            $value = "T/" . $year . "/0001";
-        }
-
-        //echo $value;
     // Prepare data for view
     $data = [
-        'pay_id' => $value,
+        'pay_id' => $pay_id,
         'results' => json_encode($results)
     ];
 
@@ -231,18 +241,24 @@ public function insert() {
 
 
         // SQL query to get the next invoice ID
-        $datalogger = "
-            SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
-                CASE 
-                    WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
-                    THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
-                    ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
-                END + 1, 4, 0)
-            , LPAD(1, 4, 0))) AS pay_id 
-            FROM paidhistory";
+        // $datalogger = "
+        //     SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
+        //         CASE 
+        //             WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
+        //             THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
+        //             ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
+        //         END + 1, 4, 0)
+        //     , LPAD(1, 4, 0))) AS pay_id 
+        //     FROM paidhistory";
+
 
          //echo $datalogger;   
 
+        $datalogger="SELECT pay_id
+    FROM paidhistory
+    WHERE pay_id LIKE 'T/$year/%'
+    ORDER BY pay_id DESC
+    LIMIT 1";
 
         // Execute the query
         $stmt = $db->query($datalogger);
@@ -250,25 +266,24 @@ public function insert() {
 
         // Determine the invoice number
         if ($row) {
-            $value2 = $row->pay_id;
+    $parts = explode('/', $row->pay_id);
+    $lastNumber = intval(end($parts));
+    $nextNumber = $lastNumber + 1;
+} else {
+    $nextNumber = 1;
+}
 
-            // Separate numeric part
-            $value2 = substr($value2, 6, 4);
+// Final Pay ID
+$pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
 
-            // Concatenate incremented value
-            $value2 = "\n T/" . $year . "/" . sprintf('%04s', $value2+1);
-            $value = $value2;
-        } else {
-            // No records found, start from 0001
-            $value = "T/" . $year . "/0001";
-        }
+
 
 
 
 
             // Prepare data for insertion
             $data = [
-                'pay_id'  => trim($value),
+                'pay_id'  => trim($pay_id),
                 'cid'   => $this->request->getPost('co'),
                 'purpose' => $this->request->getPost('purpose'),
                 'amount' => $this->request->getPost('amount'),
@@ -366,6 +381,8 @@ public function edit()
 
         // Add `c_name` to the response
         $transaction['c_name'] = $clientDetails['c_name'] ?? 'Unknown';
+                $transaction['location']  = $clientDetails['location'] ?? 'Unknown';
+
 
         return $this->response->setJSON([
             'status' => 'success',

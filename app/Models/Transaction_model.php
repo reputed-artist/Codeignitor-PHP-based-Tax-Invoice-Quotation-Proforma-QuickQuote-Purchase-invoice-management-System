@@ -163,20 +163,14 @@ public function getTransactions($startDate = null, $endDate = null, $customer = 
 
     return $query->getResultArray();
 }
-
-
-
 public function getClientDetails($cid)
 {
-    return $this->db->table('client') // Assuming the table name is `client`
-        ->select('cid, c_name') // Select only what you need
-        ->where('cid', $cid) // Match the specific client ID
+    return $this->db->table('client c')
+        ->select("c.cid, c.c_name, COALESCE(SUBSTRING_INDEX(c.c_add, ',', -1), 'Unknown') AS location")
+        ->where('c.cid', $cid)
         ->get()
-        ->getRowArray(); // Return a single row as an associative array
+        ->getRowArray();
 }
-
-
-
 
 
 

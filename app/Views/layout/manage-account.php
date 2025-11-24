@@ -167,8 +167,8 @@ input .error{
                    <th class="hidden-phone">Company Name</th>
                    <th >Account Type</th>
 
-                      <th>Phone</th>
-                      <th>Address</th>
+                      <th>Mobile</th>
+                      <th>Location</th>
                       <th>Opening Balance</th>
                       <th>Created</th>
                       <th>Edit</th>
@@ -184,8 +184,8 @@ input .error{
                    <th>Sno.</th>
                                  <th class="hidden-phone">Company Name</th>
                                   <th >Account Type</th>
-                                  <th>Phone</th>
-                                  <th>Address</th>
+                                  <th>Mobile</th>
+                                  <th>Location</th>
                                   <th>Opening Balance</th>
                                   <th>Created</th>
                                       <th>Edit</th>
@@ -198,11 +198,13 @@ input .error{
                 <div  class="btn-group" data-toggle="buttons" role="group">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="0" value="Sr. No.">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="1" value="Company Name">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Address">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Mob">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Gst No.">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Email">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Bill-Type">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="2" value="Account Type">
+
+                <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Mobile">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Location">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Opening Balance">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Created">
+                <!-- <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Bill-Type"> -->
                 
 
             </div>

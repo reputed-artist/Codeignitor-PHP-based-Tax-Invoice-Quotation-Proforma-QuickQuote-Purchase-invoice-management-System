@@ -206,8 +206,8 @@ function loadInvoices(page = 1) {
                                                 <p style="margin-bottom:5px;"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
                                                 <p style="margin-bottom:5px;"><strong>Invoice Dated:</strong> ${invoice.created}</p>
                                             </div>
-
-                                            <div class="row text-center" style="margin-top:10px;">
+                                            <br/>
+                                            <div class="row">
                                             <div class="col-xs-4 text-left">
                                                 <a href="edittaxinv?orderid=${invoice.orderid}" class="float-left">
                                                 <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
@@ -223,8 +223,9 @@ function loadInvoices(page = 1) {
                                                 <i class="fa fa-trash-o"></i></a>
                                             </div>
                                             </div>
+                                            <br/>
 
- 
+        
                                     </div>
                                     
                                 </div>
