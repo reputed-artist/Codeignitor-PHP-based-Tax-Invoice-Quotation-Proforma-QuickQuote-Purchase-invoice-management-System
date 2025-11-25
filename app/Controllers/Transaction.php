@@ -38,6 +38,106 @@ public function get_next_id()
 }
 
 
+    public function checkDuplicateRecord()
+    {
+        // Check if it's an AJAX request
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(405)->setJSON(['error' => 'Method not allowed']);
+        }
+
+        $postData = $this->request->getPost();
+
+        // Extract fields for duplicate check - match your database field names
+        $cid = $postData['co'] ?? ''; // 'co' in frontend maps to 'cid' in database
+        $purpose = $postData['purpose'] ?? '';
+        $dateofpayment = $postData['dateofpayment'] ?? '';
+        $amount = $postData['amount'] ?? '';
+        $bank = $postData['ctype'] ?? ''; // 'ctype' in frontend maps to 'bank' in database
+
+        // Log received data for debugging
+        log_message('debug', 'Duplicate check data: ' . print_r([
+            'cid' => $cid,
+            'purpose' => $purpose,
+            'dateofpayment' => $dateofpayment,
+            'amount' => $amount,
+            'bank' => $bank
+        ], true));
+
+        try {
+            $transactionModel = new \App\Models\Transaction_model();
+            
+            // Build query to find similar records
+            $builder = $transactionModel;
+
+            // Add conditions for each field (only if value is provided)
+            // Using exact database field names
+            if (!empty($cid)) {
+                $builder->where('cid', $cid);
+            }
+            if (!empty($purpose)) {
+                $builder->where('purpose', $purpose);
+            }
+            if (!empty($dateofpayment)) {
+                $builder->where('dateofpayment', $dateofpayment);
+            }
+            if (!empty($amount)) {
+                $builder->where('amount', $amount);
+            }
+            if (!empty($bank)) {
+                $builder->where('bank', $bank);
+            }
+
+            // Get matching records
+            $duplicateRecords = $builder->findAll();
+            // Get matching records
+// Debug: Check the actual structure
+ //print_r($duplicateRecords);
+//print_r(gettype($duplicateRecords[0]));
+ //print_r(array_keys($duplicateRecords[0]), true));
+
+
+           //print_r($duplicateRecords);
+
+            // Log query results
+            log_message('debug', 'Found ' . count($duplicateRecords) . ' duplicate records');
+
+if (!empty($duplicateRecords)) {
+    $duplicateRecord = $duplicateRecords[0];
+    
+    $displayDate = '';
+    if (!empty($duplicateRecord['dateofpayment'])) {
+        $displayDate = date('d-m-Y', strtotime($duplicateRecord['dateofpayment']));
+    }
+    
+    return $this->response->setJSON([
+        'exists' => true,
+        'message' => 'Similar transaction record found',
+        'duplicate_record' => [
+            'cid' => $duplicateRecord['cid'] ?? '',
+            'purpose' => $duplicateRecord['purpose'] ?? '',
+            'dateofpayment' => $displayDate,
+            'amount' => $duplicateRecord['amount'] ?? '',
+            'bank' => $duplicateRecord['bank'] ?? ''
+        ],
+        'total_duplicates' => count($duplicateRecords)
+    ]);
+} else {
+                return $this->response->setJSON([
+                    'exists' => false,
+                    'message' => 'No similar records found'
+                ]);
+            }
+        } catch (\Exception $e) {
+            log_message('error', 'Duplicate check error: ' . $e->getMessage());
+            log_message('error', 'Stack trace: ' . $e->getTraceAsString());
+            
+            return $this->response->setStatusCode(500)->setJSON([
+                'exists' => false,
+                'message' => 'Server error occurred while checking duplicates',
+                'debug' => $e->getMessage() // Remove this in production
+            ]);
+        }
+    }
 public function managetransaction()
 {
     $session = session(); 
@@ -195,151 +295,299 @@ public function getclient()
         return $this->response->setJSON($results);
     }
 }
-
-
 public function insert() {
-
     if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
-
-           // $transactionModel = new Transaction_model();
-
-
-
-           //  $last_cid = $this->crudModel->get_last_cid();
-           //  $next_cid = ($last_cid !== null) ? $last_cid + 1 : 1;
-
         
-              //$this->crudModel->set_auto_increment();
+        // Get all POST data
+        $postData = $this->request->getPost();
+        log_message('debug', '=== INSERT METHOD START ===');
+        log_message('debug', 'Raw POST data: ' . print_r($postData, true));
+
+        // Validate required fields
+        $requiredFields = ['co', 'purpose', 'amount', 'ctype', 'dateofpayment'];
+        $missingFields = [];
         
+        foreach ($requiredFields as $field) {
+            if (empty($postData[$field])) {
+                $missingFields[] = $field;
+            }
+        }
+        
+        if (!empty($missingFields)) {
+            log_message('error', 'Missing required fields: ' . implode(', ', $missingFields));
+            return $this->response->setJSON([
+                'res' => 'error',
+                'message' => 'Missing required fields: ' . implode(', ', $missingFields)
+            ]);
+        }
 
-            $created = $this->request->getPost('created');
-
-            // Convert the input date to DateTime object
-            $date = new \DateTime($created);
-
-            // Format the date to Y-m-d (MySQL compatible format)
-            $formattedDate = $date->format('Y-m-d'). ' ' . date('H:i:s');
-
-            $dateofpayment = $this->request->getPost('dateofpayment');
-            $date2 = new \DateTime($dateofpayment);
-
-            // Format the date to Y-m-d H:i:s (MySQL compatible format, includes current time)
-            $formattedDate2 = $date2->format('Y-m-d') . ' ' . date('H:i:s');
-
-
-     $db = \Config\Database::connect();
-
-     
-     if (date('m') > 3) {
+        // Generate pay_id
+        $db = \Config\Database::connect();
+        
+        if (date('m') > 3) {
             $year = date('y') . "-" . (date('y') + 1);
         } else {
             $year = (date('y') - 1) . "-" . date('y');
         }
 
-        $date = date('Y-m-d');
-
-
-
-        // SQL query to get the next invoice ID
-        // $datalogger = "
-        //     SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
-        //         CASE 
-        //             WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
-        //             THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
-        //             ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
-        //         END + 1, 4, 0)
-        //     , LPAD(1, 4, 0))) AS pay_id 
-        //     FROM paidhistory";
-
-
-         //echo $datalogger;   
-
-        $datalogger="SELECT pay_id
-    FROM paidhistory
-    WHERE pay_id LIKE 'T/$year/%'
-    ORDER BY pay_id DESC
-    LIMIT 1";
-
-        // Execute the query
+        $datalogger = "SELECT pay_id FROM paidhistory WHERE pay_id LIKE 'T/$year/%' ORDER BY pay_id DESC LIMIT 1";
         $stmt = $db->query($datalogger);
         $row = $stmt->getRow();
 
-        // Determine the invoice number
         if ($row) {
-    $parts = explode('/', $row->pay_id);
-    $lastNumber = intval(end($parts));
-    $nextNumber = $lastNumber + 1;
-} else {
-    $nextNumber = 1;
-}
+            $parts = explode('/', $row->pay_id);
+            $lastNumber = intval(end($parts));
+            $nextNumber = $lastNumber + 1;
+        } else {
+            $nextNumber = 1;
+        }
 
-// Final Pay ID
-$pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
+        $pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
 
+        // Handle dateofpayment
+        $dateofpayment = $postData['dateofpayment'];
+        $mysqlPaymentDate = '';
+        
+        if (!empty($dateofpayment)) {
+            // Check if date is already in YYYY-MM-DD format
+            if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateofpayment)) {
+                $mysqlPaymentDate = $dateofpayment . ' ' . date('H:i:s');
+            } else {
+                // Try to convert from DD-MM-YYYY to YYYY-MM-DD
+                $dateParts = explode('-', $dateofpayment);
+                if (count($dateParts) === 3) {
+                    // If format is DD-MM-YYYY
+                    if (strlen($dateParts[0]) === 2 && strlen($dateParts[1]) === 2 && strlen($dateParts[2]) === 4) {
+                        $mysqlPaymentDate = $dateParts[2] . '-' . $dateParts[1] . '-' . $dateParts[0] . ' ' . date('H:i:s');
+                    } else {
+                        // Use current date as fallback
+                        $mysqlPaymentDate = date('Y-m-d H:i:s');
+                    }
+                } else {
+                    $mysqlPaymentDate = date('Y-m-d H:i:s');
+                }
+            }
+        } else {
+            $mysqlPaymentDate = date('Y-m-d H:i:s');
+        }
 
+        // Handle created date - ALWAYS use current server timestamp
+        $created = date('Y-m-d H:i:s');
 
+        log_message('debug', 'Date conversion:');
+        log_message('debug', ' - Input dateofpayment: ' . $dateofpayment);
+        log_message('debug', ' - MySQL dateofpayment: ' . $mysqlPaymentDate);
+        log_message('debug', ' - Created: ' . $created);
 
+        // Prepare data for insertion
+        $data = [
+            'pay_id' => $pay_id,
+            'cid' => $postData['co'],
+            'purpose' => $postData['purpose'],
+            'amount' => $postData['amount'],
+            'bank' => $postData['ctype'],
+            'dateofpayment' => $mysqlPaymentDate,
+            'created' => $created, // Server-generated timestamp
+        ];
 
+        log_message('debug', 'Final data for insertion: ' . print_r($data, true));
 
-            // Prepare data for insertion
-            $data = [
-                'pay_id'  => trim($pay_id),
-                'cid'   => $this->request->getPost('co'),
-                'purpose' => $this->request->getPost('purpose'),
-                'amount' => $this->request->getPost('amount'),
-                'bank'  => $this->request->getPost('ctype'),
-                'dateofpayment' => $formattedDate2,
-                //'created'    => $this->request->getPost('email'), // Ensure this is included
-                
-                'created'  => $formattedDate,
-            ];
-            //print_r($this->request->getPost());
+        // Check if created field is properly set
+        if (empty($data['created'])) {
+            log_message('error', 'Created field is empty before insertion');
+            return $this->response->setJSON([
+                'res' => 'error',
+                'message' => 'Created date is required'
+            ]);
+        }
 
-            //print_r($data);   
-            // Attempt to save the record
-            $response = $this->crudModel->saverecords($data);
-
-            //echo $this->crudModel->setQuery($response);
-
-
-            //print_r($response);
-
-           // $lastQuery = $this->crudModel->getLastQuery(); // Ensure this retrieves the last executed query
-
-
-            if ($response) {
-
-                
+        // Try direct database insertion
+        try {
+            $builder = $db->table('paidhistory');
+            $result = $builder->insert($data);
             
-                // Return success response in JSON format
+            if ($result) {
+                $insertID = $db->insertID();
+                log_message('debug', 'Direct insert successful. Insert ID: ' . $insertID);
+                
                 return $this->response->setJSON([
                     'res' => 'success',
-                    'message' => 'Records saved successfully.',
-                    //'query' => (string) $lastQuery, // Include the last query in the response
-
-                //'redirect' => base_url('/client/manageclients'), 
+                    'message' => 'Transaction inserted successfully!',
+                    'insert_id' => $insertID,
+                    'pay_id' => $pay_id,
+                    'debug_data' => $data // Remove this in production
                 ]);
-                
             } else {
-               $error = $this->crudModel->error();
-
-                // Return error response if insertion fails
+                $error = $db->error();
+                log_message('error', 'Direct insert failed. Error: ' . print_r($error, true));
+                
                 return $this->response->setJSON([
                     'res' => 'error',
-                    //'message' => 'Insert failed.',
-                    'message' => $error['message'],
-            'code' => $error['code'],
+                    'message' => 'Database error: ' . ($error['message'] ?? 'Unknown error'),
+                    'code' => $error['code'] ?? 0
                 ]);
             }
-       
+            
+        } catch (\Exception $e) {
+            log_message('error', 'Insert exception: ' . $e->getMessage());
+            
+            return $this->response->setJSON([
+                'res' => 'error',
+                'message' => 'Exception: ' . $e->getMessage()
+            ]);
+        }
+        
     } else {
-        // If not a valid request, return an error
         return $this->response->setJSON([
             'res' => 'error',
-            'message' => 'Invalid Request'
+            'message' => 'Invalid request method'
         ]);
     }
 }
+
+// public function insert() {
+
+//     if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
+
+//            // $transactionModel = new Transaction_model();
+
+
+
+//            //  $last_cid = $this->crudModel->get_last_cid();
+//            //  $next_cid = ($last_cid !== null) ? $last_cid + 1 : 1;
+
+        
+//               //$this->crudModel->set_auto_increment();
+        
+
+//             $created = $this->request->getPost('created');
+
+//             // Convert the input date to DateTime object
+//             $date = new \DateTime($created);
+
+//             // Format the date to Y-m-d (MySQL compatible format)
+//             $formattedDate = $date->format('Y-m-d'). ' ' . date('H:i:s');
+
+//             $dateofpayment = $this->request->getPost('dateofpayment');
+//             $date2 = new \DateTime($dateofpayment);
+
+//             // Format the date to Y-m-d H:i:s (MySQL compatible format, includes current time)
+//             $formattedDate2 = $date2->format('Y-m-d') . ' ' . date('H:i:s');
+
+
+//      $db = \Config\Database::connect();
+
+     
+//      if (date('m') > 3) {
+//             $year = date('y') . "-" . (date('y') + 1);
+//         } else {
+//             $year = (date('y') - 1) . "-" . date('y');
+//         }
+
+//         $date = date('Y-m-d');
+
+
+
+//         // SQL query to get the next invoice ID
+//         // $datalogger = "
+//         //     SELECT CONCAT_WS('/', '$year', COALESCE(LPAD(
+//         //         CASE 
+//         //             WHEN '$date' >= DATE_FORMAT('$date','%Y-04-01') 
+//         //             THEN SUM(created >= DATE_FORMAT('$date','%Y-04-01')) 
+//         //             ELSE SUM(created BETWEEN DATE_FORMAT('$date','%Y-04-01') - INTERVAL 1 YEAR AND DATE_FORMAT('$date','%Y-04-01'))
+//         //         END + 1, 4, 0)
+//         //     , LPAD(1, 4, 0))) AS pay_id 
+//         //     FROM paidhistory";
+
+
+//          //echo $datalogger;   
+
+//         $datalogger="SELECT pay_id
+//     FROM paidhistory
+//     WHERE pay_id LIKE 'T/$year/%'
+//     ORDER BY pay_id DESC
+//     LIMIT 1";
+
+//         // Execute the query
+//         $stmt = $db->query($datalogger);
+//         $row = $stmt->getRow();
+
+//         // Determine the invoice number
+//         if ($row) {
+//     $parts = explode('/', $row->pay_id);
+//     $lastNumber = intval(end($parts));
+//     $nextNumber = $lastNumber + 1;
+// } else {
+//     $nextNumber = 1;
+// }
+
+// // Final Pay ID
+// $pay_id = "T/$year/" . sprintf('%04d', $nextNumber);
+
+
+
+
+
+
+//             // Prepare data for insertion
+//             $data = [
+//                 'pay_id'  => trim($pay_id),
+//                 'cid'   => $this->request->getPost('co'),
+//                 'purpose' => $this->request->getPost('purpose'),
+//                 'amount' => $this->request->getPost('amount'),
+//                 'bank'  => $this->request->getPost('ctype'),
+//                 'dateofpayment' => $formattedDate2,
+//                 //'created'    => $this->request->getPost('email'), // Ensure this is included
+                
+//                 'created'  => $formattedDate,
+//             ];
+//             //print_r($this->request->getPost());
+
+//             //print_r($data);   
+//             // Attempt to save the record
+//             $response = $this->crudModel->saverecords($data);
+
+//             //echo $this->crudModel->setQuery($response);
+
+
+//             //print_r($response);
+
+//            // $lastQuery = $this->crudModel->getLastQuery(); // Ensure this retrieves the last executed query
+
+
+//             if ($response) {
+
+                
+            
+//                 // Return success response in JSON format
+//                 return $this->response->setJSON([
+//                     'res' => 'success',
+//                     'message' => 'Records saved successfully.',
+//                     //'query' => (string) $lastQuery, // Include the last query in the response
+
+//                 //'redirect' => base_url('/client/manageclients'), 
+//                 ]);
+                
+//             } else {
+//                $error = $this->crudModel->error();
+
+//                 // Return error response if insertion fails
+//                 return $this->response->setJSON([
+//                     'res' => 'error',
+//                     //'message' => 'Insert failed.',
+//                     'message' => $error['message'],
+//             'code' => $error['code'],
+//                 ]);
+//             }
+       
+//     } else {
+//         // If not a valid request, return an error
+//         return $this->response->setJSON([
+//             'res' => 'error',
+//             'message' => 'Invalid Request'
+//         ]);
+//     }
+// }
 
 
 

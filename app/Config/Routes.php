@@ -24,6 +24,7 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+$routes->post('client/checkGst', 'Client::checkGst');
 
 $routes->post('/transaction/checkDuplicate', 'TransactionController::checkDuplicate');
 

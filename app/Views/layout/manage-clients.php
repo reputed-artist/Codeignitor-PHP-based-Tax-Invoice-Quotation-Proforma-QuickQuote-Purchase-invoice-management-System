@@ -309,6 +309,8 @@ input .error{
                     <div class="col-sm-8">
                       <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gst" name="gst"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error" style="color: red;">  </div>
+                          <div id="gst_status" class="gst-status" style="font-size: 12px; margin-top: 5px;"></div>
+
                     </div>
                   </div>
 
@@ -465,6 +467,7 @@ input .error{
                     <div class="col-sm-8">
                       <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gstedit" name="gstedit"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error1" style="color: red;">  </div>
+                       <div id="gst_status1" class="gst-status1" style="font-size: 12px; margin-top: 5px;"></div>
                     </div>
                   </div>
 

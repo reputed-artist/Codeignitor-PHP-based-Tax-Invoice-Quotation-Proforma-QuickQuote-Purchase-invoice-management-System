@@ -28,6 +28,13 @@ class Client_model extends Model
 
     }
 
+
+    public function checkGstExists($gst)
+    {
+        return $this->where('gst', $gst)->countAllResults() > 0;
+    }
+
+
 public function set_auto_increment() {
     // Get the last cid
     $lastCid = $this->get_last_cid(); 

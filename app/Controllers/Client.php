@@ -7,6 +7,8 @@ use CodeIgniter\Controller;
 
 class Client extends Controller
 {
+    //use ResponseTrait; // Add this line
+
     protected $crudModel;
 
     public function __construct()
@@ -33,10 +35,6 @@ public function viewclientinfo($infoid)
     return redirect()->to(base_url().'/login');
 }
 
-        // Validate the infoid
-    // if (!$infoid || !is_numeric($infoid)) {
-    //     return redirect()->to('client/manageclients')->with('error', 'Invalid Client ID.');
-    // }
 
     // Load the model
     $clientModel = new Client_model();
@@ -140,7 +138,88 @@ public function manageclients()
     return view('layout/manage-clients', $data);
 }
 
+    // public function checkGst()
+    // {
+    //     $gst = $this->request->getPost('gst');
+        
+    //     // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //     //     return $this->respond(['exists' => false, 'message' => 'Invalid email format']);
+    //     // }
 
+        
+    //     $clientModel = new Client_model();
+    //     $exists = $clientModel->checkGstExists($gst);
+
+    //     if ($exists) {
+    //         return $this->respond(['exists' => true, 'message' => 'GST/PAN/ADHAAR already registered']);
+    //     } else {
+    //         return $this->respond(['exists' => false, 'message' => 'Email available']);
+    //     }
+    // }
+    // public function checkGst()
+    // {
+    //     // Check if it's an AJAX request
+    //     if (!$this->request->isAJAX()) {
+    //         return $this->respond(['error' => 'Method not allowed'], 405);
+    //     }
+
+    //     $gst = $this->request->getPost('gst');
+        
+    //     if (empty($gst)) {
+    //         return $this->respond([
+    //             'exists' => false, 
+    //             'message' => 'GST is required'
+    //         ]);
+    //     }
+        
+    //     try {
+    //         $clientModel = new \App\Models\Client_model();
+    //         $exists = $clientModel->checkGstExists($gst);
+
+    //         print_r($exists);
+
+    //         if ($exists) {
+    //             return $this->respond([
+    //                 'exists' => true, 
+    //                 'message' => 'GST/PAN/Aadhaar already registered'
+    //             ]);
+    //         } else {
+    //             return $this->respond([
+    //                 'exists' => false, 
+    //                 'message' => 'GST/PAN/Aadhaar available'
+    //             ]);
+    //         }
+    //     } catch (\Exception $e) {
+    //         log_message('error', 'GST check error: ' . $e->getMessage());
+    //         return $this->respond([
+    //             'exists' => false, 
+    //             'message' => 'Server error occurred while checking GST'
+    //         ], 500);
+    //     }
+    // }
+
+public function checkGst()
+{
+    $gst = $this->request->getPost('gst');
+    
+    if (empty($gst)) {
+        echo json_encode(['exists' => false, 'message' => 'GST is required']);
+        return;
+    }
+    
+    try {
+        $clientModel = new \App\Models\Client_model();
+        $exists = $clientModel->checkGstExists($gst);
+
+        if ($exists) {
+            echo json_encode(['exists' => true, 'message' => 'GST/PAN/Aadhaar already registered']);
+        } else {
+            echo json_encode(['exists' => false, 'message' => 'GST/PAN/Aadhaar available']);
+        }
+    } catch (\Exception $e) {
+        echo json_encode(['exists' => false, 'message' => 'Server error occurred while checking GST']);
+    }
+}
 public function getallclients()
 {
     

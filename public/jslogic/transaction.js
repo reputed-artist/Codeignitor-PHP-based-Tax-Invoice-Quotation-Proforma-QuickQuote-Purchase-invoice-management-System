@@ -295,6 +295,263 @@ return formatIndianNumber(num);
 /* -------------------------------------------------------------------------- */
 /*                               Insert Records                               */
 /* -------------------------------------------------------------------------- */
+let hasDuplicateRecord = false;
+let duplicateCheckTimeout;
+// Function to check for duplicate records
+// Function to convert date from DD-MM-YYYY to YYYY-MM-DD
+// Function to convert date from DD-MM-YYYY to YYYY-MM-DD
+function convertDateToMySQL(dateString) {
+    if (!dateString) return '';
+    
+    console.log('Converting date:', dateString);
+    
+    // Check if already in YYYY-MM-DD format
+    if (dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+        return dateString;
+    }
+    
+    // Convert from DD-MM-YYYY to YYYY-MM-DD
+    const parts = dateString.split('-');
+    if (parts.length === 3) {
+        // If format is DD-MM-YYYY
+        if (parts[0].length === 2 && parts[1].length === 2 && parts[2].length === 4) {
+            const mysqlDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+            console.log('Converted date:', mysqlDate);
+            return mysqlDate;
+        }
+        // If format is MM-DD-YYYY
+        else if (parts[0].length === 2 && parts[1].length === 2 && parts[2].length === 4) {
+            const mysqlDate = `${parts[2]}-${parts[0]}-${parts[1]}`;
+            console.log('Converted date:', mysqlDate);
+            return mysqlDate;
+        }
+    }
+    
+    console.log('Date format not recognized, returning as is');
+    return dateString;
+}
+function checkDuplicateRecord() {
+        const rawDate = $('#datepicker').val().trim();
+    const mysqlDate = convertDateToMySQL(rawDate);
+
+    const formData = {
+        company_name: $('#co').val().trim(),
+        //location: $('#purpose').val().trim(),
+        purpose: $('#purpose').val().trim(), // Add purpose field if needed
+        dateofpayment: mysqlDate,
+        //modeofpayment: $('#modeofpayment').val().trim(),
+        amount: $('#amount').val().trim(),
+        ctype: $('#ctype').val().trim()
+    };
+
+    console.log('Date conversion:', {
+        input: rawDate,
+        mysql: mysqlDate
+    });
+    // Check if at least one field has value before making API call
+    const hasData = Object.values(formData).some(value => value !== '');
+    
+    if (!hasData) {
+        hasDuplicateRecord = false;
+        return;
+    }
+
+    $.ajax({
+        url: base_url + '/transaction/checkDuplicateRecord',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        success: function(response) {
+            console.log('Duplicate check response:', response);
+            hasDuplicateRecord = response.exists;
+            
+                      if (response.exists) {
+                // Store duplicate record details for showing in alert
+                window.duplicateRecordDetails = response.duplicate_record;
+                
+                $('#duplicateWarning').html(`
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        Similar transaction found! You'll be asked to confirm before submitting.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `);
+            } else {
+                $('#duplicateWarning').html('');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Duplicate check error:', error);
+            console.error('Response text:', xhr.responseText);
+            hasDuplicateRecord = false;
+            $('#duplicateWarning').html('');
+        }
+    });
+}
+// Debounced duplicate check on field changes
+$('#co, #purpose, #datepicker, #amount, #ctype').on('input change', function() {
+    clearTimeout(duplicateCheckTimeout);
+    duplicateCheckTimeout = setTimeout(() => {
+        checkDuplicateRecord();
+    }, 800);
+});
+
+// Function to show duplicate confirmation alert
+// Function to show duplicate confirmation alert
+function showDuplicateConfirmation() {
+    const duplicate = window.duplicateRecordDetails;
+    
+    const duplicateDetails = `
+        <div style="text-align: left; font-size: 14px; margin: 15px 0;">
+            <p><strong>Similar transaction record found:</strong></p>
+            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                <p><strong>Company ID:</strong> ${duplicate.cid || 'N/A'}</p>
+                <p><strong>Purpose:</strong> ${duplicate.purpose || 'N/A'}</p>
+                <p><strong>Date of Payment:</strong> ${duplicate.dateofpayment || 'N/A'}</p>
+                <p><strong>Amount:</strong> ${duplicate.amount || 'N/A'}</p>
+                <p><strong>Bank:</strong> ${duplicate.bank || 'N/A'}</p>
+            </div>
+            <p style="margin-top: 10px; color: #856404;">Do you want to proceed with this duplicate entry?</p>
+        </div>
+    `;
+
+    Swal.fire({
+        title: 'Duplicate Transaction Found!',
+        html: duplicateDetails,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Submit Anyway',
+        cancelButtonText: 'No, Cancel',
+        width: '600px'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // User confirmed, proceed with submission
+            console.log('User confirmed duplicate submission');
+            submitTransaction();
+        } else {
+            // User cancelled, show info message
+            console.log('User cancelled duplicate submission');
+            Swal.fire({
+                title: 'Cancelled',
+                text: 'Transaction submission was cancelled.',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
+    });
+}// Function to submit transaction data
+
+function submitTransaction() {
+    var payid = $('#payid').val().trim();
+    var co = $('#co').val();
+    var purpose = $('#purpose').val();
+    var rawDate = $('#datepicker').val();
+    var mysqlDate = convertDateToMySQL(rawDate);
+    var ctype = $('#ctype').val();
+    var amount = $('#amount').val();
+
+    // Validate once more before sending
+    if (!co || !purpose || !amount || !ctype || !mysqlDate) {
+        Swal.fire({
+            title: "Validation Error!",
+            text: "Please fill all required fields",
+            icon: "error",
+            confirmButtonText: "OK"
+        });
+        return;
+    }
+
+    var fd = new FormData();
+    fd.append("payid", payid);
+    fd.append("co", co);
+    fd.append("purpose", purpose);
+    fd.append("amount", amount);
+    fd.append("ctype", ctype);
+    fd.append("dateofpayment", mysqlDate);
+    
+    // ADD CREATED FIELD - use current date in YYYY-MM-DD format
+    var currentDate = new Date();
+    var createdDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+    fd.append("created", createdDate);
+
+    console.log("Submitting transaction data:");
+    for (var pair of fd.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    // Show loading indicator
+    Swal.fire({
+        title: 'Processing...',
+        text: 'Please wait while we save your transaction',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    $.ajax({
+        type: "post",
+        url: base_url + "/transaction/insert",
+        data: fd,
+        processData: false,
+        contentType: false,
+        dataType: "json",
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        success: function(response) {
+            console.log('Insert Response:', response);
+            
+            Swal.close();
+            
+            if (response.res === "success") {
+                Swal.fire({
+                    title: "Success!",
+                    text: response.message || "Transaction inserted successfully!",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 3000,
+                }).then(function() {
+                    $("#modal-default").modal("hide");
+                    $("#form")[0].reset();
+                    $(".select2").val(null).trigger('change');
+                    $("#example").DataTable().clear().destroy();
+                    fetch();
+                    
+                    hasDuplicateRecord = false;
+                    $('#duplicateWarning').html('');
+                });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: response.message || "Failed to insert transaction",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            Swal.close();
+            console.error("AJAX Error: ", status, error);
+            console.error("Response text: ", xhr.responseText);
+            
+            Swal.fire({
+                title: "Server Error!",
+                text: "Failed to connect to server: " + error,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    });
+}
 $(document).on("click", "#submit", function(e) {
     e.preventDefault();
 
@@ -346,28 +603,7 @@ $(document).on("click", "#submit", function(e) {
         isValid = false;
     }
 
-    // Validate Bill Type
-    // if ($('#ctype').val().trim() === '') {
-    //     $('#ctype_error').text('Please select a Bill Type.');
-    //  $('#ctype').addClass('is-invalid');  // Add to the hidden select (optional for form data)
-    // $('#ctype').next('.select2').find('.select2-selection').addClass('is-invalid');  // Add class to Select2 container
-    // isValid = false;
-    // }
-
-//    if ($('#ctype').val().trim() === '') {
-//     $('#ctype_error').text('Please select a Bank.');
-//     $('#ctype').addClass('is-invalid');  // For the original select (good for fallback)
     
-//     // Add 'is-invalid' to the rendered Select2 container
-//     $('#ctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
-
-//     isValid = false;
-// } else {
-//     $('#ctype').removeClass('is-invalid');
-//     $('#ctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
-//     $('#ctype_error').text('');
-// }
-
 //let isValid = true;
 
 // First Select2
@@ -390,80 +626,87 @@ if ($('#co').val() === '' || $('#co').val() === null) {
 
 
 
-    // Prevent form submission if validation fails
-    if (!isValid) {
-        e.preventDefault();
-        return;
+        // If duplicate record exists, show confirmation alert
+    if (hasDuplicateRecord && window.duplicateRecordDetails) {
+        console.log('Duplicate found, showing confirmation');
+        showDuplicateConfirmation();
     } else {
-        // Get form data
-
-        var payid=$('#payid').val().trim();
-        var co=$('#co').val();
-        //$('#item').text("Supply Of : "+item_name);
-        var purpose=$('#purpose').val();
-        var dateofpayment = $('#datepicker').val();
-        var ctype=$('#ctype').val();
-        var amount = $('#amount').val();
-    
-        var u_type = 0; // Assuming you want this value
-        var fd = new FormData();
-        fd.append("payid", payid);
-        fd.append("co", co);
-        fd.append("purpose", purpose);
-        fd.append("amount", amount);
-        fd.append("ctype", ctype);
-
-        fd.append("dateofpayment", dateofpayment);
-
-
-        //fd.append("u_type", u_type); // Ensure this is included
-
-        console.log("cid: ", payid);
-        console.log("c_name: ", co);
-        console.log("c_add: ", purpose);
-        console.log("fullno: ", amount);
-        //console.log("country: ", countr);
-        //console.log("gst: ", gst);
-        console.log("email: ", dateofpayment);
-        console.log("ctype: ", ctype);
-        console.log("u_type: ", u_type);
-
-
-        console.log(fd);    
-
-        $.ajax({
-            type: "post",  // Change this to "post" if using POST
-            url: base_url + "/transaction/insert",
-            data: fd,
-            processData: false,
-            contentType: false,
-            dataType:"json",
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
-            },
-            success: function(response) {
-                
-                        try {
-            // Parse JSON response
-            const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-            console.log('Parsed Response:', jsonResponse);
-
-            $("#modal-default").modal("hide");
-            $("#form")[0].reset();
-            $(".select2").val(null).trigger('change');
-            $("#example").DataTable().clear().destroy();
-                fetch();
-        } catch (error) {
-            console.error('Invalid JSON Response:', error);
-        }
-
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX Error: ", status, error);
-            }
-        });
+        // No duplicates found, proceed with submission
+        console.log('No duplicates found, proceeding with submission');
+        submitTransaction();
     }
-  }) 
+});
+
+
+  //       // Get form data
+
+  //       var payid=$('#payid').val().trim();
+  //       var co=$('#co').val();
+  //       //$('#item').text("Supply Of : "+item_name);
+  //       var purpose=$('#purpose').val();
+  //       var dateofpayment = $('#datepicker').val();
+  //       var ctype=$('#ctype').val();
+  //       var amount = $('#amount').val();
+    
+  //       var u_type = 0; // Assuming you want this value
+  //       var fd = new FormData();
+  //       fd.append("payid", payid);
+  //       fd.append("co", co);
+  //       fd.append("purpose", purpose);
+  //       fd.append("amount", amount);
+  //       fd.append("ctype", ctype);
+
+  //       fd.append("dateofpayment", dateofpayment);
+
+
+  //       //fd.append("u_type", u_type); // Ensure this is included
+
+  //       console.log("cid: ", payid);
+  //       console.log("c_name: ", co);
+  //       console.log("c_add: ", purpose);
+  //       console.log("fullno: ", amount);
+  //       //console.log("country: ", countr);
+  //       //console.log("gst: ", gst);
+  //       console.log("email: ", dateofpayment);
+  //       console.log("ctype: ", ctype);
+  //       console.log("u_type: ", u_type);
+
+
+  //       console.log(fd);    
+
+  //       $.ajax({
+  //           type: "post",  // Change this to "post" if using POST
+  //           url: base_url + "/transaction/insert",
+  //           data: fd,
+  //           processData: false,
+  //           contentType: false,
+  //           dataType:"json",
+  //           headers: {
+  //               'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
+  //           },
+  //           success: function(response) {
+                
+  //                       try {
+  //           // Parse JSON response
+  //           const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
+  //           console.log('Parsed Response:', jsonResponse);
+
+  //           $("#modal-default").modal("hide");
+  //           $("#form")[0].reset();
+  //           $(".select2").val(null).trigger('change');
+  //           $("#example").DataTable().clear().destroy();
+  //               fetch();
+  //       } catch (error) {
+  //           console.error('Invalid JSON Response:', error);
+  //       }
+
+  //           },
+  //           error: function(xhr, status, error) {
+  //               console.error("AJAX Error: ", status, error);
+  //           }
+  //       });
+  //   }
+  // }) 
 
 
 
@@ -655,11 +898,359 @@ console.log("Delete URL:", base_url+"/transaction/delete/" + encodeURIComponent(
 
 
 
+// $(document).on("click", "#update", function(e) {
+//     e.preventDefault();
+
+  
+//      isValid = true;
+
+//     // Clear previous error messages
+//     $('#coedit_error').text('');
+//     $('#editpurpose_error').text('');
+//     $('#editamount_error').text('');
+//     $('#editdtp_error').text('');
+//     $('#editctype_error').text('');
+//     //$('#bank_error').text('');
+//     // // Validate Company Name
+//     // if ($('#c_nameedit').val().trim() === '') {
+//     //     $('#c_name_error').text('Company name is required.');
+//     //     isValid = false;
+//     // }
+
+//     $('#coedit, #editpurpose, #editamount, #editdatepicker, #editctype').removeClass('is-invalid');
+
+//     // Validate Company Name
+//     // if ($('#coedit').val().trim() === '') {
+//     //     $('#coedit_error').text('Company name is required.');
+//     //     $('#coedit').addClass('is-invalid'); // Highlight the field
+//     //     isValid = false;
+//     // }
+
+//     // Validate Address
+//     if ($('#editpurpose').val().trim() === '') {
+//         $('#editpurpose_error').text('Purpose is required.');
+//         $('#editpurpose').addClass('is-invalid'); // Highlight the field
+//         isValid = false;
+//     }
+
+//     // Validate Mobile Number
+//     if ($('#editamount').val().trim() === '') {
+//         $('#editamount_error').text('Amount is required.');
+//         $('#editamount').addClass('is-invalid'); // Highlight the field
+//             //$('#phoneedit').addClass('is-invalid');  // Adding class to input
+//     //$('.iti').addClass('is-invalid');        // Adding class to intl-tel-input wrapper
+//     isValid = false;
+//         //isValid = false;
+//     }
+
+//     // Validate GST
+//     if ($('#editdatepicker').val().trim() === '') {
+//         $('#editdtp_error').text('dateofpayment is required.');
+//         $('#editdatepicker').addClass('is-invalid'); // Highlight the field
+//         isValid = false;
+//     }
+
+
+
+// if ($('#editctype').val() === '' || $('#ctype').val() === null) {
+//     $('#editctype_error').text('Bank name is required.');
+//     $('#editctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+//     isValid = false;
+// } else {
+//     $('#editctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+// }
+
+// // Second Select2
+// if ($('#coedit').val() === '' || $('#co').val() === null) {
+//     $('#coedit_error').text('Company name is required.');
+//     $('#coedit').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+//     isValid = false;
+// } else {
+//     $('#coedit').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+// }
+
+
+
+
+
+//     // Prevent form submission if validation fails
+//     if (!isValid) {
+//         e.preventDefault();
+//         return;
+//     } else {
+//         // Get form data
+//         var payid=$('#payidedit').val().trim();
+//         var co=$('#coedit').val();
+//         //$('#item').text("Supply Of : "+item_name);
+//         var purpose=$('#editpurpose').val();
+//         var dateofpayment = $('#editdatepicker').val();
+//         var ctype=$('#editctype').val();
+//         var amount = $('#editamount').val();
+    
+//         var u_type = 0; // Assuming you want this value
+//         var fd = new FormData();
+//         fd.append("payidedit", payid);
+//         fd.append("coedit", co);
+//         fd.append("editpurpose", purpose);
+//         fd.append("editamount", amount);
+//         fd.append("editctype", ctype);
+
+//         fd.append("editdateofpayment", dateofpayment);
+
+//         console.log(fd);
+
+//         $.ajax({
+//             type: "post",
+//             url: base_url + "/transaction/update",
+//             data: fd,
+//             processData: false,
+//             contentType: false,
+//             headers: {
+//                  'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
+//              },
+//             dataType: "json",
+//             success: function(response) {
+//                 if (response.res == "success") {
+//                 //console.log(response);
+//                     //toastr["success"](response.message);
+//                     $("#modal-default1").modal("hide");
+//                      $("#example").DataTable().clear().destroy();
+//                        fetch();  // Refetch the data
+
+//                 } else {
+//                     toastr["error"](response.message);
+//                 }
+//             },
+//         });
+//     }
+//  });
+// Update functionality - duplicate checking variables
+let hasDuplicateRecordEdit = false;
+let duplicateCheckTimeoutEdit;
+
+// Function to check for duplicate records in edit mode
+function checkDuplicateRecordEdit() {
+    const rawDate = $('#editdatepicker').val().trim();
+    const mysqlDate = convertDateToMySQL(rawDate);
+
+    const formData = {
+        company_name: $('#coedit').val().trim(),
+        purpose: $('#editpurpose').val().trim(),
+        dateofpayment: mysqlDate,
+        amount: $('#editamount').val().trim(),
+        ctype: $('#editctype').val().trim(),
+        exclude_payid: $('#payidedit').val().trim() // Exclude current record
+    };
+
+    console.log('Edit Duplicate check data:', formData);
+
+    // Check if at least one field has value before making API call
+    const hasData = Object.values(formData).some(value => value !== '');
+    
+    if (!hasData) {
+        hasDuplicateRecordEdit = false;
+        return;
+    }
+
+    $.ajax({
+        url: base_url + '/transaction/checkDuplicateRecord',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        success: function(response) {
+            console.log('Edit Duplicate check response:', response);
+            hasDuplicateRecordEdit = response.exists;
+            
+            if (response.exists) {
+                // Store duplicate record details for showing in alert
+                window.duplicateRecordDetailsEdit = response.duplicate_record;
+                
+                $('#duplicateWarningEdit').html(`
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        Similar transaction found! You'll be asked to confirm before updating.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                `);
+            } else {
+                $('#duplicateWarningEdit').html('');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Edit Duplicate check error:', error);
+            console.error('Response text:', xhr.responseText);
+            hasDuplicateRecordEdit = false;
+            $('#duplicateWarningEdit').html('');
+        }
+    });
+}
+
+// Debounced duplicate check on field changes for edit form
+$('#coedit, #editpurpose, #editdatepicker, #editamount, #editctype').on('input change', function() {
+    clearTimeout(duplicateCheckTimeoutEdit);
+    duplicateCheckTimeoutEdit = setTimeout(() => {
+        checkDuplicateRecordEdit();
+    }, 800);
+});
+
+// Function to show duplicate confirmation alert for edit
+function showDuplicateConfirmationEdit() {
+    const duplicate = window.duplicateRecordDetailsEdit;
+    
+    const duplicateDetails = `
+        <div style="text-align: left; font-size: 14px; margin: 15px 0;">
+            <p><strong>Similar transaction record found:</strong></p>
+            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                <p><strong>Company ID:</strong> ${duplicate.cid || 'N/A'}</p>
+                <p><strong>Purpose:</strong> ${duplicate.purpose || 'N/A'}</p>
+                <p><strong>Date of Payment:</strong> ${duplicate.dateofpayment || 'N/A'}</p>
+                <p><strong>Amount:</strong> ${duplicate.amount || 'N/A'}</p>
+                <p><strong>Bank:</strong> ${duplicate.bank || 'N/A'}</p>
+            </div>
+            <p style="margin-top: 10px; color: #856404;">Do you want to proceed with this duplicate entry?</p>
+        </div>
+    `;
+
+    Swal.fire({
+        title: 'Duplicate Transaction Found!',
+        html: duplicateDetails,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Update Anyway',
+        cancelButtonText: 'No, Cancel',
+        width: '600px'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // User confirmed, proceed with update
+            console.log('User confirmed duplicate update');
+            submitTransactionUpdate();
+        } else {
+            // User cancelled, show info message
+            console.log('User cancelled duplicate update');
+            Swal.fire({
+                title: 'Cancelled',
+                text: 'Transaction update was cancelled.',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                timer: 2000
+            });
+        }
+    });
+}
+
+// Function to submit transaction update
+function submitTransactionUpdate() {
+    var payid = $('#payidedit').val().trim();
+    var co = $('#coedit').val();
+    var purpose = $('#editpurpose').val();
+    var rawDate = $('#editdatepicker').val();
+    var mysqlDate = convertDateToMySQL(rawDate);
+    var ctype = $('#editctype').val();
+    var amount = $('#editamount').val();
+
+    // Validate once more before sending
+    if (!co || !purpose || !amount || !ctype || !mysqlDate) {
+        Swal.fire({
+            title: "Validation Error!",
+            text: "Please fill all required fields",
+            icon: "error",
+            confirmButtonText: "OK"
+        });
+        return;
+    }
+
+    var fd = new FormData();
+    fd.append("payidedit", payid);
+    fd.append("coedit", co);
+    fd.append("editpurpose", purpose);
+    fd.append("editamount", amount);
+    fd.append("editctype", ctype);
+    fd.append("editdateofpayment", mysqlDate);
+
+    console.log("Updating transaction data:");
+    for (var pair of fd.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    // Show loading indicator
+    Swal.fire({
+        title: 'Updating...',
+        text: 'Please wait while we update your transaction',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    $.ajax({
+        type: "post",
+        url: base_url + "/transaction/update",
+        data: fd,
+        processData: false,
+        contentType: false,
+        dataType: "json",
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        success: function(response) {
+            console.log('Update Response:', response);
+            
+            Swal.close();
+            
+            if (response.res === "success") {
+                Swal.fire({
+                    title: "Success!",
+                    text: response.message || "Transaction updated successfully!",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 3000,
+                }).then(function() {
+                    $("#modal-default1").modal("hide");
+                    $("#form1")[0].reset();
+                    $(".select2").val(null).trigger('change');
+                    $("#example").DataTable().clear().destroy();
+                    fetch();
+                    
+                    // Reset duplicate flag
+                    hasDuplicateRecordEdit = false;
+                    $('#duplicateWarningEdit').html('');
+                });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: response.message || "Failed to update transaction",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            Swal.close();
+            console.error("AJAX Error: ", status, error);
+            console.error("Response text: ", xhr.responseText);
+            
+            Swal.fire({
+                title: "Server Error!",
+                text: "Failed to connect to server: " + error,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    });
+}
+
+// Updated Update button handler
 $(document).on("click", "#update", function(e) {
     e.preventDefault();
 
-  
-     isValid = true;
+    let isValid = true;
 
     // Clear previous error messages
     $('#coedit_error').text('');
@@ -667,117 +1258,59 @@ $(document).on("click", "#update", function(e) {
     $('#editamount_error').text('');
     $('#editdtp_error').text('');
     $('#editctype_error').text('');
-    //$('#bank_error').text('');
-    // // Validate Company Name
-    // if ($('#c_nameedit').val().trim() === '') {
-    //     $('#c_name_error').text('Company name is required.');
-    //     isValid = false;
-    // }
 
     $('#coedit, #editpurpose, #editamount, #editdatepicker, #editctype').removeClass('is-invalid');
 
-    // Validate Company Name
-    // if ($('#coedit').val().trim() === '') {
-    //     $('#coedit_error').text('Company name is required.');
-    //     $('#coedit').addClass('is-invalid'); // Highlight the field
-    //     isValid = false;
-    // }
-
-    // Validate Address
+    // Validate Purpose
     if ($('#editpurpose').val().trim() === '') {
         $('#editpurpose_error').text('Purpose is required.');
-        $('#editpurpose').addClass('is-invalid'); // Highlight the field
+        $('#editpurpose').addClass('is-invalid');
         isValid = false;
     }
 
-    // Validate Mobile Number
+    // Validate Amount
     if ($('#editamount').val().trim() === '') {
         $('#editamount_error').text('Amount is required.');
-        $('#editamount').addClass('is-invalid'); // Highlight the field
-            //$('#phoneedit').addClass('is-invalid');  // Adding class to input
-    //$('.iti').addClass('is-invalid');        // Adding class to intl-tel-input wrapper
-    isValid = false;
-        //isValid = false;
-    }
-
-    // Validate GST
-    if ($('#editdatepicker').val().trim() === '') {
-        $('#editdtp_error').text('dateofpayment is required.');
-        $('#editdatepicker').addClass('is-invalid'); // Highlight the field
+        $('#editamount').addClass('is-invalid');
         isValid = false;
     }
 
+    // Validate Date
+    if ($('#editdatepicker').val().trim() === '') {
+        $('#editdtp_error').text('Date of payment is required.');
+        $('#editdatepicker').addClass('is-invalid');
+        isValid = false;
+    }
 
+    // Validate Select2 fields - FIXED: using correct field IDs
+    if ($('#editctype').val() === '' || $('#editctype').val() === null) {
+        $('#editctype_error').text('Bank name is required.');
+        $('#editctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+        isValid = false;
+    } else {
+        $('#editctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+    }
 
-if ($('#editctype').val() === '' || $('#ctype').val() === null) {
-    $('#editctype_error').text('Bank name is required.');
-    $('#editctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
-    isValid = false;
-} else {
-    $('#editctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
-}
-
-// Second Select2
-if ($('#coedit').val() === '' || $('#co').val() === null) {
-    $('#coedit_error').text('Company name is required.');
-    $('#coedit').next('.select2-container').find('.select2-selection').addClass('is-invalid');
-    isValid = false;
-} else {
-    $('#coedit').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
-}
-
-
-
-
+    if ($('#coedit').val() === '' || $('#coedit').val() === null) {
+        $('#coedit_error').text('Company name is required.');
+        $('#coedit').next('.select2-container').find('.select2-selection').addClass('is-invalid');
+        isValid = false;
+    } else {
+        $('#coedit').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
+    }
 
     // Prevent form submission if validation fails
     if (!isValid) {
-        e.preventDefault();
         return;
-    } else {
-        // Get form data
-        var payid=$('#payidedit').val().trim();
-        var co=$('#coedit').val();
-        //$('#item').text("Supply Of : "+item_name);
-        var purpose=$('#editpurpose').val();
-        var dateofpayment = $('#editdatepicker').val();
-        var ctype=$('#editctype').val();
-        var amount = $('#editamount').val();
-    
-        var u_type = 0; // Assuming you want this value
-        var fd = new FormData();
-        fd.append("payidedit", payid);
-        fd.append("coedit", co);
-        fd.append("editpurpose", purpose);
-        fd.append("editamount", amount);
-        fd.append("editctype", ctype);
-
-        fd.append("editdateofpayment", dateofpayment);
-
-        console.log(fd);
-
-        $.ajax({
-            type: "post",
-            url: base_url + "/transaction/update",
-            data: fd,
-            processData: false,
-            contentType: false,
-            headers: {
-                 'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
-             },
-            dataType: "json",
-            success: function(response) {
-                if (response.res == "success") {
-                //console.log(response);
-                    //toastr["success"](response.message);
-                    $("#modal-default1").modal("hide");
-                     $("#example").DataTable().clear().destroy();
-                       fetch();  // Refetch the data
-
-                } else {
-                    toastr["error"](response.message);
-                }
-            },
-        });
     }
- });
+
+    // If duplicate record exists, show confirmation alert
+    if (hasDuplicateRecordEdit && window.duplicateRecordDetailsEdit) {
+        console.log('Duplicate found in edit, showing confirmation');
+        showDuplicateConfirmationEdit();
+    } else {
+        // No duplicates found, proceed with update
+        console.log('No duplicates found in edit, proceeding with update');
+        submitTransactionUpdate();
+    }
+});

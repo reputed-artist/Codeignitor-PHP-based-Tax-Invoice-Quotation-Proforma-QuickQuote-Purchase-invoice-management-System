@@ -649,12 +649,6 @@ function formatIndianNumber(x) {
 
     function loadTransactions(date = null, client = null, clienttype=null) {
 
-//        
-
-
-// // Set total after loop
-//        $('#totalamt').text(totalAmount.toFixed(2));
-
         console.log("Loading invoices for page: " + date + client + clienttype); // Add this line
        
         $.ajax({
