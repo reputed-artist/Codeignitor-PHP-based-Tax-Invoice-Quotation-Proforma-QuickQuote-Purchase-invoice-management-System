@@ -220,6 +220,24 @@ public function checkGst()
         echo json_encode(['exists' => false, 'message' => 'Server error occurred while checking GST']);
     }
 }
+public function checkGstupdate()
+{
+    $gst = $this->request->getPost('gst');
+    $clientId = $this->request->getPost('client_id'); // optional
+
+    if (empty($gst)) {
+        return $this->response->setJSON(['exists' => false]);
+    }
+
+    $clientModel = new \App\Models\Client_model();
+
+    $exists = $clientModel->checkGstExistsupdate($gst, $clientId);
+
+    return $this->response->setJSON([
+        'exists' => $exists
+    ]);
+}
+
 public function getallclients()
 {
     

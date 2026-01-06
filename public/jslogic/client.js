@@ -758,16 +758,22 @@ $('#gstedit').on('input', function() {
 });
 
 function checkGSTAvailabilityEdit(gst) {
+    const clientId = $('#cidedit').val(); // current record id
+    console.log('Edit ID:', $('#cidedit').val());
+
+
     $.ajax({
-        url: base_url + '/client/checkGst', // Your endpoint
+        url: base_url + '/client/checkGstupdate',
         type: 'post',
-        data: { gst: gst },
+        data: { 
+            gst: gst,
+            client_id: clientId 
+        },
         dataType: 'json',
         headers: {
             'X-Requested-With': 'XMLHttpRequest'
         },
         success: function(response) {
-            console.log('Edit GST Response:', response);
             if (response.exists) {
                 $('#gst_status1').html('<span style="color: red;">✗ GST / PAN / Aadhaar already registered</span>');
                 $('#gstedit').addClass('is-invalid');
@@ -777,14 +783,38 @@ function checkGSTAvailabilityEdit(gst) {
                 $('#gstedit').removeClass('is-invalid');
                 gstAvailableEdit = true;
             }
-        },
-        error: function(xhr, status, error) {
-            console.error('GST check error:', error);
-            $('#gst_status1').html('<span style="color: orange;">Error checking GST</span>');
-            gstAvailableEdit = false;
         }
     });
 }
+
+// function checkGSTAvailabilityEdit(gst) {
+//     $.ajax({
+//         url: base_url + '/client/checkGst', // Your endpoint
+//         type: 'post',
+//         data: { gst: gst },
+//         dataType: 'json',
+//         headers: {
+//             'X-Requested-With': 'XMLHttpRequest'
+//         },
+//         success: function(response) {
+//             console.log('Edit GST Response:', response);
+//             if (response.exists) {
+//                 $('#gst_status1').html('<span style="color: red;">✗ GST / PAN / Aadhaar already registered</span>');
+//                 $('#gstedit').addClass('is-invalid');
+//                 gstAvailableEdit = false;
+//             } else {
+//                 $('#gst_status1').html('<span style="color: green;">✓ GST / PAN / Aadhaar available</span>');
+//                 $('#gstedit').removeClass('is-invalid');
+//                 gstAvailableEdit = true;
+//             }
+//         },
+//         error: function(xhr, status, error) {
+//             console.error('GST check error:', error);
+//             $('#gst_status1').html('<span style="color: orange;">Error checking GST</span>');
+//             gstAvailableEdit = false;
+//         }
+//     });
+// }
 
 $(document).on("click", "#Update", function(e) {
     e.preventDefault();
