@@ -168,6 +168,28 @@
 
 <script>
 
+
+ //let totalAmount = 0;
+function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+
+
 // Global variables to store current filter selections
 let selectedYear = '';
 let selectedClient = '';
@@ -203,7 +225,7 @@ function loadInvoices(page = 1) {
                                                 <strong><p style="color:black; margin-bottom:5px;">${invoice.c_name}</p></strong>
                                                 <p style="margin-bottom:5px;"><strong>Location:</strong> ${invoice.location}</p>
                                                 <p style="margin-bottom:5px;"><strong>Item name:</strong> ${invoice.item_name}</p>
-                                                <p style="margin-bottom:5px;"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
+                                                <p style="margin-bottom:5px;"><strong>Total Bill:</strong> ${formatIndianNumber(invoice.totalamount)}</p>
                                                 <p style="margin-bottom:5px;"><strong>Invoice Dated:</strong> ${invoice.created}</p>
                                             </div>
                                             <br/>

@@ -718,8 +718,8 @@ function formatIndianNumber(x) {
             { 'data': 'bank' },
            { 'data': 'amount',
               render: function(data, type, row, meta) {
-let num = parseFloat(data).toFixed(2);
-return formatIndianNumber(num);
+              let num = parseFloat(data).toFixed(2);
+              return formatIndianNumber(num);
 
 
                 }

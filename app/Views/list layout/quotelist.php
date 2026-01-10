@@ -161,8 +161,27 @@
 </script>
 
 <script>
-  
-    let selectedYear = '';
+
+function formatIndianNumber(x) {
+    let num = Number(x);
+
+    if (isNaN(num)) return "0.00";
+
+    num = num.toFixed(2);
+    let [intPart, decPart] = num.split(".");
+
+    let last3 = intPart.slice(-3);
+    let rest = intPart.slice(0, -3);
+
+    if (rest !== "") {
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+        intPart = rest + "," + last3;
+    }
+
+    return intPart + "." + decPart;
+}
+    
+let selectedYear = '';
 let selectedClient = '';
 let selectedProduct = '';
 
@@ -201,7 +220,7 @@ let selectedProduct = '';
                                                 <strong><p align="center" style="color:black;">${invoice.c_name}</p></strong>
                                                 <p align="center"><strong>Location:</strong> ${invoice.location}</p>
                                                 <p align="center"><strong>Item name:</strong> ${invoice.item_name}</p>
-                                                <p align="center"><strong>Total Bill:</strong> ${invoice.totalamount}</p>
+                                                <p align="center"><strong>Total Bill:</strong> ${formatIndianNumber(invoice.totalamount)}</p>
                                                 <p align="center"><strong>Invoice Dated:</strong> ${invoice.created}</p>
                                                 <br/>
                                                 <a href="editquote?orderid=${invoice.orderid}">
