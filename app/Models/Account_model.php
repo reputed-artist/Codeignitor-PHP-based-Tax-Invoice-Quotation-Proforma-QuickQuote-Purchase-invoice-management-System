@@ -11,7 +11,7 @@ class Account_model extends Model
 
     
 
-    protected $allowedFields = ['aid','cid', 'acc_type', 'opening_bal','created']; // Specify allowed fields
+    protected $allowedFields = ['aid','cid', 'acc_type', 'opening_bal','created','is_hidden']; // Specify allowed fields
 
 
 
@@ -509,7 +509,7 @@ public function single_entry($edit_id)
     {
         return $this->select('account.aid, client.cid, client.c_name, 
                               SUBSTRING_INDEX(client.c_add, \',\', -1) AS location, 
-                              client.mob,client.u_type, account.opening_bal, account.created')
+                              client.mob,client.u_type, account.opening_bal, account.created, account.is_hidden')
                     ->join('client', 'client.cid = account.cid')
 
                     ->findAll();

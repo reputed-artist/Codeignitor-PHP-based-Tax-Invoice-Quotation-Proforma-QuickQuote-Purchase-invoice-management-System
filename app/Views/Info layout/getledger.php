@@ -260,10 +260,10 @@ input .error{
                           <!-- <h4 id="date"> </h4> -->
                           </br>
                         <div>
-                          <h2 class="box-title">Accounts of <?= $accountInfo->c_name;?></h2><!-- <h2 class="box-title" style="padding-top: 10px;"></h2> -->
+                          <h2 class="box-title" id="Company">Accounts of <?= $accountInfo->c_name;?></h2><!-- <h2 class="box-title" style="padding-top: 10px;"></h2> -->
                           <h2 class="box-title pull-right" style="margin-top: 10px; margin-right: 20px;"><b></b> </h2>
                           </br>
-                          <h2 class="box-title" style="padding-top: 10px;"><b>Location : <?= $accountInfo->location; ?></b></h2></br>
+                          <h2 class="box-title" id="Location" style="padding-top: 10px;"><b>Location : <?= $accountInfo->location; ?></b></h2></br>
                                     
 
                       </div>
@@ -516,8 +516,319 @@ input .error{
     var base_url = "<?php echo base_url(); ?>";
 </script>
 
-
 <script>
+    var base_url = "<?php echo base_url(); ?>";
+    var cid = "<?= $cid ?>";
+    var u_type = parseInt("<?= $accountInfo->u_type; ?>");
+    var ledgerTable; // Global reference to DataTable
+    
+    console.log('Client ID:', cid);
+    console.log('User Type:', u_type);
+
+    // Format number in Indian numbering system
+    function formatIndianNumber(num) {
+        if (num === null || num === undefined || isNaN(num)) return "0.00";
+        
+        num = parseFloat(num).toFixed(2);
+        let [intPart, decPart] = num.split(".");
+        
+        if (intPart.length > 3) {
+            let last3 = intPart.slice(-3);
+            let rest = intPart.slice(0, -3);
+            rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+            intPart = rest + "," + last3;
+        }
+        
+        return intPart + "." + decPart;
+    }
+
+    // Initialize DataTable with proper structure
+    function initializeDataTable() {
+        if ($.fn.DataTable.isDataTable('#examplez')) {
+            $('#examplez').DataTable().clear().destroy();
+        }
+
+        // Initialize DataTable WITHOUT buttons first
+        ledgerTable = $('#examplez').DataTable({
+            columns: [
+                { title: "Sr No", width: "5%" },
+                { title: "Date", width: "10%" },
+                { title: "Voucher Type", width: "15%" },
+                { title: "Invoice No", width: "15%" },
+                { title: "Credit", width: "15%" },
+                { title: "Debit", width: "15%" },
+                { title: "Balance", width: "15%" }
+            ],
+            paging: true,
+            lengthChange: true,
+            searching: true,
+            ordering: true,
+            processing: true,
+            info: true,
+            autoWidth: false,
+            footer: true,
+            dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'f>>>rtip", // Removed 'B' for now
+            lengthMenu: [[20, 50, 150, -1], [20, 50, 150, "All"]],
+            language: {
+                emptyTable: "No data available in table",
+                loadingRecords: "Loading...",
+                zeroRecords: "No matching records found"
+            }
+        });
+
+        // Add buttons AFTER DataTable is initialized
+        setTimeout(function() {
+            if (typeof getExportButtons2 !== 'undefined') {
+                new $.fn.dataTable.Buttons(ledgerTable, {
+                    buttons: getExportButtons2('#examplez', [0, 1, 2, 3, 4, 5, 6])
+                });
+                ledgerTable.buttons().container().appendTo($('.pull-center'));
+                
+                // Style buttons
+                $('.dt-button')
+                    .addClass('btn btn-primary btn-sm btn-group m-1')
+                    .removeClass('dt-button');
+            }
+        }, 100);
+
+        return ledgerTable;
+    }
+
+    // Load ledger data based on selected financial year
+    function loadLedgerByFY() {
+        var fy = $("#selectFY").val();
+        if (!fy) {
+            alert("Please select a financial year");
+            return;
+        }
+
+        $.ajax({
+            url: base_url + "/account/getLedgerByFY/" + cid,
+            type: "GET",
+            data: { 
+                fy: fy, 
+                u_type: u_type 
+            },
+            dataType: "json",
+            beforeSend: function() {
+                // Show loading indicator
+                $('#examplez tbody').html(
+                    '<tr><td colspan="7" class="text-center">Loading data...</td></tr>'
+                );
+            },
+            success: function(response) {
+                if (!response || (!response.ledger && !response.balances)) {
+                    $('#examplez tbody').html(
+                        '<tr><td colspan="7" class="text-center">No data found</td></tr>'
+                    );
+                    resetTotals();
+                    return;
+                }
+
+                updateLedgerTable(response, fy);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading ledger:', error);
+                $('#examplez tbody').html(
+                    '<tr><td colspan="7" class="text-center text-danger">Error loading data</td></tr>'
+                );
+                resetTotals();
+            }
+        });
+    }
+
+    // Reset all total displays
+    function resetTotals() {
+        $("#totalcreditamt").text("0.00");
+        $("#totaldebitamt").text("0.00");
+        $("#totalclosingamt").text("0.00");
+        $("#opening_bal").text("Opening Balance: 0.00");
+    }
+
+    // Update table with ledger data
+    function updateLedgerTable(response, fy) {
+        // Clear existing data
+        ledgerTable.clear();
+        
+        // Initialize variables
+        let totalcredit = 0;
+        let totaldebit = 0;
+        let subtotal = 0;
+        let rowIndex = 1;
+        let receiptIndex = 1;
+        
+        // Calculate opening balance
+        let openingBalance = calculateOpeningBalance(response, fy);
+        
+        // Set initial balance based on user type
+        if (u_type == 0) {
+            totalcredit += openingBalance;
+            subtotal = openingBalance;
+        } else if (u_type == 1) {
+            totaldebit += openingBalance;
+            subtotal = -openingBalance;
+        } else if (u_type == 2) {
+            totaldebit += openingBalance;
+            subtotal = -openingBalance;
+        }
+        
+        // Display opening balance
+        $("#opening_bal").text("Opening Balance: " + formatIndianNumber(openingBalance));
+        
+        // Process ledger entries
+        if (response.ledger && response.ledger.length) {
+            $.each(response.ledger, function(_, item) {
+                let credit = parseFloat(item.credit) || 0;
+                let debit = parseFloat(item.debit) || 0;
+                
+                // Update totals based on user type
+                if (u_type === 0) {
+                    totalcredit += credit;
+                    totaldebit += debit;
+                    subtotal = totalcredit - totaldebit;
+                } else if (u_type === 1) {
+                    totalcredit += credit;
+                    totaldebit += debit;
+                    subtotal = totaldebit - totalcredit;
+                } else if (u_type === 2) {
+                    if (item.voucher_type === "Purchase") {
+                        totaldebit += debit;
+                    } else if (item.voucher_type === "Sales") {
+                        totalcredit += credit;
+                    } else if (item.voucher_type === "Receipt") {
+                        totalcredit += credit;
+                    }
+                    subtotal = totaldebit - totalcredit;
+                }
+                
+                // Create table row
+                addLedgerRow(item, rowIndex, receiptIndex, subtotal, credit, debit);
+                
+                // Increment indices
+                if (item.voucher_type === "Receipt") {
+                    receiptIndex++;
+                }
+                rowIndex++;
+            });
+        }
+        
+        // Update footer totals
+        $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+        $("#totalclosingamt").text(formatIndianNumber(subtotal));
+        
+        // Redraw table
+        ledgerTable.draw(false);
+    }
+
+    // Helper function to calculate opening balance
+    function calculateOpeningBalance(response, fy) {
+        let openingBalance = 0;
+        
+        if (response.balances && response.balances.length) {
+            let matchingFY = response.balances.find(
+                b => String(b.fy).trim() === String(fy).trim()
+            );
+            openingBalance = matchingFY ? parseFloat(matchingFY.opening_balance) : 0;
+        }
+        
+        // Fallback to PHP variable if no balance found
+        if (openingBalance === 0) {
+            openingBalance = parseFloat("<?= $dops ?>") || 0;
+        }
+        
+        return openingBalance;
+    }
+
+    // Helper function to add ledger row
+    function addLedgerRow(item, rowIndex, receiptIndex, subtotal, credit, debit) {
+        let invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["", ""];
+        let isReceipt = item.voucher_type === "Receipt";
+        let displayIndex = isReceipt ? receiptIndex : rowIndex;
+        
+        // Determine print URL
+        let printUrl = "";
+        if (invoiceParts[1]) {
+            if (u_type === 0) {
+                printUrl = base_url + "/taxinv/printtaxinv?orderid=" + invoiceParts[1];
+            } else {
+                printUrl = base_url + "/purchaseinv/printpurchaseinv?orderid=" + invoiceParts[1];
+            }
+        }
+        
+        // Format invoice cell
+        let invoiceCell = "";
+        if (printUrl) {
+            let displayText = isReceipt ? "REC-" + displayIndex : (invoiceParts[0] || "------" + displayIndex);
+            invoiceCell = '<a href="' + printUrl + '" target="_blank" class="text-primary">' + displayText + '</a>';
+        } else {
+            invoiceCell = isReceipt ? "" + displayIndex : (invoiceParts[0] || displayIndex);
+        }
+        
+        // Format voucher type
+        let voucherType = item.voucher_type || 'N/A';
+        
+        // Add row to DataTable
+        ledgerTable.row.add([
+            rowIndex,
+            item.created || 'N/A',
+            voucherType,
+            invoiceCell,
+            formatIndianNumber(credit),
+            formatIndianNumber(debit),
+            formatIndianNumber(subtotal)
+        ]);
+    }
+
+    // Initialize on document ready
+    $(document).ready(function() {
+        // Initialize DataTable
+        initializeDataTable();
+        
+        // Set up column visibility toggles
+        $(document).on('click', '.toggle-vis', function(e) {
+            e.preventDefault();
+            let columnIdx = $(this).data('column');
+            if (columnIdx !== undefined && ledgerTable) {
+                let column = ledgerTable.column(columnIdx);
+                column.visible(!column.visible());
+                
+                // Toggle button color
+                $(this).toggleClass('btn-danger', !column.visible())
+                       .toggleClass('btn-primary', column.visible());
+            }
+        });
+        
+        // Load initial data
+        if ($("#selectFY").val()) {
+            loadLedgerByFY();
+        }
+        
+        // Handle financial year change
+        $("#selectFY").on("change", function() {
+            loadLedgerByFY();
+        });
+    });
+
+    // Make functions available globally if needed
+    window.loadLedgerByFY = loadLedgerByFY;
+    window.formatIndianNumber = formatIndianNumber;
+</script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+ -->
+
+<script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons2.js"></script>
+<script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/convertNumberToWords.js"></script>
+<script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons2.js"></script> 
+
+
+
+<!-- <script>
    $(document).ready(function() {
 
     var fy = $("#selectFY").val();
@@ -529,6 +840,10 @@ input .error{
 
         let totalCredit = 0;
 let totalDebit = 0;
+if ($.fn.DataTable.isDataTable('#examplez')) {
+    $('#examplez').DataTable().clear().destroy();
+}
+
 var table = $('#examplez').DataTable({
 
                 'paging': true,
@@ -580,7 +895,7 @@ var table = $('#examplez').DataTable({
 });
     
 </script>
-
+ -->
 <script>
 
 function formatIndianNumber(num) {
@@ -601,559 +916,687 @@ function formatIndianNumber(num) {
     return intPart + "." + decPart;
 }
 
- $(document).ready(function () {
-    //$("#selectFY").change(function () {
-        var fy = $("#selectFY").val();
-        var cid = "<?= $cid ?>"; // Ensure this dynamically gets the correct client ID
-        var u_type=parseInt("<?= $accountInfo->u_type; ?>");
+ // $(document).ready(function () {
+ //    //$("#selectFY").change(function () {
+ //        var fy = $("#selectFY").val();
+ //        var cid = "<?= $cid ?>"; // Ensure this dynamically gets the correct client ID
+ //        var u_type=parseInt("<?= $accountInfo->u_type; ?>");
 
-                   var totalcredit = 0;
-                    var totaldebit = 0;
-                    var subtotal = 0;
+ //                   var totalcredit = 0;
+ //                    var totaldebit = 0;
+ //                    var subtotal = 0;
 
-        console.log(cid);
-        console.log(u_type);
+ //        console.log(cid);
+ //        console.log(u_type);
 
-        if (fy) {
-            $.ajax({
-                url: base_url + "/account/getLedgerByFY/" + cid,  // Ensure correct URL
-                type: "GET",
-                data: { fy: fy, u_type:u_type},  // Send FY as GET parameter
-                dataType: "json",
-                headers: { "X-Requested-With": "XMLHttpRequest" },  // Important!
-                success: function (response) {
-                    console.log(response);
+ //        if (fy) {
+ //            $.ajax({
+ //                url: base_url + "/account/getLedgerByFY/" + cid,  // Ensure correct URL
+ //                type: "GET",
+ //                data: { fy: fy, u_type:u_type},  // Send FY as GET parameter
+ //                dataType: "json",
+ //                headers: { "X-Requested-With": "XMLHttpRequest" },  // Important!
+ //                success: function (response) {
+ //                    console.log(response);
 
-                    //let runningBalance =<?= $dops; ?>
+ //                    //let runningBalance =<?= $dops; ?>
 
-                    var tableBody = $("#examplez tbody");
-                    $("#examplez").DataTable().clear();
-                    tableBody.empty();
+ //                    var tableBody = $("#examplez tbody");
+ //                    $("#examplez").DataTable().clear();
+ //                    tableBody.empty();
 
-                    var totalcredit = 0;
-                    var totaldebit = 0;
-                    var subtotal = 0;
+ //                    var totalcredit = 0;
+ //                    var totaldebit = 0;
+ //                    var subtotal = 0;
 
-                    var rowIndex = 1; 
-                    var receiptIndex = 1; // Independent counter for receipts
+ //                    var rowIndex = 1; 
+ //                    var receiptIndex = 1; // Independent counter for receipts
 
-                     if (response.balances && response.balances.length > 0) {
-                      console.log(response.balances);
-                        // Find the correct financial year in response
-                        let matchingFY = response.balances.find(item => String(item.fy).trim() === String(fy).trim());
+ //                     if (response.balances && response.balances.length > 0) {
+ //                      console.log(response.balances);
+ //                        // Find the correct financial year in response
+ //                        let matchingFY = response.balances.find(item => String(item.fy).trim() === String(fy).trim());
 
-                        if (matchingFY) {
-                            console.log("Matching FY Found:", matchingFY); // Debug log
+ //                        if (matchingFY) {
+ //                            console.log("Matching FY Found:", matchingFY); // Debug log
 
-                            console.log("Selected FY:", fy);
-                            console.log("Available FYs:", response.balances.map(b => b.fy));
+ //                            console.log("Selected FY:", fy);
+ //                            console.log("Available FYs:", response.balances.map(b => b.fy));
 
-                              if(u_type==0)
-                              {
-                                totalcredit+=parseFloat(matchingFY.opening_balance);
-                              }
-                              else if(u_type==1){
-                                totaldebit+=parseFloat(matchingFY.opening_balance);
-                              }
-                              else {
+ //                              if(u_type==0)
+ //                              {
+ //                                totalcredit+=parseFloat(matchingFY.opening_balance);
+ //                              }
+ //                              else if(u_type==1){
+ //                                totaldebit+=parseFloat(matchingFY.opening_balance);
+ //                              }
+ //                              else {
                                 
-                                totaldebit+=parseFloat(matchingFY.opening_balance);
+ //                                totaldebit+=parseFloat(matchingFY.opening_balance);
 
-                              }
+ //                              }
 
-                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));
-                        } else {
-                              let opening = parseFloat("<?= $dops ?>") || 0;
-                              //totaldebit+=opening;
+ //                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));
+ //                        } else {
+ //                              let opening = parseFloat("<?= $dops ?>") || 0;
+ //                              //totaldebit+=opening;
 
-                               if(u_type==0)
-                              {
-                                totalcredit+=parseFloat(opening);
-                              }
-                              else if(u_type==1){
-                                totaldebit+=parseFloat(opening);
-                              }
-                              else {
+ //                               if(u_type==0)
+ //                              {
+ //                                totalcredit+=parseFloat(opening);
+ //                              }
+ //                              else if(u_type==1){
+ //                                totaldebit+=parseFloat(opening);
+ //                              }
+ //                              else {
                                 
-                                totaldebit+=parseFloat(opening);
+ //                                totaldebit+=parseFloat(opening);
 
-                              }
-
-
-                            console.warn("FY not found in response. :", <?= $dops ?>);
-                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
-                        }
-                    } 
-                    else {
-                        $("#opening_bal").text("No balance data available");
-                    }
-
-                    if(u_type === 0){
-
-                    // Process Ledger Transactions
-                    if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0.00;
-                            debit = parseFloat(item.debit) || 0.00;
-
-                            // Accumulate totals
-                            totalcredit += credit;
-                            totaldebit += debit;
-
-                            console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-
-                            console.log("Closing Balance", totalcredit-totaldebit);
-
-                            // Update subtotal correctly
-                            subtotal = totalcredit - totaldebit;
-
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
-
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
-
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/taxinv/printtaxinv?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${formatIndianNumber(subtotal)}</td>
-                                </tr>
-                            `);
-
-                            rowIndex++; // Always increment for table row numbering
-                        });
-
-                      }
-                    } else if(u_type === 1)
-                      {
-                        // Process Ledger Transactions
-                       if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0.00;
-                            debit = parseFloat(item.debit) || 0.00;
-
-                            // Accumulate totals
-                            totalcredit += credit;
-                            totaldebit += debit;
-
-                            console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-                            console.log("Closing Balance", totalcredit-totaldebit);
-
-                            // Update subtotal correctly
-                            subtotal = totaldebit - totalcredit;
-
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
-
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
-
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/purchaseinv/printpurchaseinv?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${formatIndianNumber(subtotal)}</td>
-                                </tr>
-                            `);
-
-                            rowIndex++; // Always increment for table row numbering
-                        });
-                      }
-                    }
-                    else if(u_type===2)
-                    {
-                        // Process Ledger Transactions
-                       if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0.00;
-                            debit = parseFloat(item.debit) || 0.00;
-
-                                                        // Adjust logic for Supplier (invert logic)
-                              if (item.voucher_type === "Purchase") {
-                                  totaldebit += debit;
-                              } else if (item.voucher_type === "Sales") {
-                                  totalcredit += credit;
-                              } else if (item.voucher_type === "Receipt") {
-                                  totalcredit += credit;
-                              }
+ //                              }
 
 
-                           console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-                            console.log("Closing Balance", totaldebit-totalcredit);
-                            // Update subtotal correctly
-                            //subtotal = totaldebit - totalcredit;
-                            //if()
-                            subtotal = totaldebit - totalcredit;
+ //                            console.warn("FY not found in response. :", <?= $dops ?>);
+ //                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
+ //                        }
+ //                    } 
+ //                    else {
+ //                        $("#opening_bal").text("No balance data available");
+ //                    }
 
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
+ //                    if(u_type === 0){
 
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
+ //                    // Process Ledger Transactions
+ //                    if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
 
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/${item.voucher_type === 'Sales' ? 'taxinv/printtaxinv' : 'purchaseinv/printpurchaseinv'}?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0.00;
+ //                            debit = parseFloat(item.debit) || 0.00;
 
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
-                                </tr>
-                            `);
+ //                            // Accumulate totals
+ //                            totalcredit += credit;
+ //                            totaldebit += debit;
 
-                            rowIndex++; // Always increment for table row numbering
-                        });
-                      }
-                    } 
+ //                            console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
+
+ //                            console.log("Closing Balance", totalcredit-totaldebit);
+
+ //                            // Update subtotal correctly
+ //                            subtotal = totalcredit - totaldebit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/taxinv/printtaxinv?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${formatIndianNumber(subtotal)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+
+ //                      }
+ //                    } else if(u_type === 1)
+ //                      {
+ //                        // Process Ledger Transactions
+ //                       if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
+
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0.00;
+ //                            debit = parseFloat(item.debit) || 0.00;
+
+ //                            // Accumulate totals
+ //                            totalcredit += credit;
+ //                            totaldebit += debit;
+
+ //                            console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
+ //                            console.log("Closing Balance", totalcredit-totaldebit);
+
+ //                            // Update subtotal correctly
+ //                            subtotal = totaldebit - totalcredit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/purchaseinv/printpurchaseinv?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${formatIndianNumber(subtotal)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+ //                      }
+ //                    }
+ //                    else if(u_type===2)
+ //                    {
+ //                        // Process Ledger Transactions
+ //                       if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
+
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0.00;
+ //                            debit = parseFloat(item.debit) || 0.00;
+
+ //                                                        // Adjust logic for Supplier (invert logic)
+ //                              if (item.voucher_type === "Purchase") {
+ //                                  totaldebit += debit;
+ //                              } else if (item.voucher_type === "Sales") {
+ //                                  totalcredit += credit;
+ //                              } else if (item.voucher_type === "Receipt") {
+ //                                  totalcredit += credit;
+ //                              }
 
 
-                       $("#totalcreditamt").text(formatIndianNumber(totalcredit));
-                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
-                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
+ //                           console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
+ //                            console.log("Closing Balance", totaldebit-totalcredit);
+ //                            // Update subtotal correctly
+ //                            //subtotal = totaldebit - totalcredit;
+ //                            //if()
+ //                            subtotal = totaldebit - totalcredit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/${item.voucher_type === 'Sales' ? 'taxinv/printtaxinv' : 'purchaseinv/printpurchaseinv'}?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${subtotal.toFixed(2)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+ //                      }
+ //                    } 
 
 
-                        // $("#totalcreditamt").text(totalcredit.toFixed(2));
-                        // $("#totaldebitamt").text(totaldebit.toFixed(2));
-                        // $("#totalclosingamt").text(subtotal.toFixed(2));
-
-                    //    else {
-                    //     tableBody.append('<tr><td colspan="6">No records found.</td></tr>');
-                    // }
+ //                       $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+ //                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+ //                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
 
                     
-                },
-                error: function (xhr, status, error) {
-                    console.log("AJAX Error:", error);
-                }
-            });
-        }
-    });
-//});
+ //                },
+ //                error: function (xhr, status, error) {
+ //                    console.log("AJAX Error:", error);
+ //                }
+ //            });
+ //        }
+ //    });
 
 
- $("#selectFY").change(function () {
-        var fy = $("#selectFY").val();
-        var cid = "<?= $cid ?>"; // Ensure this dynamically gets the correct client ID
-        var u_type=parseInt("<?= $accountInfo->u_type; ?>");
+// $(document).ready(function () {
 
-        console.log(cid);
-        console.log(u_type);
+//     // Initial load
+//     loadLedgerByFY();
 
-        if (fy) {
-            $.ajax({
-                url: base_url + "/account/getLedgerByFY/" + cid,  // Ensure correct URL
-                type: "GET",
-                data: { fy: fy, u_type:u_type},  // Send FY as GET parameter
-                dataType: "json",
-                headers: { "X-Requested-With": "XMLHttpRequest" },  // Important!
-                success: function (response) {
-                    console.log(response);
+//     // 🔥 THIS is the table change logic
+//     $("#selectFY").on("change", function () {
+//         loadLedgerByFY();
+//     });
 
-                    //let runningBalance =<?= $dops; ?>
+// });
 
-                    var tableBody = $("#examplez tbody");
-                    $("#examplez").DataTable().clear();
-                    tableBody.empty();
 
-                    var totalcredit = 0;
-                    var totaldebit = 0;
-                    var subtotal = 0;
+// function loadLedgerByFY() {
 
-                    var rowIndex = 1; 
-                    var receiptIndex = 1; // Independent counter for receipts
+//     var fy = $("#selectFY").val();
+//     var cid = "<?= $cid ?>";
+//     var u_type = parseInt("<?= $accountInfo->u_type; ?>");
 
-                     if (response.balances && response.balances.length > 0) {
-                      console.log(response.balances);
-                        // Find the correct financial year in response
-                        let matchingFY = response.balances.find(item => String(item.fy).trim() === String(fy).trim());
+//     if (!fy) return;
 
-                        if (matchingFY) {
-                            console.log("Matching FY Found:", matchingFY); // Debug log
+//     let totalcredit = 0;
+//     let totaldebit = 0;
+//     let subtotal = 0;
 
-                            console.log("Selected FY:", fy);
-                            console.log("Available FYs:", response.balances.map(b => b.fy));
+//     let rowIndex = 1;
+//     let receiptIndex = 1;
 
-                              if(u_type==0)
-                              {
-                                totalcredit+=parseFloat(matchingFY.opening_balance);
-                              }
-                              else if(u_type==1){
-                                totaldebit+=parseFloat(matchingFY.opening_balance);
-                              }
-                              else {
+//     $.ajax({
+//         url: base_url + "/account/getLedgerByFY/" + cid,
+//         type: "GET",
+//         data: { fy: fy, u_type: u_type },
+//         dataType: "json",
+//         headers: { "X-Requested-With": "XMLHttpRequest" },
+
+//         success: function (response) {
+
+//             // ✅ TABLE CHANGE LOGIC (THIS IS WHAT YOU ASKED FOR)
+//             const table = $("#examplez").DataTable();
+//             table.clear().draw(false);
+
+
+//             const tableBody = $("#examplez tbody");
+//             tableBody.empty();
+
+//             /* ---------- OPENING BALANCE (UNCHANGED) ---------- */
+
+//             if (response.balances && response.balances.length) {
+
+//                 let matchingFY = response.balances.find(
+//                     b => String(b.fy).trim() === String(fy).trim()
+//                 );
+
+//                 let opening = matchingFY
+//                     ? parseFloat(matchingFY.opening_balance)
+//                     : parseFloat("<?= $dops ?>") || 0;
+
+//                 if (u_type == 0) {
+//                     totalcredit += opening;
+//                 } else {
+//                     totaldebit += opening;
+//                 }
+
+//                 $("#opening_bal").text(
+//                     "Opening Balance: " + formatIndianNumber(opening)
+//                 );
+//             }
+
+//             /* ---------- LEDGER LOOP (LOGIC SAME) ---------- */
+
+//             if (response.ledger && response.ledger.length) {
+
+//                 $.each(response.ledger, function (_, item) {
+
+//                     let credit = parseFloat(item.credit) || 0;
+//                     let debit = parseFloat(item.debit) || 0;
+
+//                     if (u_type === 0) {
+//                         totalcredit += credit;
+//                         totaldebit += debit;
+//                         subtotal = totalcredit - totaldebit;
+//                     }
+//                     else if (u_type === 1) {
+//                         totalcredit += credit;
+//                         totaldebit += debit;
+//                         subtotal = totaldebit - totalcredit;
+//                     }
+//                     else if (u_type === 2) {
+//                         if (item.voucher_type === "Purchase") totaldebit += debit;
+//                         if (item.voucher_type === "Sales") totalcredit += credit;
+//                         if (item.voucher_type === "Receipt") totalcredit += credit;
+//                         subtotal = totaldebit - totalcredit;
+//                     }
+
+//                     let invoiceParts = item.invoice_details
+//                         ? item.invoice_details.split("+")
+//                         : ["", ""];
+
+//                     let isReceipt = item.voucher_type === "Receipt";
+//                     let displayIndex = isReceipt ? receiptIndex++ : rowIndex;
+
+//                     let printUrl = invoiceParts[1]
+//                         ? (u_type === 0
+//                             ? `${base_url}/taxinv/printtaxinv?orderid=${invoiceParts[1]}`
+//                             : `${base_url}/purchaseinv/printpurchaseinv?orderid=${invoiceParts[1]}`)
+//                         : "";
+
+//                     tableBody.append(`
+//                         <tr>
+//                             <td>${rowIndex}</td>
+//                             <td>${item.created || 'N/A'}</td>
+//                             <td>${item.voucher_type || 'N/A'}</td>
+//                             <td>
+//                                 ${printUrl
+//                                     ? `<a href="${printUrl}" target="_blank">------${isReceipt ? displayIndex : invoiceParts[0]}</a>`
+//                                     : displayIndex}
+//                             </td>
+//                             <td>${item.formatted_credit || '0.00'}</td>
+//                             <td>${item.formatted_debit || '0.00'}</td>
+//                             <td>${formatIndianNumber(subtotal)}</td>
+//                         </tr>
+//                     `);
+
+//                     rowIndex++;
+//                 });
+//             }
+
+//             /* ---------- TOTALS ---------- */
+
+//             $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+//             $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+//             $("#totalclosingamt").text(formatIndianNumber(subtotal));
+//         }
+//     });
+// }
+
+
+
+ // $("#selectFY").change(function () {
+ //        var fy = $("#selectFY").val();
+ //        var cid = "<?= $cid ?>"; // Ensure this dynamically gets the correct client ID
+ //        var u_type=parseInt("<?= $accountInfo->u_type; ?>");
+
+ //        console.log(cid);
+ //        console.log(u_type);
+
+ //        if (fy) {
+ //            $.ajax({
+ //                url: base_url + "/account/getLedgerByFY/" + cid,  // Ensure correct URL
+ //                type: "GET",
+ //                data: { fy: fy, u_type:u_type},  // Send FY as GET parameter
+ //                dataType: "json",
+ //                headers: { "X-Requested-With": "XMLHttpRequest" },  // Important!
+ //                success: function (response) {
+ //                    console.log(response);
+
+ //                    //let runningBalance =<?= $dops; ?>
+
+ //                    var tableBody = $("#examplez tbody");
+ //                    $("#examplez").DataTable().clear();
+ //                    tableBody.empty();
+
+ //                    var totalcredit = 0;
+ //                    var totaldebit = 0;
+ //                    var subtotal = 0;
+
+ //                    var rowIndex = 1; 
+ //                    var receiptIndex = 1; // Independent counter for receipts
+
+ //                     if (response.balances && response.balances.length > 0) {
+ //                      console.log(response.balances);
+ //                        // Find the correct financial year in response
+ //                        let matchingFY = response.balances.find(item => String(item.fy).trim() === String(fy).trim());
+
+ //                        if (matchingFY) {
+ //                            console.log("Matching FY Found:", matchingFY); // Debug log
+
+ //                            console.log("Selected FY:", fy);
+ //                            console.log("Available FYs:", response.balances.map(b => b.fy));
+
+ //                              if(u_type==0)
+ //                              {
+ //                                totalcredit+=parseFloat(matchingFY.opening_balance);
+ //                              }
+ //                              else if(u_type==1){
+ //                                totaldebit+=parseFloat(matchingFY.opening_balance);
+ //                              }
+ //                              else {
                                 
-                                totaldebit+=parseFloat(matchingFY.opening_balance);
+ //                                totaldebit+=parseFloat(matchingFY.opening_balance);
 
-                              }
+ //                              }
 
-                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));     
-                          } else {
-                              let opening = parseFloat("<?= $dops ?>") || 0;
-                              //totaldebit+=opening;
+ //                            $("#opening_bal").text("Opening Balance: " + formatIndianNumber(matchingFY.opening_balance));     
+ //                          } else {
+ //                              let opening = parseFloat("<?= $dops ?>") || 0;
+ //                              //totaldebit+=opening;
 
-                               if(u_type==0)
-                              {
-                                totalcredit+=parseFloat(opening);
-                              }
-                              else if(u_type==1){
-                                totaldebit+=parseFloat(opening);
-                              }
-                              else {
+ //                               if(u_type==0)
+ //                              {
+ //                                totalcredit+=parseFloat(opening);
+ //                              }
+ //                              else if(u_type==1){
+ //                                totaldebit+=parseFloat(opening);
+ //                              }
+ //                              else {
                                 
-                                totaldebit+=parseFloat(opening);
+ //                                totaldebit+=parseFloat(opening);
 
-                              }
-
-
-                            console.warn("FY not found in response. :", <?= $dops ?>);
-                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
-                        }
-                    } 
-                    else {
-                        $("#opening_bal").text("No balance data available");
-                    }
-
-                    if(u_type === 0){
-
-                    // Process Ledger Transactions
-                    if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0;
-                            debit = parseFloat(item.debit) || 0;
-
-                            // Accumulate totals
-                            totalcredit += credit;
-                            totaldebit += debit;
-
-                            console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-
-                            console.log("Closing Balance", totalcredit-totaldebit);
-
-                            // Update subtotal correctly
-                            subtotal = totalcredit - totaldebit;
-
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
-
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
-
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/taxinv/printtaxinv?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${formatIndianNumber(subtotal)}</td>
-                                </tr>
-                            `);
-
-                            rowIndex++; // Always increment for table row numbering
-                        });
-
-                      }
-                    } else if(u_type === 1)
-                      {
-                        // Process Ledger Transactions
-                       if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0;
-                            debit = parseFloat(item.debit) || 0;
-
-                            // Accumulate totals
-                            totalcredit += credit;
-                            totaldebit += debit;
-
-                            console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-                            console.log("Closing Balance", totalcredit-totaldebit);
-
-                            // Update subtotal correctly
-                            subtotal = totaldebit - totalcredit;
-
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
-
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
-
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/purchaseinv/printpurchaseinv?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${formatIndianNumber(subtotal)}</td>
-                                </tr>
-                            `);
-
-                            rowIndex++; // Always increment for table row numbering
-                        });
-                      }
-                    }
-                    else if(u_type===2)
-                    {
-                        // Process Ledger Transactions
-                       if (response.ledger.length > 0) {
-                        $.each(response.ledger, function (index, item) {
-                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
-
-                            // Parse values
-                            credit = parseFloat(item.credit) || 0.00;
-                            debit = parseFloat(item.debit) || 0.00;
-
-                                                        // Adjust logic for Supplier (invert logic)
-                              if (item.voucher_type === "Purchase") {
-                                  totaldebit += debit;
-                              } else if (item.voucher_type === "Sales") {
-                                  totalcredit += credit;
-                              } else if (item.voucher_type === "Receipt") {
-                                  totalcredit += credit;
-                              }
+ //                              }
 
 
-                           console.log("Total Credit:", totalcredit);
-                            console.log("Total Debit:", totaldebit);
-                            console.log("Closing Balance", totaldebit-totalcredit);
-                            // Update subtotal correctly
-                            //subtotal = totaldebit - totalcredit;
-                            //if()
-                            subtotal = totaldebit - totalcredit;
+ //                            console.warn("FY not found in response. :", <?= $dops ?>);
+ //                            $("#opening_bal").text("Opening Balance: "+formatIndianNumber(<?= $dops ?>));
+ //                        }
+ //                    } 
+ //                    else {
+ //                        $("#opening_bal").text("No balance data available");
+ //                    }
 
-                            // Check if it's a receipt
-                            let isReceipt = item.voucher_type === "Receipt";
+ //                    if(u_type === 0){
 
-                            // Assign the correct index
-                            let displayIndex = rowIndex;
-                            if (isReceipt) {
-                                displayIndex = receiptIndex; // Use receipt index for receipts
-                                receiptIndex++; // Increment only for receipts
-                            }
+ //                    // Process Ledger Transactions
+ //                    if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
 
-                            tableBody.append(`
-                                <tr>
-                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
-                                    <td>${item.created || 'N/A'}</td>
-                                    <td>${item.voucher_type || 'N/A'}</td>
-                                    <td>          
-                                        ${invoiceParts[1] ?  
-                                            `<a href="${base_url}/${item.voucher_type === 'Sales' ? 'taxinv/printtaxinv' : 'purchaseinv/printpurchaseinv'}?orderid=${invoiceParts[1]}" target="_blank">
-                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
-                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
-                                    </td>
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0;
+ //                            debit = parseFloat(item.debit) || 0;
 
-                                    <td>${item.formatted_credit || '0.00'}</td>
-                                    <td>${item.formatted_debit || '0.00'}</td>
-                                    <td>${subtotal.toFixed(2)}</td>
-                                </tr>
-                            `);
+ //                            // Accumulate totals
+ //                            totalcredit += credit;
+ //                            totaldebit += debit;
 
-                            rowIndex++; // Always increment for table row numbering
-                        });
-                      }
-                    } 
+ //                            console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
 
-                        $("#totalcreditamt").text(formatIndianNumber(totalcredit));
-                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
-                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
+ //                            console.log("Closing Balance", totalcredit-totaldebit);
 
-                    //    else {
-                    //     tableBody.append('<tr><td colspan="6">No records found.</td></tr>');
-                    // }
+ //                            // Update subtotal correctly
+ //                            subtotal = totalcredit - totaldebit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/taxinv/printtaxinv?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${formatIndianNumber(subtotal)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+
+ //                      }
+ //                    } else if(u_type === 1)
+ //                      {
+ //                        // Process Ledger Transactions
+ //                       if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
+
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0;
+ //                            debit = parseFloat(item.debit) || 0;
+
+ //                            // Accumulate totals
+ //                            totalcredit += credit;
+ //                            totaldebit += debit;
+
+ //                            console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
+ //                            console.log("Closing Balance", totalcredit-totaldebit);
+
+ //                            // Update subtotal correctly
+ //                            subtotal = totaldebit - totalcredit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/purchaseinv/printpurchaseinv?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${formatIndianNumber(subtotal)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+ //                      }
+ //                    }
+ //                    else if(u_type===2)
+ //                    {
+ //                        // Process Ledger Transactions
+ //                       if (response.ledger.length > 0) {
+ //                        $.each(response.ledger, function (index, item) {
+ //                            var invoiceParts = item.invoice_details ? item.invoice_details.split("+") : ["0.00", ""];
+
+ //                            // Parse values
+ //                            credit = parseFloat(item.credit) || 0.00;
+ //                            debit = parseFloat(item.debit) || 0.00;
+
+ //                                                        // Adjust logic for Supplier (invert logic)
+ //                              if (item.voucher_type === "Purchase") {
+ //                                  totaldebit += debit;
+ //                              } else if (item.voucher_type === "Sales") {
+ //                                  totalcredit += credit;
+ //                              } else if (item.voucher_type === "Receipt") {
+ //                                  totalcredit += credit;
+ //                              }
+
+
+ //                           console.log("Total Credit:", totalcredit);
+ //                            console.log("Total Debit:", totaldebit);
+ //                            console.log("Closing Balance", totaldebit-totalcredit);
+ //                            // Update subtotal correctly
+ //                            //subtotal = totaldebit - totalcredit;
+ //                            //if()
+ //                            subtotal = totaldebit - totalcredit;
+
+ //                            // Check if it's a receipt
+ //                            let isReceipt = item.voucher_type === "Receipt";
+
+ //                            // Assign the correct index
+ //                            let displayIndex = rowIndex;
+ //                            if (isReceipt) {
+ //                                displayIndex = receiptIndex; // Use receipt index for receipts
+ //                                receiptIndex++; // Increment only for receipts
+ //                            }
+
+ //                            tableBody.append(`
+ //                                <tr>
+ //                                    <td>${rowIndex}</td> <!-- Always increments for all rows -->
+ //                                    <td>${item.created || 'N/A'}</td>
+ //                                    <td>${item.voucher_type || 'N/A'}</td>
+ //                                    <td>          
+ //                                        ${invoiceParts[1] ?  
+ //                                            `<a href="${base_url}/${item.voucher_type === 'Sales' ? 'taxinv/printtaxinv' : 'purchaseinv/printpurchaseinv'}?orderid=${invoiceParts[1]}" target="_blank">
+ //                                                ------${isReceipt ? displayIndex : invoiceParts[0]}
+ //                                            </a>` : (isReceipt ? displayIndex : rowIndex)}
+ //                                    </td>
+
+ //                                    <td>${item.formatted_credit || '0.00'}</td>
+ //                                    <td>${item.formatted_debit || '0.00'}</td>
+ //                                    <td>${subtotal.toFixed(2)}</td>
+ //                                </tr>
+ //                            `);
+
+ //                            rowIndex++; // Always increment for table row numbering
+ //                        });
+ //                      }
+ //                    } 
+
+ //                        $("#totalcreditamt").text(formatIndianNumber(totalcredit));
+ //                        $("#totaldebitamt").text(formatIndianNumber(totaldebit));
+ //                        $("#totalclosingamt").text(formatIndianNumber(subtotal));
+
+ //                    //    else {
+ //                    //     tableBody.append('<tr><td colspan="6">No records found.</td></tr>');
+ //                    // }
 
                     
-                },
-                error: function (xhr, status, error) {
-                            console.error("Detailed Error:", {
-            status: xhr.status,
-            statusText: xhr.statusText,
-            responseText: xhr.responseText
-        });
-                }
-            });
-        }
-    });
-//});
+ //                },
+ //                error: function (xhr, status, error) {
+ //                            console.error("Detailed Error:", {
+ //            status: xhr.status,
+ //            statusText: xhr.statusText,
+ //            responseText: xhr.responseText
+ //        });
+ //                }
+ //            });
+ //        }
+ //    });
+
 
 
       $("#datepicker").datepicker({
@@ -1190,166 +1633,6 @@ function formatIndianNumber(num) {
 <script>
    $(document).ready(function(){
     
-//     $(document).on("click", "#submit", function(e) {
-//     e.preventDefault();
-
-//      isValid = true;
-
-//     // Clear previous error messages
-//     $('#co_error').text('');
-//     $('#purpose_error').text('');
-//     $('#amount_error').text('');
-//     $('#dtp_error').text('');
-//     $('#ctype_error').text('');
-//     $('#bank_error').text('');
-//     // // Validate Company Name
-//     // if ($('#c_nameedit').val().trim() === '') {
-//     //     $('#c_name_error').text('Company name is required.');
-//     //     isValid = false;
-//     // }
-
-//     $('#co, #purpose, #amount, #datepicker, #ctype').removeClass('is-invalid');
-
-//     // Validate Company Name
-//     // if ($('#co').val().trim() === '') {
-//     //     $('#co_error').text('Company name is required.');
-//     //     $('#co').addClass('is-invalid'); // Highlight the field
-//     //     isValid = false;
-//     // }
-
-//     // Validate Address
-//     if ($('#purpose').val().trim() === '') {
-//         $('#purpose_error').text('Purpose is required.');
-//         $('#purpose').addClass('is-invalid'); // Highlight the field
-//         isValid = false;
-//     }
-
-//     // Validate Mobile Number
-//     if ($('#amount').val().trim() === '') {
-//         $('#amount_error').text('Amount is required.');
-//         $('#amount').addClass('is-invalid'); // Highlight the field
-//             //$('#phoneedit').addClass('is-invalid');  // Adding class to input
-//     //$('.iti').addClass('is-invalid');        // Adding class to intl-tel-input wrapper
-//     isValid = false;
-//         //isValid = false;
-//     }
-
-//     // Validate GST
-//     if ($('#datepicker').val().trim() === '') {
-//         $('#dtp_error').text('Date Of Payment is required.');
-//         $('#datepicker').addClass('is-invalid'); // Highlight the field
-//         isValid = false;
-//     }
-
-//    if ($('#ctype').val() === '' || $('#ctype').val() === null) {
-//     $('#ctype_error').text('Bank name is required.');
-
-//     $('#ctype').next('.select2-container').find('.select2-selection').addClass('is-invalid');
-//     isValid = false;
-// } else {
-//     $('#ctype').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
-// }
-
-// // Second Select2
-// if ($('#co').val() === '' || $('#co').val() === null) {
-//   $('#co_error').text('Company name is required.');
-
-//     $('#co').next('.select2-container').find('.select2-selection').addClass('is-invalid');
-//     isValid = false;
-// } else {
-//     $('#co').next('.select2-container').find('.select2-selection').removeClass('is-invalid');
-// }
-
-
-
-
-//     // Prevent form submission if validation fails
-//     if (!isValid) {
-//         e.preventDefault();
-//         return;
-//     } else {
-//         // Get form data
-
-//         var payid=$('#payid').val().trim();
-//         var co=$('#co').val();
-//         //$('#item').text("Supply Of : "+item_name);
-//         var purpose=$('#purpose').val();
-//         var dateofpayment = $('#datepicker').val();
-//         var ctype=$('#ctype').val();
-//         var amount = $('#amount').val();
-    
-//         var u_type = 0; // Assuming you want this value
-//         var fd = new FormData();
-//         fd.append("payid", payid);
-//         fd.append("co", co);
-//         fd.append("purpose", purpose);
-//         fd.append("amount", amount);
-//         fd.append("ctype", ctype);
-
-//         fd.append("dateofpayment", dateofpayment);
-
-
-//         //fd.append("u_type", u_type); // Ensure this is included
-
-//         console.log("cid: ", payid);
-//         console.log("c_name: ", co);
-//         console.log("c_add: ", purpose);
-//         console.log("fullno: ", amount);
-//         //console.log("country: ", countr);
-//         //console.log("gst: ", gst);
-//         console.log("email: ", dateofpayment);
-//         console.log("ctype: ", ctype);
-//         console.log("u_type: ", u_type);
-
-
-//         console.log(fd);    
-
-//         $.ajax({
-//             type: "post",  // Change this to "post" if using POST
-//             url: base_url + "/transaction/insert",
-//             data: fd,
-//             processData: false,
-//             contentType: false,
-//             dataType:"json",
-//             headers: {
-//                 'X-Requested-With': 'XMLHttpRequest'  // Important for AJAX detection
-//             },
-//             success: function(response) {
-//                 //console.log(response);
-
-//                         try {
-//             // Parse JSON response
-//             const jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-//             console.log('Parsed Response:', jsonResponse);
-
-//             $("#modal-default").modal("hide");
-//             $("#form")[0].reset();
-//             //$("#examplez").DataTable().clear().destroy();
-//               //  fetch();
-//                 Swal.fire({
-//                     title: "Good!",
-//                     text: "Transaction Data Inserted!",
-//                     icon: "success",
-//                     showConfirmButton: false, // Hide the OK button
-//                     timer: 3000, // Close the popup after 3 seconds (3000 milliseconds)
-//                   }).then(function() {
-//                     // This function will be called after the popup closes
-//                     //location.reload(); // Refresh the page
-//                   window.location.href = base_url+'/account/getledger/'+co;
-//                   //$("#example1").DataTable().clear().destroy();
-//                     //fetch();
-//                   });
-//         } catch (error) {
-//             console.error('Invalid JSON Response:', error);
-//         }
-
-//             },
-//             error: function(xhr, status, error) {
-//                 console.error("AJAX Error: ", status, error);
-//             }
-//         });
-//     }
-//   })
 let hasDuplicateRecord = false;
 let duplicateCheckTimeout;
 // Function to check for duplicate records
@@ -1780,7 +2063,7 @@ if ($('#co').val() === '' || $('#co').val() === null) {
 </script>
 <script type="text/javascript">var base_url = "<?= base_url(); ?>";</script>
 <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/convertNumberToWords.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
+
  <!-- <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/account.js"></script> -->
   
 </body>

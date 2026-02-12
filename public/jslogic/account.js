@@ -245,7 +245,29 @@ function formatIndianNumber(x) {
 /* -------------------------------------------------------------------------- */
 /*                                Fetch Records                               */
 /* -------------------------------------------------------------------------- */
+function updateHiddenState(id, hidden) {
+    $.ajax({
+        url: base_url + '/account/updateHidden',
+        type: 'POST',
+        data: {
+            id: id,
+            hidden: hidden ? 1 : 0
+        }
+    });
+}
+
 function fetch() {
+
+    let showHidden = false;
+
+    // ✅ SAFE custom filter (no table reference)
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+        const rowData = settings.aoData[dataIndex]._aData;
+        if (!rowData) return true;
+
+        return showHidden || !rowData.hidden;
+    });
+
     console.log("fetch called from insert");
 
     $.ajax({
@@ -256,6 +278,10 @@ function fetch() {
         dataType:'json',
         success: function(response) {
             console.log(response);  
+            if ($.fn.DataTable.isDataTable('#example')) {
+                $('#example').DataTable().clear().destroy();
+            }
+
             //$('#example1').DataTable().clear().destroy();
              var table = $("#example").DataTable({
                 'paging': true,
@@ -274,7 +300,11 @@ function fetch() {
                               {
 
                             //custom functions for particular column
-                            "data": "id",
+                            //"data": "id",
+                              title: 'Sr No',
+
+                              data: null,
+
                             render: function (data, type, row, meta) {
                                 return meta.row + meta.settings._iDisplayStart + 1;
                                 }
@@ -346,10 +376,26 @@ function fetch() {
                          render: function (data, type, row, meta) {
                                 return '<a class="btn btn-danger btn-xs" id="delete_product" data-id="' + row.aid + '" ><i class="fa fa-trash-o"  style="width:15px;height:10px"></i></a>';
                          }
-                      }
+                      },
+
+                      {
+                data: null,
+                render: function (data, type, row) {
+                    return row.hidden
+                        ? `<button class="acbtn btn-show" >
+                                <i class="fa fa-eye" style="width:15px;height:10px"></i> Show
+                           </button>`
+                        : `<button class="acbtn btn-hide">
+                                <i class="fa fa-eye-slash" style="width:15px;height:10px"></i> Hide
+                           </button>`;
+                }
+            }
                     
                     // Add more columns as needed
                 ],
+                rowCallback: function (row, data) {
+                 $(row).toggleClass('hidden-row', data.hidden === true);
+                },
                  initComplete: function () {
                     var btns = $('.dt-button');
                     btns.addClass('btn btn-primary btn-sm btn-group');
@@ -360,6 +406,50 @@ function fetch() {
                    "lengthMenu": [[20, 50, 150, -1], [20, 50, 150, "All"]]
       
         }); 
+
+         // 🔴 Hide row
+    $('#example').on('click', '.btn-hide', function () {
+        const row = table.row($(this).closest('tr'));
+        const data = row.data();
+
+        data.hidden = true;
+        //row.data(data);
+        //table.draw();
+        row.data().hidden = true;
+          row.data(data).invalidate();
+        table.draw(false);
+            updateHiddenState(data.aid, true);
+
+    });
+
+    // 🟢 Show row
+    $('#example').on('click', '.btn-show', function () {
+        const row = table.row($(this).closest('tr'));
+        const data = row.data();
+
+        data.hidden = false;
+        //row.data(data);
+        //table.draw();
+        row.data().hidden = false;
+          row.data(data).invalidate();
+        table.draw(false);
+            updateHiddenState(data.aid, false);
+
+
+    });
+
+    // 👁 Toggle hidden rows
+    $('#toggleHidden').on('change', function () {
+        showHidden = this.checked;
+        table.draw();
+    });
+
+//     $('#example').on('click', '.btn-show', function () {
+//     const row = table.row($(this).closest('tr'));
+//     row.data().hidden = false;   // ✅ FIX HERE
+//     table.draw(false);
+
+// });
     
 
                    document.querySelectorAll('.toggle-vis').forEach((el) => {

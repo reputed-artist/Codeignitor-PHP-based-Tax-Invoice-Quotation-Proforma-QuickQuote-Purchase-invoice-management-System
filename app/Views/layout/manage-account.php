@@ -119,6 +119,28 @@ input .error{
 .select2-selection.is-invalid {
     border: 1px solid red !important; /* Red border on Select2 dropdown */
 }
+
+.hidden-row {
+            opacity: 0.5;
+            background-color: #fff3cd !important;
+        }
+
+      .acbtn {
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            height:25px;
+            padding: 3px 6px 3px 6px;
+        }
+
+        .btn-hide { background: #dc3545; color: #fff; }
+        .btn-show { background: #198754; color: #fff; }
+
+        .toolbar {
+            margin-bottom: 10px;
+        }
+
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -155,8 +177,13 @@ input .error{
              -->
 
              <button type="button" id="btnplus add" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#modal-default" style="margin: 2px 20px 2px 2px;" ><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Accounts</button><br><br>
+            <div class="toolbar" style="padding-left: 10px;">
+    <label>
 
-
+        <input type="checkbox" id="toggleHidden">
+        Show Hidden Rows
+    </label>
+</div>
    
             <!-- /.box-header -->
             <div class="box-body">
@@ -173,7 +200,8 @@ input .error{
                       <th>Created</th>
                       <th>Edit</th>
                       <th>View</th>
-                      <th>Delete</th>                
+                      <th>Delete</th>   
+                      <th>Action</th>              
                   </tr>
                 </thead>
                 <tbody>
@@ -191,6 +219,7 @@ input .error{
                                       <th>Edit</th>
                                       <th>View</th>
                                       <th>Delete</th>
+                                      <th>Action</th>
                 </tr>
                 </tfoot>
               </table>

@@ -939,6 +939,13 @@ public function manageaccounts()
     // Fetch all records using the custom method
     $records = $accountModel->getAccountDetails();
 
+      // 🔥 IMPORTANT: normalize hidden state
+    foreach ($records as &$row) {
+        $row['hidden'] = isset($row['is_hidden']) && (int)$row['is_hidden'] === 1;
+    }
+    unset($row); // safety
+
+
 
     $last_cid = $this->crudModel->get_last_cid();
     $next_cid = ($last_cid !== null) ? $last_cid + 1 : 1;
@@ -965,6 +972,19 @@ public function manageaccounts()
     return view('layout/manage-account', $data);
 }
 
+public function updateHidden()
+{
+    $id     = $this->request->getPost('id');
+    $hidden = $this->request->getPost('hidden');
+
+    $accountModel = new \App\Models\Account_Model();
+
+    $accountModel->update($id, [
+        'is_hidden' => (int)$hidden
+    ]);
+
+    return $this->response->setJSON(['status' => 'ok']);
+}
 
 public function getclient()
 {
