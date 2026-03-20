@@ -320,28 +320,36 @@ LedgerData AS (
 
 FinalLedger AS (
     SELECT 
-        ld.cid, 
-        ld.fy, 
+        ld.cid,
+        ld.fy,
 
-        -- Opening Balance: Carry forward from previous year's closing balance
+        -- Opening Balance = initial + previous cumulative movement
+        ld.initial_opening_balance +
         COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_debit - ld.total_credit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance
-        ) AS opening_balance,
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
+            ),
+        0) AS opening_balance,
 
         ld.total_credit,
         ld.total_debit,
 
-        -- Closing Balance Calculation: opening balance + total debit - total credit
-        (COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_debit - ld.total_credit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance
-        ) + ld.total_debit - ld.total_credit) AS closing_balance
+        -- Closing Balance = opening + current movement
+        ld.initial_opening_balance +
+        COALESCE(
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+            ),
+        0) AS closing_balance
+
     FROM LedgerData ld
 )
-
 SELECT * FROM FinalLedger ORDER BY fy";
 
 $sql2 = str_replace(':cid', intval($cid), $sql2);

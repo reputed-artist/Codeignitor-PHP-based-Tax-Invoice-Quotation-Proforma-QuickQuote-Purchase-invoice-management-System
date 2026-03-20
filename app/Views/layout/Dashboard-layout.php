@@ -607,7 +607,7 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
 </script>
 <script>
@@ -633,7 +633,6 @@ let areaChartData = [];
 
         // Process treechart data
         console.log('Treechart Data:');
-        
         response.treechart.forEach(function(item) {
            let locationParts = item.location.split('-');
             let city = locationParts[0].trim(); // Get the left side (city)
@@ -875,47 +874,7 @@ let areaChartData = [];
 
 
 
-                
-                     let TnCount1 = []       
-
-                  // Process productcategorycount data
-                  //console.log('Tn Count:');
-                  response.allyearsalesdata.forEach(function(item) {
-                      //console.log(`${item.y},${item.a},${item.b},${item.c},${item.label}`);
-                       let a = item.a; // Get the left side (city)
-                      let b = item.b;
-                      let c= item.c;
-                      let y=item.y;
-                      let label=item.label; // This will be the y value
-                      TnCount1.push({y:y,a:a,b:b,c:c, label:label  })
-                  });
-
-
-
-
-
-                    var x = Morris.Bar({
-                    element: 'bar-chart',
-                    data: TnCount1,
-                    //'#f56954','#00a65a'
-                    barColors: [ '#03a9f3','#55ce63','#f56954'],
-                        xkey: 'y',
-                        ykeys: ['b','a','c'],
-                        labels: ['GST','Turnover','item_sold'],
-                        hideHover: 'auto',    
-                        xLabelAngle: 60,
-
-                        nbYkeys2: 1,
-                        dataLabels:false,  
-                        gridTextWeight:'Bold',
-                        
-                        hoverCallback: function(index, options, content, row) {
-                          var dataLabel = row.label; // Assuming 'label' is the key for item_name
-                          return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
-                      },
-                       
-                  });
-
+             
 
                      let clienttypeCount = []       
 
@@ -948,44 +907,6 @@ let areaChartData = [];
 
 
 
-                     let TnCount = []       
-
-                  // Process productcategorycount data
-                  //console.log('Tn Count:');
-                  response.allyeardata.forEach(function(item) {
-                      //console.log(`${item.y},${item.a},${item.b},${item.c},${item.label}`);
-                       let a = item.a; // Get the left side (city)
-                      let b = item.b;
-                      let c= item.c;
-                      let y=item.y;
-                      let label=item.label; // This will be the y value
-                      TnCount.push({y:y,a:a,b:b,c:c, label:label  })
-                  });
-
-  
-
-                  var bar = new Morris.Bar({
-                  element: 'bar-chart3',
-                  resize: true,
-                  data: TnCount, 
-                  barColors: ['#00a65a','#FFBF00','#f56954'],
-                  xkey: 'y',
-                  ykeys: ['b','a','c'],
-                  labels: ['GST','Turnover','item_sold'],
-                  dataLabels:false,
-                  hideHover: 'auto',
-                  xLabelAngle: 60,
-                  nbYkeys2:1,
-                  //gridTextSize: '14px',
-                  gridTextWeight:'Bold',
-                  hoverCallback: function(index, options, content, row) {
-                    var dataLabel = row.label; // Assuming 'label' is the key for item_name
-                    return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
-                },
-                 
-                });  
-
-
          $('#brand').change(function(){  
                 //var data21,data22; 
                 var brand_id = $(this).val();
@@ -993,6 +914,8 @@ let areaChartData = [];
                 var startyear =brand_id.substr(0,4);
                 //console.log(startyear);
                 var endyear =brand_id.substr(5,10);
+
+                
                 //console.log(endyear);
                $.ajax({  
                 url:base_url+"/dashboard/loadData",  
@@ -1157,9 +1080,498 @@ let areaChartData = [];
     }
 });
 
-});
+$.ajax({
+    url: base_url + '/dashboard/getCurrentMonthStatisticz',
+    type: 'GET',
+    dataType: 'json', // Ensures the response is parsed into a JavaScript object
+    success: function(response) {
+        // Log the entire response to understand the structure
+        console.log('Full Response2:', response);
+
+        // $('#neworder').text(response.invcount);
+
+        // $('#newclient').text(response.clientcount);
+
+        // $('#monthlyturnover').text(response.monthturn);
+
+        // Process treechart data
+        console.log('Treechart Data:');
+
+                     let TnCount1 = []       
+
+                  // Process productcategorycount data
+                  //console.log('Tn Count:');
+                  response.allyearsalesdata.forEach(function(item) {
+                      //console.log(`${item.y},${item.a},${item.b},${item.c},${item.label}`);
+                       let a = item.a; // Get the left side (city)
+                      let b = item.b;
+                      let c= item.c;
+                      let y=item.y;
+                      let label=item.label; // This will be the y value
+                      TnCount1.push({y:y,a:a,b:b,c:c, label:label  })
+                  });
+
+
+
+
+
+                    var x = Morris.Bar({
+                    element: 'bar-chart',
+                    data: TnCount1,
+                    //'#f56954','#00a65a'
+                    barColors: [ '#03a9f3','#55ce63','#f56954'],
+                        xkey: 'y',
+                        ykeys: ['b','a','c'],
+                        labels: ['GST','Turnover','item_sold'],
+                        hideHover: 'auto',    
+                        xLabelAngle: 60,
+
+                        nbYkeys2: 1,
+                        dataLabels:false,  
+                        gridTextWeight:'Bold',
+                        
+                        hoverCallback: function(index, options, content, row) {
+                          var dataLabel = row.label; // Assuming 'label' is the key for item_name
+                          return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
+                      },
+                       
+                  });
+
+ 
+
+
+                     let TnCount = []       
+
+                  // Process productcategorycount data
+                  //console.log('Tn Count:');
+                  response.allyeardata.forEach(function(item) {
+                      //console.log(`${item.y},${item.a},${item.b},${item.c},${item.label}`);
+                       let a = item.a; // Get the left side (city)
+                      let b = item.b;
+                      let c= item.c;
+                      let y=item.y;
+                      let label=item.label; // This will be the y value
+                      TnCount.push({y:y,a:a,b:b,c:c, label:label  })
+                  });
+
+  
+
+                  var bar = new Morris.Bar({
+                  element: 'bar-chart3',
+                  resize: true,
+                  data: TnCount, 
+                  barColors: ['#00a65a','#FFBF00','#f56954'],
+                  xkey: 'y',
+                  ykeys: ['b','a','c'],
+                  labels: ['GST','Turnover','item_sold'],
+                  dataLabels:false,
+                  hideHover: 'auto',
+                  xLabelAngle: 60,
+                  nbYkeys2:1,
+                  //gridTextSize: '14px',
+                  gridTextWeight:'Bold',
+                  hoverCallback: function(index, options, content, row) {
+                    var dataLabel = row.label; // Assuming 'label' is the key for item_name
+                    return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
+                },
+                 
+                });  
+ 
+            },
+             error: function(xhr, status, error) {
+        console.error('AJAX Error:', error);
+        console.log('Response Text:', xhr.responseText);
+    }
+
+         });
+         
+      });           
+
+</script>
+ -->
+<script type="text/javascript">
+  var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
 </script>
 <script>
+$(document).ready(function () {
+    // Initialize date picker
+    $('#calendar').datepicker();
+
+    // Global variable declaration
+    let areaChartData = [];
+    let x; // Declare Morris.Bar chart variable globally
+    
+    // Define time functions globally (outside AJAX call)
+    function updateTime(x) {
+        if(x < 10) {
+            return "0" + x;
+        } else {
+            return x;
+        }
+    }
+    
+    function currentTime() {
+        var date = new Date();
+        var day = date.getDay();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        var month = date.getMonth();
+        var currDate = date.getDate();
+        var year = date.getFullYear();
+        var monthName = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        var showDay = $('.dayDiv span');
+        var midDay = (hour >= 12) ? "PM" : "AM";
+        hour = (hour == 0) ? 12 : ((hour < 12) ? hour : (hour - 12));
+        hour = updateTime(hour);
+        min = updateTime(min);
+        sec = updateTime(sec);
+        currDate = updateTime(currDate);
+        
+        $("#time").html(`${hour}:${min}`);
+        $("#sec").html(`${sec}`);
+        $("#med").html(`${midDay}`);
+        $("#full-date").html(`${monthName[month]} ${currDate} ${year}`);
+        showDay.eq(day).css('opacity', '1');
+    }
+    
+    setInterval(currentTime, 1000);
+
+    // First AJAX call - get current month statistics
+    $.ajax({
+        url: base_url + '/dashboard/getCurrentMonthStatistics',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            console.log('Full Response:', response);
+            
+            // Process treechart data
+            areaChartData = []; // Reset the array
+            if (response.treechart && response.treechart.length > 0) {
+                response.treechart.forEach(function(item) {
+                    let locationParts = item.location.split('-');
+                    let city = locationParts[0].trim();
+                    let count = item.count;
+                    areaChartData.push({ x: city, y: count });
+                });
+            }
+
+            // Initialize ApexCharts treemap
+            var options = {
+                series: [{
+                    data: areaChartData,
+                }],
+                legend: { show: false },
+                chart: {
+                    height: 360,
+                    type: 'treemap',
+                    toolbar: { show: false },
+                },
+                title: { align: 'center' },
+                colors: [
+                    '#3B93A5', '#F7B844', '#ADD8C7', '#EC3C65', '#CDD7B6',
+                    '#C1F666', '#D43F97', '#1E5D8C', '#421243', '#7F94B0',
+                    '#EF6537', '#C0ADDB'
+                ],
+                plotOptions: {
+                    treemap: { distributed: true, enableShades: false }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#ebar-chart-tree"), options);
+            chart.render();
+
+            // Process consumables data
+            let consumableData = [];
+            if (response.consumables && response.consumables.length > 0) {
+                response.consumables.forEach(function(item) {
+                    consumableData.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_5',
+                data: consumableData,
+                resize: true,
+                dataLabels: true,
+                showPercentage: true,
+            }).options.colors.forEach(function(color, d) {
+                if (consumableData[d] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i>' + consumableData[d].label + '</span>';
+                    document.getElementById("chart_pie_5_legend").appendChild(node);
+                }
+            });
+
+            // Process product category count
+            let productcategoryCount = [];
+            if (response.productcategorycount && response.productcategorycount.length > 0) {
+                response.productcategorycount.forEach(function(item) {
+                    productcategoryCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_4',
+                data: productcategoryCount,
+            }).options.colors.forEach(function(color, index) {
+                if (productcategoryCount[index] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + productcategoryCount[index].label + '</span>';
+                    document.getElementById("chart_pie_4_legend").appendChild(node);
+                }
+            });
+
+            // Process user category count
+            let usercategoryCount = [];
+            if (response.usercategory && response.usercategory.length > 0) {
+                response.usercategory.forEach(function(item) {
+                    usercategoryCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_1',
+                data: usercategoryCount,
+                resize: true,
+                dataLabelsPosition: 'outside'
+            }).options.colors.forEach(function(color, b) {
+                if (usercategoryCount[b] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + usercategoryCount[b].label + '</span>';
+                    document.getElementById("chart_pie_1_legend").appendChild(node);
+                }
+            });
+
+            // Process country count
+            let countryCount = [];
+            if (response.countrycount && response.countrycount.length > 0) {
+                response.countrycount.forEach(function(item) {
+                    countryCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_2',
+                data: countryCount,
+                resize: true,
+            }).options.colors.forEach(function(color, c) {
+                if (countryCount[c] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + countryCount[c].label + '</span>';
+                    document.getElementById("chart_pie_2_legend").appendChild(node);
+                }
+            });
+
+            // Process doc count
+            let docCount = [];
+            if (response.doccount && response.doccount.length > 0) {
+                response.doccount.forEach(function(item) {
+                    docCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_3',
+                data: docCount,
+                resize: true,
+            }).options.colors.forEach(function(color, d) {
+                if (docCount[d] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + docCount[d].label + '</span>';
+                    document.getElementById("chart_pie_3_legend").appendChild(node);
+                }
+            });
+
+            // Process docz count
+            let doczCount = [];
+            if (response.doczcount && response.doczcount.length > 0) {
+                response.doczcount.forEach(function(item) {
+                    doczCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_6',
+                data: doczCount,
+                resize: true,
+            }).options.colors.forEach(function(color, d) {
+                if (doczCount[d] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + doczCount[d].label + '</span>';
+                    document.getElementById("chart_pie_6_legend").appendChild(node);
+                }
+            });
+
+            // Process client type count
+            let clienttypeCount = [];
+            if (response.clientcategorycount && response.clientcategorycount.length > 0) {
+                response.clientcategorycount.forEach(function(item) {
+                    clienttypeCount.push({ label: item.label, value: item.value });
+                });
+            }
+
+            Morris.Donut({
+                element: 'chart_pie_7',
+                data: clienttypeCount,
+                resize: true,
+            }).options.colors.forEach(function(color, c) {
+                if (clienttypeCount[c] != undefined) {
+                    var node = document.createElement('span');
+                    node.innerHTML += '<span style="color:' + color + '"><i style="margin-left: 15px;" class="fas fa-square"></i> ' + clienttypeCount[c].label + '</span>';
+                    document.getElementById("chart_pie_7_legend").appendChild(node);
+                }
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+            console.log('Response Text:', xhr.responseText);
+        }
+    });
+
+    // Second AJAX call - get yearly statistics
+    $.ajax({
+        url: base_url + '/dashboard/getCurrentMonthStatisticz',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            console.log('Full Response2:', response);
+
+            // Process allyearsalesdata
+            let TnCount1 = [];
+            if (response.allyearsalesdata && response.allyearsalesdata.length > 0) {
+                response.allyearsalesdata.forEach(function(item) {
+                    TnCount1.push({
+                        y: item.y, a: item.a, b: item.b, c: item.c, label: item.label
+                    });
+                });
+            }
+
+            // Initialize Morris.Bar chart
+            x = Morris.Bar({
+                element: 'bar-chart',
+                data: TnCount1,
+                barColors: ['#03a9f3', '#55ce63', '#f56954'],
+                xkey: 'y',
+                ykeys: ['b', 'a', 'c'],
+                labels: ['GST', 'Turnover', 'item_sold'],
+                hideHover: 'auto',
+                xLabelAngle: 60,
+                nbYkeys2: 1,
+                dataLabels: false,
+                gridTextWeight: 'Bold',
+                hoverCallback: function(index, options, content, row) {
+                    var dataLabel = row.label;
+                    return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
+                },
+            });
+
+            // Process allyeardata
+            let TnCount = [];
+            if (response.allyeardata && response.allyeardata.length > 0) {
+                response.allyeardata.forEach(function(item) {
+                    TnCount.push({
+                        y: item.y, a: item.a, b: item.b, c: item.c, label: item.label
+                    });
+                });
+            }
+
+            new Morris.Bar({
+                element: 'bar-chart3',
+                resize: true,
+                data: TnCount,
+                barColors: ['#00a65a', '#FFBF00', '#f56954'],
+                xkey: 'y',
+                ykeys: ['b', 'a', 'c'],
+                labels: ['GST', 'Turnover', 'item_sold'],
+                dataLabels: false,
+                hideHover: 'auto',
+                xLabelAngle: 60,
+                nbYkeys2: 1,
+                gridTextWeight: 'Bold',
+                hoverCallback: function(index, options, content, row) {
+                    var dataLabel = row.label;
+                    return "<div style='text-align:center;'>" + content + "<br>" + dataLabel + "</div>";
+                },
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+            console.log('Response Text:', xhr.responseText);
+        }
+    });
+
+    // Brand change handler
+    $('#brand').change(function() {
+        var brand_id = $(this).val();
+        var startyear = brand_id.substr(0, 4);
+        var endyear = brand_id.substr(5, 10);
+        
+        // Load data for brand
+        $.ajax({
+            url: base_url + "/dashboard/loadData",
+            method: "GET",
+            data: { brand_id: brand_id },
+            dataType: 'json',
+            showLoader: true,
+            success: function(data) {
+                var data21 = data['arr1'];
+                var data22 = data['arr2'];
+                
+                if (x) { // Check if x exists
+                    x.setData(data21);
+                    x.redraw();
+                }
+                
+                // Update progress bars
+                $('#bars').empty();
+                var title = '<p class="text-center"><strong style="font-size: 18px;"> Items Sold</strong></p></br>';
+                $('#bars').append(title);
+                
+                var arr = ["aqua", "red", "green", "yellow", "primary", "red", "purple"];
+                var v = data22.length;
+                var val2 = 5 - v;
+                
+                for (var i = 0; i < Math.min(data22.length, 5); i++) {
+                    $('#bars').append('<div class="progress-group"><span class="progress-text" id="' + i + '">' + data22[i].item_name + '</span><span class="progress-number"><b>' + data22[i].item_sold + '</b>/100</span><div class="progress sm"><div class="progress-bar progress-bar-' + arr[i] + '" style="width:' + (100 * data22[i].item_sold) / 100 + '%"></div></div></div>');
+                }
+                
+                // Fill remaining slots with "No-Items"
+                for (var j = data22.length; j < 5; j++) {
+                    $('#bars').append('<div class="progress-group"><span class="progress-text" id="' + j + '">No-Items</span><span class="progress-number"><b>0</b>/200</span><div class="progress sm"><div class="progress-bar progress-bar-' + arr[j] + '" style="width:100%"></div></div></div>');
+                }
+            }
+        });
+        
+        // Load turnover data
+        $.ajax({
+            url: base_url + "/dashboard/load_turn",
+            method: "GET",
+            data: { brand_y: brand_id },
+            showLoader: true,
+            dataType: 'json',
+            success: function(data) {
+                $('#invval').text(data['invoices']);
+                $('#totalitemval').text(data['totalitems']);
+                $('#yeartotalval').text(addCommas(data['turnovery']) + ".00 Rs");
+                $('#taxtotalvalz').text(addCommas(data['taxy']) + ".00 Rs");
+                $('#FY').text("Turnover Chart of the FY : " + brand_id);
+                $('#Fyz').text("Sales: 1 Apr, " + startyear + " - 30 Mar, " + endyear);
+            }
+        });
+    });
+    
+    // Helper function for formatting numbers
+    function addCommas(x) {
+        if (x === undefined || x === null) return '0';
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+});
+</script>
+ <script>
 
 function addCommas(numberString) {
   numberString += '';

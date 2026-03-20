@@ -147,12 +147,12 @@ class Dashboard extends Controller
     $doczcount=$this->statisticsModel->doczCount($startYear, $endYear);
 
 
-    $allyeardata= $this->statisticsModel->allyeardata();
+    //$allyeardata= $this->statisticsModel->allyeardata();
 
     $clientcategorycount=$this->statisticsModel->getclienttypecount();
 
 
-    $allyearsalesdata=$this->statisticsModel->allyearsalesdata($startYear, $endYear);
+    //$allyearsalesdata=$this->statisticsModel->allyearsalesdata($startYear, $endYear);
 
     
  $data = [
@@ -166,8 +166,8 @@ class Dashboard extends Controller
         'countrycount'=> $countrycount,
         'doccount'=> $doccount,
         'doczcount'=>$doczcount,
-        'allyeardata'=> $allyeardata,
-        'allyearsalesdata'=>$allyearsalesdata,
+        //'allyeardata'=> $allyeardata,
+        //'allyearsalesdata'=>$allyearsalesdata,
         'clientcategorycount'=> $clientcategorycount
 
 
@@ -180,6 +180,52 @@ class Dashboard extends Controller
 
 }
 
+
+    public function getCurrentMonthStatisticz()
+    {
+        $clientCount = $this->statisticsModel->getClientCountForCurrentMonth();
+        $invoiceTotal = $this->statisticsModel->getInvoiceTotalForCurrentMonth();
+        //$turnover = $this->statisticsModel->getTurnoverForCurrentMonth();
+
+        //$treechart=$this->statisticsModel->gettreechart();
+
+
+        $currentDate = date('Y-m-d');  // Get the current date
+
+        $month = date('m');  // Get the current month
+        $year = date('Y'); 
+
+                if ($month >= 4) {
+            // For months from April to December, the current financial year is the current year and next year
+            $startYear = $year;
+            $endYear = $year + 1;
+        } else {
+            // For months from January to March, the financial year is the previous year and the current year
+            $startYear = $year - 1;
+            $endYear = $year;
+        }
+
+ 
+    $allyeardata= $this->statisticsModel->allyeardata();
+
+    //$clientcategorycount=$this->statisticsModel->getclienttypecount();
+
+
+    $allyearsalesdata=$this->statisticsModel->allyearsalesdata($startYear, $endYear);
+
+    
+ $data = [
+
+        'allyeardata'=> $allyeardata,
+        'allyearsalesdata'=>$allyearsalesdata,
+        //'clientcategorycount'=> $clientcategorycount
+
+    ];
+  
+    //print_r($data);
+    return $this->response->setJSON($data);
+
+}
 
 public function clientreminder() {
     // Initialize the model
