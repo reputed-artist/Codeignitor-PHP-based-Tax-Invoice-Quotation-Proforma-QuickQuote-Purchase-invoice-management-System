@@ -386,7 +386,7 @@ let selectedItem = null;
     placeholder: "Select a product",
     allowClear: true,
             ajax: {
-            url: base_url + "/taxinv/getproducts", // Controller method
+            url: base_url + "/quote/getproducts", // Controller method
             type: "GET",
             dataType: "json",
              delay: 250, // Add a delay to limit requests for better performance

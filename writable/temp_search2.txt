@@ -1,0 +1,32 @@
+﻿C:\xampp\htdocs\C4\app\Views\Include\links.php:25
+C:\xampp\htdocs\C4\app\Views\Include\links.php:84
+C:\xampp\htdocs\C4\app\Views\Include\links.php:86
+C:\xampp\htdocs\C4\app\Views\Info layout\getclientinfo.php:11
+C:\xampp\htdocs\C4\app\Views\Info layout\getclientinfo.php:21
+C:\xampp\htdocs\C4\app\Views\Info layout\getclientinfo.php:23
+C:\xampp\htdocs\C4\app\Views\Info layout\getclientinfo.php:846
+C:\xampp\htdocs\C4\app\Views\Info layout\getclientinfo.php:853
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:13
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:23
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:25
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:705
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:713
+C:\xampp\htdocs\C4\app\Views\Info layout\getproductinfo.php:714
+C:\xampp\htdocs\C4\app\Views\Info layout\getsupplierinfo.php:11
+C:\xampp\htdocs\C4\app\Views\Info layout\getsupplierinfo.php:21
+C:\xampp\htdocs\C4\app\Views\Info layout\getsupplierinfo.php:23
+C:\xampp\htdocs\C4\app\Views\Info layout\getsupplierinfo.php:885
+C:\xampp\htdocs\C4\app\Views\Info layout\getsupplierinfo.php:892
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:17
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:951
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1075
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1104
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1131
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1163
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1194
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1224
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1260
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1296
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1330
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1697
+C:\xampp\htdocs\C4\app\Views\layout\Dashboard-layout.php:1815

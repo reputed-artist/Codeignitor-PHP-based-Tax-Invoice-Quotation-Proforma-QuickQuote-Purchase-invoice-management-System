@@ -3,6 +3,11 @@
 <head> <title>Print Envelop </title>
   <?= $this->include('include/links.php');?>
 <style>
+@page {
+  size: letter landscape;
+  margin: 0;
+}
+
 body {
   background: rgb(204,204,204); 
   margin: 0mm 25mm 25mm 25mm;
@@ -114,46 +119,10 @@ body {-webkit-print-color-adjust: exact;}
       <td height="123" colspan="2" valign="top">&nbsp;</td>
       <td width="454" valign="top" style="padding-top: 20px"><p  style="margin-left:50px; font-size: 18px;"> To, </br>
 <b style="font-size: 18px;" contenteditable>M/s. <?= esc($row['name']) ?> </b></br> 
-<b style="font-size: 18px;" contenteditable>  <?php
-       $x = 30;
-$longString =esc($row['address']);
-$lines = explode("\n", wordwrap($longString, $x));
-
-//echo "lines:".count($lines)." ";
-
-for($num = 0; $num < count($lines); $num += 1){ 
-    //echo  $lines[$num]. "\n <br>";
-
-     $data[$num]=$lines[$num];
-} 
-
-
-for($num=0;$num<count($lines);$num++)
-{
-   $data[$num]."</br>";
-}
-
-if($data[0] != null)
-{
-  echo $data[0]."</br>";
-}
-
- if(isset($data[1]) != null)
-{
-  echo $data[1]."</br>";
-} 
-
- if(isset($data[2]) != null)
-{
-  echo $data[2]."</br>";
-}
-
-if(isset($data[3]) != null)
-{
-  echo $data[3]."</br>";
-}
-  echo "Mob: ". esc($row['mob']);
- ?> 
+<b style="font-size: 18px; overflow-wrap: anywhere; word-break: break-word;" contenteditable>  <?php
+  echo nl2br(esc($row['address'] ?? ''));
+  echo '<br>Mob: ' . esc($row['mob'] ?? '');
+?> 
 
  </b> </p>
       <p>&nbsp;</p></td>
@@ -173,7 +142,7 @@ if(isset($data[3]) != null)
      
 
 </page>
-<span class="printInvisible no-print" style="color: white;" align="center"><h2><p align="center" >Set Layout: Landscape
+<span class="printInvisible no-print" style="color: white;" align="center"><h2><p align="center" >Set Layout: A4 Portrait
 And Then Print</p></h2>
 <p><img src="<?= base_url()?>/public/dist/img/lj-load-envelopes-front-tray.gif"> </p>
 </span>

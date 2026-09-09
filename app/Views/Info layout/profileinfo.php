@@ -6,166 +6,7 @@
   <title>AdminLTE 2 | User Profile</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <?= $this->include('include/links.php');?>
-  
-    <script >
-      $(document).ready(function () {
-      
-          //If image edit link is clicked
-          $(".editLink").on('click', function(e){
-              e.preventDefault();
-              $("#fileInput:hidden").trigger('click');
-          });
-        
-          //On select file to upload
-          $("#fileInput").on('change', function(){
-              var image = $('#fileInput').val();
-              var img_ex = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-      
-          var maxWidth = 160; // Max width for the image
-          var maxHeight = 160;    // Max height for the image
-          var ratio = 0;  // Used for aspect ratio
-          var width = $(this).width();    // Current image width
-          var height = $(this).height();  // Current image height
-      
-      
-          // Check if the current width is larger than the max
-          if(width > maxWidth){
-              ratio = maxWidth / width;   // get ratio for scaling image
-              $(this).css("width", maxWidth); // Set new width
-              $(this).css("height", height * ratio);  // Scale height based on ratio
-              height = height * ratio;    // Reset height to match scaled image
-          }
-      
-          var width = $(this).width();    // Current image width
-          var height = $(this).height();  // Current image height
-      
-      
-          // Check if current height is larger than max
-          if(height > maxHeight){
-              ratio = maxHeight / height; // get ratio for scaling image
-              $(this).css("height", maxHeight);   // Set new height
-              $(this).css("width", width * ratio);    // Scale width based on ratio
-              width = width * ratio;    // Reset width to match scaled image
-          }
-          
-      
-      console.log(width);
-      console.log(height);
-      
-          //validate file type
-              if(!img_ex.exec(image)){
-                  alert('Please upload only .jpg/.jpeg/.png/.gif file.');
-                  $('#fileInput').val('');
-                  return false;
-              }else{
-                  console.log("enters else");
-      
-                  $('.uploadProcess').show();
-                  $('#uploadForm').hide();
-                  $( "#picUploadForm" ).submit();
-              }
-          });
-      
-      });
-      
-      //After completion of image upload process
-function completeUpload(success, fileName) {
-    if (success == 1) {
-        // Add a timestamp to the image URL to prevent caching
-        var timestamp = new Date().getTime();
-        var newImageUrl = base_url + "/public/dist/img/uploads/" + fileName + "?t=" + timestamp;
-        console.log('Image URL: ' + base_url + "/public/dist/img/uploads/" + fileName);
-
-        // Update all image previews
-        $('#imagePreview').attr("src", newImageUrl);
-        $('#imagePreview2').attr("src", newImageUrl);
-        $('#imagePreview3').attr("src", newImageUrl);
-        $('#imagePreview4').attr("src", newImageUrl);
-        $('#imagePreview5').attr("src", newImageUrl);
-
-        $('#fileInput').attr("value", fileName);
-        $('.uploadProcess').hide();
-    } else {
-        $('.uploadProcess').hide();
-        alert('There was an error during file upload!');
-    }
-    return true;
-}
-      
-
-    </script>      
-    <script>
-      $(document).ready(function () {
-      
-       $(".editLink2").on('click', function(e){
-              e.preventDefault();
-              $("#fileInput2:hidden").trigger('click');
-          });
-          
-          //On select file to upload
-          $("#fileInput2").on('change', function(){
-              var image2 = $('#fileInput2').val();
-              var img_ex2 = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-              
-              
-         console.log("fileinput2 working");
-          var maxWidth = 160; // Max width for the image
-          var maxHeight = 160;    // Max height for the image
-          var ratio = 0;  // Used for aspect ratio
-          var width = $(this).width();    // Current image width
-          var height = $(this).height();  // Current image height
-      
-      
-          // Check if the current width is larger than the max
-          if(width > maxWidth){
-              ratio = maxWidth / width;   // get ratio for scaling image
-              $(this).css("width", maxWidth); // Set new width
-              $(this).css("height", height * ratio);  // Scale height based on ratio
-              height = height * ratio;    // Reset height to match scaled image
-          }
-      
-          var width = $(this).width();    // Current image width
-          var height = $(this).height();  // Current image height
-      
-      
-          // Check if current height is larger than max
-          if(height > maxHeight){
-              ratio = maxHeight / height; // get ratio for scaling image
-              $(this).css("height", maxHeight);   // Set new height
-              $(this).css("width", width * ratio);    // Scale width based on ratio
-              width = width * ratio;    // Reset width to match scaled image
-          }
-          
-              //validate file type
-              if(!img_ex2.exec(image2)){
-                  alert('Please upload only .jpg/.jpeg/.png/.gif file.');
-                  $('#fileInput2').val('');
-                  return false;
-              }else{
-                  $('.uploadProcess2').show();
-                  $('#uploadForm2').hide();
-                  $( "#picUploadForm2" ).submit();
-      
-              }
-          });  
-      
-      });
-      
-          function completeUploadz(success, fileName) {
-          if(success == 1){
-              $('#imagePreview6').attr("src", "");
-              $('#imagePreview6').attr("src", fileName);
-              
-              $('#fileInput2').attr("value", fileName);
-              $('.uploadProcess6').hide();
-          }else{
-              $('.uploadProcess6').hide();
-              alert('There was an error during file upload 2!');
-          }
-          return true;
-      }      
-    </script>
+    <?= $this->include('include/links_profile.php');?>
   
 
   </head>
@@ -219,6 +60,7 @@ function completeUpload(success, fileName) {
               <!-- /.box-body -->
             </div>
             <!-- /.box -->
+            
             <!-- About Me Box -->
             <div class="box box-primary">
               <div class="box-header with-border">
@@ -266,10 +108,12 @@ function completeUpload(success, fileName) {
               <!-- /.box-body -->
             </div>
             <!-- /.box -->
+          
           </div>
           <!-- / col-md-3 finished -->
           <!-- /.col -->
           <div class="col-md-9">
+
             <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
                 <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
@@ -447,7 +291,7 @@ function completeUpload(success, fileName) {
 
  <div class="form-group" >
       <div class="col-sm-offset-5 col-sm-10">
-        <input type="submit" class="btn btn-primary" name="One Click Backup" value="One Click Backup" id="one-click-backup">
+        <input type="button" class="btn btn-primary" name="One Click Backup" value="One Click Backup" id="one-click-backup">
       </div>
     </div>
     <p id="backup-message" style="text-align: center;"></p>
@@ -477,7 +321,7 @@ function completeUpload(success, fileName) {
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" class="btn btn-danger" name="Restore" value="Restore" id="restore-backup">
+        <input type="button" class="btn btn-danger" name="Restore" value="Restore" id="restore-backup">
       </div>
     </div>
 
@@ -591,6 +435,7 @@ function completeUpload(success, fileName) {
                       </div>
                       <br /><br />
                   </form>
+                  
                   </div>
                   <!-- /.tab-pane -->
                 </div>
@@ -598,13 +443,71 @@ function completeUpload(success, fileName) {
               </div>
               <!-- /.nav-tabs-custom -->
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+
       </section>
+            <!-- /.box -->
+        
       <!-- /.content -->
+       
+
+            <div class="col-md-12">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title"><i class="fa fa-line-chart"></i> Monthly Sales Trend (Static)</h3>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="line_chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+             
+         
+          <!-- /.row -->
 
       </div>
+<!-- 
+<div class="box box-primary" style="width: 100%; overflow: hidden;">
+  <div class="box-header with-border">
+    <h3 class="box-title">Business Overview</h3>
+  </div>
+  <div class="box-body">
+<div class="row" style="margin-left: 0; margin-right: 0;">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="fa fa-line-chart"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">Business Snapshot</span>
+                          <span class="info-box-number"><?= isset($sm[2]['value']) ? moneyFormatIndia($sm[2]['value']) : '0'; ?></span>
+                          <span class="progress-description">Sales total</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="info-box bg-aqua">
+                        <span class="info-box-icon"><i class="fa fa-building"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">Company Profile</span>
+                          <span class="info-box-number"><?= esc($cozDetails->name); ?></span>
+                          <span class="progress-description"><?= esc($cozDetails->email); ?></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="info-box bg-yellow">
+                        <span class="info-box-icon"><i class="fa fa-bank"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">Bank Accounts</span>
+                          <span class="info-box-number"><?= is_array($bz) ? count($bz) : 0; ?></span>
+                          <span class="progress-description">Configured accounts</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  </div>
+</div> -->
+      
 
         <?= $this->include('include/settings.php');?>
       <?= $this->include('include/footer.php');?>
@@ -617,418 +520,18 @@ function completeUpload(success, fileName) {
       <div class="control-sidebar-bg"></div>
     </div>
 
-    <!-- <script src="<?= base_url()?>/public/dist/js/adminlte.min.js"></script> -->
-    <script type="text/javascript">
-    var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
-</script>
 
-<script>
-   $(document).ready(function(){
-
-let count = 1;  // Track new field sets
- var maxBanks = 2; // Max number of bank rows allowed
-    var currentBanks = <?= $bankCount ?>; // Initial count of banks
-
-    $('#addBank').on('click', function() {
-      if (currentBanks < maxBanks) {
-        var bankRow = `
-          <div class="bank-details">
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Bank Name</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" name="bname[]" placeholder="Bank Name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">A/c Number</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" name="ac[]" placeholder="Account number">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">IFSC Code</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" name="ifsc[]" placeholder="IFSC Code" style="text-transform: uppercase;">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Branch</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" name="branch[]" placeholder="Branch Name">
-              </div>
-            </div>
-          </div>
-        `;
-        $('#bank-details-container').append(bankRow);
-        currentBanks++;
-
-        // If 2 banks are added, hide the "Add More" button
-        if (currentBanks >= maxBanks) {
-          $('#addBank').hide();
-        }
-      }
-    });
+    <!-- Page config passed from PHP to JS -->
+    <script>
+        window.C4PageConfig = {
+            base_url: "<?= base_url(); ?>",
+            bankCount: <?= (int) $bankCount; ?>
+        };
+    </script>
+    <!-- Consolidated page logic (external, cacheable) -->
+    <script src="<?= base_url(); ?>/public/js/profileinfo.js"></script>
 
 
-
- $("#one-click-backup").click(function () {
-        $.ajax({
-            url: base_url+'/profile/dbbackup',
-            type: "POST",
-            dataType: "json",
-            beforeSend: function () {
-                $("#one-click-backup").text("Backing Up...").prop("disabled", true);
-            },
-            success: function (response) {
-                if (response.status === "success") {
-            $("#backup-message").html("✅ Backup Successful! Check C4/writeable/backups/");
-                        } else {
-                            $("#backup-message").html("❌ Error: " + response.message);
-                }
-                $("#one-click-backup").text("One Click Backup").prop("disabled", false);
-            },
-            error: function (xhr, status, error) {
-                console.error("AJAX Error: ", error);
-                alert("An error occurred. Check the logs.");
-                $("#one-click-backup").text("One Click Backup").prop("disabled", false);
-            }
-        });
-    });
-
-
-  $("#restore-backup").click(function () {
-    var formData = new FormData();
-    formData.append("backup_file", $("#backup-file-input")[0].files[0]); // Assuming an input field for the file with id "backup-file-input"
-
-    $.ajax({
-        url: base_url + '/profile/restoreDB',
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        processData: false, // Don't process the data
-        contentType: false, // Don't set content type
-        beforeSend: function () {
-            $("#restore-backup").text("Restoring...").prop("disabled", true);
-        },
-        success: function (response) {
-            if (response.type === "success") {
-                $("#backup-message").html("✅ " + response.message);
-            } else {
-                $("#backup-message").html("❌ " + response.message);
-            }
-            $("#restore-backup").text("Restore Backup").prop("disabled", false);
-        },
-        error: function (xhr, status, error) {
-            console.error("AJAX Error: ", error);
-            alert("An error occurred. Check the logs.");
-            $("#restore-backup").text("Restore Backup").prop("disabled", false);
-        }
-    });
-});
-
-
-  $("#codetails").on('submit', function(e) {
-    e.preventDefault(); // Prevent the page from refreshing
-
-    // Collect the form data
-    var fd = new FormData(this);
-
-    //  //e.preventDefault();
-    // console.log("cosubmit clicked");
-
-    //  isValid = true;
-    var cname = $("#cname").val().trim();
-    var cadd = $("#cadd").val();
-    var cmob = $("#cmob").val();
-    var cemail = $("#cemail").val();
-            //console.log(country);
-    var cgst = $("#cgst").val().trim();
-
-    var cpan = $("#cpan").val().trim();
-    
-      //var u_type = 0; // Assuming you want this value
-        var fd = new FormData();
-        fd.append("cname", cname);
-        fd.append("cadd", cadd);
-        fd.append("cmob", cmob);
-        fd.append("cemail", cemail);
-        fd.append("cgst", cgst);
-        fd.append("cpan", cpan); // Ensure this is included
-        
-        console.log("cname: ", cname);
-        console.log("cadd: ", cadd);
-        console.log("cmob: ", cmob);
-        console.log("cemail: ", cemail);
-        console.log("cgst: ", cgst);
-        console.log("cpan: ", cpan);
-
-        console.log(fd);    
-
-   $.ajax({
-        url: base_url + "/profile/updateData", // Ensure this is the correct endpoint
-        type: 'POST',
-        data: fd,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-            console.log("AJAX Success:", response);
-             Swal.fire({
-                        title: 'Success!',
-                        text: response.message,
-                        icon: 'success'
-                    });
-
-            // You can show a message or update the page accordingly
-        },
-        error: function(xhr, status, error) {
-            console.error("AJAX Error:", xhr.responseText);
-        }
-    });
-});
-
-$("#form1").on('submit', function(e) {
-    e.preventDefault(); // Prevent the page from refreshing
-
-    // Collect the form data
-    var fd = new FormData(this);
-
-    //  //e.preventDefault();
-    // console.log("cosubmit clicked");
-
-    //  isValid = true;
-    var name = $("#inputname").val().trim();
-    var email = $("#inputemail").val();
-    var profession = $("#profession").val();
-    var qualification = $("#qualification").val();
-            //console.log(country);
-    var location = $("#location").val();
-
-    //var cpan = $("#cpan").val().trim();
-    
-      //var u_type = 0; // Assuming you want this value
-        var fd = new FormData();
-        fd.append("name", name);
-        fd.append("email", email);
-        fd.append("profession", profession);
-        fd.append("qualification", qualification);
-        fd.append("location", location);
-        //fd.append("cpan", cpan); // Ensure this is included
-        
-        console.log("name: ", name);
-        console.log("email: ", email);
-        console.log("profession: ", profession);
-        console.log("qualification: ", qualification);
-        console.log("location: ", location);
-        //console.log("cpan: ", cpan);
-
-        console.log(fd);    
-
-   $.ajax({
-        url: base_url + "/profile/updateData2", // Ensure this is the correct endpoint
-        type: 'POST',
-        data: fd,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-            console.log("AJAX Success:", response);
-             Swal.fire({
-                        title: 'Success!',
-                        text: response.message,
-                        icon: 'success'
-                    });
-
-            // You can show a message or update the page accordingly
-        },
-        error: function(xhr, status, error) {
-            console.error("AJAX Error:", xhr.responseText);
-        }
-    });
-});
-
-$("#pass").on('upsubmit', function(e) {
-    e.preventDefault(); // Prevent the page from refreshing
-
-    // Collect the form data
-    var fd = new FormData(this);
-
-    //  //e.preventDefault();
-    // console.log("cosubmit clicked");
-
-    //  isValid = true;
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var cpassword = $("#cpassword").val();
-
-        var fd = new FormData();
-        fd.append("username", username);
-        fd.append("password", password);
-       // fd.append("profession", profession);
-        
-        console.log("name: ", username);
-        console.log("email: ", password);
-        //console.log("profession: ", profession);
-
-        console.log(fd);    
-
-   $.ajax({
-        url: base_url + "/profile/updateData3", // Ensure this is the correct endpoint
-        type: 'POST',
-        data: fd,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-            console.log("AJAX Success:", response);
-             Swal.fire({
-                        title: 'Success!',
-                        text: response.message,
-                        icon: 'success'
-                    });
-
-            // You can show a message or update the page accordingly
-        },
-        error: function(xhr, status, error) {
-            console.error("AJAX Error:", xhr.responseText);
-        }
-    });
-});
-
-
- // Intercept the form submission and send it via AJAX
-    $("#bankinfo").on('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission (page refresh)
-
-        // Create a FormData object to capture all form fields
-        var formData = new FormData(this);
-
-        // For debugging, log the FormData entries
-        for (var pair of formData.entries()) {
-            console.log(pair[0] + ': ' + pair[1]);
-        }
-
-        $.ajax({
-            url: base_url + "/profile/updateBankDetails", // Update this with your actual endpoint URL
-            type: 'POST',
-            data: formData,
-            contentType: false, // Important for file uploads and FormData
-            processData: false,
-            dataType: 'json',
-            success: function(response) {
-                console.log("AJAX Success:", response);
-                if(response.success) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: response.message,
-                        icon: 'success'
-                    });
-                    // Optionally, reload or update the view
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: response.message,
-                        icon: 'error'
-                    });
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX Error:", xhr.responseText);
-                Swal.fire('Oops...', 'Something went wrong with the AJAX request!', 'error');
-            }
-        });
-    });
-
-
-$('#fileInput').change(function () {
-    var formData = new FormData();
-    var productId = 1; // Ensure this is the correct product ID
-    var file = $('#fileInput')[0].files[0];
-
-    if (file) {
-        formData.append('picture', file); // Change 'fileInput' to 'picture' to match the backend
-        formData.append('product_id', productId); // Assuming product ID
-
-        $.ajax({
-            url: base_url + "/profile/uploadProductImage",  // Ensure this is the correct route
-            type: 'post',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            success: function(response) {
-                console.log("Response received: ", response);
-
-                if (response.success) {
-                    console.log('Image uploaded successfully: ' + response.filename);
-
-                    // Update the image preview after successful upload
-                    var imageUrl = base_url + '/public/dist/img/uploads/' + response.filename;
-                    $('#imagePreview').attr('src', imageUrl);
-                    $('#imagePreview2').attr('src', imageUrl);
-                    $('#imagePreview3').attr('src', imageUrl);
-                    $('#imagePreview4').attr('src', imageUrl);
-                   $('#imagePreview5').attr('src', imageUrl);
-                } else {
-                    console.log('Error: ' + response.message);
-                    alert('Error uploading image');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error uploading image: ' + error);
-                alert('Error uploading image');
-            }
-        });
-    }
-});
-
-$('#fileInput2').change(function () {
-    var formData = new FormData();
-    var productId = 1; // Ensure this is the correct product ID
-    var file = $('#fileInput2')[0].files[0];
-
-    if (file) {
-        formData.append('picturelogo', file); // Change 'fileInput' to 'picture' to match the backend
-        formData.append('product_id', productId); // Assuming product ID
-
-        $.ajax({
-            url: base_url + "/profile/uploadProductImage2",  // Ensure this is the correct route
-            type: 'post',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            success: function(response) {
-                console.log("Response received: ", response);
-
-                if (response.success) {
-                    console.log('Image uploaded successfully: ' + response.filename);
-
-                    // Update the image preview after successful upload
-                    var imageUrl = base_url + '/public/dist/img/uploads/' + response.filename;
-                    $('#imagePreviews').attr('src', imageUrl);
-                    //$('#imagePreview2').attr('src', imageUrl);
-                    //$('#imagePreview3').attr('src', imageUrl);
-                    //$('#imagePreview4').attr('src', imageUrl);
-                   //$('#imagePreview5').attr('src', imageUrl);
-                } else {
-                    console.log('Error: ' + response.message);
-                    alert('Error uploading image');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error uploading image: ' + error);
-                alert('Error uploading image');
-            }
-        });
-    }
-});
-
-
-});      
-
-
-</script>
     
   </body>
 </html>

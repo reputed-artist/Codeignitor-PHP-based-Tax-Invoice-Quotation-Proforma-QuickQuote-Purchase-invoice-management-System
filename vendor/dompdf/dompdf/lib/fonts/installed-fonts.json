@@ -1,0 +1,18 @@
+{
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_09fb151228a470655b585649d6ba193d"
+    },
+    "font awesome 5 brands": {
+        "normal": "font_awesome_5_brands_normal_a0e07270c83c7f15a38db685491ac07c"
+    },
+    "font awesome 5 free": {
+        "normal": "C:\\xampp\\htdocs\\C4\\vendor\\dompdf\\dompdf\/lib\/fonts\/font_awesome_5_free_normal_2c57918ae5e3cf99bb379422e4925860",
+        "900": "font_awesome_5_free_900_6a8046051124773a4284c777e9a2784c"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_6a7f4037d6d2a8f39f56ba42f2ffcc03"
+    },
+    "ionicons": {
+        "normal": "ionicons_normal_3ea3085ecc0cf401ca45d31ff8e82ec1"
+    }
+}

@@ -411,7 +411,7 @@ let ctype=null;
     placeholder: "Select a Person or Company",
     allowClear: true,
             ajax: {
-            url: base_url + "/taxinv/getclient", // Controller method
+            url: base_url + "/proinv/getclient", // Controller method
             type: "GET",
             dataType: "json",
              delay: 250, // Add a delay to limit requests for better performance

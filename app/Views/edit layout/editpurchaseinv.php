@@ -677,7 +677,11 @@ window.showHsn = function showHsn(count, str) {
 
     // Initialize editquote functionality
     var url = window.location.href;
-    var orderId = url.substring(url.lastIndexOf('/') + 1); // Extract orderId
+    var urlParams = new URLSearchParams(window.location.search);
+    var orderId = urlParams.get('orderid'); // Prefer the ?orderid= query param used by the list pages
+    if (!orderId) {
+        orderId = url.substring(url.lastIndexOf('/') + 1); // Fallback to path segment
+    }
     if (orderId) {
         loadQuoteDetails(orderId); // Load details for the order
     }
@@ -693,6 +697,9 @@ $("#form").submit(function(event) {
   var url = window.location.href;
   var urlParams = new URLSearchParams(window.location.search);
   var orderId = urlParams.get('orderid');  // Extract the orderid from the query string
+  if (!orderId) {
+      orderId = url.substring(url.lastIndexOf('/') + 1); // Fallback to path segment
+  }
 
         console.log("submit event");
         var formData = $(this).serialize();
@@ -798,7 +805,28 @@ if (hasError) {
 
         console.log(formData);
 
+        // ==========================================
+        // PRE-CHECK FOR DUPLICATE before submitting
+        // ==========================================
         $.ajax({
+            type: "POST",
+            url: base_url + "/purchaseinv/checkDuplicateUpdate",
+            data: formData,
+            dataType: 'json',
+            success: function(checkResponse) {
+
+                // If a duplicate exists, warn the user and DON'T submit
+                if (checkResponse.duplicate === true) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Duplicate Invoice',
+                        text: 'Invoice already exists. Please check the invoice number and date.',
+                        confirmButtonText: 'OK'
+                    });
+                    return; // prevent submission
+                }
+
+                $.ajax({
             type: "POST",
             url: base_url + "/purchaseinv/updatepurchaseinv/" + orderId,
             data:formData,
@@ -806,6 +834,21 @@ if (hasError) {
             //contentType: false,           
             success: function(response) {
                 // Handle success response here
+
+                // ==========================================
+                // DUPLICATE INVOICE
+                // ==========================================
+                if (response.duplicate === true) {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Duplicate Invoice',
+                        text: response.message || 'This Purchase invoice already exists.',
+                        confirmButtonText: 'OK'
+                    });
+
+                    return;
+                }
 
                 if (response.success) {
 
@@ -840,8 +883,15 @@ if (hasError) {
                 }
             },
 
+                error: function(xhr, status, error) {
+                    // Handle error here
+                    console.error(xhr.responseText);
+                }
+            });
+
+            }, // end of checkDuplicateUpdate success handler
             error: function(xhr, status, error) {
-                // Handle error here
+                // Handle duplicate-check error
                 console.error(xhr.responseText);
             }
         });

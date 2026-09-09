@@ -1,0 +1,8 @@
+PHP: 7.4.30
+Total GET routes registered: 2
+--- route status per URL ---
+PRINTQUOTE [quote/printquote?orderid=6a9a66ae956b6] => *** NO MATCH ***
+PRINTPURCHASE [purchaseinv/printpurchaseinv?orderid=6a72ba87c1d70] => *** NO MATCH ***
+PRINTPROINV [proinv/printproinv?orderid=6a8eb60ca2ca4] => *** NO MATCH ***
+GETLEDGER [account/getledger/1014] => *** NO MATCH ***
+PRINTTAXINV [taxinv/printtaxinv?orderid=5e5332769bcd2] => *** NO MATCH ***

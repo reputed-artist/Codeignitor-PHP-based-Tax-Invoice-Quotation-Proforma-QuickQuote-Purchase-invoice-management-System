@@ -31,7 +31,7 @@ class Database extends Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => '',
+		'DSN'      => 'db',
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
@@ -57,9 +57,9 @@ class Database extends Config
 	 * @var array
 	 */
 	public $tests = [
-		'DSN'      => '',
+		'DSN'      => 'db',
 		'hostname' => '127.0.0.1',
-		'username' => '',
+		'username' => 'root',
 		'password' => '',
 		'database' => ':memory:',
 		'DBDriver' => 'SQLite3',

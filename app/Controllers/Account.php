@@ -11,6 +11,13 @@ class Account extends Controller
 {
     protected $crudModel;
 
+    private function closeSessionLock(): void
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_write_close();
+        }
+    }
+
     public function __construct()
     {
         $this->crudModel = new Account_model(); // Load model
@@ -34,6 +41,12 @@ public function getLedgerByFY($cid)
     if (!$cid) {
         return $this->response->setJSON(['error' => 'Client ID is required']);
     }
+
+    // Release the PHP session file lock so this (long-running) ledger
+    // request never blocks on / gets blocked by other same-session
+    // requests, and so the page's initial AJAX isn't stalled waiting
+    // for a session lock held elsewhere.
+    $this->closeSessionLock();
 
     $fy = $this->request->getGet('fy');
     $u_type =$this->request->getGet('u_type'); ; // Consider fetching dynamically if applicable
@@ -143,10 +156,20 @@ $result2 = $query2->getResultArray();
 elseif ($u_type == 1) {
 
 
-$cid=(int)$cid;
 
 
-   $sql2="WITH FinancialYears AS (
+$sql2 = "WITH FinancialYears AS (
+    SELECT DISTINCT 
+        CASE 
+            WHEN EXTRACT(MONTH FROM created) >= 4 
+            THEN CONCAT(YEAR(created), '-', YEAR(created) + 1)
+            ELSE CONCAT(YEAR(created) - 1, '-', YEAR(created))
+        END AS fy
+    FROM invtest2
+    WHERE cid = :cid
+    
+    UNION
+    
     SELECT DISTINCT 
         CASE 
             WHEN EXTRACT(MONTH FROM invdate) >= 4 
@@ -154,7 +177,7 @@ $cid=(int)$cid;
             ELSE CONCAT(YEAR(invdate) - 1, '-', YEAR(invdate))
         END AS fy
     FROM purchaseinv2
-    WHERE cid = {$cid}
+    WHERE cid = :cid
     
     UNION
     
@@ -165,7 +188,7 @@ $cid=(int)$cid;
             ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
         END AS fy
     FROM paidhistory
-    WHERE cid = {$cid}
+    WHERE cid = :cid
 ),
 
 LedgerData AS (
@@ -174,18 +197,7 @@ LedgerData AS (
         a.cid, 
         a.opening_bal AS initial_opening_balance,
 
-        -- Total Credit
-        (SELECT COALESCE(SUM(pinv.totalamount), 0) 
-         FROM purchaseinv2 pinv
-         WHERE pinv.cid = a.cid 
-         AND (CASE 
-                WHEN EXTRACT(MONTH FROM pinv.invdate) >= 4 
-                THEN CONCAT(YEAR(pinv.invdate), '-', YEAR(pinv.invdate) + 1)
-                ELSE CONCAT(YEAR(pinv.invdate) - 1, '-', YEAR(pinv.invdate))
-              END) = f.fy
-        ) AS total_credit,
-
-        -- Total Debit
+        -- Total Credit (paidhistory + invtest2)
         (SELECT COALESCE(SUM(ph.amount), 0) 
          FROM paidhistory ph
          WHERE ph.cid = a.cid 
@@ -194,45 +206,162 @@ LedgerData AS (
                 THEN CONCAT(YEAR(ph.dateofpayment), '-', YEAR(ph.dateofpayment) + 1)
                 ELSE CONCAT(YEAR(ph.dateofpayment) - 1, '-', YEAR(ph.dateofpayment))
               END) = f.fy
+        ) +
+        (SELECT COALESCE(SUM(it.totalamount), 0) 
+         FROM invtest2 it
+         WHERE it.cid = a.cid 
+         AND (CASE 
+                WHEN EXTRACT(MONTH FROM it.created) >= 4 
+                THEN CONCAT(YEAR(it.created), '-', YEAR(it.created) + 1)
+                ELSE CONCAT(YEAR(it.created) - 1, '-', YEAR(it.created))
+              END) = f.fy
+        ) AS total_credit,
+
+        -- Total Debit (purchaseinv2)
+        (SELECT COALESCE(SUM(pinv.totalamount), 0) 
+         FROM purchaseinv2 pinv
+         WHERE pinv.cid = a.cid 
+         AND (CASE 
+                WHEN EXTRACT(MONTH FROM pinv.invdate) >= 4 
+                THEN CONCAT(YEAR(pinv.invdate), '-', YEAR(pinv.invdate) + 1)
+                ELSE CONCAT(YEAR(pinv.invdate) - 1, '-', YEAR(pinv.invdate))
+              END) = f.fy
         ) AS total_debit
 
     FROM FinancialYears f
     CROSS JOIN account a
-    WHERE a.cid = {$cid} 
-    ),
+    WHERE a.cid = :cid
+),
 
 FinalLedger AS (
     SELECT 
-        ld.cid, 
-        ld.fy, 
+        ld.cid,
+        ld.fy,
 
-        -- Opening Balance: Use previous year’s closing balance
+        -- Opening Balance = initial + previous cumulative movement
+        ld.initial_opening_balance +
         COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance  -- Use initial balance only for first year
-        ) AS opening_balance,
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
+            ),
+        0) AS opening_balance,
 
         ld.total_credit,
         ld.total_debit,
 
-        -- Correct Closing Balance Calculation
-        (COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance
-        ) + ld.total_credit - ld.total_debit) AS closing_balance
+        -- Closing Balance = opening + current movement
+        ld.initial_opening_balance +
+        COALESCE(
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+            ),
+        0) AS closing_balance
+
     FROM LedgerData ld
 )
-
 SELECT * FROM FinalLedger ORDER BY fy";
 
-    //$query2 = $this->db->query($sql2, [$cid,$cid,$cid]);
-//echo $sql2;
-
-    $query2 = $this->db->query($sql2);
-
+$sql2 = str_replace(':cid', intval($cid), $sql2);
+$query2 = $this->db->query($sql2);
 $result2 = $query2->getResultArray();
+
+
+// $cid=(int)$cid;
+
+
+//    $sql2="WITH FinancialYears AS (
+//     SELECT DISTINCT 
+//         CASE 
+//             WHEN EXTRACT(MONTH FROM invdate) >= 4 
+//             THEN CONCAT(YEAR(invdate), '-', YEAR(invdate) + 1)
+//             ELSE CONCAT(YEAR(invdate) - 1, '-', YEAR(invdate))
+//         END AS fy
+//     FROM purchaseinv2
+//     WHERE cid = {$cid}
+    
+//     UNION
+    
+//     SELECT DISTINCT 
+//         CASE 
+//             WHEN EXTRACT(MONTH FROM dateofpayment) >= 4 
+//             THEN CONCAT(YEAR(dateofpayment), '-', YEAR(dateofpayment) + 1)
+//             ELSE CONCAT(YEAR(dateofpayment) - 1, '-', YEAR(dateofpayment))
+//         END AS fy
+//     FROM paidhistory
+//     WHERE cid = {$cid}
+// ),
+
+// LedgerData AS (
+//     SELECT 
+//         f.fy, 
+//         a.cid, 
+//         a.opening_bal AS initial_opening_balance,
+
+//         -- Total Credit
+//         (SELECT COALESCE(SUM(pinv.totalamount), 0) 
+//          FROM purchaseinv2 pinv
+//          WHERE pinv.cid = a.cid 
+//          AND (CASE 
+//                 WHEN EXTRACT(MONTH FROM pinv.invdate) >= 4 
+//                 THEN CONCAT(YEAR(pinv.invdate), '-', YEAR(pinv.invdate) + 1)
+//                 ELSE CONCAT(YEAR(pinv.invdate) - 1, '-', YEAR(pinv.invdate))
+//               END) = f.fy
+//         ) AS total_credit,
+
+//         -- Total Debit
+//         (SELECT COALESCE(SUM(ph.amount), 0) 
+//          FROM paidhistory ph
+//          WHERE ph.cid = a.cid 
+//          AND (CASE 
+//                 WHEN EXTRACT(MONTH FROM ph.dateofpayment) >= 4 
+//                 THEN CONCAT(YEAR(ph.dateofpayment), '-', YEAR(ph.dateofpayment) + 1)
+//                 ELSE CONCAT(YEAR(ph.dateofpayment) - 1, '-', YEAR(ph.dateofpayment))
+//               END) = f.fy
+//         ) AS total_debit
+
+//     FROM FinancialYears f
+//     CROSS JOIN account a
+//     WHERE a.cid = {$cid} 
+//     ),
+
+// FinalLedger AS (
+//     SELECT 
+//         ld.cid, 
+//         ld.fy, 
+
+//         -- Opening Balance: Use previous year’s closing balance
+//         COALESCE(
+//             LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
+//             OVER (PARTITION BY ld.cid ORDER BY ld.fy),
+//             ld.initial_opening_balance  -- Use initial balance only for first year
+//         ) AS opening_balance,
+
+//         ld.total_credit,
+//         ld.total_debit,
+
+//         -- Correct Closing Balance Calculation
+//         (COALESCE(
+//             LAG(ld.initial_opening_balance + ld.total_credit - ld.total_debit) 
+//             OVER (PARTITION BY ld.cid ORDER BY ld.fy),
+//             ld.initial_opening_balance
+//         ) + ld.total_credit - ld.total_debit) AS closing_balance
+//     FROM LedgerData ld
+// )
+
+// SELECT * FROM FinalLedger ORDER BY fy";
+
+// //$query2 = $this->db->query($sql2, [$cid,$cid,$cid]);
+// //echo $sql2;
+
+//     $query2 = $this->db->query($sql2);
+
+// $result2 = $query2->getResultArray();
 
 
 
@@ -320,28 +449,36 @@ LedgerData AS (
 
 FinalLedger AS (
     SELECT 
-        ld.cid, 
-        ld.fy, 
+        ld.cid,
+        ld.fy,
 
-        -- Opening Balance: Carry forward from previous year's closing balance
+        -- Opening Balance = initial + previous cumulative movement
+        ld.initial_opening_balance +
         COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_debit - ld.total_credit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance
-        ) AS opening_balance,
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING
+            ),
+        0) AS opening_balance,
 
         ld.total_credit,
         ld.total_debit,
 
-        -- Closing Balance Calculation: opening balance + total debit - total credit
-        (COALESCE(
-            LAG(ld.initial_opening_balance + ld.total_debit - ld.total_credit) 
-            OVER (PARTITION BY ld.cid ORDER BY ld.fy),
-            ld.initial_opening_balance
-        ) + ld.total_debit - ld.total_credit) AS closing_balance
+        -- Closing Balance = opening + current movement
+        ld.initial_opening_balance +
+        COALESCE(
+            SUM(ld.total_debit - ld.total_credit)
+            OVER (
+                PARTITION BY ld.cid 
+                ORDER BY ld.fy 
+                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+            ),
+        0) AS closing_balance
+
     FROM LedgerData ld
 )
-
 SELECT * FROM FinalLedger ORDER BY fy";
 
 $sql2 = str_replace(':cid', intval($cid), $sql2);
@@ -602,6 +739,12 @@ public function getledger($cid)
 } else {
     return redirect()->to(base_url().'/login');
 }
+
+    // Release the PHP session file lock before running the heavy page
+    // queries, so the page's own initial AJAX (and any other same-session
+    // request) is not blocked waiting for this request to fully finish.
+    $this->closeSessionLock();
+
     // Load the Account model
     $accountModel = new Account_model();
 
@@ -934,10 +1077,17 @@ public function manageaccounts()
     return redirect()->to(base_url().'/login');
 }
 
-    $accountModel = new \App\Models\Account_Model();
+    $accountModel = new \App\Models\Account_model3();
 
-    // Fetch all records using the custom method
-    $records = $accountModel->getAccountDetails();
+    // Fetch all records using the custom method (includes closing balance)
+    $records = $accountModel->getAccountDetailsWithClosingBalance();
+
+      // 🔥 IMPORTANT: normalize hidden state
+    foreach ($records as &$row) {
+        $row['hidden'] = isset($row['is_hidden']) && (int)$row['is_hidden'] === 1;
+    }
+    unset($row); // safety
+
 
 
     $last_cid = $this->crudModel->get_last_cid();
@@ -965,6 +1115,19 @@ public function manageaccounts()
     return view('layout/manage-account', $data);
 }
 
+public function updateHidden()
+{
+    $id     = $this->request->getPost('id');
+    $hidden = $this->request->getPost('hidden');
+
+    $accountModel = new \App\Models\Account_Model();
+
+    $accountModel->update($id, [
+        'is_hidden' => (int)$hidden
+    ]);
+
+    return $this->response->setJSON(['status' => 'ok']);
+}
 
 public function getclient()
 {

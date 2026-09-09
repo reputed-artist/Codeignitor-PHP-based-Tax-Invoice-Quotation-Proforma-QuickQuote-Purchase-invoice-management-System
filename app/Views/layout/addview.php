@@ -283,7 +283,7 @@ $('.select2').select2({
  
                     $.fn.dataTable.fileSave(
                         new Blob( [ JSON.stringify( data ) ] ),
-                        'Export.json'
+                        getExportDocumentName() + '.json'
                     );
                 }
             },
@@ -292,7 +292,8 @@ $('.select2').select2({
                 text:      '<i class="fa fa-file-excel-o">&nbsp; Excel</i>',
                 className: "btn-sm btn btn-danger",
                 titleAttr: 'Excel',
-                                title: 'AdminLT || Clients Data',
+                                title: getExportDocumentName(),
+                filename: getExportDocumentName(),
                 exportOptions: {
                     columns: [ 0, 1, 2, 3,4,5,6 ]
                 }
@@ -302,7 +303,8 @@ $('.select2').select2({
                 text:      '<i class="fa fa-file-text-o">&nbsp; CSV</i>',
                 className: "btn-sm btn btn-danger",
                 titleAttr: 'CSV',
-                                title: 'AdminLT || Clients Data',
+                                title: getExportDocumentName(),
+                filename: getExportDocumentName(),
                 exportOptions: {
                     columns: [ 0, 1, 2, 3,4,5 ]
                 }
@@ -314,7 +316,8 @@ $('.select2').select2({
                 orientation: 'landscape',
                 pageSize: 'A3',          
                 titleAttr: 'PDF',
-                title: 'AdminLT || Clients Data',
+                title: getExportDocumentName(),
+                filename: getExportDocumentName(),
                 customize: function(doc) {  
                 doc.pageMargins = [10,10,10,10];
                 doc.defaultStyle.fontSize = 7;
@@ -399,7 +402,7 @@ $('.select2').select2({
                 text:      '<i class="fa fa-print">&nbsp; Print</i>',
                 className: "btn btn-sm  btn-danger",  
                 titleAttr: 'Print',
-                                                title: 'AdminLT || Clients Data',
+                                                title: getExportDocumentName(),
                 exportOptions: {
                     columns: [ 0, 1, 2, 3,4,5]
                 }

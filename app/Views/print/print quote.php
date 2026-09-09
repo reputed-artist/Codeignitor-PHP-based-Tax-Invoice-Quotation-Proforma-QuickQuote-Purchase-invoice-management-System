@@ -132,6 +132,7 @@ if(isset($data[3]) != null)
  <?= esc($cattype)." Batch Coding Machines"; ?> </b></p>
 </div>
 
+
 <table class="col-md-10" style="margin-left:65px"  border="5" >
  
   <tr class="text-center">

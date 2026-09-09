@@ -1,0 +1,8 @@
+﻿86: parseTime: true
+175: if @options.parseTime
+183: if @options.xLabelFormat
+184: ret.label = @options.xLabelFormat ret
+187: if @options.xLabelFormat
+188: ret.label = @options.xLabelFormat ret
+226: if @options.parseTime or @options.freePosition
+235: if @options.parseTime

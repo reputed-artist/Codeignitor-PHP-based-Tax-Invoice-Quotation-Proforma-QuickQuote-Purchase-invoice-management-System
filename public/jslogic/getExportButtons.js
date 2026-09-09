@@ -1,4 +1,6 @@
 function getExportButtons(tableId, exportColumns) {
+    var exportName = getExportDocumentName();
+
     return [
         {
             extend: 'copyHtml5',
@@ -21,7 +23,7 @@ function getExportButtons(tableId, exportColumns) {
                 var data = dt.buttons.exportData();
                 $.fn.dataTable.fileSave(
                     new Blob([JSON.stringify(data)]),
-                    'Export.json'
+                    exportName + '.json'
                 );
             }
         },
@@ -31,7 +33,8 @@ function getExportButtons(tableId, exportColumns) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'Excel',
             footer: true,
-            title: 'AdminLT || Clients Data',
+            title: exportName,
+            filename: exportName,
             exportOptions: {
                 columns: exportColumns
             }
@@ -42,7 +45,8 @@ function getExportButtons(tableId, exportColumns) {
             className: "btn-sm btn btn-danger",
             titleAttr: 'CSV',
             footer: true,
-            title: 'AdminLT || Clients Data',
+            title: exportName,
+            filename: exportName,
             exportOptions: {
                 columns: exportColumns
             }
@@ -102,13 +106,18 @@ function getExportButtons(tableId, exportColumns) {
     orientation: 'landscape',
     pageSize: 'A3',
     titleAttr: 'PDF',
-    title: 'AdminLT || Clients Data',
+    title: exportName,
+    filename: exportName,
     customize: function (doc) {
         doc.pageMargins = [10, 10, 10, 10];
-        doc.defaultStyle.fontSize = 7;
+        doc.defaultStyle.fontSize = exportName.indexOf('Transaction') !== -1 ? 5 : 7;
         doc.styles.tableHeader.fontSize = 7;
-        doc.styles.tableFooter.fontSize = 15;
-        doc.styles.title.fontSize = 15;
+        if (doc.styles.tableFooter) {
+            doc.styles.tableFooter.fontSize = 15;
+        }
+        if (doc.styles.title) {
+            doc.styles.title.fontSize = 15;
+        }
 
         // Custom footer with page numbers
         doc['footer'] = function (page, pages) {
@@ -127,6 +136,14 @@ function getExportButtons(tableId, exportColumns) {
             };
         };
 
+        var tableContent = doc.content.find(function (content) {
+            return content.table && content.table.body;
+        });
+
+        if (!tableContent) {
+            return;
+        }
+
         // Table layout styling
         var objLayout = {};
         objLayout['hLineWidth'] = function () { return .5; };
@@ -135,12 +152,7 @@ function getExportButtons(tableId, exportColumns) {
         objLayout['vLineColor'] = function () { return '#aaa'; };
         objLayout['paddingLeft'] = function () { return 4; };
         objLayout['paddingRight'] = function () { return 4; };
-        doc.content[1].layout = objLayout;
-
-        // Responsive column widths
-        doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
-        doc.defaultStyle.alignment = 'center';
-        doc.styles.tableHeader.alignment = 'center';
+        tableContent.layout = objLayout;
 
         // 🔽 Append tfoot manually at the end (one-time footer)
         var tfoot = document.querySelector("#example tfoot tr");
@@ -154,8 +166,31 @@ function getExportButtons(tableId, exportColumns) {
                 });
             });
             // Add it after the last data row
-            doc.content[1].table.body.push(footerRow);
+            tableContent.table.body.push(footerRow);
         }
+
+        // Every row must have the same number of cells as the widths array.
+        var columnCount = 0;
+        tableContent.table.body.forEach(function (row) {
+            columnCount = Math.max(columnCount, row.length);
+        });
+        tableContent.table.body.forEach(function (row) {
+            while (row.length < columnCount) {
+                row.push({ text: '' });
+            }
+        });
+        tableContent.table.widths = Array(columnCount + 1).join('*').split('');
+        tableContent.table.body.forEach(function (row) {
+            row.forEach(function (cell) {
+                if (typeof cell === 'string') {
+                    return;
+                }
+                cell.fontSize = exportName.indexOf('Transaction') !== -1 ? 5 : 7;
+                cell.noWrap = false;
+            });
+        });
+        doc.defaultStyle.alignment = 'center';
+        doc.styles.tableHeader.alignment = 'center';
     },
     exportOptions: {
         columns: exportColumns
@@ -168,7 +203,7 @@ function getExportButtons(tableId, exportColumns) {
             className: "btn btn-sm btn-danger",
             titleAttr: 'Print',
             footer: true,
-            title: 'AdminLT || Clients Data',
+            title: exportName,
                exportOptions: {
         columns: exportColumns,
         // 👇 Don't include tfoot automatically

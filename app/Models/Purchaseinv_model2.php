@@ -279,7 +279,7 @@ public function set_auto_increment() {
     public function updaterecord($orderid, array $updateData)
     {
         //return $this->update($id, $data); // Update data in the table
-        $this->db->table('purchaseinv2')->where('orderid', $orderid)->update($updateData);
+        return $this->db->table('purchaseinv2')->where('orderid', $orderid)->update($updateData);
 
     }
     

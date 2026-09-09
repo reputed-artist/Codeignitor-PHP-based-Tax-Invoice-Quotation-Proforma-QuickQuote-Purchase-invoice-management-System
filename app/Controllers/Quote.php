@@ -971,10 +971,13 @@ public function printquote()
     //print_r($itemDetails);
     //print_r($bankDetails);
 
-    return view('print/print quote', [     'invDetails' => $invDetails,
+    return view('print/print quote2', [     'invDetails' => $invDetails,
                                            'itemDetails' =>$itemDetails,
                                             'bankDetails'=> $bankDetails,
                                              'cattype'=> $cattype]);
+
+    
+
 
 }
 

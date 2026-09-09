@@ -25,6 +25,7 @@ class Purchaseinv_model extends Model
     
     public function saverecords(array $data)
     {
+        
 
         //echo "model".$this->insert($data);
         return $this->insert($data); // Insert data into the table

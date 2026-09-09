@@ -152,7 +152,7 @@ public function printquickquote(){
 }
  else {
         //return view('print/printquickq', ['dv' => json_encode($dv)]);
-    return view('print/printquickq', [
+    return view('print/printquickq2', [
     'dv' => json_encode($dv),
     'bankDetails' => $bankDetails,
     'cattype'=> $cattype

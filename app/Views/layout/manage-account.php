@@ -119,6 +119,28 @@ input .error{
 .select2-selection.is-invalid {
     border: 1px solid red !important; /* Red border on Select2 dropdown */
 }
+
+.hidden-row {
+            opacity: 0.5;
+            background-color: #fff3cd !important;
+        }
+
+      .acbtn {
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            height:25px;
+            padding: 3px 6px 3px 6px;
+        }
+
+        .btn-hide { background: #dc3545; color: #fff; }
+        .btn-show { background: #198754; color: #fff; }
+
+        .toolbar {
+            margin-bottom: 10px;
+        }
+
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -155,8 +177,13 @@ input .error{
              -->
 
              <button type="button" id="btnplus add" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#modal-default" style="margin: 2px 20px 2px 2px;" ><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Accounts</button><br><br>
+            <div class="toolbar" style="padding-left: 10px;">
+    <label>
 
-
+        <input type="checkbox" id="toggleHidden">
+        Show Hidden Rows
+    </label>
+</div>
    
             <!-- /.box-header -->
             <div class="box-body">
@@ -169,11 +196,13 @@ input .error{
 
                       <th>Mobile</th>
                       <th>Location</th>
-                      <th>Opening Balance</th>
+                      <th>Opening Bal.</th>
+                      <th>Closing Bal.</th>
                       <th>Created</th>
                       <th>Edit</th>
                       <th>View</th>
-                      <th>Delete</th>                
+                      <th>Delete</th>   
+                      <th>Action</th>              
                   </tr>
                 </thead>
                 <tbody>
@@ -186,11 +215,13 @@ input .error{
                                   <th >Account Type</th>
                                   <th>Mobile</th>
                                   <th>Location</th>
-                                  <th>Opening Balance</th>
+                                  <th>Opening Bal.</th>
+                                  <th>Closing Bal.</th>
                                   <th>Created</th>
                                       <th>Edit</th>
                                       <th>View</th>
                                       <th>Delete</th>
+                                      <th>Action</th>
                 </tr>
                 </tfoot>
               </table>
@@ -203,7 +234,8 @@ input .error{
                 <input type="button" class="toggle-vis btn btn-primary" data-column="3" value="Mobile">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="4" value="Location">
                 <input type="button" class="toggle-vis btn btn-primary" data-column="5" value="Opening Balance">
-                <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Created">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Closing Balance">
+                <input type="button" class="toggle-vis btn btn-primary" data-column="7" value="Created">
                 <!-- <input type="button" class="toggle-vis btn btn-primary" data-column="6" value="Bill-Type"> -->
                 
 
@@ -430,7 +462,7 @@ input .error{
 
  </script>
   <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
-  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/account.js"></script>
+  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/account.js?v=3"></script>
   
 </body>
 </html>

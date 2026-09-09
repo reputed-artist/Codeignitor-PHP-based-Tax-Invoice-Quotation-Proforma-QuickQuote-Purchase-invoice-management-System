@@ -17,22 +17,322 @@
     <link rel="stylesheet" href="<?= base_url();?>/public/bower_components/morris.js/morris.css">
   
 
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url();?>/public/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-
-<!-- Morris.js charts -->
-<script src="<?= base_url();?>/public/bower_components/raphael/raphael.min.js"></script>
-<script src="<?= base_url();?>/public/bower_components/morris.js/morris.min.js"></script>
-
-<script src="<?= base_url();?>/public/bower_components/apexcharts/dist/apexcharts.min.js"></script>
-
 <script src="<?= base_url();?>/public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <!-- Google Font -->
   <link rel="stylesheet" href="<?= base_url();?>/public/bower_components/font/font.css">
+
+  <style>
+    .dashboard-chart.is-loading {
+      position: relative;
+    }
+
+    .dashboard-chart.is-loading::after {
+      animation: dashboard-spin 0.8s linear infinite;
+      border: 3px solid rgba(60, 141, 188, 0.2);
+      border-radius: 50%;
+      border-top-color: #3c8dbc;
+      content: '';
+      height: 30px;
+      left: 50%;
+      margin: -15px 0 0 -15px;
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      z-index: 2;
+    }
+
+    .dashboard-chart.is-loading::before {
+      background: rgba(255, 255, 255, 0.75);
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    @keyframes dashboard-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .dashboard-details-overlay {
+      background: rgba(0, 0, 0, 0.92);
+      opacity: 0;
+      height: 100vh;
+      left: 0;
+      overflow-y: auto;
+      padding: 30px;
+      position: fixed;
+      top: 0;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+      visibility: hidden;
+      width: 100vw;
+      z-index: 2000;
+    }
+
+    .dashboard-details-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dashboard-details-dialog {
+      background: #fff;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+      min-height: 70vh;
+      padding: 30px;
+      transform: scale(0.55) translateY(35px);
+      transition: min-height 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.35s ease;
+      width: min(720px, calc(100vw - 60px));
+    }
+
+    .dashboard-details-overlay.is-open .dashboard-details-dialog {
+      min-height: calc(100vh - 60px);
+      transform: scale(1) translateY(0);
+      width: calc(100vw - 60px);
+    }
+
+    .dashboard-details-header {
+      border-bottom: 1px solid #eee;
+      margin: 0 0 30px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .dashboard-details-header h2 {
+      color: #333;
+      margin: 0;
+    }
+
+    .dashboard-details-close {
+      background: transparent;
+      border: 0;
+      color: #333;
+      cursor: pointer;
+      font-size: 30px;
+      line-height: 1;
+      padding: 5px 10px;
+      position: absolute;
+      right: 0;
+      top: -5px;
+    }
+
+    .dashboard-details-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+
+    .dashboard-detail-card {
+      background: #fff;
+      border-left: 5px solid #3c8dbc;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+      min-height: 150px;
+      padding: 25px 20px;
+    }
+
+    .dashboard-detail-card h3 {
+      color: #777;
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+
+    .dashboard-detail-card strong {
+      color: #222;
+      display: block;
+      font-size: 32px;
+    }
+
+    .dashboard-details-view {
+      display: none;
+    }
+
+    .dashboard-details-view.is-active {
+      display: block;
+    }
+
+    /* --- Registered clients table (AdminLTE 2 consistent UI) --- */
+    .dashboard-table-box {
+      background: #fff;
+      border: 1px solid #e7eaec;
+      border-top: 3px solid #3c8dbc;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 5px;
+    }
+
+    .dashboard-table-box-header {
+      align-items: center;
+      background: #f7f7f7;
+      border-bottom: 1px solid #e7eaec;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      padding: 12px 15px;
+    }
+
+    .dashboard-table-box-title {
+      color: #333;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .dashboard-table-box-title i {
+      color: #3c8dbc;
+      margin-right: 5px;
+    }
+
+    .dashboard-client-count-badge {
+      background: #00a65a;
+      border-radius: 3px;
+      color: #fff;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      margin-left: 6px;
+      min-width: 24px;
+      padding: 5px 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .dashboard-clients-search {
+      width: 220px;
+    }
+
+    .dashboard-details-table-wrap {
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .dashboard-details-table {
+      background: #fff;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .dashboard-details-table thead th {
+      background: #f4f4f4;
+      border-bottom: 2px solid #3c8dbc;
+      color: #333;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 10px 14px;
+      text-align: left;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .dashboard-details-table tbody td {
+      border-bottom: 1px solid #eee;
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .dashboard-details-table tbody tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .dashboard-details-table tbody tr:hover td {
+      background: #ecf0f5;
+    }
+
+    .dashboard-details-table .dashboard-col-address {
+      max-width: 280px;
+      min-width: 180px;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .dashboard-details-table .dashboard-col-date {
+      color: #777;
+    }
+
+    .dashboard-client-type {
+      background: #fff;
+      border: 1px solid #d2d6de;
+      border-radius: 3px;
+      color: #444;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+    }
+
+    .dashboard-details-table-footer {
+      background: #fff;
+      border-top: 1px solid #e7eaec;
+      color: #777;
+      font-size: 12px;
+      padding: 10px 15px;
+      text-align: right;
+    }
+
+    #detailsTurnoverChart {
+      min-height: 360px;
+    }
+
+    #detailsBounceRateChart {
+      min-height: 360px;
+    }
+
+    .dashboard-turnover-controls {
+      margin-bottom: 15px;
+      text-align: right;
+    }
+
+    .dashboard-turnover-controls button {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #555;
+      cursor: pointer;
+      padding: 7px 16px;
+    }
+
+    .dashboard-turnover-controls button.is-active {
+      background: #dd4b39;
+      border-color: #dd4b39;
+      color: #fff;
+    }
+
+    .dashboard-turnover-controls button[data-range="demo"] {
+      border-color: #00a65a;
+      color: #008d4c;
+      margin-left: 8px;
+    }
+
+    .dashboard-details-loading,
+    .dashboard-details-empty,
+    .dashboard-details-error {
+      color: #777;
+      padding: 35px 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .dashboard-details-overlay { padding: 20px; }
+      .dashboard-details-dialog,
+      .dashboard-details-overlay.is-open .dashboard-details-dialog {
+        width: calc(100vw - 40px);
+      }
+      .dashboard-details-grid { grid-template-columns: 1fr; }
+      .dashboard-clients-search { width: 100%; }
+      .dashboard-table-box-header { flex-direction: column; align-items: stretch; }
+      .dashboard-details-table thead th,
+      .dashboard-details-table tbody td { padding: 9px 10px; }
+    }
+  </style>
 
 <!-- <script src="<?= base_url();?>/public/dist/js/app.js"></script> -->
 
@@ -85,7 +385,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer dashboard-more-info" data-stat="orders">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -100,7 +400,7 @@
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer dashboard-more-info" data-stat="bounce">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -115,7 +415,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer dashboard-more-info" data-stat="clients">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -130,7 +430,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer dashboard-more-info" data-stat="turnover">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -327,7 +627,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_5' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_5' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_5_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -356,7 +656,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div class="chart_morris" id="chart_pie_1" style="height: 230px;"></div>
+              <div class="chart_morris dashboard-chart is-loading" id="chart_pie_1" style="height: 230px;"></div>
                           <div id='chart_pie_1_legend' class='text-center'></div>
                           </br></br>
             </div>
@@ -379,7 +679,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_2' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_2' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_2_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -404,7 +704,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_4' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_4' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_4_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -427,7 +727,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_3' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_3' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_3_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -451,7 +751,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_6' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_6' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_6_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -501,7 +801,7 @@
 
             </div>
                 <div class="box-body chart-responsive" style="margin-top: -15px;">
-                   <div class="chart" id="ebar-chart-tree" style="height: 400px;"></div>
+                   <div class="chart dashboard-chart is-loading" id="ebar-chart-tree" style="height: 400px;"></div>
                 </div>
             <!-- /.box-body -->
           </div>
@@ -526,7 +826,7 @@
             </div>
                 <div class="box-body chart-responsive">
             </br>              </br>
-                   <div class="chart" id="bar-chart3" style="height: 300px;"></div>
+                   <div class="chart dashboard-chart is-loading" id="bar-chart3" style="height: 300px;"></div>
                </div>
             <!-- /.box-body -->
           </div>
@@ -551,7 +851,7 @@
               </div>
             </div>
             <div class="box-body chart-responsive">
-              <div id='chart_pie_7' class='chart_morris' style="height: 230px;"></div>
+              <div id='chart_pie_7' class='chart_morris dashboard-chart is-loading' style="height: 230px;"></div>
             <div id='chart_pie_7_legend' class='text-center'></div>
             </div>
             <!-- /.box-body -->
@@ -607,11 +907,74 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+
+<div id="dashboardDetailsOverlay" class="dashboard-details-overlay" role="dialog" aria-modal="true" aria-labelledby="dashboardDetailsTitle">
+  <div class="dashboard-details-dialog">
+    <div class="dashboard-details-header">
+      <h2 id="dashboardDetailsTitle">Current Month Dashboard Details</h2>
+      <button type="button" class="dashboard-details-close" aria-label="Close dashboard details">&times;</button>
+    </div>
+    <div class="dashboard-details-view" data-view="summary">
+      <div class="dashboard-details-grid">
+        <!-- <div class="dashboard-detail-card">
+          <h3 id="detailsSummaryLabel">New Orders</h3>
+          <strong id="detailsSummaryValue">0</strong>
+        </div> -->
+      </div>
+      <div id="detailsOrdersContent" class="dashboard-details-loading"></div>
+    </div>
+    <div class="dashboard-details-view" data-view="clients">
+      <div id="detailsClientsContent" class="dashboard-details-loading">Loading registered clients...</div>
+    </div>
+    <div class="dashboard-details-view" data-view="bounce">
+      <div id="detailsBounceRateContent1" class="dashboard-details-loading">Loading bounce rate...</div>
+      <div id="detailsBounceRateChart"></div>
+    </div>
+    <div class="dashboard-details-view" data-view="turnover">
+      <div id="detailsTurnoverContent" class="dashboard-details-loading">Loading turnover...</div>
+      <div class="dashboard-turnover-controls">
+        <button type="button" class="turnover-range-button is-active" data-range="days">Days</button>
+        <button type="button" class="turnover-range-button" data-range="weeks">Weeks</button>
+        <!-- <button type="button" class="turnover-range-button" data-range="demo">Demo data</button> -->
+      </div>
+      <div id="detailsTurnoverChart"></div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
   var base_url = "<?= base_url(); ?>"; // Pass base_url from PHP to JS
 </script>
 <script>
+function loadDashboardCharts(callback) {
+  var scripts = [
+    base_url + '/public/bower_components/raphael/raphael.min.js',
+    base_url + '/public/bower_components/morris.js/morris.min.js',
+    base_url + '/public/bower_components/apexcharts/dist/apexcharts.min.js'
+  ];
+  var remaining = scripts.length;
+
+  scripts.forEach(function (src) {
+    var script = document.createElement('script');
+    script.src = src;
+    var complete = function () {
+      remaining -= 1;
+      if (remaining === 0) {
+        callback();
+      }
+    };
+    script.onload = complete;
+    script.onerror = complete;
+    document.head.appendChild(script);
+  });
+}
+
 $(document).ready(function () {
+  var startDashboard = window.requestIdleCallback || function (callback) {
+    window.setTimeout(callback, 150);
+  };
+
+  startDashboard(function () {
+    loadDashboardCharts(function () {
     // Initialize date picker
     $('#calendar').datepicker();
 
@@ -695,7 +1058,7 @@ let areaChartData = [];
                     let consumableData = [];
 
                     // Process consumables data
-                    //console.log('Consumables Data:');
+                    console.log('Consumables Data:'+ response.consumables);
                     response.consumables.forEach(function(item) {
                         //console.log(item);
                         //console.log(`Label: ${item.item_name}, Value: ${item.item_sold}`);
@@ -1149,14 +1512,18 @@ let areaChartData = [];
   }
   setInterval(currentTime,1000);
 
+    $('.dashboard-chart').removeClass('is-loading');
 
     },
     error: function(xhr, status, error) {
+      $('.dashboard-chart').removeClass('is-loading');
         console.error('AJAX Error:', error);
         console.log('Response Text:', xhr.responseText);
     }
 });
 
+    });
+  });
 });
 </script>
 <script>
@@ -1236,10 +1603,706 @@ function reminder() {
 }
 
 // Call the function to load data into the table
-reminder();
+(window.requestIdleCallback || function (callback) {
+  window.setTimeout(callback, 150);
+})(reminder);
 
 
 
+</script>
+<script>
+$(function () {
+  var overlay = $('#dashboardDetailsOverlay');
+  var lastFocusedElement;
+  var turnoverDetailsChart;
+  var bounceRateDetailsChart;
+  var turnoverDailyData = [];
+  var turnoverDemoMode = false;
+
+
+  function showSummary(stat) {
+    var summaries = {
+      orders: ['New Orders', $('#neworder').text()],
+      bounce: ['Bounce Rate', $('.small-box.bg-green h3').first().text().trim()],
+      clients: ['New Clients Registered', $('#newclient').text()],
+      turnover: ['Current Month Turnover', $('#monthlyturnover').text()]
+    };
+    var summary = summaries[stat] || summaries.orders;
+    $('#detailsSummaryLabel').text(summary[0]);
+    $('#detailsSummaryValue').text(summary[1]);
+  }
+
+  function renderTurnoverDetailsChart(range) {
+    if (typeof Morris === 'undefined') {
+      $('#detailsTurnoverContent').text('Turnover chart is unavailable.');
+      return;
+    }
+
+    var chartData = turnoverDailyData;
+    
+if (range === 'weeks') {
+
+    var weeklyTotals = {};
+
+    chartData.forEach(function (item, index) {
+
+        var week = Math.floor(index / 7) + 1;
+
+        if (!weeklyTotals[week]) {
+            weeklyTotals[week] = {
+                gst: 0,
+                turnover: 0,
+                item_count: 0,
+                max_item_sold: 'No item'
+            };
+        }
+
+        // Total GST for week
+        weeklyTotals[week].gst += Number(item.gst) || 0;
+
+        // Total turnover for week
+        weeklyTotals[week].turnover += Number(item.turnover) || 0;
+
+        // Total items sold for week
+        weeklyTotals[week].item_count += Number(item.item_count) || 0;
+
+        // Keep item name from the day with highest item count
+        if (
+            Number(item.item_count) >
+            Number(weeklyTotals[week].max_item_count || 0)
+        ) {
+            weeklyTotals[week].max_item_count =
+                Number(item.item_count) || 0;
+
+            weeklyTotals[week].max_item_sold =
+                item.max_item_sold || 'No item';
+        }
+    });
+
+    chartData = Object.keys(weeklyTotals).map(function (week) {
+
+        return {
+            day: 'Week ' + week,
+            gst: weeklyTotals[week].gst,
+            turnover: weeklyTotals[week].turnover,
+            item_count: weeklyTotals[week].item_count,
+            max_item_sold: weeklyTotals[week].max_item_sold
+        };
+    });
+}
+    if (turnoverDetailsChart) {
+      $('#detailsTurnoverChart').empty();
+    }
+    
+    turnoverDetailsChart = Morris.Bar({
+    element: 'detailsTurnoverChart',
+
+    data: chartData,
+
+    barColors: [
+        '#03a9f3',   // GST
+        '#55ce63',   // Turnover
+        '#f56954'    // Item Sold
+    ],
+
+    xkey: 'day',
+
+    ykeys: [
+        'gst',
+        'turnover',
+        'item_count'
+    ],
+
+    labels: [
+        'GST',
+        'Turnover',
+        'Item Sold'
+    ],
+
+    hideHover: 'auto',
+
+    //xLabelAngle: 60,
+
+    nbYkeys2: 1,
+
+    dataLabels: false,
+
+    gridTextWeight: 'Bold',
+
+    resize: true,
+
+    yLabelFormat: function(value) {
+        return Number(value).toLocaleString('en-IN');
+    },
+
+    hoverCallback: function(index, options, content, row) {
+
+        var itemName = row.max_item_sold || 'No item';
+
+        return "<div style='text-align:center;'>" +
+
+            "<strong>" + row.day + "</strong><br>" +
+
+            "GST: " +
+            Number(row.gst || 0).toLocaleString('en-IN') +
+
+            "<br>Turnover: " +
+            Number(row.turnover || 0).toLocaleString('en-IN') +
+
+            "<br>Item Sold: " +
+            Number(row.item_count || 0).toLocaleString('en-IN') +
+
+            "<br>Item: <strong>" +
+            itemName +
+            "</strong>" +
+
+            "</div>";
+    }
+});
+  }
+
+  function renderBounceRateChart(currentMonthData, previousMonthData) {
+    if (typeof Morris === 'undefined') {
+      $('#detailsBounceRateContent').text('Bounce rate chart is unavailable.');
+      return;
+    }
+
+var previousLookup = {};
+
+(previousMonthData || []).forEach(function (item) {
+
+    var dayText = String(item.day || '');
+    var day = parseInt(
+        dayText.length >= 10
+            ? dayText.substring(8, 10)
+            : dayText,
+        10
+    );
+
+    if (!isNaN(day)) {
+        previousLookup[day] = Number(item.turnover) || 0;
+    }
+});
+
+
+var bounceRateData = (currentMonthData || []).map(function (item) {
+
+    var dayText = String(item.day || '');
+
+    var day = parseInt(
+        dayText.length >= 10
+            ? dayText.substring(8, 10)
+            : dayText,
+        10
+    );
+
+    return {
+        day: day,
+        currentMonth: Number(item.turnover) || 0,
+        previousMonth: previousLookup[day] || 0
+    };
+});
+
+
+console.log('Bounce chart data:', bounceRateData);
+
+
+if (bounceRateDetailsChart) {
+    $('#detailsBounceRateChart').empty();
+}
+
+
+bounceRateDetailsChart = Morris.Area({
+
+    element: 'detailsBounceRateChart',
+
+    data: bounceRateData,
+
+    xkey: 'day',
+
+    ykeys: [
+        'currentMonth',
+        'previousMonth'
+    ],
+
+    labels: [
+        'Current Month Turnover',
+        'Last Month Turnover'
+    ],
+
+    lineColors: [
+        '#00a65a',
+        '#3c8dbc'
+    ],
+
+    fillOpacity: 0.35,
+
+    hideHover: 'auto',
+
+    resize: true,
+
+    behaveLikeLine: true,
+
+    pointSize: 3,
+
+    parseTime: false,
+
+    // DO NOT use xLabelFormat
+
+    yLabelFormat: function(value) {
+        return Number(value).toLocaleString('en-IN');
+    },
+
+    hoverCallback: function(index, options, content, row) {
+
+        return '<div style="text-align:center;">' +
+
+            '<strong>Day ' + row.day + '</strong><br>' +
+
+            'Current Month Turnover: ' +
+            Number(row.currentMonth || 0).toLocaleString('en-IN') +
+
+            '<br>' +
+
+            'Last Month Turnover: ' +
+            Number(row.previousMonth || 0).toLocaleString('en-IN') +
+
+            '</div>';
+    }
+});
+    $('#detailsBounceRateContent')
+      .text('Daily bounce rate comparison')
+      .css({  'font-size': '18px','font-weight': 'bold', 'text-align':'center'})
+      .removeClass('dashboard-details-loading');
+  }
+
+  function renderClientsTable(target, clients) {
+    if (!target || !target.length) {
+      return;
+    }
+
+    if (clients.length === 0) {
+      target.html('<div class="dashboard-details-empty"><i class="fa fa-user-plus"></i> No clients registered this month.</div>');
+      return;
+    }
+
+    var table = $(
+      '<div class="dashboard-table-box">' +
+        '<div class="dashboard-table-box-header">' +
+          '<h4 class="dashboard-table-box-title"><i class="fa fa-users"></i> Clients Registered' +
+            '<span class="dashboard-client-count-badge">' + clients.length + '</span>' +
+          '</h4>' +
+          '<div class="dashboard-clients-toolbar">' +
+            '<input type="text" class="form-control input-sm dashboard-clients-search" placeholder="Search clients..." aria-label="Search clients">' +
+          '</div>' +
+        '</div>' +
+        '<div class="dashboard-details-table-wrap">' +
+          '<table class="table table-hover dashboard-details-table">' +
+            '<thead><tr>' +
+              '<th>#</th>' +
+              '<th>Date</th>' +
+              '<th>Client</th>' +
+              '<th class="dashboard-col-address">Address</th>' +
+              '<th>Mobile</th>' +
+              '<th>GST</th>' +
+              '<th>Country</th>' +
+              '<th>Client Type</th>' +
+            '</tr></thead>' +
+            '<tbody></tbody>' +
+          '</table>' +
+        '</div>' +
+        '<div class="dashboard-details-table-footer">Showing ' + clients.length + ' client' + (clients.length === 1 ? '' : 's') + ' registered this month</div>' +
+      '</div>'
+    );
+
+    var tbody = table.find('tbody');
+
+    clients.forEach(function (client, index) {
+      var created = client.created || '';
+      var dateParts = created.split('-');
+      var formattedDate = dateParts.length === 3
+        ? dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0]
+        : (created || '');
+
+      var typeText = client.c_type || '';
+      var typeLabel = $('<span class="dashboard-client-type"></span>').text(typeText);
+
+      var row = $('<tr></tr>');
+      $('<td class="text-muted"></td>').text(index + 1).appendTo(row);
+      $('<td class="dashboard-col-date"></td>').text(formattedDate).appendTo(row);
+      $('<td></td>').text(client.c_name || '').appendTo(row);
+      $('<td class="dashboard-col-address"></td>').text(client.c_add || '').appendTo(row);
+      $('<td></td>').text(client.mob || '').appendTo(row);
+      $('<td></td>').text(client.gst || '').appendTo(row);
+      $('<td></td>').text(client.country || '').appendTo(row);
+      $('<td>').append(typeLabel).appendTo(row);
+
+      row.appendTo(tbody);
+    });
+
+    // Live client-side search / filter
+    table.find('.dashboard-clients-search').on('input', function () {
+      var query = $.trim($(this).val()).toLowerCase();
+      tbody.find('tr').each(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(query) > -1);
+      });
+    });
+
+    target.empty().append(table);
+  }
+
+
+
+function renderOrdersTable(target, orders) {
+    if (!target || !target.length) {
+        return;
+    }
+
+    if (orders.length === 0) {
+        target.html(
+            '<div class="dashboard-details-empty">' +
+            '<i class="fa fa-shopping-cart"></i> No new orders found.' +
+            '</div>'
+        );
+        return;
+    }
+
+    var table = $(
+        '<div class="dashboard-table-box">' +
+            '<div class="dashboard-table-box-header">' +
+                '<h4 class="dashboard-table-box-title">' +
+                    '<i class="fa fa-shopping-cart"></i> New Orders' +
+                    '<span class="dashboard-client-count-badge">' +
+                        orders.length +
+                    '</span>' +
+                '</h4>' +
+
+                '<div class="dashboard-clients-toolbar">' +
+                    '<input type="text" ' +
+                    'class="form-control input-sm dashboard-orders-search" ' +
+                    'placeholder="Search orders..." ' +
+                    'aria-label="Search orders">' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="dashboard-details-table-wrap">' +
+                '<table class="table table-hover dashboard-details-table">' +
+                    '<thead>' +
+                        '<tr>' +
+                            '<th>#</th>' +
+                            '<th>Date</th>' +
+                            '<th>Invoice No</th>' +
+                            '<th>Client</th>' +
+                            '<th>Item</th>' +
+                            '<th>Location</th>' +
+                            '<th>GST</th>' +
+                            '<th>Type</th>' +
+                            '<th>Subtotal</th>' +
+                            '<th>Tax</th>' +
+                            '<th>Total</th>' +
+                        '</tr>' +
+                    '</thead>' +
+                    '<tbody></tbody>' +
+                '</table>' +
+            '</div>' +
+
+            '<div class="dashboard-details-table-footer">' +
+                'Showing ' + orders.length +
+                ' order item' + (orders.length === 1 ? '' : 's') +
+            '</div>' +
+        '</div>'
+    );
+
+    var tbody = table.find('tbody');
+
+    orders.forEach(function(order, index) {
+
+        var created = order['inv date'] || order.inv_date || '';
+        var formattedDate = created;
+
+        // YYYY-MM-DD → DD-MM-YYYY
+        var dateParts = created.split('-');
+
+        if (dateParts.length === 3) {
+            formattedDate =
+                dateParts[2] + '-' +
+                dateParts[1] + '-' +
+                dateParts[0];
+        }
+
+        var row = $('<tr></tr>');
+
+        $('<td class="text-muted"></td>')
+            .text(index + 1)
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(formattedDate)
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order['inv no'] || order.inv_no || '')
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order.client || '')
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order.item || '')
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order.location || '')
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order.GST || '')
+            .appendTo(row);
+
+        $('<td></td>')
+            .text(order.c_type || '')
+            .appendTo(row);
+
+        $('<td class="text-right"></td>')
+            .text(
+                Number(order.subtotal || 0).toLocaleString('en-IN')
+            )
+            .appendTo(row);
+
+        $('<td class="text-right"></td>')
+            .text(
+                Number(order.taxamount || 0).toLocaleString('en-IN')
+            )
+            .appendTo(row);
+
+        $('<td class="text-right"></td>')
+            .text(
+                Number(order.totalamount || 0).toLocaleString('en-IN')
+            )
+            .appendTo(row);
+
+        row.appendTo(tbody);
+    });
+
+    // Search
+    table.find('.dashboard-orders-search').on('input', function () {
+
+        var query = $.trim($(this).val()).toLowerCase();
+
+        tbody.find('tr').each(function () {
+
+            $(this).toggle(
+                $(this).text().toLowerCase().indexOf(query) > -1
+            );
+
+        });
+    });
+
+    target.empty().append(table);
+}
+
+  // function loadOrdersDetails() {
+  //   $.ajax({
+  //     url: base_url + '/dashboard/getDashboardDetails',
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     success: function (response) {
+  //       if (turnoverDemoMode) {
+  //         return;
+  //       }
+  //       var clients = response.clients || [];
+  //       var ordersContent = $('#detailsOrdersContent');
+  //       renderClientsTable(ordersContent, clients);
+  //       ordersContent.removeClass('dashboard-details-loading');
+  //     },
+  //     error: function () {
+  //       $('#detailsOrdersContent').text('Unable to load registered clients.');
+  //     }
+  //   });
+  // }
+
+function loadOrdersDetails() {
+    $.ajax({
+        url: base_url + '/dashboard/getDashboardDetails',
+        type: 'GET',
+        dataType: 'json',
+
+        success: function (response) {
+
+            if (turnoverDemoMode) {
+                return;
+            }
+
+            var orders = response.orders || [];
+
+            var ordersContent = $('#detailsOrdersContent');
+
+            renderOrdersTable(ordersContent, orders);
+
+            ordersContent.removeClass('dashboard-details-loading');
+        },
+
+        error: function () {
+
+            $('#detailsOrdersContent')
+                .text('Unable to load orders.');
+        }
+    });
+}
+  function loadDetailsData() {
+    $.ajax({
+      url: base_url + '/dashboard/getDashboardDetails',
+      type: 'GET',
+      dataType: 'json',
+      success: function (response) {
+        if (turnoverDemoMode) {
+          return;
+        }
+        var clients = response.clients || [];
+        var dailyTurnover = response.dailyTurnover || [];
+        var previousDailyTurnover = response.previousDailyTurnover || [];
+        var clientContent = $('#detailsClientsContent');
+        var turnoverContent = $('#detailsTurnoverContent');
+
+        renderClientsTable(clientContent, clients);
+        clientContent.removeClass('dashboard-details-loading');
+
+        turnoverContent
+        .text(dailyTurnover.length === 0 ? 'No turnover recorded this month.' : 'Daily turnover')
+        .css({  'font-size': '18px','font-weight': 'bold'});
+
+//         turnoverDailyData = dailyTurnover.map(function (item) {
+//     return {
+//         day: item.day.substr(8, 2),
+//         gst: Number(item.gst) || 0,
+//         turnover: Number(item.turnover) || 0,
+//         max_item_sold: item.max_item_sold || 'No item',
+//         item_count: Number(item.item_count) || 0
+//     };
+// });
+var year = new Date().getFullYear();
+var month = new Date().getMonth(); // 0 = January
+
+var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+// Create lookup from DB data
+var turnoverLookup = {};
+
+dailyTurnover.forEach(function (item) {
+
+    var date = item.day;
+    var dayNumber = Number(date.substr(8, 2));
+
+    turnoverLookup[dayNumber] = {
+        gst: Number(item.gst) || 0,
+        turnover: Number(item.turnover) || 0,
+        max_item_sold: item.max_item_sold || 'No item',
+        item_count: Number(item.item_count) || 0
+    };
+});
+
+// Create complete month data
+turnoverDailyData = [];
+
+for (var day = 1; day <= daysInMonth; day++) {
+
+    var data = turnoverLookup[day];
+
+    turnoverDailyData.push({
+        day: String(day).padStart(2, '0'),
+
+        gst: data ? data.gst : 0,
+
+        turnover: data ? data.turnover : 0,
+
+        max_item_sold: data ? data.max_item_sold : 'No item',
+
+        item_count: data ? data.item_count : 0
+    });
+}
+        renderTurnoverDetailsChart($('.turnover-range-button.is-active').data('range') || 'days');
+        if (overlay.find('.dashboard-details-view[data-view="bounce"]').hasClass('is-active')) {
+          renderBounceRateChart(turnoverDailyData, previousDailyTurnover);
+        }
+      },
+      error: function () {
+        $('#detailsClientsContent').text('Unable to load registered clients.');
+        $('#detailsTurnoverContent').text('Unable to load daily turnover.');
+      }
+    });
+  }
+
+  function openDashboardDetails(event) {
+    event.preventDefault();
+    lastFocusedElement = event.currentTarget;
+    var stat = $(event.currentTarget).data('stat');
+    showSummary(stat);
+    overlay.find('.dashboard-details-view').removeClass('is-active');
+    var view = stat === 'clients' || stat === 'turnover' || stat === 'bounce' ? stat : 'summary';
+    overlay.find('.dashboard-details-view[data-view="' + view + '"]').addClass('is-active');
+    $('#detailsClientsContent').addClass('dashboard-details-loading').text('Loading registered clients...');
+    $('#detailsTurnoverContent').text('Loading turnover...');
+    $('#detailsTurnoverChart').empty();
+    $('#detailsBounceRateContent').addClass('dashboard-details-loading').text('Loading bounce rate...');
+    $('#detailsBounceRateChart').empty();
+    turnoverDemoMode = false;
+    $('.turnover-range-button').removeClass('is-active');
+    $('.turnover-range-button[data-range="days"]').addClass('is-active');
+    overlay.addClass('is-open');
+    $('body').css('overflow', 'hidden');
+    if (stat === 'clients' || stat === 'turnover' || stat === 'bounce') {
+      loadDetailsData();
+    }
+    if (stat === 'orders') {
+      $('#detailsOrdersContent').addClass('dashboard-details-loading');
+      loadOrdersDetails();
+    } else {
+      // Hide the orders table for other stats that share the summary view
+      $('#detailsOrdersContent')
+        .addClass('dashboard-details-loading')
+        .empty();
+    }
+    overlay.find('.dashboard-details-close').trigger('focus');
+  }
+
+  function closeDashboardDetails() {
+    overlay.removeClass('is-open');
+    $('body').css('overflow', '');
+    if (lastFocusedElement) {
+      $(lastFocusedElement).trigger('focus');
+    }
+  }
+
+  $('.dashboard-more-info').on('click', openDashboardDetails);
+  $('.turnover-range-button').on('click', function () {
+    if ($(this).data('range') === 'demo') {
+      turnoverDemoMode = true;
+      turnoverDailyData = getDemoTurnoverData();
+      $('.turnover-range-button').removeClass('is-active');
+      $(this).addClass('is-active');
+      $('#detailsTurnoverContent').text('Demo turnover data');
+      renderTurnoverDetailsChart('days');
+      return;
+    }
+    $('.turnover-range-button').removeClass('is-active');
+    $(this).addClass('is-active');
+    if (turnoverDailyData.length > 0) {
+      renderTurnoverDetailsChart($(this).data('range'));
+    }
+  });
+  overlay.find('.dashboard-details-close').on('click', closeDashboardDetails);
+  overlay.on('click', function (event) {
+    if (event.target === this) {
+      closeDashboardDetails();
+    }
+  });
+  $(document).on('keydown', function (event) {
+    if (event.key === 'Escape' && overlay.hasClass('is-open')) {
+      closeDashboardDetails();
+    }
+  });
+});
 </script>
 
 </body>

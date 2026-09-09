@@ -298,70 +298,58 @@ public function update() {
 
     if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
 
-            
-            log_message('debug', 'Request data: ' . print_r($this->request->getGet(), true)); 
+            log_message('debug', 'Request data: ' . print_r($this->request->getPost(), true)); 
 
-            $created = $this->request->getPost('created');
-
-            // Convert the input date to DateTime object
-            $date = new \DateTime($created);
-
-            // Format the date to Y-m-d (MySQL compatible format)
-            $formattedDate = $date->format('Y-m-d');
-
-            $cid=$this->request->getPost('cid');
+            $cid = $this->request->getPost('cid');
 
             log_message('debug', 'CID: ' . $cid); // Log the cid value
 
-            //$u_type1 = $this->request->getPost('utype1');
+            $fullno = (string) $this->request->getPost('fullno2');
+            $gst    = (string) $this->request->getPost('gstedit');
 
+            // Defensive fallback: never wipe the stored mobile if the hidden
+            // phone field came through empty (e.g. user never touched the field).
+            if (trim($fullno) === '') {
+                $existing = $this->crudModel->find($cid);
+                $fullno = $existing['mob'] ?? '';
+            }
 
-            $u_type1 = $this->request->getPost('utype');
-            // if($u_type1)
-            // {
-            //     echo $u_type1;
-            // }
-            // else {
-            //     echo "not found";
-            // }
-            $u_type = (int)$u_type1;
-            //print_r($u_type);  // Check if this is now an integer (0, 1, 2, etc.)
+            // Server-side GST ownership verification.
+            // Allow the change only when the GST is either unused OR it already
+            // belongs to this same supplier (same cid). Reject it otherwise.
+            if (trim($gst) !== '') {
+                $gst = strtoupper($gst);
+                $ownerId = $this->crudModel->getGstOwnerId($gst);
+                if ($ownerId !== null && (string) $ownerId !== (string) $cid) {
+                    return $this->response->setJSON([
+                        'res' => 'error',
+                        'message' => 'GST / PAN / Aadhaar is already registered for another account.'
+                    ]);
+                }
+            }
 
-
-           // print_r("print in contoller code".$u_type1);
             // Prepare data for insertion
             $data = [
-               
                 'c_name'   => $this->request->getPost('c_nameedit'),
                 'c_add'    => $this->request->getPost('c_addedit'),
-                'mob'      => $this->request->getPost('fullno'),
-                'country' => $this->request->getPost('fulldetails2'),    
-                'gst'      => strtoupper($this->request->getPost('gstedit')),
+                'mob'      => $fullno,
+                'country' => $this->request->getPost('fulldetails2'),
+                'gst'      => strtoupper($gst),
                 'email'      => $this->request->getPost('email1'),
                 'c_type'   => $this->request->getPost('ctypeedit'),
-                'u_type'   => $u_type,
-                //'created'  => $formattedDate,
+                'u_type'   => $this->request->getPost('u_type'),
             ];
 
-            //print_r($data);
-            
             $response = $this->crudModel->updaterecord($cid, $data);
-             $lastQuery = $this->crudModel->getLastQuery();
-
-             print_r($response);
+            $lastQuery = $this->crudModel->getLastQuery();
 
             if ($response) {
-                
-                print_r($response);
-                
                 return $this->response->setJSON([
                     'res' => 'success',
                     'message' => 'Records updated successfully.',
-                'query' => (string) $lastQuery,
+                    'query' => (string) $lastQuery,
                 ]);
-                
             } else {
-                //print_r($response);
                 // Return error response if insertion fails
                 return $this->response->setJSON([
                     'res' => 'error',
@@ -378,6 +366,7 @@ public function update() {
         ]);
     }
 }
+
 
     
 }

@@ -11,18 +11,22 @@ class StatisticsModel extends Model
 
     public function getClientCountForCurrentMonth()
     {
-        $currentMonth = date('Y-m');
+        $monthStart = date('Y-m-01');
+        $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
         return $this->db->table($this->tableClients)
-            ->where('DATE_FORMAT(created, "%Y-%m")', $currentMonth)
+            ->where('created >=', $monthStart)
+            ->where('created <', $nextMonthStart)
             ->countAllResults();
     }
 
     public function getInvoiceTotalForCurrentMonth()
     {
-        $currentMonth = date('Y-m');
+        $monthStart = date('Y-m-01');
+        $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
         return $this->db->table($this->tableInvoices)
             ->selectSum('totalamount', 'invoice_total')
-            ->where('DATE_FORMAT(created, "%Y-%m")', $currentMonth)
+            ->where('created >=', $monthStart)
+            ->where('created <', $nextMonthStart)
             ->get()
             ->getRow()
             ->invoice_total ?? 0;
@@ -30,25 +34,200 @@ class StatisticsModel extends Model
 
     public function getInvCountForCurrentMonth()
     {
-        $currentMonth = date('Y-m');
+        $monthStart = date('Y-m-01');
+        $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
         return $this->db->table($this->tableInvoices)
             ->selectCount('invid', 'invcount')
-            ->where('DATE_FORMAT(created, "%Y-%m")', $currentMonth)
+            ->where('created >=', $monthStart)
+            ->where('created <', $nextMonthStart)
             ->get()
             ->getRow()
             ->invcount ?? 0;
     }
 
+    public function getCurrentMonthClients(): array
+    {
+        $monthStart = date('Y-m-01');
+        $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
+
+        return $this->db->table($this->tableClients)
+            ->select('*')
+            ->where('created >=', $monthStart)
+            ->where('created <', $nextMonthStart)
+            ->orderBy('created', 'DESC')
+            ->orderBy('c_name', 'ASC')
+            ->get()
+            ->getResultArray();
+    }
+    public function getCurrentMonthOrders(): array
+{
+    $monthStart = date('Y-m-01');
+    $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
+
+    $sql = "
+        SELECT 
+            ROW_NUMBER() OVER () AS id, 
+            invtest.item_name AS item, 
+            invtest2.invid AS `inv no`, 
+            invtest2.created AS `inv date`, 
+            client.c_name AS client, 
+            SUBSTRING_INDEX(client.c_add, ',', -1) AS location, 
+            client.gst AS GST, 
+            client.c_type AS c_type,
+            invtest2.subtotal AS subtotal, 
+            invtest2.taxrate AS taxrate, 
+            invtest2.taxamount AS taxamount, 
+            invtest2.totalamount AS totalamount
+
+        FROM invtest2 
+
+        INNER JOIN invtest 
+            ON invtest.orderid = invtest2.orderid 
+
+        INNER JOIN client 
+            ON invtest2.cid = client.cid
+
+        WHERE invtest2.created >= ?
+          AND invtest2.created < ?
+
+        ORDER BY invtest2.created DESC
+    ";
+
+    return $this->db
+        ->query($sql, [$monthStart, $nextMonthStart])
+        ->getResultArray();
+}
+// public function getDailyTurnoverForCurrentMonth(): array
+// {
+//     $monthStart = date('Y-m-01');
+//     $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
+
+//     $sql = "
+//         SELECT 
+//             i2.created AS day, 
+//             SUM(i2.totalamount) AS turnover,
+
+//             (
+//                 SELECT i.item_name
+//                 FROM invtest i
+//                 INNER JOIN invtest2 i22
+//                     ON i.orderid = i22.orderid
+//                 WHERE i22.created = i2.created
+//                 GROUP BY i.item_name
+//                 ORDER BY SUM(i.quantity) DESC
+//                 LIMIT 1
+//             ) AS max_item_sold,
+
+//             (
+//                 SELECT SUM(i.quantity)
+//                 FROM invtest i
+//                 INNER JOIN invtest2 i22
+//                     ON i.orderid = i22.orderid
+//                 WHERE i22.created = i2.created
+//                 GROUP BY i.item_name
+//                 ORDER BY SUM(i.quantity) DESC
+//                 LIMIT 1
+//             ) AS item_count
+
+//         FROM invtest2 i2
+
+//         WHERE i2.created >= ?
+//           AND i2.created < ?
+
+//         GROUP BY i2.created
+//         ORDER BY i2.created ASC
+//     ";
+
+//     $query = $this->db->query($sql, [
+//         $monthStart,
+//         $nextMonthStart
+//     ]);
+
+//     return $query->getResultArray();
+// }
+    public function getDailyTurnoverForCurrentMonth(): array
+{
+    //$monthStart = '2026-08-01';
+    //$nextMonthStart = '2026-09-01';
+     $monthStart = date('Y-m-01');
+    $nextMonthStart = date('Y-m-01', strtotime('+1 month'));
+
+    $sql = " SELECT 
+    i2.created AS day, 
+
+    SUM(i2.totalamount) AS turnover,
+
+    SUM(i2.taxamount) AS gst,
+
+    (
+        SELECT i.item_name
+        FROM invtest i 
+        INNER JOIN invtest2 i22 
+            ON i.orderid = i22.orderid 
+        WHERE i22.created = i2.created 
+        GROUP BY i.item_name 
+        ORDER BY SUM(i.quantity) DESC 
+        LIMIT 1
+    ) AS max_item_sold,
+
+    (
+        SELECT SUM(i.quantity)
+        FROM invtest i 
+        INNER JOIN invtest2 i22 
+            ON i.orderid = i22.orderid 
+        WHERE i22.created = i2.created 
+        GROUP BY i.item_name 
+        ORDER BY SUM(i.quantity) DESC 
+        LIMIT 1
+    ) AS item_count
+
+FROM invtest2 i2
+
+WHERE i2.created >= ?
+  AND i2.created < ?
+
+GROUP BY i2.created
+ORDER BY i2.created ASC";
+
+    $query = $this->db->query($sql, [
+        $monthStart,
+        $nextMonthStart
+    ]);
+
+    return $query->getResultArray();
+}
+
+public function getDailyTurnoverForPreviousMonth(): array
+{
+    $monthStart = date('Y-m-01', strtotime('-1 month'));
+    $nextMonthStart = date('Y-m-01');
+
+    $sql = " SELECT
+    i2.created AS day,
+    SUM(i2.totalamount) AS turnover,
+    SUM(i2.taxamount) AS gst
+FROM invtest2 i2
+WHERE i2.created >= ?
+  AND i2.created < ?
+GROUP BY i2.created
+ORDER BY i2.created ASC";
+
+    return $this->db->query($sql, [
+        $monthStart,
+        $nextMonthStart
+    ])->getResultArray();
+}
 public function getBounceRate()
 {
     // Get current and previous month in 'Y-m' format
-    $currentMonth = date('Y-m');
-    $previousMonth = date('Y-m', strtotime('-1 month'));
+    $currentMonthStart = date('Y-m-01');
+    $previousMonthStart = date('Y-m-01', strtotime('-1 month'));
 
     // Get current month turnover
     $currentTurnover = $this->db->table($this->tableInvoices)
         ->selectSum('totalamount', 'invoice_total')
-        ->where('DATE_FORMAT(created, "%Y-%m")', $currentMonth)
+        ->where('created >=', $currentMonthStart)
+        ->where('created <', date('Y-m-01', strtotime('+1 month')))
         ->get()
         ->getRow()
         ->invoice_total ?? 0;
@@ -56,7 +235,8 @@ public function getBounceRate()
     // Get previous month turnover
     $previousTurnover = $this->db->table($this->tableInvoices)
         ->selectSum('totalamount', 'invoice_total')
-        ->where('DATE_FORMAT(created, "%Y-%m")', $previousMonth)
+        ->where('created >=', $previousMonthStart)
+        ->where('created <', $currentMonthStart)
         ->get()
         ->getRow()
         ->invoice_total ?? 0;
@@ -76,29 +256,64 @@ public function getBounceRate()
 
     public function gettreechart()
     {
-        $query = "
-            SELECT 
-               DISTINCT  SUBSTRING_INDEX(client.c_add, ',', -1) AS location, 
-                COUNT(*) AS count 
-            FROM 
-                invtest 
-            INNER JOIN 
-                invtest2 ON invtest.orderid = invtest2.orderid 
-            INNER JOIN 
-                client ON invtest2.cid = client.cid 
-            GROUP BY 
-                location
-            ORDER BY 
-                count DESC limit 25
+        // $query = "
+        //     SELECT 
+        //        DISTINCT  SUBSTRING_INDEX(client.c_add, ',', -1) AS location, 
+        //         COUNT(*) AS count 
+        //     FROM 
+        //         invtest 
+        //     INNER JOIN 
+        //         invtest2 ON invtest.orderid = invtest2.orderid 
+        //     INNER JOIN 
+        //         client ON invtest2.cid = client.cid 
+        //     GROUP BY 
+        //         location
+        //     ORDER BY 
+        //         count DESC limit 25
 
-        ";
+        // ";
+        $query="SELECT 
+    LOWER(TRIM(SUBSTRING_INDEX(client.c_add, ',', -1))) AS location,
+    COUNT(*) AS count 
+FROM 
+    invtest 
+INNER JOIN 
+    invtest2 ON invtest.orderid = invtest2.orderid 
+INNER JOIN 
+    client ON invtest2.cid = client.cid 
+GROUP BY 
+    location
+ORDER BY 
+    count DESC 
+LIMIT 25";
 
         $result=$this->db->query($query)->getResultArray();
-                foreach ($result as &$stat) {
-            $stat['location'] = str_replace("\n", '', $stat['location']);
+        //         foreach ($result as &$stat) {
+        //     $stat['location'] = str_replace("\n", '', $stat['location']);
+        // }
+        $regions = [];
+        foreach ($result as $stat) {
+            $region = strtolower(trim(str_replace(["\n", "\r"], '', $stat['location'])));
+            $region = trim(explode('-', $region, 2)[0]);
+
+            if ($region === '') {
+                continue;
+            }
+
+            $regions[$region] = ($regions[$region] ?? 0) + (int) $stat['count'];
         }
 
-        return $result;
+        arsort($regions);
+
+        $data = [];
+        foreach (array_slice($regions, 0, 25, true) as $region => $count) {
+            $data[] = [
+                'location' => $region,
+                'count' => $count,
+            ];
+        }
+
+        return $data;
 
     }
     public function consumablesSold($startyear, $endyear)

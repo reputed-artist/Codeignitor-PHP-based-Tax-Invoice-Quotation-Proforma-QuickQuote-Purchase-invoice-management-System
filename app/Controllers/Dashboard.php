@@ -19,6 +19,13 @@ class Dashboard extends Controller
 {
     protected $crudModel;
 
+    private function closeSessionLock(): void
+    {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_write_close();
+        }
+    }
+
     public function __construct()
     {
     
@@ -52,53 +59,32 @@ class Dashboard extends Controller
             return redirect()->to(base_url().'/login');
         }
 
-        
+        $this->closeSessionLock();
 
-    $crudModel = new Client_model();
-    $crudModel2 = new Invtest_model2();
+    $cache = \Config\Services::cache();
+    $cacheKey = 'dashboard.summary.' . date('Y-m-d');
+    $data = $cache->get($cacheKey);
 
-    $fy=$this->statisticsModel->getFinancialYears();
+    if ($data === null) {
+        $month = (int) date('m');
+        $year = (int) date('Y');
+        $startYear = $month >= 4 ? $year : $year - 1;
+        $endYear = $month >= 4 ? $year + 1 : $year;
 
-    $clientcount=$this->statisticsModel->getClientCountForCurrentMonth();
-
-    $monthturn=$this->statisticsModel->getInvoiceTotalForCurrentMonth();
-
-    $invcount=$this->statisticsModel->getInvCountForCurrentMonth();
-
-    $bounceRate = $this->statisticsModel->getBounceRate(); // Fetch bounce rate
-
-    $currentDate = date('Y-m-d');  // Get the current date
-
-        $month = date('m');  // Get the current month
-        $year = date('Y'); 
-
-                if ($month >= 4) {
-            // For months from April to December, the current financial year is the current year and next year
-            $startYear = $year;
-            $endYear = $year + 1;
-        } else {
-            // For months from January to March, the financial year is the previous year and the current year
-            $startYear = $year - 1;
-            $endYear = $year;
-        } 
-
-     $mainchart=$this->statisticsModel->getInvoiceStatsForFinancialYear($startYear, $endYear);
-
-     $productcategorycount2=$this->statisticsModel->productcategorycount2($startYear, $endYear);
-
-
-         
-         $data = [
-        'fy' => $fy,  //fy for chart
-        'clientcount'=>$clientcount,  
-        'monthturn'=>$monthturn,
-        'invcount'=>$invcount,
-         'bounceRate' => $bounceRate, // Add bounce rate to data
-        'mainchart'=>$mainchart,
-        'productcategorycount2'=>$productcategorycount2,
-        'startYear'=> $startYear,
-        'endYear'=>$endYear
+        $data = [
+            'fy' => $this->statisticsModel->getFinancialYears(),
+            'clientcount' => $this->statisticsModel->getClientCountForCurrentMonth(),
+            'monthturn' => $this->statisticsModel->getInvoiceTotalForCurrentMonth(),
+            'invcount' => $this->statisticsModel->getInvCountForCurrentMonth(),
+            'bounceRate' => $this->statisticsModel->getBounceRate(),
+            'mainchart' => $this->statisticsModel->getInvoiceStatsForFinancialYear($startYear, $endYear),
+            'productcategorycount2' => $this->statisticsModel->productcategorycount2($startYear, $endYear),
+            'startYear' => $startYear,
+            'endYear' => $endYear,
         ];
+
+        $cache->save($cacheKey, $data, 60);
+    }
 
         //print_r($data);
 
@@ -112,9 +98,18 @@ class Dashboard extends Controller
 
     public function getCurrentMonthStatistics()
     {
+        $this->closeSessionLock();
+
+        $cache = \Config\Services::cache();
+        $cacheKey = 'dashboard.current-month.v2.' . date('Y-m-d');
+        $cachedData = $cache->get($cacheKey);
+        if ($cachedData !== null) {
+            return $this->response->setJSON($cachedData);
+        }
+
         $clientCount = $this->statisticsModel->getClientCountForCurrentMonth();
         $invoiceTotal = $this->statisticsModel->getInvoiceTotalForCurrentMonth();
-        //$turnover = $this->statisticsModel->getTurnoverForCurrentMonth();
+        $turnover = $invoiceTotal;
 
         $treechart=$this->statisticsModel->gettreechart();
 
@@ -158,7 +153,7 @@ class Dashboard extends Controller
  $data = [
         'clientCount' => $clientCount,
          'invoiceTotal' => $invoiceTotal, // JSON-encoded for JavaScript usage
-        // 'turnover' => $turnover,  
+        'turnover' => $turnover,  
         'treechart'=> $treechart,
         'consumables'=> $consumables,
         'productcategorycount'=>$productcategorycount,
@@ -176,12 +171,45 @@ class Dashboard extends Controller
     ];
   
     //print_r($data);
+    $cache->save($cacheKey, $data, 60);
     return $this->response->setJSON($data);
 
 }
 
+public function getDashboardDetails()
+{
+    $this->closeSessionLock();
+
+    $cache = \Config\Services::cache();
+
+    // Change v3 to v4 so old cached response is not used
+    $cacheKey = 'dashboard.details.v6.' . date('Y-m-d');
+
+    $cachedData = $cache->get($cacheKey);
+
+    // if ($cachedData !== null) {
+    //     return $this->response->setJSON($cachedData);
+    // }
+
+    $data = [
+        'clients' => $this->statisticsModel->getCurrentMonthClients(),
+        'dailyTurnover' => $this->statisticsModel->getDailyTurnoverForCurrentMonth(),
+        'previousDailyTurnover' => $this->statisticsModel->getDailyTurnoverForPreviousMonth(),
+            'orders' => $this->statisticsModel->getCurrentMonthOrders(),
+
+
+    ];
+
+    // if (!empty($data['dailyTurnover'])) {
+    //     $cache->save($cacheKey, $data, 150);
+    // }
+
+    return $this->response->setJSON($data);
+}
 
 public function clientreminder() {
+    $this->closeSessionLock();
+
     // Initialize the model
     $crudModel = new StatisticsModel();
 
@@ -229,7 +257,7 @@ public function clientreminder() {
 
 public function loadData()
     {
-        $db = \Config\Database::connect();
+        $this->closeSessionLock();
 
         $brand_id = $this->request->getGet('brand_id');
         if (!empty($brand_id)) {
@@ -245,6 +273,15 @@ public function loadData()
             $startyear = substr($financial_year, 0, 4);
             $endyear = substr($financial_year, 5, 10);
         }
+
+        $cache = \Config\Services::cache();
+        $cacheKey = 'dashboard.bar-chart.' . $startyear . '-' . $endyear;
+        $cachedData = $cache->get($cacheKey);
+        if ($cachedData !== null) {
+            return $this->response->setJSON($cachedData);
+        }
+
+        $db = \Config\Database::connect();
 
         // First query - Monthly Turnover & Tax
         $sql = "SELECT query1.Months, query1.Turnover, query1.Tax, query2.item_name, query2.item_sold 
@@ -301,10 +338,13 @@ public function loadData()
             ];
         }
 
-        return $this->response->setJSON([
+        $data = [
             'arr1' => $data_points,
             'arr2' => $data_pro
-        ]);
+        ];
+        $cache->save($cacheKey, $data, 600);
+
+        return $this->response->setJSON($data);
     }
 
         private function indian_number_format($num) {
@@ -319,7 +359,10 @@ public function loadData()
     // Function to load data based on the 'brand_y' parameter
     public function load_turn()
     {
+        $this->closeSessionLock();
+
         $con = \Config\Database::connect();  // Connect to the database
+        $cache = \Config\Services::cache();
 
         // Output variable initialization
         $output = '';  
@@ -331,6 +374,11 @@ public function loadData()
             if ($brand_y != '') {
                 $startyear = substr($brand_y, 0, 4); // Extract start year
                 $endyear = substr($brand_y, 5, 10);  // Extract end year
+                $cacheKey = 'dashboard.bar-chart-totals.' . $startyear . '-' . $endyear;
+                $cachedData = $cache->get($cacheKey);
+                if ($cachedData !== null) {
+                    return $this->response->setJSON($cachedData);
+                }
 
                 // Query to get invoice count
                 $invtotal = $con->query("SELECT count(invid) FROM `invtest2` WHERE created BETWEEN '$startyear-04-01' AND '$endyear-03-30'");
@@ -349,12 +397,15 @@ public function loadData()
                 $taxtotalval = $taxtotal->getRowArray();
 
                 // Return the results in JSON format
-                return $this->response->setJSON([
+                $data = [
                     "invoices" => $invval['count(invid)'],
                     "totalitems" => $totalitemval['sum(totalitems)'],
                     "turnovery" => $this->indian_number_format($yeartotalval['sum(totalamount)']),
                     "taxy" => $this->indian_number_format($taxtotalval['sum(taxamount)'])
-                ]);
+                ];
+                $cache->save($cacheKey, $data, 600);
+
+                return $this->response->setJSON($data);
             }
         }
     }

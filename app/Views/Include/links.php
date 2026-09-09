@@ -122,10 +122,60 @@
 
 <script type="text/javaScript">
 
+      function getExportDocumentName() {
+        var path = window.location.pathname.toLowerCase();
+        var pageNames = [
+          ['/proinv/proitemreport', 'Proforma Item'],
+          ['/proinv/proreport', 'Proforma'],
+          ['/quote/quoteitemreport', 'Quote Item'],
+          ['/quote/quotereport', 'Quote'],
+          ['/quickquote/quickquotereport', 'Quick Quote'],
+          ['/purchaseinv/purchaseitemreport', 'Purchase Item'],
+          ['/purchaseinv/purchasereport', 'Purchase'],
+          ['/purchaseinv/purhsnreport', 'Purchase HSN'],
+          ['/taxinv/saleitemreport', 'Sale Item'],
+          ['/taxinv/salehsnreport', 'Sale HSN'],
+          ['/taxinv/salereport', 'Sale'],
+          ['/transaction', 'Transaction'],
+          ['/sale_report', 'Sale'],
+          ['/sitem_report', 'Sale Item'],
+          ['/shsn_report', 'Sale HSN'],
+          ['/purchase_report', 'Purchase'],
+          ['/pitem_report', 'Purchase Item'],
+          ['/phsn_report', 'Purchase HSN'],
+          ['/proforma_report', 'Proforma'],
+          ['/proitem_report', 'Proforma Item'],
+          ['/quickquote_report', 'Quick Quote'],
+          ['/quoteitem_report', 'Quote Item'],
+          ['/quote_report', 'Quote'],
+          ['/report_dcrcr', 'DCR CR'],
+          ['/supplier', 'Supplier'],
+          ['/product', 'Product'],
+          ['/account', 'Ledger'],
+          ['/client', 'Clients']
+        ];
+
+        for (var i = 0; i < pageNames.length; i++) {
+          if (path.indexOf(pageNames[i][0]) !== -1) {
+            return 'AdminLT ' + pageNames[i][1] + ' Data';
+          }
+        }
+
+        var reportMatch = path.match(/\/report\/([^/?#]+)/);
+        if (reportMatch) {
+          var reportName = reportMatch[1].replace(/_report$/, '').replace(/_/g, ' ');
+          reportName = reportName.replace(/\b\w/g, function (letter) {
+            return letter.toUpperCase();
+          });
+          return 'AdminLT ' + reportName + ' Data';
+        }
+
+        return 'AdminLT Data';
+      }
+
     function doExport(selector, params) {
       const options = {
-        
-        tableName: 'Table name'
+          tableName: getExportDocumentName()
       };
 
       jQuery.extend(true, options, params);

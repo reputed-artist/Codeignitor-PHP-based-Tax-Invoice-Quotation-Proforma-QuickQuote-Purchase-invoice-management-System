@@ -1,0 +1,109 @@
+INFO - 2026-02-12 18:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:18:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:19:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-12 18:19:49 --> mysqli_sql_exception: Unknown column 'account.is_hidden' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `account...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `account...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `account...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `account...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\C4\app\Models\Account_model.php(515): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\C4\app\Controllers\Account.php(940): App\Models\Account_model->getAccountDetails()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Account->manageaccounts()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+INFO - 2026-02-12 18:19:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-12 18:19:52 --> mysqli_sql_exception: Unknown column 'account.is_hidden' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `account...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `account...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `account...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `account...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\C4\app\Models\Account_model.php(515): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\C4\app\Controllers\Account.php(940): App\Models\Account_model->getAccountDetails()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Account->manageaccounts()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+INFO - 2026-02-12 18:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-12 18:21:07 --> mysqli_sql_exception: Unknown column 'account.is_hidden' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `account...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `account...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `account...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `account...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\C4\app\Models\Account_model.php(515): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\C4\app\Controllers\Account.php(940): App\Models\Account_model->getAccountDetails()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Account->manageaccounts()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+INFO - 2026-02-12 18:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-12 18:21:08 --> mysqli_sql_exception: Unknown column 'account.is_hidden' in 'field list' in C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `account...')
+#1 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `account...')
+#2 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `account...')
+#3 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `account...', Array, false)
+#4 C:\xampp\htdocs\C4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\C4\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\C4\app\Models\Account_model.php(515): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\C4\app\Controllers\Account.php(940): App\Models\Account_model->getAccountDetails()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Account->manageaccounts()
+#9 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Account))
+#10 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#12 {main}
+INFO - 2026-02-12 18:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 18:48:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-02-12 18:53:40 --> Maximum execution time of 120 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2026-02-12 19:04:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 19:04:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 19:04:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 19:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 19:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 20:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 20:01:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 20:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 20:01:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 20:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 22:07:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 22:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-12 22:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

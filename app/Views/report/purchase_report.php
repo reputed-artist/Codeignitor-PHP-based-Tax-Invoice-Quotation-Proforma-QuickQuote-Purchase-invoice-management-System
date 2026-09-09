@@ -330,10 +330,11 @@
              render: function(data, type, row, meta) {
                     // Check if c_type is IGST
                     if (row.c_type == "IGST") {
-                        return (data / 2) + ' - ' + (data / 2) + ' %';
-                        //return '9-9 %'; // Set taxrate to 9-9 %
-                    } else {
                         return data+'%'; // Set taxrate to 18 %
+                    
+                    } else {
+                      return (data / 2) + ' - ' + (data / 2) + ' %';
+                        
                     }
                 }
              },

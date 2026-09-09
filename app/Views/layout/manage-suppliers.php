@@ -306,7 +306,7 @@ input .error{
                  <div class="form-group">
                   <label id="cgstlbl" class="col-sm-3 control-label">GST <span style="color: red;">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gst" name="gst"  placeholder="GST / PAN or Adhaar">
+                      <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gst" name="gst"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error" style="color: red;">  </div>
                        <div id="gst_status" class="gst-status" style="font-size: 12px; margin-top: 5px;"></div>
                     </div>
@@ -386,7 +386,7 @@ input .error{
               </div>
             <div class="modal-body">
                         
-              <form class="form-horizontal style-form" name="form1" id="form1" method="post" action="<?=base_url()?>/client/update">
+              <form class="form-horizontal style-form" name="form1" id="form1" method="post" action="<?=base_url()?>/supplier/managesupplier/update">
                 <p style="color:#F00"><?php //echo $_SESSION['msg'];?><?php //echo $_SESSION['msg']="";?></p>
                   
             <!-- /box-header -->
@@ -465,7 +465,7 @@ input .error{
                  <div class="form-group">
                   <label id="cgstlbl" class="col-sm-3 control-label">GST <span style="color: red;">*</span></label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gstedit" name="gstedit"  placeholder="GST / PAN or Adhaar">
+                      <input type="text" style="text-transform: uppercase;" class="form-control" value="<?php //if(isset($_POST['gst'])){ echo $_POST['gst'];} ?>" id="gstedit" name="gstedit"  placeholder="GST / PAN or Adhaar">
                       <div id="gst_error1" style="color: red;">  </div>
                        <div id="gst_status1" class="gst-status1" style="font-size: 12px; margin-top: 5px;"></div>
                     </div>
@@ -753,10 +753,12 @@ window.addEventListener("load", function ($form, event) {
         result2.textContent = "";
     }, false);
 
-    $(input2).on("focusout", function() {
+    $(input2).on("focusout change", function() {
         var intlNumber2 = iti2.getNumber();
-        $("#fullno2").val(intlNumber2);
-        console.log(intlNumber2);
+        if (intlNumber2 && intlNumber2 !== "+") {
+            $("#fullno2").val(intlNumber2);
+            console.log(intlNumber2);
+        }
     });
 });
 
@@ -772,7 +774,7 @@ $('#utype1').select2({
 });
 
  </script>
-  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/supplier.js"></script>
+  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/supplier.js?v=20260828.1"></script>
   <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
 </body>
 </html>

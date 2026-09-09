@@ -644,10 +644,12 @@ window.addEventListener("load", function () {
         result.textContent = "";
     }, false);
 
-    $(input).on("focusout", function () {
+    $(input).on("focusout change", function () {
         var intlNumber = iti.getNumber();
-        $("#fullno").val(intlNumber);
-        console.log(intlNumber);
+        if (intlNumber && intlNumber !== "+") {
+            $("#fullno").val(intlNumber);
+            console.log(intlNumber);
+        }
     });
 });
 
@@ -759,10 +761,12 @@ window.addEventListener("load", function ($form, event) {
         result2.textContent = "";
     }, false);
 
-    $(input2).on("focusout", function() {
+    $(input2).on("focusout change", function() {
         var intlNumber2 = iti2.getNumber();
-        $("#fullno2").val(intlNumber2);
-        console.log(intlNumber2);
+        if (intlNumber2 && intlNumber2 !== "+") {
+            $("#fullno2").val(intlNumber2);
+            console.log(intlNumber2);
+        }
     });
 });
 
@@ -777,7 +781,7 @@ $('#utype1').select2({
 });
 
  </script>
-  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/client.js"></script>
+  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/client.js?v=20260828.1"></script>
   <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
 </body>
 </html>

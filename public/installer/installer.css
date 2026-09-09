@@ -1,0 +1,311 @@
+/* Installer Wizard Styles (jmrashed/php-installer UI, recolored to AdminLTE skin-blue) */
+
+body {
+    background: linear-gradient(135deg, #3c8dbc 0%, #1e3c72 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    padding: 20px 0;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #3c8dbc 0%, #1e3c72 100%);
+    color: white;
+    border-radius: 15px 15px 0 0 !important;
+    padding: 25px;
+    border: none;
+}
+
+.card-header h2 {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3c8dbc 0%, #1e3c72 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 141, 188, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3c8dbc;
+    box-shadow: 0 0 0 0.2rem rgba(60, 141, 188, 0.25);
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #3c8dbc 0%, #1e3c72 100%);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+.progress-steps {
+    margin: 0;
+    padding: 0;
+}
+
+.step-item {
+    font-size: 12px;
+    color: #6c757d;
+    text-align: center;
+    flex: 1;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.step-item.active {
+    color: #3c8dbc;
+    font-weight: 600;
+}
+
+.alert {
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    color: #856404;
+}
+
+.list-group-item {
+    border: none;
+    border-radius: 8px !important;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(5px);
+}
+
+.form-check-input:checked {
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+}
+
+.form-check-input:focus {
+    border-color: #3c8dbc;
+    box-shadow: 0 0 0 0.25rem rgba(60, 141, 188, 0.25);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Beautiful Step Indicators */
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 3px solid #e9ecef;
+    margin-bottom: 8px;
+}
+
+.step-indicator.completed .step-circle {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border-color: #28a745;
+    transform: scale(1.1);
+}
+
+.step-indicator.current .step-circle {
+    background: linear-gradient(135deg, #3c8dbc 0%, #1e3c72 100%);
+    color: white;
+    border-color: #3c8dbc;
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(60, 141, 188, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.check-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.step-label {
+    font-size: 11px;
+    color: #6c757d;
+    text-align: center;
+    font-weight: 500;
+    max-width: 80px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.step-indicator.completed .step-label,
+.step-indicator.current .step-label {
+    color: #3c8dbc;
+    font-weight: 600;
+}
+
+.step-connector {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #e9ecef;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.step-connector.completed {
+    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(60, 141, 188, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(60, 141, 188, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(60, 141, 188, 0.5);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-header {
+        padding: 20px;
+    }
+
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .step-label {
+        font-size: 10px;
+        max-width: 60px;
+    }
+
+    .step-connector {
+        top: 15px;
+    }
+}

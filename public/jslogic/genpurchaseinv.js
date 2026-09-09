@@ -316,7 +316,7 @@ if (hasError) {
             totals.push($(this).find(".total").val());
         });
 
-        console.log(formData);
+        //console.log(formData);
 
         $.ajax({
             type: "POST",
@@ -325,7 +325,23 @@ if (hasError) {
             dataType: 'json', 
             //contentType: false,           
             success: function(response) {
+                
+                // ==========================================
+        // DUPLICATE INVOICE
+        // ==========================================
+        if (response.duplicate === true) {
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Duplicate Invoice',
+                text: response.message || 'This Purchase invoice already exists.',
+                confirmButtonText: 'OK'
+            });
+
+            return;
+        }
                 // Handle success response here
+
                 if (response.success) {
 
                     console.log(response.success);

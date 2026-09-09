@@ -11,6 +11,11 @@
 
 <style type="text/css">
 
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
 body {
   background: rgb(204,204,204); 
 }
@@ -150,29 +155,16 @@ img {
     <td colspan="3" height="24" contenteditable id="lr" style="padding-left: 10px;"> 
       <?php 
 
-       $x = 40;
-$longString =$invDetails[0]['c_add'];
-$lines = explode("\n", wordwrap($longString, $x));
+       $addressLines = preg_split('/\R/', wordwrap($invDetails[0]['c_add'] ?? '', 40, "\n", true));
+       $data = array_map('esc', $addressLines);
+       $data = array_pad($data, 4, '');
+       // Keep the existing first three rows; let the fourth grow for every
+       // additional line instead of silently dropping part of the address.
+       $data[3] = implode('<br>', array_slice($data, 3));
 
-//echo count($lines);
-
-
-for($num = 0; $num < count($lines); $num += 1){ 
-    //echo  $lines[$num]. "\n <br>";
-
-     $data[$num]=$lines[$num];
-} 
-
-
-for($num=0;$num<count($lines);$num++)
-{
-   $data[$num]."<br>";
-}
-
-if($data[0] != null)
-{
-  echo $data[0];
-}
+       if ($data[0] !== '') {
+         echo $data[0];
+       }
 
 
 

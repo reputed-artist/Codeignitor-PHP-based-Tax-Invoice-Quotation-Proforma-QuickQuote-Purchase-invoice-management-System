@@ -10,6 +10,7 @@ Options All -Indexes
 <IfModule mod_rewrite.c>
 	Options +FollowSymlinks
 	RewriteEngine On
+	RewriteBase /C4/
 
 	# If you installed CodeIgniter in a subfolder, you will need to
 	# change the following line to match the subfolder you need.
@@ -26,6 +27,9 @@ Options All -Indexes
 	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 
+	# Do not rewrite the front controller again when Apache uses ErrorDocument.
+	RewriteRule ^index\.php(?:/|$) - [L]
+
 	# Checks to see if the user is attempting to access a valid file,
     # such as an image or css document, if this isn't true it sends the
     # request to the front controller, index.php
@@ -38,12 +42,34 @@ Options All -Indexes
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
-<IfModule !mod_rewrite.c>
-    # If we don't have mod_rewrite installed, all 404's
-    # can be sent to index.php, and everything works as normal.
-    ErrorDocument 404 index.php
+# Pass Apache 404 responses through CodeIgniter when rewrite rules are unavailable.
+ErrorDocument 404 /C4/404.html
+
+# ----------------------------------------------------------------------
+# Static asset browser caching (public/ css, js, images, fonts)
+# ----------------------------------------------------------------------
+# Far-future caching for versioned/static assets. Assets live under /public/
+# and change rarely, so we can safely cache them in the browser for 1 month.
+# The `immutable` hint tells browsers not to revalidate these files at all.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|mjs|map|png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|otf|cur)$">
+        Header set Cache-Control "public, max-age=2592000, immutable"
+    </FilesMatch>
 </IfModule>
 
-# Disable server signature start
-    ServerSignature Off
-# Disable server signature end
+# Optional: let mod_expires stamp Expires headers too (if the module is enabled).
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+    ExpiresByType font/ttf "access plus 1 month"
+    ExpiresByType font/otf "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+</IfModule>

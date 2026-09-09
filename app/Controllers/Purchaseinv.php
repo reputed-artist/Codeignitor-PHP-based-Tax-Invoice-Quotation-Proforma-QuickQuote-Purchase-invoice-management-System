@@ -450,6 +450,53 @@ public function insert() {
 
             //$orderid=uniqid('', true); // with decimals
 
+
+//             $invid    = trim($this->request->getPost('invid'));
+// $supplier = $this->request->getPost('supplier');
+
+// $datepicker = $this->request->getPost('datepicker');
+// $date = new \DateTime($datepicker);
+// $formattedDate = $date->format('Y-m-d');
+
+// $itemNames = $this->request->getPost('item_name');
+// $itemDescs = $this->request->getPost('item_desc');
+// $hsn       = $this->request->getPost('hsn');
+// $quantities = $this->request->getPost('item_quantity');
+// $prices     = $this->request->getPost('price');
+// $totals     = $this->request->getPost('total');
+
+// $subtotal     = $this->request->getPost('subTotal');
+// $taxrate      = $this->request->getPost('taxRate');
+// $taxamount    = $this->request->getPost('taxAmount');
+// $totalaftertax = $this->request->getPost('totalAftertax');
+
+
+// --------------------------------------------------
+// CHECK FOR DUPLICATE INVOICE
+// --------------------------------------------------
+
+$duplicate = $this->isDuplicateInvoice($invid, $formattedDate, $itemNames, $itemDescs, $hsn, $quantities, $prices, $totals);
+
+// --------------------------------------------------
+// STOP DUPLICATE
+// --------------------------------------------------
+
+if ($duplicate) {
+    return $this->response
+        ->setStatusCode(200)
+        ->setJSON([
+            'success' => false,
+            'duplicate' => true,
+            'message' => 'This supplier invoice already exists.'
+        ]);
+}
+
+// --------------------------------------------------
+// ONLY NOW CREATE NEW ORDER ID
+// --------------------------------------------------
+
+//$orderid = uniqid();
+
             $orderid = uniqid(); // Generates a unique ID without decimals
 
             //$orderid = md5(uniqid(mt_rand(), true)); //long digit values
@@ -530,10 +577,122 @@ public function insert() {
 }       
     
 
-public function editpurchaseinv()
+/**
+     * Detect duplicate supplier invoices.
+     *
+     * Same rule as the insert flow: an invoice is considered a duplicate when
+     * another invoice exists with the same invid + invdate AND the exact same
+     * line items (name, quantity, price, total).
+     * When $excludeOrderid is given, that invoice (the one being edited) is
+     * skipped so the check only targets OTHER invoices.
+     *
+     * @return bool
+     */
+    private function isDuplicateInvoice($invid, $invdate, $itemNames, $itemDescs, $hsn, $quantities, $prices, $totals, $excludeOrderid = null)
+    {
+        if (empty($invid) || empty($invdate) || !is_array($itemNames)) {
+            return false;
+        }
+
+        $this->crudModel4 = new Purchaseinv_model2();
+
+        $existingQuery = $this->crudModel4
+            ->where('invid', $invid)
+            ->where('invdate', $invdate);
+
+        if ($excludeOrderid !== null && $excludeOrderid !== '') {
+            $existingQuery = $existingQuery->where('orderid !=', $excludeOrderid);
+        }
+
+        $existingInvoices = $existingQuery->findAll();
+
+        // No other invoice with the same number + date -> not a duplicate
+        if (empty($existingInvoices)) {
+            return false;
+        }
+
+        // Build the signature set of the invoice we are saving.
+        // Only item name + quantity + price + total are compared.
+        // hsn and item_desc are ignored because they are unreliable in data entry.
+        $incomingSignatures = [];
+        for ($i = 0; $i < count($itemNames); $i++) {
+            if (empty(trim($itemNames[$i] ?? ''))) {
+                continue; // Skip blank rows, same rule as INSERT
+            }
+            $incomingSignatures[] = $this->itemSignature(
+                $itemNames[$i] ?? '',
+                $quantities[$i] ?? '',
+                $prices[$i] ?? '',
+                $totals[$i] ?? ''
+            );
+        }
+        sort($incomingSignatures);
+
+        $duplicate = false;
+
+        foreach ($existingInvoices as $existingInvoice) {
+
+            $existingOrderId = $existingInvoice['orderid'];
+
+            // Get existing items belonging to this invoice
+            $existingItems = $this->crudModel
+                ->where('orderid', $existingOrderId)
+                ->findAll();
+
+            // Build the signature set for the stored invoice
+            $storedSignatures = [];
+            foreach ($existingItems as $existingItem) {
+                if (empty(trim($existingItem['item_name'] ?? ''))) {
+                    continue; // Skip blank rows
+                }
+                $storedSignatures[] = $this->itemSignature(
+                    $existingItem['item_name'] ?? '',
+                    $existingItem['quantity'] ?? '',
+                    $existingItem['price'] ?? '',
+                    $existingItem['total'] ?? ''
+                );
+            }
+            sort($storedSignatures);
+
+            // Same size + same sorted signatures => same items with same amounts
+            if (count($storedSignatures) === count($incomingSignatures)
+                && $storedSignatures === $incomingSignatures) {
+                $duplicate = true;
+                break;
+            }
+        }
+
+        return $duplicate;
+    }
+
+    /**
+     * Build a normalized, comparable signature for one invoice line item.
+     * Names are compared case-insensitively; numeric fields are compared
+     * numerically so "3500" and "3500.00" are treated as equal.
+     */
+    private function itemSignature($name, $quantity, $price, $total)
+    {
+        return strtolower(trim((string)$name))
+            . '|' . $this->normalizeAmount($quantity)
+            . '|' . $this->normalizeAmount($price)
+            . '|' . $this->normalizeAmount($total);
+    }
+
+    /**
+     * Normalize a numeric value to a plain numeric string without trailing
+     * zeros ("3500.00" -> "3500", "100.50" -> "100.5").
+     */
+    private function normalizeAmount($value)
+    {
+        $number = number_format((float)$value, 2, '.', '');
+        return rtrim(rtrim($number, '0'), '.');
+    }
+
+public function editpurchaseinv($edit_id = null)
 {
     if ($this->request->getMethod() === 'get' || $this->request->isAJAX()) {
-        $edit_id = $this->request->getGet('orderid'); // Get the order ID from the request
+        // Accept the orderid from either the URL path segment or the ?orderid= query string
+        $edit_id = $edit_id ?: $this->request->getGet('orderid'); // Get the order ID from the request
 
         // Load the Purchaseinv_model
         $this->crudModel3 = new Purchaseinv_model();
@@ -647,123 +806,170 @@ if (!$deleteFromSecondModel) {
     }
 }
 
-public function updatepurchaseinv()
-{
-    if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
+public function checkDuplicateUpdate()
+    {
+        if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
 
-        $this->crudModel4 = new Purchaseinv_model2(); // Load model
-        $this->crudModel = new Purchaseinv_model(); // Load model
+            $this->crudModel4 = new Purchaseinv_model2(); // Load model
+            $this->crudModel = new Purchaseinv_model(); // Load model
 
-        $orderid = $this->request->getPost('orderid');
+            $orderid = $this->request->getPost('orderid');
 
-        $invid = $this->request->getPost('invid');
-        $supplier = $this->request->getPost('supplier');
-        $datepicker = $this->request->getPost('datepicker');
-        
-        $subtotal = $this->request->getPost('subTotal');
-        $taxrate = $this->request->getPost('taxRate');
-        $taxamount = $this->request->getPost('taxAmount');
-        $totalaftertax = $this->request->getPost('totalAftertax');
+            $invid = $this->request->getPost('invid');
+            $datepicker = $this->request->getPost('datepicker');
 
-        $itemNames = $this->request->getPost('item_name'); // Array
-        $itemDescs = $this->request->getPost('item_desc'); // Array
-        $hsn = $this->request->getPost('hsn'); // Array
-        $quantities = $this->request->getPost('item_quantity'); // Array
-        $prices = $this->request->getPost('price'); // Array
-        $totals = $this->request->getPost('total'); // Array
+            $formattedDate = null;
+            if (!empty($datepicker)) {
+                try {
+                    $formattedDate = (new \DateTime($datepicker))->format('Y-m-d');
+                } catch (\Exception $e) {
+                    $formattedDate = null;
+                }
+            }
 
-        $formattedDate = null;
-        if (!empty($datepicker)) {
-    try {
-        $formattedDate = (new \DateTime($datepicker))->format('Y-m-d');
-    } catch (\Exception $e) {
-        // Handle the error, e.g., log it or provide a default value
-        $formattedDate = null; // Or any fallback value
-        log_message('error', 'Invalid date format: ' . $e->getMessage());
+            $itemNames = $this->request->getPost('item_name'); // Array
+            $itemDescs = $this->request->getPost('item_desc'); // Array
+            $hsn = $this->request->getPost('hsn'); // Array
+            $quantities = $this->request->getPost('item_quantity'); // Array
+            $prices = $this->request->getPost('price'); // Array
+            $totals = $this->request->getPost('total'); // Array
+
+            $duplicate = $this->isDuplicateInvoice($invid, $formattedDate, $itemNames, $itemDescs, $hsn, $quantities, $prices, $totals, $orderid);
+
+            return $this->response->setJSON([
+                'duplicate' => (bool) $duplicate,
+            ]);
+        }
+
+        return $this->response->setStatusCode(400)->setJSON([
+            'duplicate' => false,
+            'message' => 'Invalid request.'
+        ]);
     }
-} else {
-    // Handle case where $datepicker is empty
-    log_message('error', 'Datepicker input is empty.');
-}
 
-        //print_r($itemNames);
+public function updatepurchaseinv()
+    {
+        if ($this->request->getMethod() === 'post' || $this->request->isAJAX()) {
 
-        // Prepare data for updating main invoice
-        $updateData = [
-            'invid' => $invid,
-            'cid' => $supplier,
-            'invdate' => $formattedDate,
-            'totalitems' => count($itemNames),
-            'subtotal' => $subtotal,
-            'taxrate' => $taxrate,
-            'taxamount' => $taxamount,
-            'totalamount' => $totalaftertax,
-            'created' => date('Y-m-d H:i:s'),
-        ];
+            $this->crudModel4 = new Purchaseinv_model2(); // Load model
+            $this->crudModel = new Purchaseinv_model(); // Load model
 
-        //print_r($updateData);
-        
-        $updateItemsData = [];
-        $newItemsData = [];
+            $orderid = $this->request->getPost('orderid');
 
-        if (!empty($itemNames) && is_array($itemNames)) {
-            for ($i = 0; $i < count($itemNames); $i++) {
-                if (!empty($itemNames[$i])) {
+            if (empty($orderid)) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Order ID is missing.'
+                ]);
+            }
 
-                    $itemData[] = [
-                        'orderno'=> null,
-                        'orderid' => $orderid,
-                      
+            $invid = $this->request->getPost('invid');
+            $supplier = $this->request->getPost('supplier');
+            $datepicker = $this->request->getPost('datepicker');
+
+            $subtotal = $this->request->getPost('subTotal');
+            $taxrate = $this->request->getPost('taxRate');
+            $taxamount = $this->request->getPost('taxAmount');
+            $totalaftertax = $this->request->getPost('totalAftertax');
+
+            $itemNames = $this->request->getPost('item_name'); // Array
+            $itemDescs = $this->request->getPost('item_desc'); // Array
+            $hsn = $this->request->getPost('hsn'); // Array
+            $quantities = $this->request->getPost('item_quantity'); // Array
+            $prices = $this->request->getPost('price'); // Array
+            $totals = $this->request->getPost('total'); // Array
+
+            $formattedDate = null;
+            if (!empty($datepicker)) {
+                try {
+                    $formattedDate = (new \DateTime($datepicker))->format('Y-m-d');
+                } catch (\Exception $e) {
+                    $formattedDate = null;
+                    log_message('error', 'Invalid date format: ' . $e->getMessage());
+                }
+            } else {
+                log_message('error', 'Datepicker input is empty.');
+            }
+
+            // --------------------------------------------------
+            // CHECK FOR DUPLICATE INVOICE (excluding this order)
+            // --------------------------------------------------
+            $duplicate = $this->isDuplicateInvoice($invid, $formattedDate, $itemNames, $itemDescs, $hsn, $quantities, $prices, $totals, $orderid);
+
+            // --------------------------------------------------
+            // STOP DUPLICATE
+            // --------------------------------------------------
+            if ($duplicate) {
+                return $this->response
+                    ->setStatusCode(200)
+                    ->setJSON([
+                        'success' => false,
+                        'duplicate' => true,
+                        'message' => 'This supplier invoice already exists.'
+                    ]);
+            }
+
+            // Prepare data for updating main invoice
+            $updateData = [
+                'invid' => $invid,
+                'cid' => $supplier,
+                'invdate' => $formattedDate,
+                'totalitems' => is_array($itemNames) ? count($itemNames) : 0,
+                'subtotal' => $subtotal,
+                'taxrate' => $taxrate,
+                'taxamount' => $taxamount,
+                'totalamount' => $totalaftertax,
+                'created' => date('Y-m-d H:i:s'),
+            ];
+
+            // Update the main invoice
+            $updated = $this->crudModel4->updaterecord($orderid, $updateData);
+
+            // Rebuild line items: delete old items then insert current ones
+            $this->crudModel->deleterecord($orderid);
+
+            $itemInserted = true;
+            if (!empty($itemNames) && is_array($itemNames)) {
+                $itemData = [];
+                for ($i = 0; $i < count($itemNames); $i++) {
+                    if (!empty($itemNames[$i])) {
+                        $itemData[] = [
+                            'orderid' => $orderid,
                             'item_name' => $itemNames[$i],
                             'item_desc' => !empty($itemDescs[$i]) ? $itemDescs[$i] : null, // Handle empty descriptions
                             'hsn' => !empty($hsn[$i]) ? $hsn[$i] : null, // Handle empty hsn
                             'quantity' => !empty($quantities[$i]) ? $quantities[$i] : null, // Handle empty quantity
                             'price' => !empty($prices[$i]) ? $prices[$i] : null, // Handle empty price
                             'total' => !empty($totals[$i]) ? $totals[$i] : null, // Handle empty total
-                    ];
-                    
-                    //print_r($itemData);
+                        ];
+                    }
+                }
 
-
+                if (!empty($itemData)) {
+                    $itemInserted = $this->crudModel->insertBatch($itemData);
                 }
             }
+
+            if ($updated && $itemInserted) {
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'Supplier Invoice Data Updated!',
+                    'orderid' => $orderid,
+                ]);
+            }
+
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Failed to update data.'
+            ]);
         }
 
-
-// Update the main invoice
-if (!$this->crudModel4->updaterecord(['orderid' => $orderid], $updateData)) {
-    //echo $this->crudModel4->getLastQuery();
-
-    $this->crudModel->deleterecord($orderid);
-//echo $this->crudModel->getLastQuery();
-
-    if ($this->crudModel->insertBatch($itemData)) {
-                         $lastQuery = $this->crudModel->getLastQuery(); // Ensure this retrieves the last executed query
-                            //echo $lastQuery;
-
-
-                        return $this->response->setJSON([
-                            'success' => true,
-                            'message' => 'Supplier Invoice Data Inserted!',
-                            'orderid' => $orderid,
-                        ]);
-
-
-  
-} else {
-      return $this->response->setJSON(['success' => false, 'message' => 'Failed to update main invoice data.']);
-}
-
-
-   
-}
- return $this->response->setJSON(['success' => true, 'message' => 'Items updated successfully!']);
-
-    throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-}
+        return $this->response->setStatusCode(400)->setJSON([
+            'success' => false,
+            'message' => 'Invalid request.'
+        ]);
+    }
     
-}
-
 public function printpurchaseinv(){
 
         $session = session(); 

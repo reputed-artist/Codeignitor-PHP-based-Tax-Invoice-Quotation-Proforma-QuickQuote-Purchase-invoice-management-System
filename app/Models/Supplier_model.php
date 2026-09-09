@@ -57,6 +57,25 @@ class Supplier_model extends Model
 
     }
 
+
+/**
+ * Find the cid of the account that currently owns this GST.
+ *
+ * @param string $gst
+ * @return int|null  cid of the owning account, or null if the GST is unused
+ */
+public function getGstOwnerId($gst)
+{
+    $row = $this->db->table('client')
+        ->select('cid')
+        ->where('gst', $gst)
+        ->get()
+        ->getRow();
+
+    return $row ? (int) $row->cid : null;
+}
+
+
 public function set_auto_increment() {
     // Get the last cid
     $lastCid = $this->get_last_cid(); 

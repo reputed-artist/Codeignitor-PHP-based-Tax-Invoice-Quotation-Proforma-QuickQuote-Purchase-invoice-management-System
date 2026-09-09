@@ -315,7 +315,7 @@
         'footer': true,
         'data': response.aaData,
         dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-       buttons: getExportButtons('#example',[0,1,2,3,4,5,6]), 
+      buttons: getExportButtons('#example',[0,1,2,3,4,5,6,7]), 
         columns: [
             { 'data': 'id',
                   render: function (data, type, row, meta) {
@@ -433,7 +433,7 @@ let selectedItem = null;
         'autoWidth': false,
         'footer': true,
         dom: "<'row'<'col-sm-3'l><'col-sm-9'<'pull-center'fB>>>rtip",
-        buttons: getExportButtons('#example',[0,1,2,3,4,5,6]), 
+        buttons: getExportButtons('#example',[0,1,2,3,4,5,6,7]),
              columns: [
               { 'data': 'id',
                     render: function (data, type, row, meta) {

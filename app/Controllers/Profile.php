@@ -23,12 +23,28 @@ class Profile extends Controller
         $this->db = \Config\Database::connect(); 
     }
 
+    /** Return a JSON error for settings actions requested without a login. */
+    private function requireAuthenticatedJson()
+    {
+        if (! session()->has('user_id')) {
+            return $this->response
+                ->setStatusCode(401)
+                ->setJSON(['success' => false, 'message' => 'Your session has expired. Please sign in again.']);
+        }
+
+        return null;
+    }
+
     // public function settings()
     // {
     //   //echo "hello users";      
     // return view('layout/profile');
     // }
     public function updateData(){
+        if ($response = $this->requireAuthenticatedJson()) {
+            return $response;
+        }
+
         $admodel=new Admin_model();
 
                     $data = [
@@ -43,11 +59,19 @@ class Profile extends Controller
             ];
 
 
-        $cddata=$admodel->updatez(1,$data);
-        print_r($cddata);
+        $updated = $admodel->updatez(1,$data);
+
+        return $this->response->setJSON([
+            'success' => $updated !== false,
+            'message' => $updated !== false ? 'Company details updated successfully.' : 'Unable to update company details.'
+        ]);
     }
 
     public function updateData2(){
+        if ($response = $this->requireAuthenticatedJson()) {
+            return $response;
+        }
+
         $admodel=new Admin_model();
 
                     $data = [
@@ -61,24 +85,36 @@ class Profile extends Controller
             ];
 
 
-        $cddata=$admodel->updatez(1,$data);
-        print_r($cddata);
+        $updated = $admodel->updatez(1,$data);
+
+        return $this->response->setJSON([
+            'success' => $updated !== false,
+            'message' => $updated !== false ? 'Profile updated successfully.' : 'Unable to update profile.'
+        ]);
     }
 
 public function updateData3(){
+        if ($response = $this->requireAuthenticatedJson()) {
+            return $response;
+        }
+
         $admodel=new Admin_model();
 
                     $data = [
                
-                'username'   => $this->request->getPost('name'),
-                'password'    => $this->request->getPost('email'),
+                'username'   => $this->request->getPost('username'),
+                'password'    => $this->request->getPost('password'),
                 
                 
             ];
 
 
-        $cddata=$admodel->updatez(1,$data);
-        print_r($cddata);
+        $updated = $admodel->updatez(1,$data);
+
+        return $this->response->setJSON([
+            'success' => $updated !== false,
+            'message' => $updated !== false ? 'Login details updated successfully.' : 'Unable to update login details.'
+        ]);
     }
 
 
@@ -126,6 +162,10 @@ public function updateData3(){
 
 public function updateBankDetails()
 {
+    if ($response = $this->requireAuthenticatedJson()) {
+        return $response;
+    }
+
     // Retrieve bank details arrays from the form
     $bnames    = $this->request->getPost('bname');   // Array of bank names
     $acNumbers = $this->request->getPost('ac');        // Array of account numbers
@@ -169,13 +209,25 @@ public function updateBankDetails()
 
 
 public function uploadProductImage() {
+    if ($response = $this->requireAuthenticatedJson()) {
+        return $response;
+    }
+
     helper(['form', 'url']);
 
     if ($this->request->getMethod() === 'post') {
         $file = $this->request->getFile('picture'); // Ensure this matches the front-end field name 'picture'
 
+        if ($file === null) {
+            return $this->response->setStatusCode(422)->setJSON(['success' => false, 'message' => 'Choose an image to upload.']);
+        }
+
         if (!$file->isValid()) {
             return $this->response->setJSON(['success' => false, 'message' => $file->getErrorString()]);
+        }
+
+        if (!in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/gif'], true) || $file->getSize() > 5 * 1024 * 1024) {
+            return $this->response->setStatusCode(422)->setJSON(['success' => false, 'message' => 'Upload a JPG, PNG, or GIF image smaller than 5 MB.']);
         }
 
         // Generate a new unique filename
@@ -212,13 +264,25 @@ public function uploadProductImage() {
     return $this->response->setJSON(['success' => false, 'message' => 'Invalid request']);
 }
 public function uploadProductImage2() {
+    if ($response = $this->requireAuthenticatedJson()) {
+        return $response;
+    }
+
     helper(['form', 'url']);
 
     if ($this->request->getMethod() === 'post') {
         $file = $this->request->getFile('picturelogo'); // Ensure this matches the front-end field name 'picture'
 
+        if ($file === null) {
+            return $this->response->setStatusCode(422)->setJSON(['success' => false, 'message' => 'Choose an image to upload.']);
+        }
+
         if (!$file->isValid()) {
             return $this->response->setJSON(['success' => false, 'message' => $file->getErrorString()]);
+        }
+
+        if (!in_array($file->getMimeType(), ['image/jpeg', 'image/png', 'image/gif'], true) || $file->getSize() > 5 * 1024 * 1024) {
+            return $this->response->setStatusCode(422)->setJSON(['success' => false, 'message' => 'Upload a JPG, PNG, or GIF image smaller than 5 MB.']);
         }
 
         // Generate a new unique filename
@@ -258,6 +322,10 @@ public function uploadProductImage2() {
 
 public function dbbackup()
 {
+    if ($response = $this->requireAuthenticatedJson()) {
+        return $response;
+    }
+
     helper('filesystem'); // Load File Helper
 
     // Get DB connection
@@ -322,6 +390,10 @@ public function dbbackup()
 
 public function restoreDB()
 {
+    if ($response = $this->requireAuthenticatedJson()) {
+        return $response;
+    }
+
     // Check if file is uploaded
     if (!empty($_FILES["backup_file"]["name"])) {
         // Validate file extension

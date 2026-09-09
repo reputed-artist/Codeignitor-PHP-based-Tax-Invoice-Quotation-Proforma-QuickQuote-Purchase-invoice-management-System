@@ -448,15 +448,37 @@ public function update() {
 
             log_message('debug', 'CID: ' . $cid); // Log the cid value
 
+            $fullno = (string) $this->request->getPost('fullno2');
+            $gst    = (string) $this->request->getPost('gstedit');
+
+            // Defensive fallback: never wipe the stored mobile if the hidden
+            // phone field came through empty (e.g. user never touched the field).
+            if (trim($fullno) === '') {
+                $existing = $this->crudModel->find($cid);
+                $fullno = $existing['mob'] ?? '';
+            }
+
+            // Server-side GST ownership verification.
+            // Allow the change only when the GST is either unused OR it already
+            // belongs to this same client (same cid). Reject it otherwise.
+            if (trim($gst) !== '') {
+                $gst = strtoupper($gst);
+                $ownerId = $this->crudModel->getGstOwnerId($gst);
+                if ($ownerId !== null && (string) $ownerId !== (string) $cid) {
+                    return $this->response->setJSON([
+                        'res' => 'error',
+                        'message' => 'GST / PAN / Aadhaar is already registered for another client.'
+                    ]);
+                }
+            }
 
             // Prepare data for insertion
             $data = [
-               
                 'c_name'   => $this->request->getPost('c_nameedit'),
                 'c_add'    => $this->request->getPost('c_addedit'),
-                'mob'      => $this->request->getPost('fullno2'),
-                'country' => $this->request->getPost('fulldetails2'),    
-                'gst'      => $this->request->getPost('gstedit'),
+                'mob'      => $fullno,
+                'country' => $this->request->getPost('fulldetails2'),
+                'gst'      => strtoupper($gst),
                 'email'      => $this->request->getPost('email1'),
                 'c_type'   => $this->request->getPost('ctypeedit'),
                 'u_type'   => $this->request->getPost('u_type'),

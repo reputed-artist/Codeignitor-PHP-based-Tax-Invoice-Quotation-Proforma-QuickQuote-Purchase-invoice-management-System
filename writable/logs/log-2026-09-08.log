@@ -1,0 +1,780 @@
+CRITICAL - 2026-09-08 00:02:41 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 00:02:41 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 00:05:36 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 00:05:36 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 00:07:09 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 00:07:09 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 00:18:04 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 00:18:04 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 12:37:57 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 12:37:57 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 12:52:33 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 12:52:33 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 13:00:57 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:12 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:12 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:12 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:12 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:12 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:39 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-09-08 13:01:59 --> Cache unable to write to C:\xampp\htdocs\C4\writable\cache/
+#0 C:\xampp\htdocs\C4\system\Cache\Handlers\FileHandler.php(69): CodeIgniter\Cache\Exceptions\CacheException::forUnableToWrite('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\C4\system\Cache\CacheFactory.php(55): CodeIgniter\Cache\Handlers\FileHandler->__construct(Object(Config\Cache))
+#2 C:\xampp\htdocs\C4\system\Config\Services.php(108): CodeIgniter\Cache\CacheFactory::getHandler(Object(Config\Cache))
+#3 C:\xampp\htdocs\C4\system\Config\BaseService.php(100): CodeIgniter\Config\Services::cache(Object(Config\Cache), false)
+#4 C:\xampp\htdocs\C4\system\Config\Services.php(103): CodeIgniter\Config\BaseService::getSharedInstance('cache', NULL)
+#5 C:\xampp\htdocs\C4\system\Config\BaseService.php(171): CodeIgniter\Config\Services::cache()
+#6 C:\xampp\htdocs\C4\system\Common.php(71): CodeIgniter\Config\BaseService::__callStatic('cache', Array)
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(658): cache()
+#8 C:\xampp\htdocs\C4\system\CodeIgniter.php(319): CodeIgniter\CodeIgniter->displayCache(Object(Config\Cache))
+#9 C:\xampp\htdocs\C4\system\CLI\Console.php(61): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\C4\spark(66): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2026-09-08 13:01:59 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(CodeIgniter\Cache\Exceptions\CacheException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Cache\Exceptions\CacheException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 13:06:55 --> Namespace declaration statement has to be the very first statement or after any declare call in the script
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 13:07:15 --> Namespace declaration statement has to be the very first statement or after any declare call in the script
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2026-09-08 13:09:11 --> Namespace declaration statement has to be the very first statement or after any declare call in the script
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2026-09-08 13:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:14:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:15:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:16:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:16:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:16:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:17:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:18:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:18:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:18:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 13:18:11 --> Class 'Errors' not found
+#0 C:\xampp\htdocs\C4\system\CodeIgniter.php(969): CodeIgniter\CodeIgniter->createController()
+#1 C:\xampp\htdocs\C4\system\CodeIgniter.php(349): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#2 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#3 {main}
+INFO - 2026-09-08 13:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:19:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:19:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:24:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 13:26:46 --> Undefined offset: 0
+#0 C:\xampp\htdocs\C4\app\Views\print\print purchaseinv.php(119): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\xampp\\htdocs...', 119, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('print/print pur...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Purchaseinv.php(1022): view('print/print pur...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Purchaseinv->printpurchaseinv()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Purchaseinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-09-08 13:26:46 --> Uncaught ErrorException: Undefined variable: viewFile in C:\xampp\htdocs\C4\system\Debug\Exceptions.php:281
+Stack trace:
+#0 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 281, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(281): include()
+#2 C:\xampp\htdocs\C4\system\Debug\Exceptions.php(147): CodeIgniter\Debug\Exceptions->render(Object(ErrorException), 500)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+INFO - 2026-09-08 13:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:26:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:28:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:28:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:28:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:36:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:43:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:43:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:43:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 13:43:29 --> Undefined offset: 0
+#0 C:\xampp\htdocs\C4\app\Views\print\print proinv.php(136): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\xampp\\htdocs...', 136, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('print/print pro...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Proinv.php(973): view('print/print pro...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Proinv->printproinv()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Proinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 13:43:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 13:43:48 --> Undefined offset: 0
+#0 C:\xampp\htdocs\C4\app\Views\print\print proinv.php(136): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\xampp\\htdocs...', 136, Array)
+#1 C:\xampp\htdocs\C4\system\View\View.php(220): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\View\View.php(222): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\C4\system\Common.php(1217): CodeIgniter\View\View->render('print/print pro...', Array, true)
+#4 C:\xampp\htdocs\C4\app\Controllers\Proinv.php(973): view('print/print pro...', Array)
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Proinv->printproinv()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Proinv))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 13:44:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:45:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:49:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:50:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:50:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:51:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:51:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:56:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:57:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 13:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:01:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:01:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:01:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:02:38 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788856038.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788856355, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:03:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:03:21 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788856318.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788856399, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:21:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:24:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:25:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:28:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:29:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:29:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:29:36 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788857657.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788857968, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:29:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:30:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:30:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:31:32 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788857991.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788858085, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:35:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:35:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:35:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:36:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:36:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:36:49 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788858085.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788858401, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:39:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:40:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:41:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:41:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 14:41:26 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788858546.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788858679, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 14:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:41:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 14:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:10:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:11:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:11:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:18:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:18:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:19:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:20:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:22:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:22:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:22:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:25:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:26:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 18:33:20 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788872134.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788872587, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 18:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 18:33:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 19:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 19:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 19:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:57:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 20:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:05:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:05:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:06:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:06:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:06:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:10:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:10:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:42:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:43:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:47:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 21:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:09:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:20:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:27:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 22:27:50 --> unlink(C:\xampp\htdocs\C4\writable\debugbar/debugbar_1788886264.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 78, Array)
+#1 C:\xampp\htdocs\C4\system\Debug\Toolbar\Collectors\History.php(78): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(441): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1788886650, 20)
+#3 C:\xampp\htdocs\C4\system\Debug\Toolbar.php(413): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\C4\app\Config\Events.php(52): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\C4\system\Events\Events.php(166): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(314): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-09-08 22:27:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:28:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:44:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:44:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 22:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:40:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:41:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:51:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:51:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:53:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:55:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-09-08 23:55:33 --> Undefined variable: requirements
+#0 C:\xampp\htdocs\C4\app\Views\install\steps\system_check.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12, Array)
+#1 C:\xampp\htdocs\C4\app\Controllers\Install.php(197): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\C4\app\Controllers\Install.php(65): App\Controllers\Install->render('system_check', Array)
+#3 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Install->index()
+#4 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Install))
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+INFO - 2026-09-08 23:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:56:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:57:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:58:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-08 23:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

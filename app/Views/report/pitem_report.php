@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/public/script/daterangepicker/daterangepicker-bs3.css">
 
   <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script> 
+  <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
 
     <script src="<?= base_url(); ?>/public/script/daterangepicker/moment.min.js"></script>
     <script src="<?= base_url(); ?>/public/script/daterangepicker/daterangepicker.js"></script>
@@ -561,6 +562,5 @@ let selectedItem = null;
 });
 
 </script>
- <script type="text/javascript" src="<?= base_url(); ?>/public/jslogic/getExportButtons.js"></script>
 </body>
 </html>

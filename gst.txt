@@ -1,0 +1,7 @@
+ M app/Controllers/Account.php
+ M app/Views/layout/manage-account.php
+ M public/jslogic/account.js
+?? app/Controllers/Account2.php
+?? app/Database/Migrations/20260902000000_AddDashboardIndexes.php
+?? app/Database/Migrations/20260906000000_AddAccountBalanceIndexes.php
+?? app/Models/Account_model3.php

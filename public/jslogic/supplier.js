@@ -120,7 +120,7 @@ $(document).on("click", "#edit_product", function() {
     var edit_id = $(this).data("id");
 
     $.ajax({
-        url: base_url + "/client/edit/"+ parseInt(edit_id),
+        url: base_url + "/supplier/managesupplier/edit/"+ parseInt(edit_id),
         type: "get",
         dataType: "JSON",
         data: {
@@ -131,19 +131,31 @@ $(document).on("click", "#edit_product", function() {
             },
         success: function(response) {
             console.log("AJAX response:", response); // Debug the response
+
+            // Capture the supplier's CURRENT GST value FIRST, before anything else,
+            // so an unchanged GST never trips the "please check availability" gate.
+            originalGstEdit = $.trim(response.post.gst || '').toUpperCase();
+            $('#gstedit').data('originalGst', originalGstEdit).data('originalGstLoaded', true);
+            gstCheckedEditValue = '';
+            gstAvailableEdit = false;
+
             $('#cidedit').val(response.post.cid);
             // Populate modal fields (assuming response contains these fields)
 
             $('#c_nameedit').val(response.post.c_name);
             $('#c_addedit').val(response.post.c_add);
-            $('#email1').val(response.post.mob);
+            $('#email1').val(response.post.email);
             $('#phoneedit').val(response.post.mob);
             $('#gstedit').val(response.post.gst);
-            $('#email1').val(response.post.email);
             $('#ctypeedit').val(response.post.c_type).trigger('change'); // for Select2
             $('#utype1').val(response.post.u_type).trigger('change');
 
-            iti2.setNumber(response.post.mob);
+            if (typeof iti2 !== 'undefined' && iti2) {
+                iti2.setNumber(response.post.mob);
+                // Sync the hidden field (it is what gets submitted) so the mobile
+                // is never lost just because the user didn't focus out of the field.
+                $("#fullno2").val(iti2.getNumber());
+            }
 
                 // Ensure consistent formatting when user interacts with the input
                 input2.addEventListener('focus', function() {
@@ -708,6 +720,8 @@ $(document).on("click", "#delete_product", function(e) {
 // Use different variable names for edit functionality
 let gstAvailableEdit = false;
 let gstCheckTimeoutEdit;
+let gstCheckedEditValue = '';   // GST value that was actually confirmed "available"
+let originalGstEdit = '';       // GST value when the edit modal was opened (unchanged = no check required)
 
 $('#gstedit').on('input', function() {
     const gst = $(this).val().trim();
@@ -721,6 +735,17 @@ $('#gstedit').on('input', function() {
     if (gst === '') {
         $('#gst_status1').html('');
         gstAvailableEdit = false;
+        return;
+    }
+    
+    // If the value equals the supplier's original GST, it is already verified
+    // (the account is allowed to keep / re-enter their own GST) - no AJAX needed.
+    var originalGstData = $('#gstedit').data('originalGst') || '';
+    if ((originalGstEdit || originalGstData) && gst.toUpperCase() === (originalGstEdit || originalGstData).toString().toUpperCase()) {
+        $('#gst_status1').html('<span style="color: green;">GST / PAN / Aadhaar verified (unchanged)</span>');
+        $('#gstedit').removeClass('is-invalid');
+        gstAvailableEdit = true;
+        gstCheckedEditValue = gst.toUpperCase();
         return;
     }
     
@@ -742,6 +767,7 @@ $('#gstedit').on('input', function() {
 });
 
 function checkGSTAvailabilityEdit(gst) {
+    gst = gst.toUpperCase();
     const clientId = $('#cidedit').val(); // current record id
     console.log('Edit ID:', $('#cidedit').val());
 
@@ -758,14 +784,24 @@ function checkGSTAvailabilityEdit(gst) {
             'X-Requested-With': 'XMLHttpRequest'
         },
         success: function(response) {
-            if (response.exists) {
-                $('#gst_status1').html('<span style="color: red;">✗ GST / PAN / Aadhaar already registered</span>');
+            if (response.exists && response.same) {
+                // GST already belongs to THIS same account -> allow the change
+                $('#gst_status1').html('<span style="color: green;">✓ GST / PAN / Aadhaar verified (this account)</span>');
+                $('#gstedit').removeClass('is-invalid');
+                gstAvailableEdit = true;
+                gstCheckedEditValue = gst;
+            } else if (response.exists) {
+                // GST belongs to a DIFFERENT account -> block
+                $('#gst_status1').html('<span style="color: red;">✗ GST / PAN / Aadhaar already registered for another account</span>');
                 $('#gstedit').addClass('is-invalid');
                 gstAvailableEdit = false;
+                gstCheckedEditValue = '';
             } else {
+                // GST is free -> allow
                 $('#gst_status1').html('<span style="color: green;">✓ GST / PAN / Aadhaar available</span>');
                 $('#gstedit').removeClass('is-invalid');
                 gstAvailableEdit = true;
+                gstCheckedEditValue = gst;
             }
         }
     });
@@ -822,14 +858,22 @@ if ($('#phoneedit').val().trim() === '') {
 }
 
 
-if ($('#gstedit').val().trim() === '') {
+var gstValEdit = $.trim($('#gstedit').val()).toUpperCase();
+    // The supplier's original GST, from the shared variable OR - more robustly -
+    // from the data attribute written onto the field when the modal was loaded.
+    var originalGstVal = (originalGstEdit || $('#gstedit').data('originalGst') || '').toString().toUpperCase();
+    if (gstValEdit === '') {
         $('#gst_error1').text('GST / PAN / Aadhaar is required.');
         $('#gstedit').addClass('is-invalid');
         isValid = false;
-    } else if (!gstAvailableEdit) {
+    } else if (gstValEdit !== originalGstVal && (!gstAvailableEdit || gstCheckedEditValue !== gstValEdit)) {
         $('#gst_error1').text('Please check GST / PAN / Aadhaar availability.');
         $('#gstedit').addClass('is-invalid');
         isValid = false;
+        // Kick off the availability check for the current value so the user
+        // can retry once it has finished (prevents duplicate GST from being saved)
+        clearTimeout(gstCheckTimeoutEdit);
+        checkGSTAvailabilityEdit(gstValEdit);
     }
 
     // Validate Bill Type
@@ -877,10 +921,16 @@ if ($('#utype1').val().trim() === '') {
     var c_add = $("#c_addedit").val();
     
     var fullno2 = $("#fullno2").val();
-    console.log(fullno);
+    // Robust fallback: if the hidden field is empty (e.g. user never focused
+    // out of the phone field), read the number straight from intl-tel-input.
+    if (!fullno2 && typeof iti2 !== 'undefined' && iti2) {
+        fullno2 = iti2.getNumber();
+        $("#fullno2").val(fullno2);
+    }
+    console.log(fullno2);
 
     var country = $("#fulldetails2").val().trim();
-    var gst = $("#gstedit").val();
+    var gst = $.trim($("#gstedit").val()).toUpperCase();
     var email1 = $("#email1").val();
     var ctype = $("#ctypeedit").val().trim();
     
@@ -909,7 +959,7 @@ if ($('#utype1').val().trim() === '') {
 
         $.ajax({
             type: "post",
-            url: base_url + "/client/update",
+            url: base_url + "/supplier/managesupplier/update",
             data: fd,
             processData: false,
             contentType: false,
@@ -935,7 +985,7 @@ if ($('#utype1').val().trim() === '') {
 
                    Swal.fire({
                     title: "Good!",
-                    text: "Client Data Updated!",
+                    text: "Supplier Data Updated!",
                     icon: "success",
                     showConfirmButton: false, // Hide the OK button
                     timer: 3000, // Close the popup after 3 seconds (3000 milliseconds)

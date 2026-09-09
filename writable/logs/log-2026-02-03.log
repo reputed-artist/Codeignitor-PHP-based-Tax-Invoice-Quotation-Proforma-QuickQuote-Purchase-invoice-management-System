@@ -1,0 +1,44 @@
+INFO - 2026-02-03 21:50:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-03 21:50:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-02-03 22:00:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-03 22:00:10 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2026-02-03 22:00:10 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\C4\system\Model.php(247): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\C4\system\BaseModel.php(624): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\C4\app\Controllers\Login.php(41): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Login->userlogin()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-02-03 22:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-03 22:03:36 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2026-02-03 22:03:36 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\C4\system\Model.php(247): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\C4\system\BaseModel.php(624): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\C4\app\Controllers\Login.php(41): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Login->userlogin()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+INFO - 2026-02-03 22:03:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-02-03 22:03:47 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2026-02-03 22:03:47 --> Unable to connect to the database.
+#0 C:\xampp\htdocs\C4\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\C4\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\C4\system\Model.php(247): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\C4\system\BaseModel.php(624): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\C4\app\Controllers\Login.php(41): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\C4\system\CodeIgniter.php(936): App\Controllers\Login->userlogin()
+#6 C:\xampp\htdocs\C4\system\CodeIgniter.php(432): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp\htdocs\C4\system\CodeIgniter.php(333): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\C4\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}

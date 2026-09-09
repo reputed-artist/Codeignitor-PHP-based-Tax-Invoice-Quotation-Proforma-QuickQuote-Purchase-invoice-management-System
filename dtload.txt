@@ -1,0 +1,16 @@
+﻿C:\xampp\htdocs\C4\app\Views\Include\links.php:78: <script type="text/javascript" src="<?=base_url()?>/public/dist/js/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\Info layout\getledger.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\Info layout\getledger3.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\layout\manage-transaction.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\phsn_report.php:14: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\pitem_report.php:13: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\proforma_report.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\proitem_report.php:14: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\purchase_report.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\quickquote_report.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\quoteitem_report.php:12: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\quote_report.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\report_dcrcr.php:25: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\sale_report.php:15: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\shsn_report.php:14: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>
+C:\xampp\htdocs\C4\app\Views\report\sitem_report.php:14: <script type="text/javascript" src="<?= base_url(); ?>/public/script/dataTables.export.js"></script>

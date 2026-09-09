@@ -1,0 +1,14 @@
+
+C:\xampp\htdocs\C4>git grep -n "function doExport" -- public app 
+app/Views/Include/links.php:125:    function doExport(selector, params) {
+public/bower_components/ultimate-export/test/Issue279.html:12:  function doExport () {
+public/bower_components/ultimate-export/test/Issue288.html:12:  function doExport () {
+public/bower_components/ultimate-export/test/Issue289.html:12:  function doExport () {
+public/bower_components/ultimate-export/test/Issue302.html:12:  function doExport () {
+public/bower_components/ultimate-export/test/cssExcel.html:10:      function doExport() {
+public/bower_components/ultimate-export/test/cssPdf.html:11:      function doExport() {
+public/bower_components/ultimate-export/test/deferredExample.html:63:    function doExport() {
+public/bower_components/ultimate-export/test/index.html:129:    function doExport(selector, params) {
+public/bower_components/ultimate-export/test/msoFormats.html:12:      function doExport(mode) {
+public/bower_components/ultimate-export/test/selectedRows.html:41:    function doExport(selector, params) {
+public/bower_components/ultimate-export/test/sidebyside.html:41:    function doExport(selector, params) {
