@@ -16,6 +16,7 @@ class Transaction extends Controller
         $this->crudModel = new Transaction_model(); // Load model
         //helper('url');
         //helper('navigation');
+        helper('getState');
         helper(['url', 'navigation', 'getProfileImage', 'money_format']);
 
         $this->session = \Config\Services::session();

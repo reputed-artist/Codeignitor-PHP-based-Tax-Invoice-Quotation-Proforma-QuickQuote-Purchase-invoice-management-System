@@ -63,6 +63,7 @@ $routes->post('profile/uploadProductImage', 'Profile::uploadProductImage');
 $routes->post('profile/uploadProductImage2', 'Profile::uploadProductImage2');
 $routes->post('profile/dbbackup', 'Profile::dbbackup');
 $routes->post('profile/restoreDB', 'Profile::restoreDB');
+$routes->post('layoutsettings/save', 'Layoutsettings::save');
 $routes->get('proinv/genproinv', 'Proinv::genproinv');
 $routes->get('proinv/proreport', 'Proinv::proreport');
 $routes->get('proinv/proitemreport', 'Proinv::proitemreport');

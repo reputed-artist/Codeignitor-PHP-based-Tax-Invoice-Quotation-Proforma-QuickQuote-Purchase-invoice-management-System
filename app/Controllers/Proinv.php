@@ -29,6 +29,7 @@ class Proinv extends Controller
         $this->crudModel = new Protest_model(); // Load model
         helper('url');
         helper('navigation');
+        helper('getState');
         $this->session = \Config\Services::session();
         $this->validation = \Config\Services::validation();
     }

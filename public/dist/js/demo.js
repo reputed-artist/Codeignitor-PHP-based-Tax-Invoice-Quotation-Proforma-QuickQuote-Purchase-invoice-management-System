@@ -75,12 +75,53 @@ $(function () {
    */
   function changeLayout(cls) {
     $('body').toggleClass(cls)
+
+    // Fixed and boxed layouts are mutually exclusive: turning one on turns the
+    // other off (mirrors the server-side enforcement in Layoutsettings::save).
+    if (cls === 'fixed' && $('body').hasClass('fixed')) {
+      $('body').removeClass('layout-boxed')
+    } else if (cls === 'layout-boxed' && $('body').hasClass('layout-boxed')) {
+      $('body').removeClass('fixed')
+    }
+
     $layout.fixSidebar()
     if ($('body').hasClass('fixed') && cls == 'fixed') {
       $pushMenu.expandOnHover()
       $layout.activate()
     }
     $controlSidebar.fix()
+
+    persistLayout()
+  }
+
+  /**
+   * Persist the fixed/boxed layout choice so it survives navigation between
+   * pages (Manage Clients, Manage Products, etc.). Mirrors the session-based
+   * persistence in include/settings.php.
+   *
+   * @returns void
+   */
+  function persistLayout() {
+    var fixed = $('body').hasClass('fixed') ? 1 : 0
+    var boxed = $('body').hasClass('layout-boxed') ? 1 : 0
+    var collapse = $('body').hasClass('sidebar-collapse') ? 1 : 0
+    // Toggle Right Sidebar Slide: checkbox checked = push mode (slide off).
+    var controlSlide = $('[data-controlsidebar="control-sidebar-open"]').prop('checked') ? 1 : 0
+
+    // Keep every layout checkbox in the control sidebar in sync with the body.
+    $('[data-layout="fixed"]').prop('checked', !!fixed)
+    $('[data-layout="layout-boxed"]').prop('checked', !!boxed)
+    $('[data-layout="sidebar-collapse"]').prop('checked', !!collapse)
+    $('[data-controlsidebar="control-sidebar-open"]').prop('checked', !!controlSlide)
+
+    if (typeof window.APP_BASE_URL === 'undefined') {
+      return
+    }
+    var saveUrl = window.APP_BASE_URL + '/layoutsettings/save'
+    $.post(saveUrl, { key: 'fixed-layout', value: fixed })
+    $.post(saveUrl, { key: 'boxed-layout', value: boxed })
+    $.post(saveUrl, { key: 'sidebar-collapse', value: collapse })
+    $.post(saveUrl, { key: 'control-sidebar-slide', value: controlSlide })
   }
 
   /**

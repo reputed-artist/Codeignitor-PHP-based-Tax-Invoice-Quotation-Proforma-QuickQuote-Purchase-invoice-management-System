@@ -1,0 +1,9 @@
+﻿login GET: 200
+login POST: 200
+manageclients GET: 200
+is-html: False
+starts: {
+    "sEcho": 1,
+    "iTotalRecords": 1048,
+    "iTotalDisplayRecords": 1048,
+ 

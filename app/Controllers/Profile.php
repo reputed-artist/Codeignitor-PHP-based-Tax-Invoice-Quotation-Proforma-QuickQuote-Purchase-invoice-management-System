@@ -16,7 +16,7 @@ class Profile extends Controller
     {
         $this->crudModel = new Transaction_model(); // Load model
         
-        helper(['url', 'navigation', 'getProfileImage', 'money_format']); 
+        helper(['url', 'navigation', 'getProfileImage', 'money_format', 'getState']); 
 
         $this->session = \Config\Services::session();
         $this->validation = \Config\Services::validation();

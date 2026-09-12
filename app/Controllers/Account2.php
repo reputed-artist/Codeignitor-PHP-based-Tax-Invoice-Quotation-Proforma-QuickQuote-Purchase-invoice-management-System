@@ -16,6 +16,7 @@ class Account2 extends Controller
         $this->crudModel = new Account_model(); // Load model
         helper('url');
         helper('navigation');
+        helper('getState');
         $this->session = \Config\Services::session();
         $this->validation = \Config\Services::validation();
         $this->db = \Config\Database::connect();

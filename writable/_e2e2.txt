@@ -1,0 +1,20 @@
+﻿STEP1 GET login: 200
+Set-Cookie1: ci_session=dhftci883pvvvljqp22191mti40fqfja; expires=Thu, 10-Sep-2026 02:49:28 GMT; Max-Age=44000; path=/; HttpOnly; SameSite=Lax
+
+STEP2 POST login: 200
+login body: {
+    "status": "success",
+    "message": "Login successful!"
+}
+Set-Cookie2: ci_session=dhftci883pvvvljqp22191mti40fqfja; expires=Thu, 10-Sep-2026 02:49:29 GMT; Max-Age=44000; path=/; HttpOnly; SameSite=Lax
+
+STEP3 POST save: 200
+save body: {
+    "status": "ok",
+    "key": "fixed-layout",
+    "value": 1
+}
+Set-Cookie3: ci_session=dhftci883pvvvljqp22191mti40fqfja; expires=Thu, 10-Sep-2026 02:49:30 GMT; Max-Age=44000; path=/; HttpOnly; SameSite=Lax
+
+STEP4 GET manageclients: 200
+saved html len: 440304

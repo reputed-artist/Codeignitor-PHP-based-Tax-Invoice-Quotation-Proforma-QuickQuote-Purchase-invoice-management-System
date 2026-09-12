@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1788897859;installer_step|s:9:"db_config";_ci_previous_url|s:42:"http://localhost/C4/install?step=db_config";db_driver|s:5:"mysql";db_host|s:9:"localhost";db_port|s:4:"3306";db_name|s:8:"c4testdb";db_username|s:4:"root";db_password|s:0:"";
